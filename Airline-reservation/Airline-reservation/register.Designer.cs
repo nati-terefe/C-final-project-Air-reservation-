@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(register));
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.logo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.lastnamelabel = new System.Windows.Forms.Label();
@@ -39,36 +39,44 @@
             this.passwordlabel = new System.Windows.Forms.Label();
             this.birthdatelabel = new System.Windows.Forms.Label();
             this.genderlabel = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.registerlabel = new System.Windows.Forms.Label();
             this.usernametextbox = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.lastnametextbox = new System.Windows.Forms.TextBox();
+            this.emailtextbox = new System.Windows.Forms.TextBox();
+            this.phonetextbox = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            this.profilepicture = new System.Windows.Forms.PictureBox();
+            this.profilepicturelabel = new System.Windows.Forms.Label();
+            this.upload = new System.Windows.Forms.Button();
+            this.birthdate = new System.Windows.Forms.DateTimePicker();
+            this.Male = new System.Windows.Forms.RadioButton();
+            this.Female = new System.Windows.Forms.RadioButton();
+            this.gendergroupbox = new System.Windows.Forms.GroupBox();
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).BeginInit();
+            this.gendergroupbox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox2
+            // logo
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(-3, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(255, 135);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
+            this.logo.BackColor = System.Drawing.Color.Transparent;
+            this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
+            this.logo.Location = new System.Drawing.Point(-13, -44);
+            this.logo.Name = "logo";
+            this.logo.Size = new System.Drawing.Size(255, 135);
+            this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logo.TabIndex = 6;
+            this.logo.TabStop = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-3, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(806, 451);
+            this.pictureBox1.Size = new System.Drawing.Size(916, 522);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
@@ -154,16 +162,16 @@
             this.genderlabel.TabIndex = 15;
             this.genderlabel.Text = "Gender";
             // 
-            // label9
+            // registerlabel
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.label9.Location = new System.Drawing.Point(347, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(154, 45);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Register";
+            this.registerlabel.AutoSize = true;
+            this.registerlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.registerlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.registerlabel.Location = new System.Drawing.Point(347, 0);
+            this.registerlabel.Name = "registerlabel";
+            this.registerlabel.Size = new System.Drawing.Size(227, 45);
+            this.registerlabel.TabIndex = 16;
+            this.registerlabel.Text = "Registration";
             // 
             // usernametextbox
             // 
@@ -174,50 +182,32 @@
             this.usernametextbox.Size = new System.Drawing.Size(191, 20);
             this.usernametextbox.TabIndex = 17;
             // 
-            // textBox1
+            // lastnametextbox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.textBox1.Location = new System.Drawing.Point(413, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(191, 20);
-            this.textBox1.TabIndex = 18;
+            this.lastnametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lastnametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.lastnametextbox.Location = new System.Drawing.Point(413, 126);
+            this.lastnametextbox.Name = "lastnametextbox";
+            this.lastnametextbox.Size = new System.Drawing.Size(191, 20);
+            this.lastnametextbox.TabIndex = 18;
             // 
-            // textBox2
+            // emailtextbox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.textBox2.Location = new System.Drawing.Point(413, 167);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(191, 20);
-            this.textBox2.TabIndex = 19;
+            this.emailtextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.emailtextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.emailtextbox.Location = new System.Drawing.Point(413, 167);
+            this.emailtextbox.Name = "emailtextbox";
+            this.emailtextbox.Size = new System.Drawing.Size(191, 20);
+            this.emailtextbox.TabIndex = 19;
             // 
-            // textBox3
+            // phonetextbox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.textBox3.Location = new System.Drawing.Point(413, 212);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(191, 20);
-            this.textBox3.TabIndex = 20;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.textBox4.Location = new System.Drawing.Point(413, 249);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(191, 20);
-            this.textBox4.TabIndex = 21;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.textBox5.Location = new System.Drawing.Point(413, 284);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(191, 20);
-            this.textBox5.TabIndex = 22;
+            this.phonetextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.phonetextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.phonetextbox.Location = new System.Drawing.Point(413, 212);
+            this.phonetextbox.Name = "phonetextbox";
+            this.phonetextbox.Size = new System.Drawing.Size(191, 20);
+            this.phonetextbox.TabIndex = 20;
             // 
             // textBox6
             // 
@@ -237,20 +227,110 @@
             this.textBox7.Size = new System.Drawing.Size(191, 20);
             this.textBox7.TabIndex = 24;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(657, 424);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 35);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Register";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // profilepicture
+            // 
+            this.profilepicture.Image = ((System.Drawing.Image)(resources.GetObject("profilepicture.Image")));
+            this.profilepicture.Location = new System.Drawing.Point(727, 49);
+            this.profilepicture.Name = "profilepicture";
+            this.profilepicture.Size = new System.Drawing.Size(135, 138);
+            this.profilepicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilepicture.TabIndex = 26;
+            this.profilepicture.TabStop = false;
+            // 
+            // profilepicturelabel
+            // 
+            this.profilepicturelabel.AutoSize = true;
+            this.profilepicturelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.profilepicturelabel.Location = new System.Drawing.Point(724, 16);
+            this.profilepicturelabel.Name = "profilepicturelabel";
+            this.profilepicturelabel.Size = new System.Drawing.Size(138, 25);
+            this.profilepicturelabel.TabIndex = 27;
+            this.profilepicturelabel.Text = "Profile picture";
+            // 
+            // upload
+            // 
+            this.upload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.upload.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.upload.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.upload.Location = new System.Drawing.Point(729, 193);
+            this.upload.Name = "upload";
+            this.upload.Size = new System.Drawing.Size(133, 27);
+            this.upload.TabIndex = 28;
+            this.upload.Text = "browse";
+            this.upload.UseVisualStyleBackColor = false;
+            this.upload.Click += new System.EventHandler(this.upload_Click);
+            // 
+            // birthdate
+            // 
+            this.birthdate.Location = new System.Drawing.Point(413, 248);
+            this.birthdate.Name = "birthdate";
+            this.birthdate.Size = new System.Drawing.Size(191, 20);
+            this.birthdate.TabIndex = 29;
+            // 
+            // Male
+            // 
+            this.Male.AutoSize = true;
+            this.Male.Location = new System.Drawing.Point(16, 2);
+            this.Male.Name = "Male";
+            this.Male.Size = new System.Drawing.Size(48, 17);
+            this.Male.TabIndex = 30;
+            this.Male.TabStop = true;
+            this.Male.Text = "Male";
+            this.Male.UseVisualStyleBackColor = true;
+            // 
+            // Female
+            // 
+            this.Female.AutoSize = true;
+            this.Female.Location = new System.Drawing.Point(102, 2);
+            this.Female.Name = "Female";
+            this.Female.Size = new System.Drawing.Size(59, 17);
+            this.Female.TabIndex = 31;
+            this.Female.TabStop = true;
+            this.Female.Text = "Female";
+            this.Female.UseVisualStyleBackColor = true;
+            // 
+            // gendergroupbox
+            // 
+            this.gendergroupbox.BackColor = System.Drawing.Color.Transparent;
+            this.gendergroupbox.Controls.Add(this.Female);
+            this.gendergroupbox.Controls.Add(this.Male);
+            this.gendergroupbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gendergroupbox.Location = new System.Drawing.Point(413, 279);
+            this.gendergroupbox.Name = "gendergroupbox";
+            this.gendergroupbox.Size = new System.Drawing.Size(191, 25);
+            this.gendergroupbox.TabIndex = 32;
+            this.gendergroupbox.TabStop = false;
+            // 
             // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(909, 522);
+            this.Controls.Add(this.gendergroupbox);
+            this.Controls.Add(this.birthdate);
+            this.Controls.Add(this.upload);
+            this.Controls.Add(this.profilepicture);
+            this.Controls.Add(this.profilepicturelabel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.phonetextbox);
+            this.Controls.Add(this.emailtextbox);
+            this.Controls.Add(this.lastnametextbox);
             this.Controls.Add(this.usernametextbox);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.registerlabel);
             this.Controls.Add(this.genderlabel);
             this.Controls.Add(this.birthdatelabel);
             this.Controls.Add(this.passwordlabel);
@@ -259,12 +339,18 @@
             this.Controls.Add(this.emaillabel);
             this.Controls.Add(this.lastnamelabel);
             this.Controls.Add(this.firstnamelabel);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.logo);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "register";
             this.Text = "register";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.Load += new System.EventHandler(this.register_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).EndInit();
+            this.gendergroupbox.ResumeLayout(false);
+            this.gendergroupbox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +358,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label firstnamelabel;
         private System.Windows.Forms.Label lastnamelabel;
@@ -282,14 +368,20 @@
         private System.Windows.Forms.Label passwordlabel;
         private System.Windows.Forms.Label birthdatelabel;
         private System.Windows.Forms.Label genderlabel;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label registerlabel;
         private System.Windows.Forms.TextBox usernametextbox;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox lastnametextbox;
+        private System.Windows.Forms.TextBox emailtextbox;
+        private System.Windows.Forms.TextBox phonetextbox;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox profilepicture;
+        private System.Windows.Forms.Label profilepicturelabel;
+        private System.Windows.Forms.Button upload;
+        private System.Windows.Forms.DateTimePicker birthdate;
+        private System.Windows.Forms.RadioButton Male;
+        private System.Windows.Forms.RadioButton Female;
+        private System.Windows.Forms.GroupBox gendergroupbox;
     }
 }

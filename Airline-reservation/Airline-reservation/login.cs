@@ -23,12 +23,13 @@ namespace Airline_reservation
         }
 
         private void login_Load(object sender, EventArgs e)
-        {  // making the labels transparent 
+        {  // making the labels and logo transparent 
             usernamelabel.Parent = pictureBox1;
             usernamelabel.BackColor = Color.Transparent;
             passwordlabel.Parent = pictureBox1;
             passwordlabel.BackColor = Color.Transparent;
-            
+            logo.Parent = pictureBox1;
+            logo.BackColor = Color.Transparent;
         }
 
         private void usernamelabel_Click(object sender, EventArgs e)
