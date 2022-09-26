@@ -10,3 +10,4 @@ C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Ai
 C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.pdb
 C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.login.resources
 C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.register.resources
+C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.About.resources

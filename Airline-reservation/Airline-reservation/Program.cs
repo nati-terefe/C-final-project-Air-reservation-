@@ -16,7 +16,7 @@ namespace Airline_reservation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new register());
+            Application.Run(new About());
         }
     }
 }
