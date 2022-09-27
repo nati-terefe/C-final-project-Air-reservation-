@@ -30,6 +30,8 @@ namespace Airline_reservation
             passwordlabel.BackColor = Color.Transparent;
             logo.Parent = pictureBox1;
             logo.BackColor = Color.Transparent;
+            
+            
         }
 
         private void usernamelabel_Click(object sender, EventArgs e)
@@ -40,6 +42,11 @@ namespace Airline_reservation
         private void passwordtextbox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void usernametextbox_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

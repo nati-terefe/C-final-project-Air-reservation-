@@ -47,6 +47,8 @@ namespace Airline_reservation
             profilepicturelabel.BackColor = Color.Transparent;
             logo.Parent = pictureBox1;
             logo.BackColor = Color.Transparent;
+            hintlable.Parent = pictureBox1;
+            hintlable.BackColor = Color.Transparent;
            
 
             
@@ -69,6 +71,11 @@ namespace Airline_reservation
 
              //textBox1.Text = open.FileName;  // image file path  
             }
+        }
+
+        private void registerbutton_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

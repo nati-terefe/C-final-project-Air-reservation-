@@ -21,11 +21,20 @@ namespace Airline_reservation
         {
             aboutlabel.Parent = pictureBox1;
             aboutlabel.BackColor = Color.Transparent;
-            
+            logo.Parent = pictureBox1;
+            logo.BackColor = Color.Transparent;
+            // stopping the textbox from selecting itself when the form starts
+            aboutustextbox.SelectionStart = 0;
+            aboutustextbox.SelectionLength = 0;
 
         }
 
         private void aboutustextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
