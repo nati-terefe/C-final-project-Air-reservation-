@@ -49,9 +49,28 @@ namespace Airline_reservation
             logo.BackColor = Color.Transparent;
             hintlable.Parent = pictureBox1;
             hintlable.BackColor = Color.Transparent;
-           
 
-            
+            /////making the buttons transparent
+
+            ///////////////////login header button ///////////////////
+            loginheaderbutton.Parent = pictureBox1;
+            loginheaderbutton.BackColor = Color.Transparent;
+            loginheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
+            ////////////// register header button //////////////////
+            registerheaderbutton.Parent = pictureBox1;
+            registerheaderbutton.BackColor = Color.Transparent;
+            registerheaderbutton.FlatAppearance.BorderSize = 0;
+            ////////////// About us header button //////////////////
+            aboutheaderbutton.Parent = pictureBox1;
+            aboutheaderbutton.BackColor = Color.Transparent;
+            aboutheaderbutton.FlatAppearance.BorderSize = 0;
+            ////////////// contact us header button //////////////////
+            contactheaderbutton.Parent = pictureBox1;
+            contactheaderbutton.BackColor = Color.Transparent;
+            contactheaderbutton.FlatAppearance.BorderSize = 0;
+
+
+
 
 
 
@@ -75,7 +94,62 @@ namespace Airline_reservation
 
         private void registerbutton_Click(object sender, EventArgs e)
         {
+            string firstname, lastname, email, hint, phone, username, password, bd;
+            firstname = firstnametextbox.Text;
+            lastname = lastnametextbox.Text;
+            email=emailtextbox.Text;
+            hint=hinttextbox.Text;
+            phone=phonetextbox.Text;
+            username = usernametextbox.Text;
+            password = passwordtextbox.Text;
+            bd = birthdate.ToString();
+        }
 
+        private void loginheaderbutton_Click(object sender, EventArgs e)
+        {
+            register r = new register();
+            login l = new login();
+            contact c = new contact();
+            About a = new About();
+            l.Show();
+            
+
+            
+            
+            
+            
+        }
+
+        private void registerheaderbutton_Click(object sender, EventArgs e)
+        {
+            
+            
+        }
+
+        private void contactheaderbutton_Click(object sender, EventArgs e)
+        {
+            register r = new register();
+            login l = new login();
+            contact c = new contact();
+            About a = new About();
+
+            c.Show();
+            
+        }
+
+        private void aboutheaderbutton_Click(object sender, EventArgs e)
+        {
+            register r = new register();
+            login l = new login();
+            contact c = new contact();
+            About a = new About();
+
+            a.Show();
+        }
+
+        private void donebutton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
