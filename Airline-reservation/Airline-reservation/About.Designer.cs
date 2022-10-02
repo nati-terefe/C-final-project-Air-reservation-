@@ -31,13 +31,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(About));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.aboutlabel = new System.Windows.Forms.Label();
-            this.aboutustextbox = new System.Windows.Forms.TextBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.contactheaderbutton = new System.Windows.Forms.Button();
             this.aboutheaderbutton = new System.Windows.Forms.Button();
             this.registerheaderbutton = new System.Windows.Forms.Button();
             this.loginheaderbutton = new System.Windows.Forms.Button();
             this.donebutton = new System.Windows.Forms.Button();
+            this.aboutusbodylabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -64,26 +64,13 @@
             this.aboutlabel.TabIndex = 17;
             this.aboutlabel.Text = "About us";
             // 
-            // aboutustextbox
-            // 
-            this.aboutustextbox.Font = new System.Drawing.Font("Yu Gothic", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutustextbox.Location = new System.Drawing.Point(196, 77);
-            this.aboutustextbox.Multiline = true;
-            this.aboutustextbox.Name = "aboutustextbox";
-            this.aboutustextbox.ReadOnly = true;
-            this.aboutustextbox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.aboutustextbox.Size = new System.Drawing.Size(575, 180);
-            this.aboutustextbox.TabIndex = 18;
-            this.aboutustextbox.Text = resources.GetString("aboutustextbox.Text");
-            this.aboutustextbox.TextChanged += new System.EventHandler(this.aboutustextbox_TextChanged);
-            // 
             // logo
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
             this.logo.Location = new System.Drawing.Point(-15, -23);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(193, 90);
+            this.logo.Size = new System.Drawing.Size(212, 120);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 19;
             this.logo.TabStop = false;
@@ -145,7 +132,7 @@
             this.donebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.donebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.donebutton.Location = new System.Drawing.Point(651, 318);
+            this.donebutton.Location = new System.Drawing.Point(684, 396);
             this.donebutton.Name = "donebutton";
             this.donebutton.Size = new System.Drawing.Size(120, 35);
             this.donebutton.TabIndex = 35;
@@ -153,18 +140,28 @@
             this.donebutton.UseVisualStyleBackColor = false;
             this.donebutton.Click += new System.EventHandler(this.donebutton_Click);
             // 
+            // aboutusbodylabel
+            // 
+            this.aboutusbodylabel.BackColor = System.Drawing.Color.Transparent;
+            this.aboutusbodylabel.Font = new System.Drawing.Font("Yu Gothic", 15.75F);
+            this.aboutusbodylabel.Location = new System.Drawing.Point(133, 120);
+            this.aboutusbodylabel.Name = "aboutusbodylabel";
+            this.aboutusbodylabel.Size = new System.Drawing.Size(656, 236);
+            this.aboutusbodylabel.TabIndex = 36;
+            this.aboutusbodylabel.Text = resources.GetString("aboutusbodylabel.Text");
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 530);
+            this.Controls.Add(this.aboutusbodylabel);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
             this.Controls.Add(this.aboutheaderbutton);
             this.Controls.Add(this.registerheaderbutton);
             this.Controls.Add(this.loginheaderbutton);
             this.Controls.Add(this.logo);
-            this.Controls.Add(this.aboutustextbox);
             this.Controls.Add(this.aboutlabel);
             this.Controls.Add(this.pictureBox1);
             this.Name = "About";
@@ -181,12 +178,12 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label aboutlabel;
-        private System.Windows.Forms.TextBox aboutustextbox;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button contactheaderbutton;
         private System.Windows.Forms.Button aboutheaderbutton;
         private System.Windows.Forms.Button registerheaderbutton;
         private System.Windows.Forms.Button loginheaderbutton;
         private System.Windows.Forms.Button donebutton;
+        private System.Windows.Forms.Label aboutusbodylabel;
     }
 }

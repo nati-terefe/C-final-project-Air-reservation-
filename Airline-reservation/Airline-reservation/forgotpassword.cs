@@ -29,5 +29,10 @@ namespace Airline_reservation
             hintlable.BackColor = Color.Transparent;
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

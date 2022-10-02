@@ -15,11 +15,12 @@ namespace Airline_reservation
         public register()
         {
             InitializeComponent();
+            
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         private void register_Load(object sender, EventArgs e)
@@ -112,12 +113,13 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
             l.Show();
-            
+            Hide();
 
-            
-            
-            
-            
+
+
+
+
+
         }
 
         private void registerheaderbutton_Click(object sender, EventArgs e)
@@ -134,7 +136,8 @@ namespace Airline_reservation
             About a = new About();
 
             c.Show();
-            
+            Hide();
+
         }
 
         private void aboutheaderbutton_Click(object sender, EventArgs e)
@@ -145,6 +148,7 @@ namespace Airline_reservation
             About a = new About();
 
             a.Show();
+            Hide();
         }
 
         private void donebutton_Click(object sender, EventArgs e)

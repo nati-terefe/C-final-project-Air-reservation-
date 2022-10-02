@@ -100,6 +100,7 @@ namespace Airline_reservation
             {
                 activescreen.Close();
             }
+            
             contact screen = new contact();
             screen.MdiParent = this;
             screen.Show();
@@ -123,11 +124,12 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
 
-            // c.Close();
-            // a.Close();
-            r.Show();
-            //r.Show();
             
+
+            r.Show();
+            Hide();
+           
+
         }
 
         private void aboutheaderbutton_Click(object sender, EventArgs e)
@@ -135,6 +137,7 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
             a.Show();
+            Hide();
         }
 
         private void contactheaderbutton_Click(object sender, EventArgs e)
@@ -142,11 +145,20 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
              c.Show();
+            Hide();
         }
 
         private void closebutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string username;
+            string password;
+            username = usernametextbox.Text;
+            password = passwordtextbox.Text;
         }
     }
 }

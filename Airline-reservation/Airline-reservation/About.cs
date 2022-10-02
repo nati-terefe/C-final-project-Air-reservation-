@@ -23,9 +23,13 @@ namespace Airline_reservation
             aboutlabel.BackColor = Color.Transparent;
             logo.Parent = pictureBox1;
             logo.BackColor = Color.Transparent;
+            aboutusbodylabel.Parent = pictureBox1;
+            aboutusbodylabel.BackColor=Color.Transparent;
+
             // stopping the textbox from selecting itself when the form starts
-            aboutustextbox.SelectionStart = 0;
-            aboutustextbox.SelectionLength = 0;
+            //aboutustextbox.SelectionStart = 0;
+            //aboutustextbox.SelectionLength = 0;
+
             /////making the buttons transparent
             
             ///////////////////login header button ///////////////////
@@ -84,6 +88,7 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
             l.Show();
+            Hide();
         }
 
         private void registerheaderbutton_Click(object sender, EventArgs e)
@@ -93,6 +98,7 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
             r.Show();
+            Hide();
         }
 
         private void contactheaderbutton_Click(object sender, EventArgs e)
@@ -102,15 +108,17 @@ namespace Airline_reservation
             contact c = new contact();
             About a = new About();
             c.Show();
+            Hide();
         }
 
         private void aboutheaderbutton_Click(object sender, EventArgs e)
         {
-            register r = new register();
+            /*register r = new register();
             login l = new login();
             contact c = new contact();
             About a = new About();
             a.Show();
+            Hide(); */
         }
 
         private void donebutton_Click(object sender, EventArgs e)

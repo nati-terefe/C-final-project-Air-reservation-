@@ -65,7 +65,7 @@
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
             this.logo.Location = new System.Drawing.Point(1, 0);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(159, 80);
+            this.logo.Size = new System.Drawing.Size(177, 102);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 20;
             this.logo.TabStop = false;
@@ -75,7 +75,7 @@
             this.firstnamelabel.AutoSize = true;
             this.firstnamelabel.BackColor = System.Drawing.Color.Transparent;
             this.firstnamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.firstnamelabel.Location = new System.Drawing.Point(281, 101);
+            this.firstnamelabel.Location = new System.Drawing.Point(273, 115);
             this.firstnamelabel.Name = "firstnamelabel";
             this.firstnamelabel.Size = new System.Drawing.Size(107, 25);
             this.firstnamelabel.TabIndex = 21;
@@ -85,7 +85,7 @@
             // 
             this.lastnamelabel.AutoSize = true;
             this.lastnamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.lastnamelabel.Location = new System.Drawing.Point(442, 101);
+            this.lastnamelabel.Location = new System.Drawing.Point(441, 115);
             this.lastnamelabel.Name = "lastnamelabel";
             this.lastnamelabel.Size = new System.Drawing.Size(105, 25);
             this.lastnamelabel.TabIndex = 22;
@@ -105,7 +105,7 @@
             // 
             this.usernametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.usernametextbox.Location = new System.Drawing.Point(278, 129);
+            this.usernametextbox.Location = new System.Drawing.Point(278, 143);
             this.usernametextbox.Name = "usernametextbox";
             this.usernametextbox.Size = new System.Drawing.Size(121, 25);
             this.usernametextbox.TabIndex = 24;
@@ -114,7 +114,7 @@
             // 
             this.lastnametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lastnametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.lastnametextbox.Location = new System.Drawing.Point(437, 129);
+            this.lastnametextbox.Location = new System.Drawing.Point(437, 143);
             this.lastnametextbox.Name = "lastnametextbox";
             this.lastnametextbox.Size = new System.Drawing.Size(119, 25);
             this.lastnametextbox.TabIndex = 25;
@@ -166,7 +166,7 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.Location = new System.Drawing.Point(667, 12);
+            this.contactheaderbutton.Location = new System.Drawing.Point(501, 12);
             this.contactheaderbutton.Name = "contactheaderbutton";
             this.contactheaderbutton.Size = new System.Drawing.Size(119, 34);
             this.contactheaderbutton.TabIndex = 33;
@@ -179,7 +179,7 @@
             this.aboutheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutheaderbutton.Location = new System.Drawing.Point(792, 12);
+            this.aboutheaderbutton.Location = new System.Drawing.Point(626, 12);
             this.aboutheaderbutton.Name = "aboutheaderbutton";
             this.aboutheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.aboutheaderbutton.TabIndex = 32;
@@ -192,7 +192,7 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.Location = new System.Drawing.Point(552, 12);
+            this.registerheaderbutton.Location = new System.Drawing.Point(386, 12);
             this.registerheaderbutton.Name = "registerheaderbutton";
             this.registerheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.registerheaderbutton.TabIndex = 31;
@@ -205,7 +205,7 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.Location = new System.Drawing.Point(437, 12);
+            this.loginheaderbutton.Location = new System.Drawing.Point(271, 12);
             this.loginheaderbutton.Name = "loginheaderbutton";
             this.loginheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.loginheaderbutton.TabIndex = 30;

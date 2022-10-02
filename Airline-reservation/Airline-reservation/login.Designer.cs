@@ -78,7 +78,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Airline_reservation.Properties.Resources.Pink_Landscape_Desktop_Wallpaper;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(910, 523);
@@ -109,6 +109,7 @@
             this.button1.TabIndex = 6;
             this.button1.Text = "login";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // usernamelabel
             // 
@@ -142,7 +143,7 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.Location = new System.Drawing.Point(402, 21);
+            this.loginheaderbutton.Location = new System.Drawing.Point(243, 21);
             this.loginheaderbutton.Name = "loginheaderbutton";
             this.loginheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.loginheaderbutton.TabIndex = 9;
@@ -154,7 +155,7 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.Location = new System.Drawing.Point(517, 21);
+            this.registerheaderbutton.Location = new System.Drawing.Point(358, 21);
             this.registerheaderbutton.Name = "registerheaderbutton";
             this.registerheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.registerheaderbutton.TabIndex = 10;
@@ -167,7 +168,7 @@
             this.aboutheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutheaderbutton.Location = new System.Drawing.Point(757, 21);
+            this.aboutheaderbutton.Location = new System.Drawing.Point(598, 21);
             this.aboutheaderbutton.Name = "aboutheaderbutton";
             this.aboutheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.aboutheaderbutton.TabIndex = 11;
@@ -180,7 +181,7 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.Location = new System.Drawing.Point(632, 21);
+            this.contactheaderbutton.Location = new System.Drawing.Point(473, 21);
             this.contactheaderbutton.Name = "contactheaderbutton";
             this.contactheaderbutton.Size = new System.Drawing.Size(119, 34);
             this.contactheaderbutton.TabIndex = 12;
