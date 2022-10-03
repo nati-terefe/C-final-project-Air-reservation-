@@ -59,15 +59,5 @@ namespace Airline_reservation.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pink_Landscape_Desktop_Wallpaper {
-            get {
-                object obj = ResourceManager.GetObject("Pink Landscape Desktop Wallpaper", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

@@ -13,3 +13,18 @@ C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Ai
 C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.About.resources
 C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.contact.resources
 C:\Users\user\Desktop\x\c#\C# final project\C--final-project-Air-reservation-\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.forgotpassword.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline-reservation.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline-reservation.csproj.SuggestedBindingRedirects.cache
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.About.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.contact.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.forgotpassword.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.login.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.register.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline-reservation.csproj.GenerateResource.cache
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.exe
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.pdb
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\bin\Debug\Airline_reservation.exe.config
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\bin\Debug\Airline_reservation.exe
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\bin\Debug\Airline_reservation.pdb
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.Properties.Resources.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline-reservation.csproj.CoreCompileInputs.cache

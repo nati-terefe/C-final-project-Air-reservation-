@@ -104,6 +104,8 @@ namespace Airline_reservation
             username = usernametextbox.Text;
             password = passwordtextbox.Text;
             bd = birthdate.ToString();
+            registerbutton.BackColor = Color.Silver;
+            donebutton.BackColor = Color.Red;
         }
 
         private void loginheaderbutton_Click(object sender, EventArgs e)

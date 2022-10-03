@@ -159,6 +159,19 @@ namespace Airline_reservation
             string password;
             username = usernametextbox.Text;
             password = passwordtextbox.Text;
+            if (string.IsNullOrEmpty(usernametextbox.Text))
+            {
+                usernameerror.SetError(usernametextbox, "user name can't be left empty");
+            }
+            if (string.IsNullOrEmpty(passwordtextbox.Text))
+            {
+                passworderror.SetError(passwordtextbox, "password can't be left empty");
+            }
+
+            if(!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(passwordtextbox.Text))
+            {
+                // the main page
+            }
         }
     }
 }

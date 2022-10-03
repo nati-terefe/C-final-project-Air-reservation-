@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
             this.passwordlabel = new System.Windows.Forms.Label();
             this.usernametextbox = new System.Windows.Forms.TextBox();
@@ -42,8 +43,12 @@
             this.aboutheaderbutton = new System.Windows.Forms.Button();
             this.contactheaderbutton = new System.Windows.Forms.Button();
             this.closebutton = new System.Windows.Forms.Button();
+            this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).BeginInit();
             this.SuspendLayout();
             // 
             // passwordlabel
@@ -202,6 +207,14 @@
             this.closebutton.UseVisualStyleBackColor = false;
             this.closebutton.Click += new System.EventHandler(this.closebutton_Click);
             // 
+            // usernameerror
+            // 
+            this.usernameerror.ContainerControl = this;
+            // 
+            // passworderror
+            // 
+            this.passworderror.ContainerControl = this;
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -227,6 +240,8 @@
             this.Load += new System.EventHandler(this.login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,6 +261,8 @@
         private System.Windows.Forms.Button aboutheaderbutton;
         private System.Windows.Forms.Button contactheaderbutton;
         private System.Windows.Forms.Button closebutton;
+        private System.Windows.Forms.ErrorProvider usernameerror;
+        private System.Windows.Forms.ErrorProvider passworderror;
     }
 }
 
