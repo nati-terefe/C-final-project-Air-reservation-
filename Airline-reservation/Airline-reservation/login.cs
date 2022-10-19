@@ -157,8 +157,11 @@ namespace Airline_reservation
         {
             string username;
             string password;
-            username = usernametextbox.Text;
-            password = passwordtextbox.Text;
+            loginstore ls = new loginstore
+            {
+                loginusername = usernametextbox.Text,
+                loginpassword = passwordtextbox.Text,
+            };
             if (string.IsNullOrEmpty(usernametextbox.Text))
             {
                 usernameerror.SetError(usernametextbox, "user name can't be left empty");
@@ -167,7 +170,7 @@ namespace Airline_reservation
             {
                 passworderror.SetError(passwordtextbox, "password can't be left empty");
             }
-
+             // login validation
             if(!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(passwordtextbox.Text))
             {
                 // the main page

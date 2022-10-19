@@ -71,6 +71,7 @@
             this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
             this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.piclocation = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.phoneerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).BeginInit();
@@ -460,11 +461,19 @@
             // 
             this.hinterror.ContainerControl = this;
             // 
+            // piclocation
+            // 
+            this.piclocation.Location = new System.Drawing.Point(727, 216);
+            this.piclocation.Name = "piclocation";
+            this.piclocation.Size = new System.Drawing.Size(135, 20);
+            this.piclocation.TabIndex = 40;
+            // 
             // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 525);
+            this.Controls.Add(this.piclocation);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
             this.Controls.Add(this.aboutheaderbutton);
@@ -562,5 +571,6 @@
         private System.Windows.Forms.ErrorProvider usernameerror;
         private System.Windows.Forms.ErrorProvider passworderror;
         private System.Windows.Forms.ErrorProvider hinterror;
+        private System.Windows.Forms.TextBox piclocation;
     }
 }

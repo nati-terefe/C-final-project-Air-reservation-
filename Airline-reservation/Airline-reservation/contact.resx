@@ -121,7 +121,7 @@
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABAMAAAJWCAYAAAAtLU5QAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7svXfbLUd1p/1+G48JHg/RDEgYGzDRBkyOIuechRBBQhICCYRAIARC
+        wQAADsEBuJFr7QAA/7JJREFUeF7svXfbLUd1p/1+G48JHg/RDEgYGzDRBkyOIuechRBBQhICCYRAIARC
         QiiSoxDpAAJM9IwjGGwQYTAeX/MZ+j13H+7DT8ur936O8Mw142f9cV9VtWpVdXVVde9aq6t7/3//6b/8
         12UYhmEYhmEYhmEYhsPDOAOGYRiGYRiGYRiG4ZAxzoBhGIZhGIZhGIZhOGSMM2AYhmEYhmEYhmEYDhnj
         DBiGYRiGYRiGYRiGQ8Y4A4ZhGIZhGIZhGIbhkDHOgGEYhmEYhmEYhmE4ZIwzYBiGYRiGYRiGYRgOGeMM
@@ -5814,4 +5814,16 @@
         ugAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="firstnameerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="lastnameerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 17</value>
+  </metadata>
+  <metadata name="emailerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>277, 17</value>
+  </metadata>
+  <metadata name="messageerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>407, 17</value>
+  </metadata>
 </root>

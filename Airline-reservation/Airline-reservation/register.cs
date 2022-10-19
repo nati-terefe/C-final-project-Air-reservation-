@@ -15,12 +15,12 @@ namespace Airline_reservation
         public register()
         {
             InitializeComponent();
-            
+
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void register_Load(object sender, EventArgs e)
@@ -31,12 +31,12 @@ namespace Airline_reservation
             passwordlabel.Parent = phoneerror;
             passwordlabel.BackColor = Color.Transparent;
             firstnamelabel.Parent = phoneerror;
-            firstnamelabel.BackColor=Color.Transparent;
-            lastnamelabel.Parent= phoneerror;
+            firstnamelabel.BackColor = Color.Transparent;
+            lastnamelabel.Parent = phoneerror;
             lastnamelabel.BackColor = Color.Transparent;
             emaillabel.Parent = phoneerror;
             emaillabel.BackColor = Color.Transparent;
-            phonelabel.Parent= phoneerror;
+            phonelabel.Parent = phoneerror;
             phonelabel.BackColor = Color.Transparent;
             birthdatelabel.Parent = phoneerror;
             birthdatelabel.BackColor = Color.Transparent;
@@ -79,34 +79,31 @@ namespace Airline_reservation
 
         private void upload_Click(object sender, EventArgs e)
         {
-           
+            
+            registerstore s = new registerstore();
+
             OpenFileDialog open = new OpenFileDialog();  // open file dialog   
 
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             // image filters  
             if (open.ShowDialog() == DialogResult.OK)
             {
-                
-             profilepicture.Image = new Bitmap(open.FileName);// display image in picture box  
 
-             //textBox1.Text = open.FileName;  // image file path  
+                profilepicture.Image = new Bitmap(open.FileName);// display image in picture box  
+
+               piclocation.Text= open.FileName;  // image file path  
             }
         }
 
         private void registerbutton_Click(object sender, EventArgs e)
         {
-            string firstname, lastname, email, hint, phone, username, password, bd;
+            
             string gender;
-            firstname = firstnametextbox.Text;
-            lastname = lastnametextbox.Text;
-            email=emailtextbox.Text;
-            hint=hinttextbox.Text;
-            phone=phonetextbox.Text;
-            username = usernametextbox.Text;
-            password = passwordtextbox.Text;
-            bd = birthdate.ToString();
+
             bool b1 = Male.Checked;
-            gender= b1 ? "male" : "female"; // ternary operator
+            gender = b1 ? "male" : "female"; // ternary operator
+            
+
             registerbutton.BackColor = Color.Silver;
             donebutton.BackColor = Color.Red;
             if (string.IsNullOrEmpty(firstnametextbox.Text))
@@ -126,7 +123,7 @@ namespace Airline_reservation
                 phonerror.SetError(phonetextbox,"please enter phone number");
             }
             
-            if (string.IsNullOrEmpty(gendergroupbox.Text))
+            if (string.IsNullOrEmpty(gender))
             {
                 gendererror.SetError(gendergroupbox, "please enter gender");
             }
@@ -142,14 +139,35 @@ namespace Airline_reservation
             {
                 hinterror.SetError(hinttextbox, "please enter hint");
             }
+            registerstore rs = new registerstore
+            {
+                registerfirstname = firstnametextbox.Text,
+                registerlastname = lastnametextbox.Text,
+                registeremail = emailtextbox.Text,
+                registerhint = hinttextbox.Text,
+                registerphone = phonetextbox.Text,
+                registerusername = usernametextbox.Text,
+                registerpassword = passwordtextbox.Text,
+                registergender = gender,
+                registerprofilepic = piclocation.Text,
+               
+        };
+            if (!string.IsNullOrEmpty(firstnametextbox.Text) 
+                && !string.IsNullOrEmpty(lastnametextbox.Text) 
+                && !string.IsNullOrEmpty(emailtextbox.Text) 
+                && !string.IsNullOrEmpty(hinttextbox.Text) 
+                && !string.IsNullOrEmpty(birthdate.ToString()) 
+                && !string.IsNullOrEmpty(piclocation.Text)
+                && !string.IsNullOrEmpty(phonetextbox.Text) 
+                && !string.IsNullOrEmpty(passwordtextbox.Text) 
+                && !string.IsNullOrEmpty(gender)
+                && !string.IsNullOrEmpty(usernametextbox.Text))
+            {
+                MessageBox.Show("You have been registered");
+            }
+}
 
-
-
-
-
-        }
-
-        private void loginheaderbutton_Click(object sender, EventArgs e)
+    private void loginheaderbutton_Click(object sender, EventArgs e)
         {
             register r = new register();
             login l = new login();

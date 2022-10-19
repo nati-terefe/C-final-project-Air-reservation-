@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(contact));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -45,8 +46,16 @@
             this.registerheaderbutton = new System.Windows.Forms.Button();
             this.loginheaderbutton = new System.Windows.Forms.Button();
             this.donebutton = new System.Windows.Forms.Button();
+            this.firstnameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lastnameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.emailerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.messageerror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.messageerror)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -105,7 +114,7 @@
             // 
             this.usernametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.usernametextbox.Location = new System.Drawing.Point(278, 143);
+            this.usernametextbox.Location = new System.Drawing.Point(271, 143);
             this.usernametextbox.Name = "usernametextbox";
             this.usernametextbox.Size = new System.Drawing.Size(121, 25);
             this.usernametextbox.TabIndex = 24;
@@ -226,6 +235,22 @@
             this.donebutton.UseVisualStyleBackColor = false;
             this.donebutton.Click += new System.EventHandler(this.donebutton_Click);
             // 
+            // firstnameerror
+            // 
+            this.firstnameerror.ContainerControl = this;
+            // 
+            // lastnameerror
+            // 
+            this.lastnameerror.ContainerControl = this;
+            // 
+            // emailerror
+            // 
+            this.emailerror.ContainerControl = this;
+            // 
+            // messageerror
+            // 
+            this.messageerror.ContainerControl = this;
+            // 
             // contact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +277,10 @@
             this.Load += new System.EventHandler(this.contact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.messageerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +304,9 @@
         private System.Windows.Forms.Button registerheaderbutton;
         private System.Windows.Forms.Button loginheaderbutton;
         private System.Windows.Forms.Button donebutton;
+        private System.Windows.Forms.ErrorProvider firstnameerror;
+        private System.Windows.Forms.ErrorProvider lastnameerror;
+        private System.Windows.Forms.ErrorProvider emailerror;
+        private System.Windows.Forms.ErrorProvider messageerror;
     }
 }
