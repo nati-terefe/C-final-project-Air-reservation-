@@ -734,7 +734,7 @@
         ugAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="phoneerror.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEASABIAAD/4gIcSUNDX1BST0ZJTEUAAQEAAAIMbGNtcwIQAABtbnRyUkdCIFhZ
         WiAH3AABABkAAwApADlhY3NwQVBQTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWxj
@@ -38001,27 +38001,30 @@
   </data>
   <data name="profilepicture.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAIcAAACHCAMAAAALObo4AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAABjUExURfz8/FlaWv///1FSUpGSkktMTFVWVkRFRUdISEFCQu/v7+Hh4T0+Pk5PT6Ghoff394eI
-        iMvLy5iZmXBxcbKzszU2NsTExKmpqXt8fL6+vjAxMdjY2NHR0WJjY2tsbOnp6ScoKNqI/RwAAAOJSURB
-        VHhe7ZrbtoIgEIZzUFDKU54ta7//U25SWtkZgXHvC767Wtb8wTAn2jgcDofD4XA4HA6HY03ghnznDxDG
-        eV4mvu8nZc7/Sgqkecb6HQsIIQHb9VGWp+tLgbQZgtibEwdDk64rBKCMI2l+DgvKNZcEtnEoLT/C4u1q
-        QqAMqDT7DBVLIp9DBvZM2nwN268iBPY7afAdkb+CEEjeucaNMEEXAvWrc/JIVCMLgXMvTX2mPyMLaYm0
-        9BnayudxgLqShr5Roe5MOkgzCqTyMwhAF0gj38EMZ0Dfx9FHKEXTAecfaUSFH7REA436toiNadAWpJUm
-        1MA6unCWBhShSLEMtt8zy5wQyUEgV0ktN3Y5ko5ymQ6GFEGg+Vz/PMKQDoxK5TEnxNJR/pP16Jb5R4Tl
-        H8d/cl629/3bNwKsBMMXVB+CgcvPWed/5JeFjooVxoSOdFH9gdf7Q6FWrV8gJzQZ4uQuqE+PeDqU2xex
-        HKgNDBzU2jnR0B0wl0M512F32rDxVFoHSsWTqMBBJelGuLtyQaU6jJAy3B1Qf5sH7bCnHxPQsU8+QqNu
-        FRlCyPb03knYsOLgcuOT17VITHzskzIhbxbgUPw8h1ban8aDIh/CA+Dc9uNhANj6XhTfHIXGzPO3k8i8
-        b8+YSmBTEiL6gTGjA/A6G+JgggxZzScVaRN6hJSIaZ8PY+yITsfJouB8yLuuzg/i98v3jqfxXEceVpsN
-        5TVw0KoVSkYzF/Mj8sUhq657tUO5ewDIZoc1DtvLNsztiFe8bud3MiyzLwTS4j7TEkaz7iLlCu8yj92f
-        oaCw7STAveeAQVkVFP4+aZK9XwTViygbW3YS4PR1IUbJldehnlgdCkE6qBfI9xDP3tYIGcs6yjlksCYE
-        Cn0ZQkhhScctbugR2ZmDLB3PPWOlLhIn9lPVowKl3FwIZCbOMRFnxjrgqNo5faIyLpzTk+mujAyGt0JQ
-        L5sRvoMZ1s7cymoIqNGQCsplo9v3hEbTIZgVoGZQYqADcrNIOsdomprpptlnaCa/cznATSP6nJ12UIXO
-        3raIdKftqdDa8tILtNXUITKcXTRLRKhtBY+JQDP9Q7Lk2vg7gebsDgab7iEcZNDUYfO0XKi0dAC3UXnM
-        6bUiiPrsWBW9GfP3ueBS9P5FZS/nX9G70IWEydbVFnp/+IPOt41mcSgHG/aQ3+twOBwOh8PhcDgcDlM2
-        m18C6y7JCyN4aQAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAIcAAACHCAMAAAALObo4AAAABGdBTUEAALGPC/xhBQAAAGNQTFRF/Pz8
+        WVpa////UVJSkZKSS0xMVVZWREVFR0hIQUJC7+/v4eHhPT4+Tk9PoaGh9/f3h4iIy8vLmJmZcHFxsrOz
+        NTY2xMTEqampe3x8vr6+MDEx2NjY0dHRYmNja2xs6enpJygo2oj9HAAAA4lJREFUeF7tmtu2giAQhnNQ
+        UMpTni1rv/9TblJa2RmBce8Lvrta1vzBMCfaOBwOh8PhcDgcDodjTeCGfOcPEMZ5Xia+7ydlzv9KCqR5
+        xvodCwghAdv1UZan60uBtBmC2JsTB0OTrisEoIwjaX4OC8o1lwS2cSgtP8Li7WpCoAyoNPsMFUsin0MG
+        9kzafA3bryIE9jtp8B2Rv4IQSN65xo0wQRcC9atz8khUIwuBcy9NfaY/IwtpibT0GdrK53GAupKGvlGh
+        7kw6SDMKpPIzCEAXSCPfwQxnQN/H0UcoRdMB5x9pRIUftEQDjfq2iI1p0BaklSbUwDq6cJYGFKFIsQy2
+        3zPLnBDJQSBXSS03djmSjnKZDoYUQaD5XP88wpAOjErlMSfE0lH+k/XolvlHhOUfx39yXrb3/ds3AqwE
+        wxdUH4KBy89Z53/kl4WOihXGhI50Uf2B1/tDoVatXyAnNBni5C6oT494OpTbF7EcqA0MHNTaOdHQHTCX
+        QznXYXfasPFUWgdKxZOowEEl6Ua4u3JBpTqMkDLcHVB/mwftsKcfE9CxTz5Co24VGULI9vTeSdiw4uBy
+        45PXtUhMfOyTMiFvFuBQ/DyHVtqfxoMiH8ID4Nz242EA2PpeFN8chcbM87eTyLxvz5hKYFMSIvqBMaMD
+        8Dob4mCCDFnNJxVpE3qElIhpnw9j7IhOx8mi4HzIu67OD+L3y/eOp/FcRx5Wmw3lNXDQqhVKRjMX8yPy
+        xSGrrnu1Q7l7AMhmhzUO28s2zO2IV7xu53cyLLMvBNLiPtMSRrPuIuUK7zKP3Z+hoLDtJMC954BBWRUU
+        /j5pkr1fBNWLKBtbdhLg9HUhRsmV16GeWB0KQTqoF8j3EM/e1ggZyzrKOWSwJgQKfRlCSGFJxy1u6BHZ
+        mYMsHc89Y6UuEif2U9WjAqXcXAhkJs4xEWfGOuCo2jl9ojIunNOT6a6MDIa3QlAvmxG+gxnWztzKagio
+        0ZAKymWj2/eERtMhmBWgZlBioANys0g6x2iamumm2WdoJr9zOcBNI/qcnXZQhc7etoh0p+2p0Nry0gu0
+        1dQhMpxdNEtEqG0Fj4lAM/1DsuTa+DuB5uwOBpvuIRxk0NRh87RcqLR0ALdReczptSKI+uxYFb0Z8/e5
+        4FL0/kVlL+df0bvQhYTJ1tUWen/4g863jWZxKAcb9pDf63A4HA6Hw+FwOBwOUzabXwLrLskLI3hpAAAA
+        AElFTkSuQmCC
 </value>
   </data>
+  <metadata name="firstnameerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAPW4AAAEAIABwbAAAFgAAACgAAAA9AAAA3AAAAAEAIAAAAAAA2GgAAMMOAADDDgAAAAAAAAAA
@@ -38490,4 +38493,28 @@
         //g=
 </value>
   </data>
+  <metadata name="lastnameerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>146, 17</value>
+  </metadata>
+  <metadata name="emailerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>276, 17</value>
+  </metadata>
+  <metadata name="phonerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>406, 17</value>
+  </metadata>
+  <metadata name="dateerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>536, 17</value>
+  </metadata>
+  <metadata name="gendererror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>666, 17</value>
+  </metadata>
+  <metadata name="usernameerror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>796, 17</value>
+  </metadata>
+  <metadata name="passworderror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 56</value>
+  </metadata>
+  <metadata name="hinterror.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 56</value>
+  </metadata>
 </root>
