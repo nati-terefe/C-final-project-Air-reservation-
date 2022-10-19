@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(register));
             this.logo = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.phoneerror = new System.Windows.Forms.PictureBox();
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.lastnamelabel = new System.Windows.Forms.Label();
             this.emaillabel = new System.Windows.Forms.Label();
@@ -61,10 +62,28 @@
             this.registerheaderbutton = new System.Windows.Forms.Button();
             this.loginheaderbutton = new System.Windows.Forms.Button();
             this.donebutton = new System.Windows.Forms.Button();
+            this.firstnameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lastnameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.emailerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.phonerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dateerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.gendererror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).BeginInit();
             this.gendergroupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phonerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gendererror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -78,16 +97,16 @@
             this.logo.TabIndex = 6;
             this.logo.TabStop = false;
             // 
-            // pictureBox1
+            // phoneerror
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(916, 522);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.phoneerror.Image = ((System.Drawing.Image)(resources.GetObject("phoneerror.Image")));
+            this.phoneerror.Location = new System.Drawing.Point(-3, 0);
+            this.phoneerror.Name = "phoneerror";
+            this.phoneerror.Size = new System.Drawing.Size(916, 522);
+            this.phoneerror.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.phoneerror.TabIndex = 7;
+            this.phoneerror.TabStop = false;
+            this.phoneerror.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // firstnamelabel
             // 
@@ -405,6 +424,42 @@
             this.donebutton.UseVisualStyleBackColor = false;
             this.donebutton.Click += new System.EventHandler(this.donebutton_Click);
             // 
+            // firstnameerror
+            // 
+            this.firstnameerror.ContainerControl = this;
+            // 
+            // lastnameerror
+            // 
+            this.lastnameerror.ContainerControl = this;
+            // 
+            // emailerror
+            // 
+            this.emailerror.ContainerControl = this;
+            // 
+            // phonerror
+            // 
+            this.phonerror.ContainerControl = this;
+            // 
+            // dateerror
+            // 
+            this.dateerror.ContainerControl = this;
+            // 
+            // gendererror
+            // 
+            this.gendererror.ContainerControl = this;
+            // 
+            // usernameerror
+            // 
+            this.usernameerror.ContainerControl = this;
+            // 
+            // passworderror
+            // 
+            this.passworderror.ContainerControl = this;
+            // 
+            // hinterror
+            // 
+            this.hinterror.ContainerControl = this;
+            // 
             // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,17 +494,26 @@
             this.Controls.Add(this.lastnamelabel);
             this.Controls.Add(this.firstnamelabel);
             this.Controls.Add(this.logo);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.phoneerror);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "register";
             this.Text = "register";
             this.Load += new System.EventHandler(this.register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phoneerror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).EndInit();
             this.gendergroupbox.ResumeLayout(false);
             this.gendergroupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emailerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phonerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gendererror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -458,7 +522,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox phoneerror;
         private System.Windows.Forms.Label firstnamelabel;
         private System.Windows.Forms.Label lastnamelabel;
         private System.Windows.Forms.Label emaillabel;
@@ -489,5 +553,14 @@
         private System.Windows.Forms.Button registerheaderbutton;
         private System.Windows.Forms.Button loginheaderbutton;
         private System.Windows.Forms.Button donebutton;
+        private System.Windows.Forms.ErrorProvider firstnameerror;
+        private System.Windows.Forms.ErrorProvider lastnameerror;
+        private System.Windows.Forms.ErrorProvider emailerror;
+        private System.Windows.Forms.ErrorProvider phonerror;
+        private System.Windows.Forms.ErrorProvider dateerror;
+        private System.Windows.Forms.ErrorProvider gendererror;
+        private System.Windows.Forms.ErrorProvider usernameerror;
+        private System.Windows.Forms.ErrorProvider passworderror;
+        private System.Windows.Forms.ErrorProvider hinterror;
     }
 }
