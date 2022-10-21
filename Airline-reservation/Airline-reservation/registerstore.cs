@@ -20,6 +20,8 @@ namespace Airline_reservation
         public string registerphone { get; set; }
         public string registeremail { get; set; }
         public string registerprofilepic { get; set; }
+        public string role { get; set; }
+        public string question { get; set; }
 
 
         public void save()

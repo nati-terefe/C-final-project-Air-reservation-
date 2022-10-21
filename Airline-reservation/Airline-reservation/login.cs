@@ -54,6 +54,10 @@ namespace Airline_reservation
            contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
+            ////////////// faq header button //////////////////
+            faqheaderbuttom.Parent = pictureBox1;
+            faqheaderbuttom.BackColor = Color.Transparent;
+            faqheaderbuttom.FlatAppearance.BorderSize = 0;
 
 
 
@@ -155,13 +159,24 @@ namespace Airline_reservation
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string username;
-            string password;
+            string username=usernametextbox.Text;
+            string password=passwordtextbox.Text;
+            if (password == "admin" && username=="admin")
+            {
+                Homepage_admin ha = new Homepage_admin(username);
+                ha.Show();
+            }
+            else if (password == "client"&&username == "client")
+            {
+                Homepage_client hc = new Homepage_client(username);
+                hc.Show();
+            }
             loginstore ls = new loginstore
             {
                 loginusername = usernametextbox.Text,
                 loginpassword = passwordtextbox.Text,
             };
+            ls.save();
             if (string.IsNullOrEmpty(usernametextbox.Text))
             {
                 usernameerror.SetError(usernametextbox, "user name can't be left empty");
@@ -175,6 +190,13 @@ namespace Airline_reservation
             {
                 // the main page
             }
+        }
+
+        private void faqheaderbuttom_Click(object sender, EventArgs e)
+        {
+            FAQ f = new FAQ();
+            f.Show();
+            Hide();
         }
     }
 }
