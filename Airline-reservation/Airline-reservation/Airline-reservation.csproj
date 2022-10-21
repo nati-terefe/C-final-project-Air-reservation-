@@ -70,6 +70,7 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="loginstore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.cs">
@@ -78,6 +79,7 @@
     <Compile Include="register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
+    <Compile Include="registerstore.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

@@ -48,11 +48,28 @@ namespace Airline_reservation
             contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
+
         }
 
         private void contactbutton_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrEmpty(firstnamelabel.Text))
+            {
+                firstnameerror.SetError(firstnametextbox, "first name can't be left empty");
+            }
+            if (string.IsNullOrEmpty(lastnametextbox.Text))
+            {
+                lastnameerror.SetError(lastnametextbox, "last name can't be left empty");
+            }
+            if (string.IsNullOrEmpty(emailtextbox.Text))
+            {
+                emailerror.SetError(emailtextbox, "email can't be left empty");
+            }
+            if (string.IsNullOrEmpty(messagetextbox.Text))
+            {
+                messageerror.SetError(messagetextbox, "enter you're message here");
+            }
             MessageBox.Show("We will contact you soon.");
         }
 
