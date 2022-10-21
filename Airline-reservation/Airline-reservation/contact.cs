@@ -70,7 +70,11 @@ namespace Airline_reservation
             {
                 messageerror.SetError(messagetextbox, "enter you're message here");
             }
-            MessageBox.Show("We will contact you soon.");
+            // validation for contact us page 
+            if (!string.IsNullOrEmpty(firstnametextbox.Text) && !string.IsNullOrEmpty(lastnametextbox.Text) && !string.IsNullOrEmpty(emailtextbox.Text) && !string.IsNullOrEmpty(messagetextbox.Text))
+            {
+                MessageBox.Show("We will contact you soon.");
+            }
         }
 
         private void loginheaderbutton_Click(object sender, EventArgs e)
