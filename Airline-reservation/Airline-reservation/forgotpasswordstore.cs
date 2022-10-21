@@ -10,9 +10,14 @@ namespace Airline_reservation
     {
         private static List<forgotpasswordstore> fpws = new List<forgotpasswordstore>();
 
+<<<<<<< HEAD
         public string fpusername { get; set; }
         public string fppassword { get; set; }
         public string fphint { get; set; }
+=======
+        public string fpsusername { get; set; }
+        public string fpspassword { get; set; }
+>>>>>>> 2f796ea864e5665aecdcb59fd039179c96cd060d
         
 
         public void save()
