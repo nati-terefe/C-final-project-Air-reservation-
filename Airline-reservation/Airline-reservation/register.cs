@@ -15,6 +15,7 @@ namespace Airline_reservation
         public register()
         {
             InitializeComponent();
+            
 
         }
 
@@ -152,6 +153,7 @@ namespace Airline_reservation
                 registerprofilepic = piclocation.Text,
                
         };
+            //////// validation for register
             if (!string.IsNullOrEmpty(firstnametextbox.Text) 
                 && !string.IsNullOrEmpty(lastnametextbox.Text) 
                 && !string.IsNullOrEmpty(emailtextbox.Text) 
@@ -168,7 +170,7 @@ namespace Airline_reservation
 }
 
     private void loginheaderbutton_Click(object sender, EventArgs e)
-        {
+        {  
             register r = new register();
             login l = new login();
             contact c = new contact();

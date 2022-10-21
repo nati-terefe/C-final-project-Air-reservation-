@@ -58,18 +58,21 @@
     <Compile Include="contact.Designer.cs">
       <DependentUpon>contact.cs</DependentUpon>
     </Compile>
+    <Compile Include="contactstore.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forgotpassword.Designer.cs">
       <DependentUpon>forgotpassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="forgotpasswordstore.cs" />
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="loginstore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.cs">
@@ -78,6 +81,7 @@
     <Compile Include="register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
+    <Compile Include="registerstore.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

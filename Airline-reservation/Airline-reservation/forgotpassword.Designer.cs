@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(forgotpassword));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -40,8 +41,14 @@
             this.resetpassword = new System.Windows.Forms.Label();
             this.resetbutton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -150,6 +157,7 @@
             this.resetbutton.TabIndex = 38;
             this.resetbutton.Text = "Reset";
             this.resetbutton.UseVisualStyleBackColor = false;
+            this.resetbutton.Click += new System.EventHandler(this.resetbutton_Click);
             // 
             // button1
             // 
@@ -163,6 +171,18 @@
             this.button1.Text = "Close";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // usernameerror
+            // 
+            this.usernameerror.ContainerControl = this;
+            // 
+            // hinterror
+            // 
+            this.hinterror.ContainerControl = this;
+            // 
+            // passworderror
+            // 
+            this.passworderror.ContainerControl = this;
             // 
             // forgotpassword
             // 
@@ -185,6 +205,9 @@
             this.Load += new System.EventHandler(this.forgotpassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +226,8 @@
         private System.Windows.Forms.Label resetpassword;
         private System.Windows.Forms.Button resetbutton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider usernameerror;
+        private System.Windows.Forms.ErrorProvider hinterror;
+        private System.Windows.Forms.ErrorProvider passworderror;
     }
 }

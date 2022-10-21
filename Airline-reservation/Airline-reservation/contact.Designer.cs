@@ -35,7 +35,7 @@
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.lastnamelabel = new System.Windows.Forms.Label();
             this.emaillabel = new System.Windows.Forms.Label();
-            this.usernametextbox = new System.Windows.Forms.TextBox();
+            this.firstnametextbox = new System.Windows.Forms.TextBox();
             this.lastnametextbox = new System.Windows.Forms.TextBox();
             this.emailtextbox = new System.Windows.Forms.TextBox();
             this.messagelabel = new System.Windows.Forms.Label();
@@ -110,14 +110,14 @@
             this.emaillabel.TabIndex = 23;
             this.emaillabel.Text = "Email";
             // 
-            // usernametextbox
+            // firstnametextbox
             // 
-            this.usernametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.usernametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.usernametextbox.Location = new System.Drawing.Point(271, 143);
-            this.usernametextbox.Name = "usernametextbox";
-            this.usernametextbox.Size = new System.Drawing.Size(121, 25);
-            this.usernametextbox.TabIndex = 24;
+            this.firstnametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.firstnametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.firstnametextbox.Location = new System.Drawing.Point(271, 143);
+            this.firstnametextbox.Name = "firstnametextbox";
+            this.firstnametextbox.Size = new System.Drawing.Size(121, 25);
+            this.firstnametextbox.TabIndex = 24;
             // 
             // lastnametextbox
             // 
@@ -266,7 +266,7 @@
             this.Controls.Add(this.messagelabel);
             this.Controls.Add(this.emailtextbox);
             this.Controls.Add(this.lastnametextbox);
-            this.Controls.Add(this.usernametextbox);
+            this.Controls.Add(this.firstnametextbox);
             this.Controls.Add(this.emaillabel);
             this.Controls.Add(this.lastnamelabel);
             this.Controls.Add(this.firstnamelabel);
@@ -293,7 +293,7 @@
         private System.Windows.Forms.Label firstnamelabel;
         private System.Windows.Forms.Label lastnamelabel;
         private System.Windows.Forms.Label emaillabel;
-        private System.Windows.Forms.TextBox usernametextbox;
+        private System.Windows.Forms.TextBox firstnametextbox;
         private System.Windows.Forms.TextBox lastnametextbox;
         private System.Windows.Forms.TextBox emailtextbox;
         private System.Windows.Forms.Label messagelabel;
