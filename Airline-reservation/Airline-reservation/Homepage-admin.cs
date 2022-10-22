@@ -31,7 +31,7 @@ namespace Airline_reservation
                 emailblank.Text = r.registeremail;
                 phoneblank.Text = r.registerphone;
                 string location = r.registerprofilepic;
-                propicadmin.Image = new Bitmap(location);
+                //propicadmin.Image = new Bitmap(location); // enable it and get the location from register - propiclocation
 
             }
             

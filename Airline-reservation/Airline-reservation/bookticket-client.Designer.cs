@@ -71,6 +71,7 @@
             this.oneway = new System.Windows.Forms.RadioButton();
             this.roundtrip = new System.Windows.Forms.RadioButton();
             this.flightgroupbox = new System.Windows.Forms.GroupBox();
+            this.departureerror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flighttypeerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -85,6 +86,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
             this.flightgroupbox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.departureerror)).BeginInit();
             this.SuspendLayout();
             // 
             // bgpic
@@ -456,6 +458,10 @@
             this.flightgroupbox.TabIndex = 98;
             this.flightgroupbox.TabStop = false;
             // 
+            // departureerror
+            // 
+            this.departureerror.ContainerControl = this;
+            // 
             // bookticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -507,6 +513,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).EndInit();
             this.flightgroupbox.ResumeLayout(false);
             this.flightgroupbox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.departureerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -555,5 +562,6 @@
         private System.Windows.Forms.ErrorProvider emailerror;
         private System.Windows.Forms.ErrorProvider lastnameerror;
         private System.Windows.Forms.ErrorProvider firstnameerror;
+        private System.Windows.Forms.ErrorProvider departureerror;
     }
 }
