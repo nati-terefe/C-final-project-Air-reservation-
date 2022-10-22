@@ -54,10 +54,6 @@ namespace Airline_reservation
            contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// faq header button //////////////////
-            faqheaderbuttom.Parent = pictureBox1;
-            faqheaderbuttom.BackColor = Color.Transparent;
-            faqheaderbuttom.FlatAppearance.BorderSize = 0;
 
 
 
@@ -163,12 +159,12 @@ namespace Airline_reservation
             string password=passwordtextbox.Text;
             if (password == "admin" && username=="admin")
             {
-                Homepage_admin ha = new Homepage_admin(username);
+                Homepage_admin ha = new Homepage_admin();
                 ha.Show();
             }
             else if (password == "client"&&username == "client")
             {
-                Homepage_client hc = new Homepage_client(username);
+                Homepage_client hc = new Homepage_client();
                 hc.Show();
             }
             loginstore ls = new loginstore
@@ -176,7 +172,6 @@ namespace Airline_reservation
                 loginusername = usernametextbox.Text,
                 loginpassword = passwordtextbox.Text,
             };
-            ls.save();
             if (string.IsNullOrEmpty(usernametextbox.Text))
             {
                 usernameerror.SetError(usernametextbox, "user name can't be left empty");
@@ -190,13 +185,6 @@ namespace Airline_reservation
             {
                 // the main page
             }
-        }
-
-        private void faqheaderbuttom_Click(object sender, EventArgs e)
-        {
-            FAQ f = new FAQ();
-            f.Show();
-            Hide();
         }
     }
 }

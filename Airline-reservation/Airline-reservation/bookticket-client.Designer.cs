@@ -71,8 +71,6 @@
             this.oneway = new System.Windows.Forms.RadioButton();
             this.roundtrip = new System.Windows.Forms.RadioButton();
             this.flightgroupbox = new System.Windows.Forms.GroupBox();
-            this.departureerror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Viewbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flighttypeerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -87,7 +85,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
             this.flightgroupbox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.departureerror)).BeginInit();
             this.SuspendLayout();
             // 
             // bgpic
@@ -355,9 +352,6 @@
             // flightclasscomboBox
             // 
             this.flightclasscomboBox.FormattingEnabled = true;
-            this.flightclasscomboBox.Items.AddRange(new object[] {
-            "First class",
-            "Economy class"});
             this.flightclasscomboBox.Location = new System.Drawing.Point(408, 250);
             this.flightclasscomboBox.Name = "flightclasscomboBox";
             this.flightclasscomboBox.Size = new System.Drawing.Size(121, 21);
@@ -366,9 +360,6 @@
             // agecomboBox
             // 
             this.agecomboBox.FormattingEnabled = true;
-            this.agecomboBox.Items.AddRange(new object[] {
-            "18+",
-            "Below 18"});
             this.agecomboBox.Location = new System.Drawing.Point(186, 181);
             this.agecomboBox.Name = "agecomboBox";
             this.agecomboBox.Size = new System.Drawing.Size(121, 21);
@@ -401,8 +392,6 @@
             // fromcomboBox
             // 
             this.fromcomboBox.FormattingEnabled = true;
-            this.fromcomboBox.Items.AddRange(new object[] {
-            "Addis Ababa"});
             this.fromcomboBox.Location = new System.Drawing.Point(59, 246);
             this.fromcomboBox.Name = "fromcomboBox";
             this.fromcomboBox.Size = new System.Drawing.Size(121, 21);
@@ -411,15 +400,6 @@
             // tocomboBox
             // 
             this.tocomboBox.FormattingEnabled = true;
-            this.tocomboBox.Items.AddRange(new object[] {
-            "New York",
-            "Washington Dc",
-            "Alaska (AK) ",
-            "Arizona (AZ) ",
-            "Arkansas (AR) ",
-            "California (CA) ",
-            "Colorado (CO) ",
-            "Connecticut (CT) "});
             this.tocomboBox.Location = new System.Drawing.Point(239, 246);
             this.tocomboBox.Name = "tocomboBox";
             this.tocomboBox.Size = new System.Drawing.Size(121, 21);
@@ -459,30 +439,11 @@
             this.flightgroupbox.TabIndex = 98;
             this.flightgroupbox.TabStop = false;
             // 
-            // departureerror
-            // 
-            this.departureerror.ContainerControl = this;
-            // 
-            // Viewbutton
-            // 
-            this.Viewbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.Viewbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Viewbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
-            this.Viewbutton.Location = new System.Drawing.Point(341, 371);
-            this.Viewbutton.Name = "Viewbutton";
-            this.Viewbutton.Size = new System.Drawing.Size(132, 35);
-            this.Viewbutton.TabIndex = 128;
-            this.Viewbutton.Text = "View Price";
-            this.Viewbutton.UseVisualStyleBackColor = false;
-            this.Viewbutton.Visible = false;
-            this.Viewbutton.Click += new System.EventHandler(this.Viewbutton_Click);
-            // 
             // bookticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 448);
-            this.Controls.Add(this.Viewbutton);
             this.Controls.Add(this.bookbutton);
             this.Controls.Add(this.agecomboBox);
             this.Controls.Add(this.flightclasscomboBox);
@@ -529,7 +490,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).EndInit();
             this.flightgroupbox.ResumeLayout(false);
             this.flightgroupbox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.departureerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,7 +538,5 @@
         private System.Windows.Forms.ErrorProvider emailerror;
         private System.Windows.Forms.ErrorProvider lastnameerror;
         private System.Windows.Forms.ErrorProvider firstnameerror;
-        private System.Windows.Forms.ErrorProvider departureerror;
-        private System.Windows.Forms.Button Viewbutton;
     }
 }

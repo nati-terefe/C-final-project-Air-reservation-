@@ -83,19 +83,6 @@
       <DependentUpon>contact.cs</DependentUpon>
     </Compile>
     <Compile Include="contactstore.cs" />
-    <Compile Include="FAQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FAQ.Designer.cs">
-      <DependentUpon>FAQ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flight edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="flight edit.Designer.cs">
-      <DependentUpon>flight edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flightinfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -131,12 +118,6 @@
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
     <Compile Include="registerstore.cs" />
-    <Compile Include="search.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="search.Designer.cs">
-      <DependentUpon>search.cs</DependentUpon>
-    </Compile>
     <Compile Include="Ticket.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,12 +148,6 @@
     <EmbeddedResource Include="contact.resx">
       <DependentUpon>contact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FAQ.resx">
-      <DependentUpon>FAQ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="flight edit.resx">
-      <DependentUpon>flight edit.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forgotpassword.resx">
       <DependentUpon>forgotpassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -197,9 +172,6 @@
     </Compile>
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="search.resx">
-      <DependentUpon>search.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ticket.resx">
       <DependentUpon>Ticket.cs</DependentUpon>

@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage_client));
-            this.propicadmin = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.bookticketbutton = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.bookedticketbutton = new System.Windows.Forms.Button();
@@ -51,20 +51,19 @@
             this.phoneblank = new System.Windows.Forms.TextBox();
             this.savebutton = new System.Windows.Forms.Button();
             this.exitbutton = new System.Windows.Forms.Button();
-            this.searchbutton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             this.SuspendLayout();
             // 
-            // propicadmin
+            // pictureBox1
             // 
-            this.propicadmin.Image = ((System.Drawing.Image)(resources.GetObject("propicadmin.Image")));
-            this.propicadmin.Location = new System.Drawing.Point(17, 185);
-            this.propicadmin.Name = "propicadmin";
-            this.propicadmin.Size = new System.Drawing.Size(140, 133);
-            this.propicadmin.TabIndex = 0;
-            this.propicadmin.TabStop = false;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(17, 185);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(140, 133);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // bookticketbutton
             // 
@@ -263,7 +262,6 @@
             this.savebutton.TabIndex = 90;
             this.savebutton.Text = "Save";
             this.savebutton.UseVisualStyleBackColor = false;
-            this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
             // 
             // exitbutton
             // 
@@ -278,25 +276,11 @@
             this.exitbutton.UseVisualStyleBackColor = false;
             this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
             // 
-            // searchbutton
-            // 
-            this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchbutton.Location = new System.Drawing.Point(292, 12);
-            this.searchbutton.Name = "searchbutton";
-            this.searchbutton.Size = new System.Drawing.Size(120, 35);
-            this.searchbutton.TabIndex = 91;
-            this.searchbutton.Text = "Search";
-            this.searchbutton.UseVisualStyleBackColor = false;
-            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
-            // 
             // Homepage_client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.phoneblank);
@@ -317,12 +301,12 @@
             this.Controls.Add(this.bookedticketbutton);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.bookticketbutton);
-            this.Controls.Add(this.propicadmin);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.bgpic);
             this.Name = "Homepage_client";
             this.Text = "Homepage_client";
             this.Load += new System.EventHandler(this.Homepage_client_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).EndInit();
             this.ResumeLayout(false);
@@ -332,7 +316,7 @@
 
         #endregion
 
-        private System.Windows.Forms.PictureBox propicadmin;
+        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button bookticketbutton;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button bookedticketbutton;
@@ -354,6 +338,5 @@
         private System.Windows.Forms.TextBox phoneblank;
         private System.Windows.Forms.Button savebutton;
         private System.Windows.Forms.Button exitbutton;
-        private System.Windows.Forms.Button searchbutton;
     }
 }

@@ -71,7 +71,6 @@
             this.lastnamelabel = new System.Windows.Forms.Label();
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.Viewbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightclasserror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toerror)).BeginInit();
@@ -164,15 +163,11 @@
             this.bookbutton.TabIndex = 126;
             this.bookbutton.Text = "Book flight";
             this.bookbutton.UseVisualStyleBackColor = false;
-            this.bookbutton.Visible = false;
             this.bookbutton.Click += new System.EventHandler(this.bookbutton_Click);
             // 
             // agecomboBox
             // 
             this.agecomboBox.FormattingEnabled = true;
-            this.agecomboBox.Items.AddRange(new object[] {
-            "18+",
-            "Below 18"});
             this.agecomboBox.Location = new System.Drawing.Point(208, 204);
             this.agecomboBox.Name = "agecomboBox";
             this.agecomboBox.Size = new System.Drawing.Size(121, 21);
@@ -181,9 +176,6 @@
             // flightclasscomboBox
             // 
             this.flightclasscomboBox.FormattingEnabled = true;
-            this.flightclasscomboBox.Items.AddRange(new object[] {
-            "First class",
-            "Economy class"});
             this.flightclasscomboBox.Location = new System.Drawing.Point(430, 273);
             this.flightclasscomboBox.Name = "flightclasscomboBox";
             this.flightclasscomboBox.Size = new System.Drawing.Size(121, 21);
@@ -192,15 +184,6 @@
             // tocomboBox
             // 
             this.tocomboBox.FormattingEnabled = true;
-            this.tocomboBox.Items.AddRange(new object[] {
-            "New York",
-            "Washington Dc",
-            "Alaska (AK) ",
-            "Arizona (AZ) ",
-            "Arkansas (AR) ",
-            "California (CA) ",
-            "Colorado (CO) ",
-            "Connecticut (CT) "});
             this.tocomboBox.Location = new System.Drawing.Point(261, 269);
             this.tocomboBox.Name = "tocomboBox";
             this.tocomboBox.Size = new System.Drawing.Size(121, 21);
@@ -209,8 +192,6 @@
             // fromcomboBox
             // 
             this.fromcomboBox.FormattingEnabled = true;
-            this.fromcomboBox.Items.AddRange(new object[] {
-            "Addis Ababa"});
             this.fromcomboBox.Location = new System.Drawing.Point(81, 269);
             this.fromcomboBox.Name = "fromcomboBox";
             this.fromcomboBox.Size = new System.Drawing.Size(121, 21);
@@ -449,25 +430,11 @@
             this.logo.TabIndex = 101;
             this.logo.TabStop = false;
             // 
-            // Viewbutton
-            // 
-            this.Viewbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.Viewbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Viewbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
-            this.Viewbutton.Location = new System.Drawing.Point(490, 390);
-            this.Viewbutton.Name = "Viewbutton";
-            this.Viewbutton.Size = new System.Drawing.Size(132, 35);
-            this.Viewbutton.TabIndex = 127;
-            this.Viewbutton.Text = "View Price";
-            this.Viewbutton.UseVisualStyleBackColor = false;
-            this.Viewbutton.Click += new System.EventHandler(this.Viewbutton_Click);
-            // 
             // Bookticket_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Viewbutton);
             this.Controls.Add(this.departuredate);
             this.Controls.Add(this.bookbutton);
             this.Controls.Add(this.agecomboBox);
@@ -561,6 +528,5 @@
         private System.Windows.Forms.ErrorProvider firstnameerror;
         private System.Windows.Forms.ErrorProvider departureerror;
         private System.Windows.Forms.ErrorProvider flighttypeerror;
-        private System.Windows.Forms.Button Viewbutton;
     }
 }

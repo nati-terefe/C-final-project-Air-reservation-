@@ -38,7 +38,6 @@
             this.loginheaderbutton = new System.Windows.Forms.Button();
             this.donebutton = new System.Windows.Forms.Button();
             this.aboutusbodylabel = new System.Windows.Forms.Label();
-            this.faqheaderbuttom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -58,7 +57,7 @@
             // 
             this.aboutlabel.AutoSize = true;
             this.aboutlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutlabel.ForeColor = System.Drawing.Color.CadetBlue;
+            this.aboutlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutlabel.Location = new System.Drawing.Point(371, 9);
             this.aboutlabel.Name = "aboutlabel";
             this.aboutlabel.Size = new System.Drawing.Size(172, 45);
@@ -151,25 +150,11 @@
             this.aboutusbodylabel.TabIndex = 36;
             this.aboutusbodylabel.Text = resources.GetString("aboutusbodylabel.Text");
             // 
-            // faqheaderbuttom
-            // 
-            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.faqheaderbuttom.Location = new System.Drawing.Point(493, 484);
-            this.faqheaderbuttom.Name = "faqheaderbuttom";
-            this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
-            this.faqheaderbuttom.TabIndex = 47;
-            this.faqheaderbuttom.Text = "FAQ";
-            this.faqheaderbuttom.UseVisualStyleBackColor = false;
-            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
-            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 530);
-            this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.aboutusbodylabel);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
@@ -200,6 +185,5 @@
         private System.Windows.Forms.Button loginheaderbutton;
         private System.Windows.Forms.Button donebutton;
         private System.Windows.Forms.Label aboutusbodylabel;
-        private System.Windows.Forms.Button faqheaderbuttom;
     }
 }

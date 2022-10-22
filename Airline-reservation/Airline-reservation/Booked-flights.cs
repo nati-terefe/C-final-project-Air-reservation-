@@ -16,19 +16,5 @@ namespace Airline_reservation
         {
             InitializeComponent();
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void Booked_flights_Load(object sender, EventArgs e)
-        {
-            flightinfo c = new flightinfo();
-
-            flightinfodgf.DataSource = null;
-            flightinfodgf.DataSource = flightinfo.getall();
-
-        }
     }
 }

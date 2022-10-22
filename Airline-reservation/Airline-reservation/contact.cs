@@ -48,10 +48,6 @@ namespace Airline_reservation
             contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// faq header button //////////////////
-            faqheaderbuttom.Parent = pictureBox1;
-            faqheaderbuttom.BackColor = Color.Transparent;
-            faqheaderbuttom.FlatAppearance.BorderSize = 0;
 
         }
 
@@ -63,7 +59,7 @@ namespace Airline_reservation
                contactlastname = lastnametextbox.Text,
                 contactmessage= messagetextbox.Text,
             };
-            cs.save();
+
             if (string.IsNullOrEmpty(firstnamelabel.Text))
             {
                 firstnameerror.SetError(firstnametextbox, "first name can't be left empty");
@@ -130,13 +126,6 @@ namespace Airline_reservation
         private void donebutton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void faqheaderbuttom_Click(object sender, EventArgs e)
-        {
-            FAQ f = new FAQ();
-            f.Show();
-            Hide();
         }
     }
 }

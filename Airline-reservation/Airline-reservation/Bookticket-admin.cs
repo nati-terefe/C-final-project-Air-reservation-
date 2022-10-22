@@ -19,7 +19,7 @@ namespace Airline_reservation
 
         private void Bookticket_admin_Load(object sender, EventArgs e)
         {
-
+            
 
 
 
@@ -61,103 +61,6 @@ namespace Airline_reservation
 
         private void bookbutton_Click(object sender, EventArgs e)
         {
-
-            string gender;
-
-            bool b1 = Male.Checked;
-            gender = b1 ? "male" : "female"; // ternary operator
-
-            string flighttype;
-            bool button = oneway.Checked;
-            flighttype = button ? "Oneway" : "Round trip";
-            // getting value from combo box
-            string selectedfrom = fromcomboBox.Text.ToString();
-
-            string selectedto = tocomboBox.Text.ToString();
-            string flightclass = flightclasscomboBox.Text.ToString();
-            string selectedage = agecomboBox.Text.ToString();
-            string selecteddate = departuredate.Text.ToString();
-
-
-
-
-
-
-            //////// validation for register
-            if (!string.IsNullOrEmpty(firstnametextbox.Text)
-                && !string.IsNullOrEmpty(lastnametextbox.Text)
-                && !string.IsNullOrEmpty(emailtextbox.Text)
-                && !string.IsNullOrEmpty(passporttextbox.Text)
-                && !string.IsNullOrEmpty(flighttype)
-                && !string.IsNullOrEmpty(selectedage)
-                && !string.IsNullOrEmpty(gender)
-                && !string.IsNullOrEmpty(selectedfrom)
-                && !string.IsNullOrEmpty(selectedto)
-                && !string.IsNullOrEmpty(flightclass))
-            {
-                // random number generator for flight id 
-                Random r = new Random();
-
-                // setting property of flight info
-                flightinfo fi = new flightinfo
-                {
-                    firstname = firstnametextbox.Text,
-                    lastname = lastnametextbox.Text,
-                    email = emailtextbox.Text,
-                    passportnumber = passporttextbox.Text,
-                    from = selectedfrom,
-                    to = selectedto,
-                    flightclass = flightclass,
-                    flighttype = flighttype,
-                    departuredate = departuredate.Value.ToString(),
-                    age = selectedage,
-                    gender = gender,
-                    flightid = r.Next().ToString(),
-
-
-                };
-
-                fi.save(); // saving the info
-
-                ticketform tf = new ticketform();
-                if (tf.flowLayoutPanel1.Controls.Count > 0)
-                    tf.flowLayoutPanel1.Controls.RemoveAt(0);
-
-                foreach (Control item in tf.flowLayoutPanel1.Controls.OfType<Ticket>().ToList())
-                {
-                    tf.flowLayoutPanel1.Controls.Remove(item);
-                }
-                foreach (var item in flightinfo.getall())
-                {
-                    // setting the info we get from the user to the user control(ticket) 
-                    Ticket tick = new Ticket();
-                    tick.firstname = item.firstname;
-                    tick.lastname = item.lastname;
-                    tick.from = item.from;
-                    tick.to = item.to;
-                    tick.flightclass = item.flightclass;
-                    tick.passportnumber = item.passportnumber;
-                    tick.date = item.departuredate;
-
-
-
-                    //tick.Show();
-                    //tf.Show();
-                    tf.flowLayoutPanel1.Controls.Add(tick);
-                    tf.Show();
-
-                }
-
-
-                //add verification here
-                // ticket form will display
-                // ticketform t = new ticketform();
-                //t.Show();
-            }
-        }
-
-        private void Viewbutton_Click(object sender, EventArgs e)
-        {
             // getting the selected radio button
             string gender;
 
@@ -168,13 +71,30 @@ namespace Airline_reservation
             bool button = oneway.Checked;
             flighttype = button ? "Oneway" : "Round trip";
             // getting value from combo box
-            string selectedfrom = fromcomboBox.Text.ToString();
+            string selectedfrom = fromcomboBox.SelectedText.ToString();
+            string selectedto = tocomboBox.SelectedText.ToString();
+            string flightclass = flightclasscomboBox.SelectedText.ToString();
+            string selectedage = agecomboBox.SelectedText.ToString();
+            // setting property of flight info
+            flightinfo fi = new flightinfo
+            {
+                firstname = firstnametextbox.Text,
+                lastname = lastnametextbox.Text,
+                email = emailtextbox.Text,
+                passportnumber = passporttextbox.Text,
+                from = selectedfrom,
+                to = selectedto,
+                flightclass = flightclass,
+                flighttype=flighttype,
+                departuredate=departuredate.ToString(),
+                age=selectedage,
+                gender=gender,
+                
+               
 
-            string selectedto = tocomboBox.Text.ToString();
-            string flightclass = flightclasscomboBox.Text.ToString();
-            string selectedage = agecomboBox.Text.ToString();
-            string selecteddate = departuredate.Text.ToString();
-            MessageBox.Show(selectedto);
+            };
+
+
 
 
 
@@ -217,64 +137,19 @@ namespace Airline_reservation
             {
                 flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
             }
-            if (string.IsNullOrEmpty(selecteddate))
+            if (string.IsNullOrEmpty(flighttype))
             {
-                departureerror.SetError(departuredate, "please select you're departure date");
+                flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
             }
             if (string.IsNullOrEmpty(passporttextbox.Text))
             {
                 flighttypeerror.SetError(passporttextbox, "please select you're passport number");
             }
-
-
-
-            if (!string.IsNullOrEmpty(firstnametextbox.Text)
-               && !string.IsNullOrEmpty(lastnametextbox.Text)
-               && !string.IsNullOrEmpty(emailtextbox.Text)
-               && !string.IsNullOrEmpty(passporttextbox.Text)
-               && !string.IsNullOrEmpty(flighttype)
-               && !string.IsNullOrEmpty(selectedage)
-               && !string.IsNullOrEmpty(gender)
-               && !string.IsNullOrEmpty(selectedfrom)
-               && !string.IsNullOrEmpty(selectedto)
-               && !string.IsNullOrEmpty(flightclass))
-            {
-                // flight price determining
-                if (flightclass == "First class" && flighttype == "Oneway")
-                {
-                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
-                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
-                                  "\n" + "From:" + "                    " + selectedfrom +
-                                   "\n" + "TO:" + "                    " + selectedto +
-                                "\n" + "Bill:" + "                          " + "101,000");
-                }
-                if (flightclass == "Economy class" && flighttype == "Round trip")
-                {
-                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
-                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
-                                 "\n" + "From:" + "                    " + selectedfrom +
-                                   "\n" + "TO:" + "                    " + selectedto +
-                                "\n" + "Bill:" + "                          " + "120,000");
-                }
-                if (flightclass == "First class" && flighttype == "Round trip")
-                {
-                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
-                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
-                                 "\n" + "From:" + "                    " + selectedfrom +
-                                   "\n" + "TO:" + "                    " + selectedto +
-                                "\n" + "Bill:" + "                          " + "250,000");
-                }
-                if (flightclass == "Economy class" && flighttype == "Oneway")
-                {
-                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
-                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
-                                 "\n" + "From:" + "                    " + selectedfrom +
-                                   "\n" + "TO:" + "                    " + selectedto +
-                                "\n" + "Bill:" + "                          " + "85,000");
-                }
-                this.bookbutton.Visible = true;
-                this.Viewbutton.Visible = true;
-            }
+            //passport number
+            /////add verification here
+            // ticket form will display
+            ticketform t = new ticketform();
+            t.Show();
         }
     }
 }

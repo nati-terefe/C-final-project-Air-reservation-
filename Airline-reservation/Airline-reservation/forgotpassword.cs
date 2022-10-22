@@ -56,28 +56,19 @@ namespace Airline_reservation
             {
                 hinterror.SetError(hinttextbox, "Hint can't be left empty");
             }
-            if (string.IsNullOrEmpty(questiontextbox.Text))
-            {
-                questionerror.SetError(questiontextbox, "please enter you're hint question");
-            }
             // login validation 
-            if (!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(newpasswordtextbox.Text) && !string.IsNullOrEmpty(hinttextbox.Text)&& !string.IsNullOrEmpty(questiontextbox.Text))
+            if (!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(newpasswordtextbox.Text) && !string.IsNullOrEmpty(hinttextbox.Text))
             {
                 registerstore rs = new registerstore();
                 string checkusername = usernametextbox.Text;
                 string checkhint = hinttextbox.Text;
-                string newpassword = newpasswordtextbox.Text;
-                string checkquestion = questiontextbox.Text;
-                ////////////////////
                 string mainusername = rs.registerusername;
                 string mainhint = rs.registerhint;
-                string mainquestion = rs.question;
-                
+                string newpassword = newpasswordtextbox.Text;
                 // resetting password
-                if (checkusername == mainusername && checkhint == mainhint && checkquestion==mainquestion)
-                { ////// write update sql statement
+                if (checkusername == mainusername && checkhint == mainhint)
+                {
                     rs.registerpassword = newpassword;
-                    rs.save();
                     MessageBox.Show("password have been resetted");
                 }
             }

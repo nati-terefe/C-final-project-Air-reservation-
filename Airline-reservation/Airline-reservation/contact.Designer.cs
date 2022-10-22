@@ -50,7 +50,6 @@
             this.lastnameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.emailerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.messageerror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.faqheaderbuttom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
@@ -142,7 +141,7 @@
             // 
             this.messagelabel.AutoSize = true;
             this.messagelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.messagelabel.Location = new System.Drawing.Point(288, 259);
+            this.messagelabel.Location = new System.Drawing.Point(273, 259);
             this.messagelabel.Name = "messagelabel";
             this.messagelabel.Size = new System.Drawing.Size(92, 25);
             this.messagelabel.TabIndex = 27;
@@ -152,7 +151,7 @@
             // 
             this.messagetextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.messagetextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.messagetextbox.Location = new System.Drawing.Point(292, 287);
+            this.messagetextbox.Location = new System.Drawing.Point(295, 287);
             this.messagetextbox.Multiline = true;
             this.messagetextbox.Name = "messagetextbox";
             this.messagetextbox.Size = new System.Drawing.Size(288, 131);
@@ -252,25 +251,11 @@
             // 
             this.messageerror.ContainerControl = this;
             // 
-            // faqheaderbuttom
-            // 
-            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.faqheaderbuttom.Location = new System.Drawing.Point(741, 12);
-            this.faqheaderbuttom.Name = "faqheaderbuttom";
-            this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
-            this.faqheaderbuttom.TabIndex = 49;
-            this.faqheaderbuttom.Text = "FAQ";
-            this.faqheaderbuttom.UseVisualStyleBackColor = false;
-            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
-            // 
             // contact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 525);
-            this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
             this.Controls.Add(this.aboutheaderbutton);
@@ -323,6 +308,5 @@
         private System.Windows.Forms.ErrorProvider lastnameerror;
         private System.Windows.Forms.ErrorProvider emailerror;
         private System.Windows.Forms.ErrorProvider messageerror;
-        private System.Windows.Forms.Button faqheaderbuttom;
     }
 }

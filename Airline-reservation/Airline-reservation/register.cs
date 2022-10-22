@@ -27,55 +27,49 @@ namespace Airline_reservation
         private void register_Load(object sender, EventArgs e)
         {
             // making the labels and the logo transparent 
-            usernamelabel.Parent = bgpic;
+            usernamelabel.Parent = phoneerror;
             usernamelabel.BackColor = Color.Transparent;
-            passwordlabel.Parent = bgpic;
+            passwordlabel.Parent = phoneerror;
             passwordlabel.BackColor = Color.Transparent;
-            firstnamelabel.Parent = bgpic;
+            firstnamelabel.Parent = phoneerror;
             firstnamelabel.BackColor = Color.Transparent;
-            lastnamelabel.Parent = bgpic;
+            lastnamelabel.Parent = phoneerror;
             lastnamelabel.BackColor = Color.Transparent;
-            emaillabel.Parent = bgpic;
+            emaillabel.Parent = phoneerror;
             emaillabel.BackColor = Color.Transparent;
-            phonelabel.Parent = bgpic;
+            phonelabel.Parent = phoneerror;
             phonelabel.BackColor = Color.Transparent;
-            birthdatelabel.Parent = bgpic;
+            birthdatelabel.Parent = phoneerror;
             birthdatelabel.BackColor = Color.Transparent;
-            genderlabel.Parent = bgpic;
+            genderlabel.Parent = phoneerror;
             genderlabel.BackColor = Color.Transparent;
-            registerlabel.Parent = bgpic;
+            registerlabel.Parent = phoneerror;
             registerlabel.BackColor = Color.Transparent;
-            profilepicturelabel.Parent = bgpic;
+            profilepicturelabel.Parent = phoneerror;
             profilepicturelabel.BackColor = Color.Transparent;
-            logo.Parent = bgpic;
+            logo.Parent = phoneerror;
             logo.BackColor = Color.Transparent;
-            hintlable.Parent = bgpic;
+            hintlable.Parent = phoneerror;
             hintlable.BackColor = Color.Transparent;
-            questionlabel.Parent = bgpic;
-            questionlabel.BackColor = Color.Transparent;
 
             /////making the buttons transparent
 
             ///////////////////login header button ///////////////////
-            loginheaderbutton.Parent = bgpic;
+            loginheaderbutton.Parent = phoneerror;
             loginheaderbutton.BackColor = Color.Transparent;
             loginheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
             ////////////// register header button //////////////////
-            registerheaderbutton.Parent = bgpic;
+            registerheaderbutton.Parent = phoneerror;
             registerheaderbutton.BackColor = Color.Transparent;
             registerheaderbutton.FlatAppearance.BorderSize = 0;
             ////////////// About us header button //////////////////
-            aboutheaderbutton.Parent = bgpic;
+            aboutheaderbutton.Parent = phoneerror;
             aboutheaderbutton.BackColor = Color.Transparent;
             aboutheaderbutton.FlatAppearance.BorderSize = 0;
             ////////////// contact us header button //////////////////
-            contactheaderbutton.Parent = bgpic;
+            contactheaderbutton.Parent = phoneerror;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// faq header button //////////////////
-            faqheaderbuttom.Parent = bgpic;
-            faqheaderbuttom.BackColor = Color.Transparent;
-            faqheaderbuttom.FlatAppearance.BorderSize = 0;
 
 
 
@@ -111,7 +105,8 @@ namespace Airline_reservation
             gender = b1 ? "male" : "female"; // ternary operator
             
 
-            
+            registerbutton.BackColor = Color.Silver;
+            donebutton.BackColor = Color.Red;
 
             //error provider code
             if (string.IsNullOrEmpty(firstnametextbox.Text))
@@ -147,11 +142,6 @@ namespace Airline_reservation
             {
                 hinterror.SetError(hinttextbox, "please enter hint");
             }
-            if (string.IsNullOrEmpty(questiontextbox.Text))
-            {
-                questionerror.SetError(questiontextbox, "please enter you're hint question");
-            }
-
             
             //////// validation for register
             if (!string.IsNullOrEmpty(firstnametextbox.Text) 
@@ -163,8 +153,7 @@ namespace Airline_reservation
                 && !string.IsNullOrEmpty(phonetextbox.Text) 
                 && !string.IsNullOrEmpty(passwordtextbox.Text) 
                 && !string.IsNullOrEmpty(gender)
-                && !string.IsNullOrEmpty(usernametextbox.Text)
-                && !string.IsNullOrEmpty(questiontextbox.Text))
+                && !string.IsNullOrEmpty(usernametextbox.Text))
             {
 
                 registerstore rs = new registerstore
@@ -178,24 +167,20 @@ namespace Airline_reservation
                     registerpassword = passwordtextbox.Text,
                     registergender = gender,
                     registerprofilepic = piclocation.Text,
-                    registebirthdate = birthdate.Value.ToString(),
+                    registebirthdate = birthdate.ToString(),
                     role = "client",
-                    question = questiontextbox.Text,
-                   
-                };
-                rs.save();
 
-                registerbutton.BackColor = Color.Silver;
-                donebutton.BackColor = Color.Red;
+                };
                 MessageBox.Show("You have been registered");
             }
 }
 
     private void loginheaderbutton_Click(object sender, EventArgs e)
-        {
-
-            
+        {  
+            register r = new register();
             login l = new login();
+            contact c = new contact();
+            About a = new About();
             l.Show();
             Hide();
 
@@ -214,9 +199,10 @@ namespace Airline_reservation
 
         private void contactheaderbutton_Click(object sender, EventArgs e)
         {
-        
+            register r = new register();
+            login l = new login();
             contact c = new contact();
-         
+            About a = new About();
 
             c.Show();
             Hide();
@@ -237,13 +223,6 @@ namespace Airline_reservation
         private void donebutton_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void faqheaderbuttom_Click(object sender, EventArgs e)
-        {
-            FAQ f = new FAQ();
-            f.Show();
-            Hide();
         }
     }
 }

@@ -64,8 +64,6 @@ namespace Airline_reservation
             logo.BackColor = Color.Transparent;
             hintlable.Parent = bgpic;
             hintlable.BackColor = Color.Transparent;
-            questionlabel.Parent = bgpic;
-            questionlabel.BackColor = Color.Transparent;
         }
 
         private void uploadbutton_Click(object sender, EventArgs e)
@@ -94,7 +92,8 @@ namespace Airline_reservation
             gender = b1 ? "male" : "female"; // ternary operator
 
 
-            
+            createbutton.BackColor = Color.Silver;
+            donebutton.BackColor = Color.Red;
             if (string.IsNullOrEmpty(firstnametextbox.Text))
             {
                 firstnameerror.SetError(firstnametextbox, "please enter First name");
@@ -128,12 +127,8 @@ namespace Airline_reservation
             {
                 hinterror.SetError(hinttextbox, "please enter hint");
             }
-            if (string.IsNullOrEmpty(questiontextbox.Text))
-            {
-                questionerror.SetError(questiontextbox, "please enter you're hint question");
-            }
-
-
+            
+              
             //////// validation for register
             if (!string.IsNullOrEmpty(firstnametextbox.Text)
                 && !string.IsNullOrEmpty(lastnametextbox.Text)
@@ -144,8 +139,7 @@ namespace Airline_reservation
                 && !string.IsNullOrEmpty(phonetextbox.Text)
                 && !string.IsNullOrEmpty(passwordtextbox.Text)
                 && !string.IsNullOrEmpty(gender)
-                && !string.IsNullOrEmpty(usernametextbox.Text)
-                && !string.IsNullOrEmpty(questiontextbox.Text))
+                && !string.IsNullOrEmpty(usernametextbox.Text))
             {
 
                 registerstore rs = new registerstore
@@ -159,16 +153,12 @@ namespace Airline_reservation
                     registerpassword = passwordtextbox.Text,
                     registergender = gender,
                     registerprofilepic = piclocation.Text,
-                    registebirthdate = birthdate.Value.ToString(),
+                    registebirthdate = birthdate.ToString(),
                     role = "admin",
-                    question = questiontextbox.Text,
 
 
 
                 };
-                rs.save();
-                createbutton.BackColor = Color.Silver;
-                donebutton.BackColor = Color.Red;
                 MessageBox.Show("Admin has been added");
             }
         }

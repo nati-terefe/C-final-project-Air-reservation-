@@ -12,29 +12,9 @@ namespace Airline_reservation
 {
     public partial class Homepage_admin : Form
     {
-        public Homepage_admin(string user)
+        public Homepage_admin()
         {
-           
             InitializeComponent();
-            loginstore ls = new loginstore();
-            registerstore r = new registerstore();
-            MessageBox.Show(r.registerfirstname);
-            if (user =="admin" )// add sql statement to fetch from login table and compare it to register table and then cont to the code below
-            {
-
-               // write sql statement that will fetch from register table 
-                usernameblank.Text ="nati";
-                firstnameblank.Text = r.registerfirstname;
-                lastnameblank.Text = r.registerlastname;
-                birthdateblank.Text = r.registebirthdate;
-                genderblank.Text = r.registergender;
-                emailblank.Text = r.registeremail;
-                phoneblank.Text = r.registerphone;
-                string location = r.registerprofilepic;
-                //propicadmin.Image = new Bitmap(location); // enable it and get the location from register - propiclocation
-
-            }
-            
         }
 
         private void addadminbutton_Click(object sender, EventArgs e)
@@ -88,10 +68,6 @@ namespace Airline_reservation
             logo.BackColor = Color.Transparent;
             // making save button invisible
             this.savebutton.Visible = false;
-            
-
-           
-             
         }
 
         private void Editprofile_Click(object sender, EventArgs e)
@@ -110,44 +86,6 @@ namespace Airline_reservation
             this.firstnameblank.ReadOnly = false;
             // making save button visible when edit profile button is clicked
             this.savebutton.Visible = true;
-        }
-
-        private void savebutton_Click(object sender, EventArgs e)
-        {
-            // when edit button is pressed save button will show up
-            // and then it will change the registered data
-            registerstore r = new registerstore();
-            //add update sql statement
-            r.registerusername = usernameblank.Text;
-            r.registerfirstname = firstnameblank.Text;
-            r.registerlastname = lastnameblank.Text;
-            r.registebirthdate = birthdateblank.Text;
-             r.registergender= genderblank.Text;
-            r.registeremail = emailblank.Text;
-            r.registerphone = phoneblank.Text;
-            
-        }
-
-        private void bgpic_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void editflightbutton_Click(object sender, EventArgs e)
-        {
-            flight_edit fe = new flight_edit();
-            fe.Show();
-        }
-
-        private void Backupdb_Click(object sender, EventArgs e)
-        {
-            // write back up sql code 
-        }
-
-        private void searchbutton_Click(object sender, EventArgs e)
-        {
-            search s=new search();
-            s.Show();
         }
     }
 }
