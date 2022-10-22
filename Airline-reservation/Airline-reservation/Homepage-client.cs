@@ -12,9 +12,28 @@ namespace Airline_reservation
 {
     public partial class Homepage_client : Form
     {
-        public Homepage_client()
+        public Homepage_client(string user)
         {
             InitializeComponent();
+
+            loginstore ls = new loginstore();
+            registerstore r = new registerstore();
+            MessageBox.Show(r.registerfirstname);
+            if (user == "client")// add sql statement to fetch from login table and compare it to register table and then cont to the code below
+            {
+
+                // write sql statement that will fetch from register table 
+                usernameblank.Text = "nati";
+                firstnameblank.Text = r.registerfirstname;
+                lastnameblank.Text = r.registerlastname;
+                birthdateblank.Text = r.registebirthdate;
+                genderblank.Text = r.registergender;
+                emailblank.Text = r.registeremail;
+                phoneblank.Text = r.registerphone;
+                string location = r.registerprofilepic;
+                propicadmin.Image = new Bitmap(location);
+
+            }
         }
 
         private void bookticketbutton_Click(object sender, EventArgs e)
@@ -87,6 +106,21 @@ namespace Airline_reservation
         private void exitbutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void savebutton_Click(object sender, EventArgs e)
+        {
+            // when edit button is pressed save button will show up
+            // and then it will change the registered data
+            registerstore r = new registerstore();
+            //add update sql statement
+            r.registerusername = usernameblank.Text;
+            r.registerfirstname = firstnameblank.Text;
+            r.registerlastname = lastnameblank.Text;
+            r.registebirthdate = birthdateblank.Text;
+            r.registergender = genderblank.Text;
+            r.registeremail = emailblank.Text;
+            r.registerphone = phoneblank.Text;
         }
     }
 }

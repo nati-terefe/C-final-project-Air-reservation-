@@ -83,6 +83,7 @@
       <DependentUpon>contact.cs</DependentUpon>
     </Compile>
     <Compile Include="contactstore.cs" />
+    <Compile Include="flightinfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
     </Compile>

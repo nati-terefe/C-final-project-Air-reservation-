@@ -24,6 +24,7 @@ namespace Airline_reservation
         public string age { get; set; }
         public string flightclass { get; set; }
         public string flighttype { get; set; }
+        public string flightid { get; set; }
 
 
         public void save()

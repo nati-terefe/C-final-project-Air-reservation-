@@ -12,17 +12,7 @@ namespace Airline_reservation
 {
     public partial class ticketform : Form
     {
-      private  string fn;
-
-       
-        /*
-        flightinfo fi = new flightinfo();
-        public string firstname
-        {
-            get { return fn; }
-            set { fn= value; firstnametextbox.Text = value; }
-        }
-        */
+      
         public ticketform()
         {
             InitializeComponent();
@@ -31,6 +21,11 @@ namespace Airline_reservation
         private void exitbutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void ticketform_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

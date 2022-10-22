@@ -59,7 +59,7 @@ namespace Airline_reservation
                contactlastname = lastnametextbox.Text,
                 contactmessage= messagetextbox.Text,
             };
-
+            cs.save();
             if (string.IsNullOrEmpty(firstnamelabel.Text))
             {
                 firstnameerror.SetError(firstnametextbox, "first name can't be left empty");

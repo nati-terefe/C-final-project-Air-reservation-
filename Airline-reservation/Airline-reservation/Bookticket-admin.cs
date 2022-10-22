@@ -19,7 +19,7 @@ namespace Airline_reservation
 
         private void Bookticket_admin_Load(object sender, EventArgs e)
         {
-            
+
 
 
 
@@ -75,6 +75,9 @@ namespace Airline_reservation
             string selectedto = tocomboBox.SelectedText.ToString();
             string flightclass = flightclasscomboBox.SelectedText.ToString();
             string selectedage = agecomboBox.SelectedText.ToString();
+            // random number generator for flight id 
+            Random r = new Random();
+
             // setting property of flight info
             flightinfo fi = new flightinfo
             {
@@ -85,71 +88,102 @@ namespace Airline_reservation
                 from = selectedfrom,
                 to = selectedto,
                 flightclass = flightclass,
-                flighttype=flighttype,
-                departuredate=departuredate.ToString(),
-                age=selectedage,
-                gender=gender,
-                
-               
+                flighttype = flighttype,
+                departuredate = departuredate.Value.ToString(),
+                age = selectedage,
+                gender = gender,
+                flightid = r.Next().ToString(),
+
 
             };
 
+            fi.save(); // saving the info
+
+            ticketform tf = new ticketform();
+            if (tf.flowLayoutPanel1.Controls.Count > 0)
+                tf.flowLayoutPanel1.Controls.RemoveAt(0);
+
+            foreach (Control item in tf.flowLayoutPanel1.Controls.OfType<Ticket>().ToList())
+            {
+                tf.flowLayoutPanel1.Controls.Remove(item);
+            }
+            foreach (var item in flightinfo.getall())
+            {
+                // setting the info we get from the user to the user control(ticket) 
+                Ticket tick = new Ticket();
+                tick.firstname = item.firstname;
+                tick.lastname = item.lastname;
+                tick.from = item.from;
+                tick.to = item.to;
+                tick.flightclass = item.flightclass;
+                tick.passportnumber = item.passportnumber;
+                tick.date = item.departuredate;
+
+                MessageBox.Show(item.departuredate);
+
+                //tick.Show();
+                //tf.Show();
+                tf.flowLayoutPanel1.Controls.Add(tick);
+                tf.Show();
+            }   
 
 
 
 
-            // error provider code
-            if (string.IsNullOrEmpty(firstnametextbox.Text))
-            {
-                firstnameerror.SetError(firstnametextbox, "please enter First name");
-            }
-            if (string.IsNullOrEmpty(lastnametextbox.Text))
-            {
-                lastnameerror.SetError(lastnametextbox, "please enter Last name");
-            }
-            if (string.IsNullOrEmpty(emailtextbox.Text))
-            {
-                emailerror.SetError(emailtextbox, "please enter you're Email ");
-            }
-            if (string.IsNullOrEmpty(gender))
-            {
-                gendererror.SetError(gendergroupbox, "please select you're gender");
-            }
 
-            if (string.IsNullOrEmpty(selectedfrom))
-            {
-                fromerror.SetError(fromcomboBox, "please enter you're from");
-            }
+                // error provider code
+                if (string.IsNullOrEmpty(firstnametextbox.Text))
+                {
+                    firstnameerror.SetError(firstnametextbox, "please enter First name");
+                }
+                if (string.IsNullOrEmpty(lastnametextbox.Text))
+                {
+                    lastnameerror.SetError(lastnametextbox, "please enter Last name");
+                }
+                if (string.IsNullOrEmpty(emailtextbox.Text))
+                {
+                    emailerror.SetError(emailtextbox, "please enter you're Email ");
+                }
+                if (string.IsNullOrEmpty(gender))
+                {
+                    gendererror.SetError(gendergroupbox, "please select you're gender");
+                }
 
-            if (string.IsNullOrEmpty(selectedto))
-            {
-                toerror.SetError(tocomboBox, "please select you're to");
+                if (string.IsNullOrEmpty(selectedfrom))
+                {
+                    fromerror.SetError(fromcomboBox, "please enter you're from");
+                }
+
+                if (string.IsNullOrEmpty(selectedto))
+                {
+                    toerror.SetError(tocomboBox, "please select you're to");
+                }
+                if (string.IsNullOrEmpty(flightclass))
+                {
+                    flightclasserror.SetError(flightclasscomboBox, "please selec you're flight class");
+                }
+                if (string.IsNullOrEmpty(selectedage))
+                {
+                    ageerror.SetError(agecomboBox, "please select you're age group");
+                }
+                if (string.IsNullOrEmpty(flighttype))
+                {
+                    flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
+                }
+                if (string.IsNullOrEmpty(flighttype))
+                {
+                    flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
+                }
+                if (string.IsNullOrEmpty(passporttextbox.Text))
+                {
+                    flighttypeerror.SetError(passporttextbox, "please select you're passport number");
+                }
+                //passport number
+                /////add verification here
+                // ticket form will display
+                ticketform t = new ticketform();
+                t.Show();
             }
-            if (string.IsNullOrEmpty(flightclass))
-            {
-                flightclasserror.SetError(flightclasscomboBox, "please selec you're flight class");
-            }
-            if (string.IsNullOrEmpty(selectedage))
-            {
-                ageerror.SetError(agecomboBox, "please select you're age group");
-            }
-            if (string.IsNullOrEmpty(flighttype))
-            {
-                flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
-            }
-            if (string.IsNullOrEmpty(flighttype))
-            {
-                flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
-            }
-            if (string.IsNullOrEmpty(passporttextbox.Text))
-            {
-                flighttypeerror.SetError(passporttextbox, "please select you're passport number");
-            }
-            //passport number
-            /////add verification here
-            // ticket form will display
-            ticketform t = new ticketform();
-            t.Show();
         }
     }
-}
+

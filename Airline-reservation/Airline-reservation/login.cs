@@ -159,12 +159,12 @@ namespace Airline_reservation
             string password=passwordtextbox.Text;
             if (password == "admin" && username=="admin")
             {
-                Homepage_admin ha = new Homepage_admin();
+                Homepage_admin ha = new Homepage_admin(username);
                 ha.Show();
             }
             else if (password == "client"&&username == "client")
             {
-                Homepage_client hc = new Homepage_client();
+                Homepage_client hc = new Homepage_client(username);
                 hc.Show();
             }
             loginstore ls = new loginstore
@@ -172,6 +172,7 @@ namespace Airline_reservation
                 loginusername = usernametextbox.Text,
                 loginpassword = passwordtextbox.Text,
             };
+            ls.save();
             if (string.IsNullOrEmpty(usernametextbox.Text))
             {
                 usernameerror.SetError(usernametextbox, "user name can't be left empty");

@@ -352,6 +352,9 @@
             // flightclasscomboBox
             // 
             this.flightclasscomboBox.FormattingEnabled = true;
+            this.flightclasscomboBox.Items.AddRange(new object[] {
+            "First class",
+            "Economy class"});
             this.flightclasscomboBox.Location = new System.Drawing.Point(408, 250);
             this.flightclasscomboBox.Name = "flightclasscomboBox";
             this.flightclasscomboBox.Size = new System.Drawing.Size(121, 21);
@@ -360,6 +363,9 @@
             // agecomboBox
             // 
             this.agecomboBox.FormattingEnabled = true;
+            this.agecomboBox.Items.AddRange(new object[] {
+            "18+",
+            "Below 18"});
             this.agecomboBox.Location = new System.Drawing.Point(186, 181);
             this.agecomboBox.Name = "agecomboBox";
             this.agecomboBox.Size = new System.Drawing.Size(121, 21);
@@ -392,6 +398,8 @@
             // fromcomboBox
             // 
             this.fromcomboBox.FormattingEnabled = true;
+            this.fromcomboBox.Items.AddRange(new object[] {
+            "Addis Ababa"});
             this.fromcomboBox.Location = new System.Drawing.Point(59, 246);
             this.fromcomboBox.Name = "fromcomboBox";
             this.fromcomboBox.Size = new System.Drawing.Size(121, 21);
@@ -400,6 +408,15 @@
             // tocomboBox
             // 
             this.tocomboBox.FormattingEnabled = true;
+            this.tocomboBox.Items.AddRange(new object[] {
+            "New York",
+            "Washington Dc",
+            "Alaska (AK) ",
+            "Arizona (AZ) ",
+            "Arkansas (AR) ",
+            "California (CA) ",
+            "Colorado (CO) ",
+            "Connecticut (CT) "});
             this.tocomboBox.Location = new System.Drawing.Point(239, 246);
             this.tocomboBox.Name = "tocomboBox";
             this.tocomboBox.Size = new System.Drawing.Size(121, 21);

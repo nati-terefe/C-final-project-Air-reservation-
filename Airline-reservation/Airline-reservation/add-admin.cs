@@ -92,8 +92,7 @@ namespace Airline_reservation
             gender = b1 ? "male" : "female"; // ternary operator
 
 
-            createbutton.BackColor = Color.Silver;
-            donebutton.BackColor = Color.Red;
+            
             if (string.IsNullOrEmpty(firstnametextbox.Text))
             {
                 firstnameerror.SetError(firstnametextbox, "please enter First name");
@@ -153,12 +152,15 @@ namespace Airline_reservation
                     registerpassword = passwordtextbox.Text,
                     registergender = gender,
                     registerprofilepic = piclocation.Text,
-                    registebirthdate = birthdate.ToString(),
+                    registebirthdate = birthdate.Value.ToString(),
                     role = "admin",
 
 
 
                 };
+                rs.save();
+                createbutton.BackColor = Color.Silver;
+                donebutton.BackColor = Color.Red;
                 MessageBox.Show("Admin has been added");
             }
         }

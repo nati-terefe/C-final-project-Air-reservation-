@@ -249,8 +249,6 @@
 
         #endregion
         private System.Windows.Forms.Label passwordlabel;
-        private System.Windows.Forms.TextBox usernametextbox;
-        private System.Windows.Forms.TextBox passwordtextbox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button button1;
@@ -263,6 +261,8 @@
         private System.Windows.Forms.Button closebutton;
         private System.Windows.Forms.ErrorProvider usernameerror;
         private System.Windows.Forms.ErrorProvider passworderror;
+        public System.Windows.Forms.TextBox usernametextbox;
+        public System.Windows.Forms.TextBox passwordtextbox;
     }
 }
 

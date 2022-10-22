@@ -43,12 +43,13 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(771, 285);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // fromtextBox
             // 
@@ -71,10 +72,10 @@
             // firstnametextbox
             // 
             this.firstnametextbox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstnametextbox.Location = new System.Drawing.Point(89, 201);
+            this.firstnametextbox.Location = new System.Drawing.Point(98, 201);
             this.firstnametextbox.Multiline = true;
             this.firstnametextbox.Name = "firstnametextbox";
-            this.firstnametextbox.Size = new System.Drawing.Size(159, 20);
+            this.firstnametextbox.Size = new System.Drawing.Size(141, 20);
             this.firstnametextbox.TabIndex = 3;
             // 
             // lastnametextbox
@@ -143,5 +144,6 @@
         private System.Windows.Forms.TextBox passporttextbox;
         private System.Windows.Forms.TextBox flightclasstextbox;
         private System.Windows.Forms.TextBox datetextbox;
+       // private System.Windows.Forms.TextBox flgihtid;
     }
 }

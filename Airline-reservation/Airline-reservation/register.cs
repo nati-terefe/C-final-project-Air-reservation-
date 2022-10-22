@@ -105,8 +105,7 @@ namespace Airline_reservation
             gender = b1 ? "male" : "female"; // ternary operator
             
 
-            registerbutton.BackColor = Color.Silver;
-            donebutton.BackColor = Color.Red;
+            
 
             //error provider code
             if (string.IsNullOrEmpty(firstnametextbox.Text))
@@ -142,6 +141,7 @@ namespace Airline_reservation
             {
                 hinterror.SetError(hinttextbox, "please enter hint");
             }
+
             
             //////// validation for register
             if (!string.IsNullOrEmpty(firstnametextbox.Text) 
@@ -167,20 +167,23 @@ namespace Airline_reservation
                     registerpassword = passwordtextbox.Text,
                     registergender = gender,
                     registerprofilepic = piclocation.Text,
-                    registebirthdate = birthdate.ToString(),
+                    registebirthdate = birthdate.Value.ToString(),
                     role = "client",
-
+                   
                 };
+                rs.save();
+
+                registerbutton.BackColor = Color.Silver;
+                donebutton.BackColor = Color.Red;
                 MessageBox.Show("You have been registered");
             }
 }
 
     private void loginheaderbutton_Click(object sender, EventArgs e)
-        {  
-            register r = new register();
+        {
+
+            
             login l = new login();
-            contact c = new contact();
-            About a = new About();
             l.Show();
             Hide();
 
@@ -199,10 +202,9 @@ namespace Airline_reservation
 
         private void contactheaderbutton_Click(object sender, EventArgs e)
         {
-            register r = new register();
-            login l = new login();
+        
             contact c = new contact();
-            About a = new About();
+         
 
             c.Show();
             Hide();

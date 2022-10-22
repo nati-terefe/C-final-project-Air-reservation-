@@ -62,13 +62,16 @@ namespace Airline_reservation
                 registerstore rs = new registerstore();
                 string checkusername = usernametextbox.Text;
                 string checkhint = hinttextbox.Text;
+                string newpassword = newpasswordtextbox.Text;
+                ////////////////////
                 string mainusername = rs.registerusername;
                 string mainhint = rs.registerhint;
-                string newpassword = newpasswordtextbox.Text;
+                
                 // resetting password
                 if (checkusername == mainusername && checkhint == mainhint)
-                {
+                { ////// write update sql statement
                     rs.registerpassword = newpassword;
+                    rs.save();
                     MessageBox.Show("password have been resetted");
                 }
             }
