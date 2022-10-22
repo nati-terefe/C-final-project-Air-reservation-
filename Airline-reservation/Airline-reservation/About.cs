@@ -67,6 +67,10 @@ namespace Airline_reservation
             contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
+            ////////////// faq header button //////////////////
+            faqheaderbuttom.Parent = pictureBox1;
+            faqheaderbuttom.BackColor = Color.Transparent;
+            faqheaderbuttom.FlatAppearance.BorderSize = 0;
 
 
         }
@@ -83,10 +87,9 @@ namespace Airline_reservation
 
         private void loginheaderbutton_Click(object sender, EventArgs e)
         {
-            register r = new register();
+           
             login l = new login();
-            contact c = new contact();
-            About a = new About();
+           
             l.Show();
             Hide();
         }
@@ -124,6 +127,13 @@ namespace Airline_reservation
         private void donebutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void faqheaderbuttom_Click(object sender, EventArgs e)
+        {
+           FAQ a = new FAQ();
+            a.Show();
+            Hide();
         }
     }
 }

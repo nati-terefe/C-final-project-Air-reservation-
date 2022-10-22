@@ -27,49 +27,53 @@ namespace Airline_reservation
         private void register_Load(object sender, EventArgs e)
         {
             // making the labels and the logo transparent 
-            usernamelabel.Parent = phoneerror;
+            usernamelabel.Parent = bgpic;
             usernamelabel.BackColor = Color.Transparent;
-            passwordlabel.Parent = phoneerror;
+            passwordlabel.Parent = bgpic;
             passwordlabel.BackColor = Color.Transparent;
-            firstnamelabel.Parent = phoneerror;
+            firstnamelabel.Parent = bgpic;
             firstnamelabel.BackColor = Color.Transparent;
-            lastnamelabel.Parent = phoneerror;
+            lastnamelabel.Parent = bgpic;
             lastnamelabel.BackColor = Color.Transparent;
-            emaillabel.Parent = phoneerror;
+            emaillabel.Parent = bgpic;
             emaillabel.BackColor = Color.Transparent;
-            phonelabel.Parent = phoneerror;
+            phonelabel.Parent = bgpic;
             phonelabel.BackColor = Color.Transparent;
-            birthdatelabel.Parent = phoneerror;
+            birthdatelabel.Parent = bgpic;
             birthdatelabel.BackColor = Color.Transparent;
-            genderlabel.Parent = phoneerror;
+            genderlabel.Parent = bgpic;
             genderlabel.BackColor = Color.Transparent;
-            registerlabel.Parent = phoneerror;
+            registerlabel.Parent = bgpic;
             registerlabel.BackColor = Color.Transparent;
-            profilepicturelabel.Parent = phoneerror;
+            profilepicturelabel.Parent = bgpic;
             profilepicturelabel.BackColor = Color.Transparent;
-            logo.Parent = phoneerror;
+            logo.Parent = bgpic;
             logo.BackColor = Color.Transparent;
-            hintlable.Parent = phoneerror;
+            hintlable.Parent = bgpic;
             hintlable.BackColor = Color.Transparent;
 
             /////making the buttons transparent
 
             ///////////////////login header button ///////////////////
-            loginheaderbutton.Parent = phoneerror;
+            loginheaderbutton.Parent = bgpic;
             loginheaderbutton.BackColor = Color.Transparent;
             loginheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
             ////////////// register header button //////////////////
-            registerheaderbutton.Parent = phoneerror;
+            registerheaderbutton.Parent = bgpic;
             registerheaderbutton.BackColor = Color.Transparent;
             registerheaderbutton.FlatAppearance.BorderSize = 0;
             ////////////// About us header button //////////////////
-            aboutheaderbutton.Parent = phoneerror;
+            aboutheaderbutton.Parent = bgpic;
             aboutheaderbutton.BackColor = Color.Transparent;
             aboutheaderbutton.FlatAppearance.BorderSize = 0;
             ////////////// contact us header button //////////////////
-            contactheaderbutton.Parent = phoneerror;
+            contactheaderbutton.Parent = bgpic;
             contactheaderbutton.BackColor = Color.Transparent;
             contactheaderbutton.FlatAppearance.BorderSize = 0;
+            ////////////// faq header button //////////////////
+            faqheaderbuttom.Parent = bgpic;
+            faqheaderbuttom.BackColor = Color.Transparent;
+            faqheaderbuttom.FlatAppearance.BorderSize = 0;
 
 
 
@@ -225,6 +229,13 @@ namespace Airline_reservation
         private void donebutton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void faqheaderbuttom_Click(object sender, EventArgs e)
+        {
+            FAQ f = new FAQ();
+            f.Show();
+            Hide();
         }
     }
 }

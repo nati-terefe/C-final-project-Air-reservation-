@@ -83,6 +83,12 @@
       <DependentUpon>contact.cs</DependentUpon>
     </Compile>
     <Compile Include="contactstore.cs" />
+    <Compile Include="FAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FAQ.Designer.cs">
+      <DependentUpon>FAQ.cs</DependentUpon>
+    </Compile>
     <Compile Include="flightinfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="contact.resx">
       <DependentUpon>contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FAQ.resx">
+      <DependentUpon>FAQ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forgotpassword.resx">
       <DependentUpon>forgotpassword.cs</DependentUpon>

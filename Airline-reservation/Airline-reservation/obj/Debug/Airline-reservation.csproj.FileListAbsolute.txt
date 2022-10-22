@@ -36,3 +36,4 @@ C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_
 C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.Homepage_admin.resources
 C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.Ticket.resources
 C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.ticketform.resources
+C:\Users\user\Desktop\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.FAQ.resources

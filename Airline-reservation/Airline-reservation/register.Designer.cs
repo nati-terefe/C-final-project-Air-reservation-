@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(register));
             this.logo = new System.Windows.Forms.PictureBox();
-            this.phoneerror = new System.Windows.Forms.PictureBox();
+            this.bgpic = new System.Windows.Forms.PictureBox();
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.lastnamelabel = new System.Windows.Forms.Label();
             this.emaillabel = new System.Windows.Forms.Label();
@@ -72,8 +72,9 @@
             this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
             this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
             this.piclocation = new System.Windows.Forms.TextBox();
+            this.faqheaderbuttom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phoneerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).BeginInit();
             this.gendergroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
@@ -98,16 +99,16 @@
             this.logo.TabIndex = 6;
             this.logo.TabStop = false;
             // 
-            // phoneerror
+            // bgpic
             // 
-            this.phoneerror.Image = ((System.Drawing.Image)(resources.GetObject("phoneerror.Image")));
-            this.phoneerror.Location = new System.Drawing.Point(-3, 0);
-            this.phoneerror.Name = "phoneerror";
-            this.phoneerror.Size = new System.Drawing.Size(916, 522);
-            this.phoneerror.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.phoneerror.TabIndex = 7;
-            this.phoneerror.TabStop = false;
-            this.phoneerror.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.bgpic.Image = ((System.Drawing.Image)(resources.GetObject("bgpic.Image")));
+            this.bgpic.Location = new System.Drawing.Point(-3, 0);
+            this.bgpic.Name = "bgpic";
+            this.bgpic.Size = new System.Drawing.Size(916, 522);
+            this.bgpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bgpic.TabIndex = 7;
+            this.bgpic.TabStop = false;
+            this.bgpic.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // firstnamelabel
             // 
@@ -468,11 +469,25 @@
             this.piclocation.Size = new System.Drawing.Size(135, 20);
             this.piclocation.TabIndex = 40;
             // 
+            // faqheaderbuttom
+            // 
+            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.faqheaderbuttom.Location = new System.Drawing.Point(482, 462);
+            this.faqheaderbuttom.Name = "faqheaderbuttom";
+            this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
+            this.faqheaderbuttom.TabIndex = 47;
+            this.faqheaderbuttom.Text = "FAQ";
+            this.faqheaderbuttom.UseVisualStyleBackColor = false;
+            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
+            // 
             // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 525);
+            this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.piclocation);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
@@ -503,14 +518,14 @@
             this.Controls.Add(this.lastnamelabel);
             this.Controls.Add(this.firstnamelabel);
             this.Controls.Add(this.logo);
-            this.Controls.Add(this.phoneerror);
+            this.Controls.Add(this.bgpic);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "register";
             this.Text = "register";
             this.Load += new System.EventHandler(this.register_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.phoneerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bgpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).EndInit();
             this.gendergroupbox.ResumeLayout(false);
             this.gendergroupbox.PerformLayout();
@@ -531,7 +546,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.PictureBox phoneerror;
+        private System.Windows.Forms.PictureBox bgpic;
         private System.Windows.Forms.Label firstnamelabel;
         private System.Windows.Forms.Label lastnamelabel;
         private System.Windows.Forms.Label emaillabel;
@@ -572,5 +587,6 @@
         private System.Windows.Forms.ErrorProvider passworderror;
         private System.Windows.Forms.ErrorProvider hinterror;
         private System.Windows.Forms.TextBox piclocation;
+        private System.Windows.Forms.Button faqheaderbuttom;
     }
 }
