@@ -167,11 +167,12 @@ namespace Airline_reservation
             bool button = oneway.Checked;
             flighttype = button ? "Oneway" : "Round trip";
             // getting value from combo box
-            string selectedfrom = fromcomboBox.SelectedItem.ToString();
-            string selectedto = tocomboBox.SelectedItem.ToString();
-            string flightclass = flightclasscomboBox.SelectedItem.ToString();
-            string selectedage = agecomboBox.SelectedItem.ToString();
-            string selecteddate = departuredate.Value.ToString();
+            string selectedfrom = fromcomboBox.Text.ToString();
+
+            string selectedto = tocomboBox.Text.ToString();
+            string flightclass = flightclasscomboBox.Text.ToString();
+            string selectedage = agecomboBox.Text.ToString();
+            string selecteddate = departuredate.Text.ToString();
 
 
 
@@ -263,6 +264,39 @@ namespace Airline_reservation
 
                     tf.flowLayoutPanel1.Controls.Add(tick);
                     tf.Show();
+                }
+                // flight price determining
+                if (flightclass == "First class" && flighttype == "Oneway")
+                {
+                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                  "\n" + "From:" + "                    " + selectedfrom +
+                                   "\n" + "TO:" + "                    " + selectedto +
+                                "\n" + "Bill:" + "                          " + "101,000");
+                }
+                if (flightclass == "Economy class" && flighttype == "Round trip")
+                {
+                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                 "\n" + "From:" + "                    " + selectedfrom +
+                                   "\n" + "TO:" + "                    " + selectedto +
+                                "\n" + "Bill:" + "                          " + "120,000");
+                }
+                if (flightclass == "First class" && flighttype == "Round trip")
+                {
+                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                 "\n" + "From:" + "                    " + selectedfrom +
+                                   "\n" + "TO:" + "                    " + selectedto +
+                                "\n" + "Bill:" + "                          " + "250,000");
+                }
+                if (flightclass == "Economy class" && flighttype == "Oneway")
+                {
+                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                 "\n" + "From:" + "                    " + selectedfrom +
+                                   "\n" + "TO:" + "                    " + selectedto +
+                                "\n" + "Bill:" + "                          " + "85,000");
                 }
             }
 

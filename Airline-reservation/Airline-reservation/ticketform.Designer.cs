@@ -86,11 +86,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(775, 322);
+            this.ClientSize = new System.Drawing.Size(771, 327);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.printbutton);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ticketform";
             this.Text = "ticketform";
             this.Load += new System.EventHandler(this.ticketform_Load);
