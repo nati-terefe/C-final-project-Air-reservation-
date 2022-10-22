@@ -132,5 +132,16 @@ namespace Airline_reservation
         {
 
         }
+
+        private void editflightbutton_Click(object sender, EventArgs e)
+        {
+            flight_edit fe = new flight_edit();
+            fe.Show();
+        }
+
+        private void Backupdb_Click(object sender, EventArgs e)
+        {
+            // write back up sql code 
+        }
     }
 }

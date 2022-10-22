@@ -89,6 +89,12 @@
     <Compile Include="FAQ.Designer.cs">
       <DependentUpon>FAQ.cs</DependentUpon>
     </Compile>
+    <Compile Include="flight edit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="flight edit.Designer.cs">
+      <DependentUpon>flight edit.cs</DependentUpon>
+    </Compile>
     <Compile Include="flightinfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FAQ.resx">
       <DependentUpon>FAQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="flight edit.resx">
+      <DependentUpon>flight edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forgotpassword.resx">
       <DependentUpon>forgotpassword.cs</DependentUpon>

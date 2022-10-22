@@ -52,6 +52,8 @@
             this.usernameblank = new System.Windows.Forms.TextBox();
             this.savebutton = new System.Windows.Forms.Button();
             this.Editprofile = new System.Windows.Forms.Button();
+            this.editflightbutton = new System.Windows.Forms.Button();
+            this.Backupdb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
@@ -202,7 +204,7 @@
             this.addadminbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.addadminbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addadminbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addadminbutton.Location = new System.Drawing.Point(597, 103);
+            this.addadminbutton.Location = new System.Drawing.Point(597, 71);
             this.addadminbutton.Name = "addadminbutton";
             this.addadminbutton.Size = new System.Drawing.Size(120, 35);
             this.addadminbutton.TabIndex = 79;
@@ -284,19 +286,47 @@
             this.Editprofile.BackColor = System.Drawing.Color.Transparent;
             this.Editprofile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Editprofile.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Editprofile.Location = new System.Drawing.Point(615, 201);
+            this.Editprofile.Location = new System.Drawing.Point(597, 201);
             this.Editprofile.Name = "Editprofile";
-            this.Editprofile.Size = new System.Drawing.Size(144, 32);
+            this.Editprofile.Size = new System.Drawing.Size(120, 32);
             this.Editprofile.TabIndex = 89;
             this.Editprofile.Text = "Edit profile";
             this.Editprofile.UseVisualStyleBackColor = false;
             this.Editprofile.Click += new System.EventHandler(this.Editprofile_Click_1);
+            // 
+            // editflightbutton
+            // 
+            this.editflightbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.editflightbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editflightbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editflightbutton.Location = new System.Drawing.Point(345, 12);
+            this.editflightbutton.Name = "editflightbutton";
+            this.editflightbutton.Size = new System.Drawing.Size(120, 35);
+            this.editflightbutton.TabIndex = 90;
+            this.editflightbutton.Text = "Edit flight";
+            this.editflightbutton.UseVisualStyleBackColor = false;
+            this.editflightbutton.Click += new System.EventHandler(this.editflightbutton_Click);
+            // 
+            // Backupdb
+            // 
+            this.Backupdb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.Backupdb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Backupdb.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Backupdb.Location = new System.Drawing.Point(597, 128);
+            this.Backupdb.Name = "Backupdb";
+            this.Backupdb.Size = new System.Drawing.Size(120, 35);
+            this.Backupdb.TabIndex = 91;
+            this.Backupdb.Text = "Back up db";
+            this.Backupdb.UseVisualStyleBackColor = false;
+            this.Backupdb.Click += new System.EventHandler(this.Backupdb_Click);
             // 
             // Homepage_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Backupdb);
+            this.Controls.Add(this.editflightbutton);
             this.Controls.Add(this.Editprofile);
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.phoneblank);
@@ -355,5 +385,7 @@
         private System.Windows.Forms.TextBox usernameblank;
         private System.Windows.Forms.Button savebutton;
         private System.Windows.Forms.Button Editprofile;
+        private System.Windows.Forms.Button editflightbutton;
+        private System.Windows.Forms.Button Backupdb;
     }
 }

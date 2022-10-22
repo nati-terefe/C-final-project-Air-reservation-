@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(flight_edit));
             this.logo = new System.Windows.Forms.PictureBox();
-            this.editflightlabel = new System.Windows.Forms.Label();
+            this.editflight = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addbuttom = new System.Windows.Forms.Button();
             this.removebutton = new System.Windows.Forms.Button();
@@ -51,16 +51,16 @@
             this.logo.TabIndex = 42;
             this.logo.TabStop = false;
             // 
-            // editflightlabel
+            // editflight
             // 
-            this.editflightlabel.AutoSize = true;
-            this.editflightlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editflightlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.editflightlabel.Location = new System.Drawing.Point(298, 21);
-            this.editflightlabel.Name = "editflightlabel";
-            this.editflightlabel.Size = new System.Drawing.Size(340, 45);
-            this.editflightlabel.TabIndex = 41;
-            this.editflightlabel.Text = "Add/Remove flight";
+            this.editflight.AutoSize = true;
+            this.editflight.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editflight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.editflight.Location = new System.Drawing.Point(298, 21);
+            this.editflight.Name = "editflight";
+            this.editflight.Size = new System.Drawing.Size(340, 45);
+            this.editflight.TabIndex = 41;
+            this.editflight.Text = "Add/Remove flight";
             // 
             // pictureBox1
             // 
@@ -71,14 +71,13 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 40;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // addbuttom
             // 
             this.addbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.addbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addbuttom.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addbuttom.Location = new System.Drawing.Point(282, 256);
+            this.addbuttom.Location = new System.Drawing.Point(283, 300);
             this.addbuttom.Name = "addbuttom";
             this.addbuttom.Size = new System.Drawing.Size(120, 35);
             this.addbuttom.TabIndex = 45;
@@ -91,7 +90,7 @@
             this.removebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.removebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.removebutton.Location = new System.Drawing.Point(469, 256);
+            this.removebutton.Location = new System.Drawing.Point(498, 300);
             this.removebutton.Name = "removebutton";
             this.removebutton.Size = new System.Drawing.Size(120, 35);
             this.removebutton.TabIndex = 46;
@@ -102,10 +101,10 @@
             // removeaddtextbox
             // 
             this.removeaddtextbox.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
-            this.removeaddtextbox.Location = new System.Drawing.Point(319, 130);
+            this.removeaddtextbox.Location = new System.Drawing.Point(283, 127);
             this.removeaddtextbox.Multiline = true;
             this.removeaddtextbox.Name = "removeaddtextbox";
-            this.removeaddtextbox.Size = new System.Drawing.Size(230, 55);
+            this.removeaddtextbox.Size = new System.Drawing.Size(335, 167);
             this.removeaddtextbox.TabIndex = 48;
             // 
             // donebutton
@@ -131,11 +130,10 @@
             this.Controls.Add(this.removebutton);
             this.Controls.Add(this.addbuttom);
             this.Controls.Add(this.logo);
-            this.Controls.Add(this.editflightlabel);
+            this.Controls.Add(this.editflight);
             this.Controls.Add(this.pictureBox1);
             this.Name = "flight_edit";
             this.Text = "flight_edit";
-            this.Load += new System.EventHandler(this.flight_edit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
@@ -146,7 +144,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Label editflightlabel;
+        private System.Windows.Forms.Label editflight;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button addbuttom;
         private System.Windows.Forms.Button removebutton;
