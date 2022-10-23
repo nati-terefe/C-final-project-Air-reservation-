@@ -51,6 +51,7 @@
             this.phoneblank = new System.Windows.Forms.TextBox();
             this.savebutton = new System.Windows.Forms.Button();
             this.exitbutton = new System.Windows.Forms.Button();
+            this.searchbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
@@ -277,11 +278,25 @@
             this.exitbutton.UseVisualStyleBackColor = false;
             this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
             // 
+            // searchbutton
+            // 
+            this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchbutton.Location = new System.Drawing.Point(292, 12);
+            this.searchbutton.Name = "searchbutton";
+            this.searchbutton.Size = new System.Drawing.Size(120, 35);
+            this.searchbutton.TabIndex = 91;
+            this.searchbutton.Text = "Search";
+            this.searchbutton.UseVisualStyleBackColor = false;
+            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
+            // 
             // Homepage_client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.phoneblank);
@@ -339,5 +354,6 @@
         private System.Windows.Forms.TextBox phoneblank;
         private System.Windows.Forms.Button savebutton;
         private System.Windows.Forms.Button exitbutton;
+        private System.Windows.Forms.Button searchbutton;
     }
 }

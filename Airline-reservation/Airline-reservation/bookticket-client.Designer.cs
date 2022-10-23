@@ -72,6 +72,7 @@
             this.roundtrip = new System.Windows.Forms.RadioButton();
             this.flightgroupbox = new System.Windows.Forms.GroupBox();
             this.departureerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Viewbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flighttypeerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
@@ -462,11 +463,26 @@
             // 
             this.departureerror.ContainerControl = this;
             // 
+            // Viewbutton
+            // 
+            this.Viewbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.Viewbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Viewbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
+            this.Viewbutton.Location = new System.Drawing.Point(341, 371);
+            this.Viewbutton.Name = "Viewbutton";
+            this.Viewbutton.Size = new System.Drawing.Size(132, 35);
+            this.Viewbutton.TabIndex = 128;
+            this.Viewbutton.Text = "View Price";
+            this.Viewbutton.UseVisualStyleBackColor = false;
+            this.Viewbutton.Visible = false;
+            this.Viewbutton.Click += new System.EventHandler(this.Viewbutton_Click);
+            // 
             // bookticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 448);
+            this.Controls.Add(this.Viewbutton);
             this.Controls.Add(this.bookbutton);
             this.Controls.Add(this.agecomboBox);
             this.Controls.Add(this.flightclasscomboBox);
@@ -563,5 +579,6 @@
         private System.Windows.Forms.ErrorProvider lastnameerror;
         private System.Windows.Forms.ErrorProvider firstnameerror;
         private System.Windows.Forms.ErrorProvider departureerror;
+        private System.Windows.Forms.Button Viewbutton;
     }
 }

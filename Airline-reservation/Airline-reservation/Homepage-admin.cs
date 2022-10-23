@@ -143,5 +143,11 @@ namespace Airline_reservation
         {
             // write back up sql code 
         }
+
+        private void searchbutton_Click(object sender, EventArgs e)
+        {
+            search s=new search();
+            s.Show();
+        }
     }
 }

@@ -51,6 +51,8 @@ namespace Airline_reservation
             logo.BackColor = Color.Transparent;
             hintlable.Parent = bgpic;
             hintlable.BackColor = Color.Transparent;
+            questionlabel.Parent = bgpic;
+            questionlabel.BackColor = Color.Transparent;
 
             /////making the buttons transparent
 
@@ -145,6 +147,10 @@ namespace Airline_reservation
             {
                 hinterror.SetError(hinttextbox, "please enter hint");
             }
+            if (string.IsNullOrEmpty(questiontextbox.Text))
+            {
+                questionerror.SetError(questiontextbox, "please enter you're hint question");
+            }
 
             
             //////// validation for register
@@ -157,7 +163,8 @@ namespace Airline_reservation
                 && !string.IsNullOrEmpty(phonetextbox.Text) 
                 && !string.IsNullOrEmpty(passwordtextbox.Text) 
                 && !string.IsNullOrEmpty(gender)
-                && !string.IsNullOrEmpty(usernametextbox.Text))
+                && !string.IsNullOrEmpty(usernametextbox.Text)
+                && !string.IsNullOrEmpty(questiontextbox.Text))
             {
 
                 registerstore rs = new registerstore
@@ -173,6 +180,7 @@ namespace Airline_reservation
                     registerprofilepic = piclocation.Text,
                     registebirthdate = birthdate.Value.ToString(),
                     role = "client",
+                    question = questiontextbox.Text,
                    
                 };
                 rs.save();

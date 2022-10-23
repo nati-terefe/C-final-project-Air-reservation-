@@ -122,5 +122,11 @@ namespace Airline_reservation
             r.registeremail = emailblank.Text;
             r.registerphone = phoneblank.Text;
         }
+
+        private void searchbutton_Click(object sender, EventArgs e)
+        {
+            search s = new search();
+            s.Show();
+        }
     }
 }

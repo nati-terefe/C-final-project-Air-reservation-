@@ -44,11 +44,15 @@
             this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
             this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.questionlabel = new System.Windows.Forms.Label();
+            this.questiontextbox = new System.Windows.Forms.TextBox();
+            this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passworderror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -79,7 +83,7 @@
             this.usernamelabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usernamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernamelabel.ForeColor = System.Drawing.Color.Black;
-            this.usernamelabel.Location = new System.Drawing.Point(301, 98);
+            this.usernamelabel.Location = new System.Drawing.Point(301, 110);
             this.usernamelabel.Name = "usernamelabel";
             this.usernamelabel.Size = new System.Drawing.Size(131, 25);
             this.usernamelabel.TabIndex = 11;
@@ -100,7 +104,7 @@
             this.newpasswordlabel.BackColor = System.Drawing.Color.Transparent;
             this.newpasswordlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.newpasswordlabel.ForeColor = System.Drawing.Color.Black;
-            this.newpasswordlabel.Location = new System.Drawing.Point(301, 249);
+            this.newpasswordlabel.Location = new System.Drawing.Point(301, 328);
             this.newpasswordlabel.Name = "newpasswordlabel";
             this.newpasswordlabel.Size = new System.Drawing.Size(164, 25);
             this.newpasswordlabel.TabIndex = 13;
@@ -109,7 +113,7 @@
             // newpasswordtextbox
             // 
             this.newpasswordtextbox.ForeColor = System.Drawing.Color.Black;
-            this.newpasswordtextbox.Location = new System.Drawing.Point(297, 297);
+            this.newpasswordtextbox.Location = new System.Drawing.Point(297, 356);
             this.newpasswordtextbox.Name = "newpasswordtextbox";
             this.newpasswordtextbox.Size = new System.Drawing.Size(191, 20);
             this.newpasswordtextbox.TabIndex = 14;
@@ -118,7 +122,7 @@
             // 
             this.hinttextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hinttextbox.ForeColor = System.Drawing.Color.Black;
-            this.hinttextbox.Location = new System.Drawing.Point(297, 213);
+            this.hinttextbox.Location = new System.Drawing.Point(297, 286);
             this.hinttextbox.Name = "hinttextbox";
             this.hinttextbox.Size = new System.Drawing.Size(191, 20);
             this.hinttextbox.TabIndex = 36;
@@ -127,7 +131,7 @@
             // 
             this.hintlable.AutoSize = true;
             this.hintlable.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.hintlable.Location = new System.Drawing.Point(301, 171);
+            this.hintlable.Location = new System.Drawing.Point(301, 258);
             this.hintlable.Name = "hintlable";
             this.hintlable.Size = new System.Drawing.Size(74, 25);
             this.hintlable.TabIndex = 35;
@@ -151,7 +155,7 @@
             this.resetbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.resetbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resetbutton.Location = new System.Drawing.Point(516, 334);
+            this.resetbutton.Location = new System.Drawing.Point(526, 403);
             this.resetbutton.Name = "resetbutton";
             this.resetbutton.Size = new System.Drawing.Size(120, 35);
             this.resetbutton.TabIndex = 38;
@@ -164,7 +168,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(221, 334);
+            this.button1.Location = new System.Drawing.Point(198, 403);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 35);
             this.button1.TabIndex = 39;
@@ -184,11 +188,36 @@
             // 
             this.passworderror.ContainerControl = this;
             // 
+            // questionlabel
+            // 
+            this.questionlabel.AutoSize = true;
+            this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.questionlabel.Location = new System.Drawing.Point(301, 193);
+            this.questionlabel.Name = "questionlabel";
+            this.questionlabel.Size = new System.Drawing.Size(111, 25);
+            this.questionlabel.TabIndex = 49;
+            this.questionlabel.Text = "Question⁉";
+            // 
+            // questiontextbox
+            // 
+            this.questiontextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.questiontextbox.ForeColor = System.Drawing.Color.Black;
+            this.questiontextbox.Location = new System.Drawing.Point(297, 221);
+            this.questiontextbox.Name = "questiontextbox";
+            this.questiontextbox.Size = new System.Drawing.Size(191, 20);
+            this.questiontextbox.TabIndex = 50;
+            // 
+            // questionerror
+            // 
+            this.questionerror.ContainerControl = this;
+            // 
             // forgotpassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.questiontextbox);
+            this.Controls.Add(this.questionlabel);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.resetbutton);
             this.Controls.Add(this.resetpassword);
@@ -208,6 +237,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passworderror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,5 +259,8 @@
         private System.Windows.Forms.ErrorProvider usernameerror;
         private System.Windows.Forms.ErrorProvider hinterror;
         private System.Windows.Forms.ErrorProvider passworderror;
+        private System.Windows.Forms.Label questionlabel;
+        private System.Windows.Forms.TextBox questiontextbox;
+        private System.Windows.Forms.ErrorProvider questionerror;
     }
 }

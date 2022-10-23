@@ -54,6 +54,7 @@
             this.Editprofile = new System.Windows.Forms.Button();
             this.editflightbutton = new System.Windows.Forms.Button();
             this.Backupdb = new System.Windows.Forms.Button();
+            this.searchbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
@@ -299,11 +300,11 @@
             this.editflightbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.editflightbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editflightbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editflightbutton.Location = new System.Drawing.Point(345, 12);
+            this.editflightbutton.Location = new System.Drawing.Point(12, 277);
             this.editflightbutton.Name = "editflightbutton";
-            this.editflightbutton.Size = new System.Drawing.Size(120, 35);
+            this.editflightbutton.Size = new System.Drawing.Size(158, 35);
             this.editflightbutton.TabIndex = 90;
-            this.editflightbutton.Text = "Edit flight";
+            this.editflightbutton.Text = "Edit available flight";
             this.editflightbutton.UseVisualStyleBackColor = false;
             this.editflightbutton.Click += new System.EventHandler(this.editflightbutton_Click);
             // 
@@ -320,11 +321,25 @@
             this.Backupdb.UseVisualStyleBackColor = false;
             this.Backupdb.Click += new System.EventHandler(this.Backupdb_Click);
             // 
+            // searchbutton
+            // 
+            this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.searchbutton.Location = new System.Drawing.Point(345, 12);
+            this.searchbutton.Name = "searchbutton";
+            this.searchbutton.Size = new System.Drawing.Size(120, 35);
+            this.searchbutton.TabIndex = 92;
+            this.searchbutton.Text = "Search";
+            this.searchbutton.UseVisualStyleBackColor = false;
+            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
+            // 
             // Homepage_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.Backupdb);
             this.Controls.Add(this.editflightbutton);
             this.Controls.Add(this.Editprofile);
@@ -387,5 +402,6 @@
         private System.Windows.Forms.Button Editprofile;
         private System.Windows.Forms.Button editflightbutton;
         private System.Windows.Forms.Button Backupdb;
+        private System.Windows.Forms.Button searchbutton;
     }
 }

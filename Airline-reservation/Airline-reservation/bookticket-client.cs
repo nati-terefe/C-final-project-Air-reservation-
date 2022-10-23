@@ -117,7 +117,7 @@ namespace Airline_reservation
 
 
                 // making the book button visiable when next button is clicked
-                this.bookbutton.Visible = true;
+                this.Viewbutton.Visible = true;
                 this.nextbutton.Visible = false;
 
                 //making some of the labels, text box's and combobox visible when next button is pushed 
@@ -265,6 +265,95 @@ namespace Airline_reservation
                     tf.flowLayoutPanel1.Controls.Add(tick);
                     tf.Show();
                 }
+
+               
+            }
+
+
+
+            
+        }
+
+        private void Viewbutton_Click(object sender, EventArgs e)
+        {
+
+            // getting the selected radio button
+            string gender;
+
+            bool b1 = Male.Checked;
+            gender = b1 ? "male" : "female"; // ternary operator
+
+            string flighttype;
+            bool button = oneway.Checked;
+            flighttype = button ? "Oneway" : "Round trip";
+            // getting value from combo box
+            string selectedfrom = fromcomboBox.Text.ToString();
+
+            string selectedto = tocomboBox.Text.ToString();
+            string flightclass = flightclasscomboBox.Text.ToString();
+            string selectedage = agecomboBox.Text.ToString();
+            string selecteddate = departuredate.Text.ToString();
+            MessageBox.Show(selectedto);
+
+
+
+            // error provider code
+            if (string.IsNullOrEmpty(firstnametextbox.Text))
+            {
+                firstnameerror.SetError(firstnametextbox, "please enter First name");
+            }
+            if (string.IsNullOrEmpty(lastnametextbox.Text))
+            {
+                lastnameerror.SetError(lastnametextbox, "please enter Last name");
+            }
+            if (string.IsNullOrEmpty(emailtextbox.Text))
+            {
+                emailerror.SetError(emailtextbox, "please enter you're Email ");
+            }
+            if (string.IsNullOrEmpty(gender))
+            {
+                gendererror.SetError(gendergroupbox, "please select you're gender");
+            }
+
+            if (string.IsNullOrEmpty(selectedfrom))
+            {
+                fromerror.SetError(fromcomboBox, "please enter you're from");
+            }
+
+            if (string.IsNullOrEmpty(selectedto))
+            {
+                toerror.SetError(tocomboBox, "please select you're to");
+            }
+            if (string.IsNullOrEmpty(flightclass))
+            {
+                flightclasserror.SetError(flightclasscomboBox, "please selec you're flight class");
+            }
+            if (string.IsNullOrEmpty(selectedage))
+            {
+                ageerror.SetError(agecomboBox, "please select you're age group");
+            }
+            if (string.IsNullOrEmpty(flighttype))
+            {
+                flighttypeerror.SetError(flightgroupbox, "please select you're flight group");
+            }
+            if (string.IsNullOrEmpty(selecteddate))
+            {
+                departureerror.SetError(departuredate, "please select you're departure date");
+            }
+            if (string.IsNullOrEmpty(passporttextbox.Text))
+            {
+                flighttypeerror.SetError(passporttextbox, "please select you're passport number");
+            }
+
+
+
+            if (!string.IsNullOrEmpty(flighttype)
+               && !string.IsNullOrEmpty(selectedage)
+               && !string.IsNullOrEmpty(gender)
+               && !string.IsNullOrEmpty(selectedfrom)
+               && !string.IsNullOrEmpty(selectedto)
+               && !string.IsNullOrEmpty(flightclass))
+            {
                 // flight price determining
                 if (flightclass == "First class" && flighttype == "Oneway")
                 {
@@ -298,11 +387,11 @@ namespace Airline_reservation
                                    "\n" + "TO:" + "                    " + selectedto +
                                 "\n" + "Bill:" + "                          " + "85,000");
                 }
+                
+                this.bookbutton.Visible = true;
+               
+               
             }
-
-
-
-            
         }
     }
 }

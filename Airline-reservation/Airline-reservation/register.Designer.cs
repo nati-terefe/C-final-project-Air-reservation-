@@ -73,6 +73,9 @@
             this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
             this.piclocation = new System.Windows.Forms.TextBox();
             this.faqheaderbuttom = new System.Windows.Forms.Button();
+            this.questionlabel = new System.Windows.Forms.Label();
+            this.questiontextbox = new System.Windows.Forms.TextBox();
+            this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.profilepicture)).BeginInit();
@@ -86,6 +89,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passworderror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
             this.SuspendLayout();
             // 
             // logo
@@ -346,7 +350,7 @@
             // 
             this.hintlable.AutoSize = true;
             this.hintlable.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.hintlable.Location = new System.Drawing.Point(274, 399);
+            this.hintlable.Location = new System.Drawing.Point(274, 434);
             this.hintlable.Name = "hintlable";
             this.hintlable.Size = new System.Drawing.Size(66, 25);
             this.hintlable.TabIndex = 33;
@@ -356,7 +360,7 @@
             // 
             this.hinttextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hinttextbox.ForeColor = System.Drawing.Color.Black;
-            this.hinttextbox.Location = new System.Drawing.Point(413, 404);
+            this.hinttextbox.Location = new System.Drawing.Point(413, 439);
             this.hinttextbox.Name = "hinttextbox";
             this.hinttextbox.Size = new System.Drawing.Size(191, 20);
             this.hinttextbox.TabIndex = 34;
@@ -366,7 +370,7 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.Location = new System.Drawing.Point(242, 462);
+            this.contactheaderbutton.Location = new System.Drawing.Point(243, 479);
             this.contactheaderbutton.Name = "contactheaderbutton";
             this.contactheaderbutton.Size = new System.Drawing.Size(119, 34);
             this.contactheaderbutton.TabIndex = 38;
@@ -379,7 +383,7 @@
             this.aboutheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutheaderbutton.Location = new System.Drawing.Point(367, 462);
+            this.aboutheaderbutton.Location = new System.Drawing.Point(368, 479);
             this.aboutheaderbutton.Name = "aboutheaderbutton";
             this.aboutheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.aboutheaderbutton.TabIndex = 37;
@@ -392,7 +396,7 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.Location = new System.Drawing.Point(127, 462);
+            this.registerheaderbutton.Location = new System.Drawing.Point(127, 479);
             this.registerheaderbutton.Name = "registerheaderbutton";
             this.registerheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.registerheaderbutton.TabIndex = 36;
@@ -405,7 +409,7 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.Location = new System.Drawing.Point(12, 462);
+            this.loginheaderbutton.Location = new System.Drawing.Point(12, 479);
             this.loginheaderbutton.Name = "loginheaderbutton";
             this.loginheaderbutton.Size = new System.Drawing.Size(109, 34);
             this.loginheaderbutton.TabIndex = 35;
@@ -474,7 +478,7 @@
             this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.faqheaderbuttom.Location = new System.Drawing.Point(482, 462);
+            this.faqheaderbuttom.Location = new System.Drawing.Point(483, 479);
             this.faqheaderbuttom.Name = "faqheaderbuttom";
             this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
             this.faqheaderbuttom.TabIndex = 47;
@@ -482,11 +486,36 @@
             this.faqheaderbuttom.UseVisualStyleBackColor = false;
             this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
             // 
+            // questionlabel
+            // 
+            this.questionlabel.AutoSize = true;
+            this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.questionlabel.Location = new System.Drawing.Point(276, 399);
+            this.questionlabel.Name = "questionlabel";
+            this.questionlabel.Size = new System.Drawing.Size(111, 25);
+            this.questionlabel.TabIndex = 48;
+            this.questionlabel.Text = "Question⁉";
+            // 
+            // questiontextbox
+            // 
+            this.questiontextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.questiontextbox.ForeColor = System.Drawing.Color.Black;
+            this.questiontextbox.Location = new System.Drawing.Point(413, 404);
+            this.questiontextbox.Name = "questiontextbox";
+            this.questiontextbox.Size = new System.Drawing.Size(191, 20);
+            this.questiontextbox.TabIndex = 49;
+            // 
+            // questionerror
+            // 
+            this.questionerror.ContainerControl = this;
+            // 
             // register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 525);
+            this.Controls.Add(this.questiontextbox);
+            this.Controls.Add(this.questionlabel);
             this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.piclocation);
             this.Controls.Add(this.donebutton);
@@ -538,6 +567,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passworderror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -588,5 +618,8 @@
         private System.Windows.Forms.ErrorProvider hinterror;
         private System.Windows.Forms.TextBox piclocation;
         private System.Windows.Forms.Button faqheaderbuttom;
+        private System.Windows.Forms.TextBox questiontextbox;
+        private System.Windows.Forms.Label questionlabel;
+        private System.Windows.Forms.ErrorProvider questionerror;
     }
 }

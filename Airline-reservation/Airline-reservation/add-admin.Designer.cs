@@ -68,6 +68,9 @@
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.logo = new System.Windows.Forms.PictureBox();
             this.bgpic = new System.Windows.Forms.PictureBox();
+            this.questionlabel = new System.Windows.Forms.Label();
+            this.questiontextbox = new System.Windows.Forms.TextBox();
+            this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailerror)).BeginInit();
@@ -81,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
             this.SuspendLayout();
             // 
             // piclocation
@@ -129,7 +133,7 @@
             this.donebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.donebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.donebutton.Location = new System.Drawing.Point(781, 426);
+            this.donebutton.Location = new System.Drawing.Point(779, 478);
             this.donebutton.Name = "donebutton";
             this.donebutton.Size = new System.Drawing.Size(120, 35);
             this.donebutton.TabIndex = 70;
@@ -153,7 +157,7 @@
             // 
             this.hinttextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hinttextbox.ForeColor = System.Drawing.Color.Black;
-            this.hinttextbox.Location = new System.Drawing.Point(415, 406);
+            this.hinttextbox.Location = new System.Drawing.Point(415, 454);
             this.hinttextbox.Name = "hinttextbox";
             this.hinttextbox.Size = new System.Drawing.Size(191, 20);
             this.hinttextbox.TabIndex = 65;
@@ -162,7 +166,7 @@
             // 
             this.hintlable.AutoSize = true;
             this.hintlable.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.hintlable.Location = new System.Drawing.Point(276, 401);
+            this.hintlable.Location = new System.Drawing.Point(278, 454);
             this.hintlable.Name = "hintlable";
             this.hintlable.Size = new System.Drawing.Size(66, 25);
             this.hintlable.TabIndex = 64;
@@ -233,7 +237,7 @@
             this.createbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.createbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createbutton.Location = new System.Drawing.Point(639, 426);
+            this.createbutton.Location = new System.Drawing.Point(642, 478);
             this.createbutton.Name = "createbutton";
             this.createbutton.Size = new System.Drawing.Size(120, 35);
             this.createbutton.TabIndex = 58;
@@ -411,11 +415,36 @@
             this.bgpic.TabIndex = 42;
             this.bgpic.TabStop = false;
             // 
+            // questionlabel
+            // 
+            this.questionlabel.AutoSize = true;
+            this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.questionlabel.Location = new System.Drawing.Point(276, 406);
+            this.questionlabel.Name = "questionlabel";
+            this.questionlabel.Size = new System.Drawing.Size(111, 25);
+            this.questionlabel.TabIndex = 72;
+            this.questionlabel.Text = "Question⁉";
+            // 
+            // questiontextbox
+            // 
+            this.questiontextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.questiontextbox.ForeColor = System.Drawing.Color.Black;
+            this.questiontextbox.Location = new System.Drawing.Point(415, 411);
+            this.questiontextbox.Name = "questiontextbox";
+            this.questiontextbox.Size = new System.Drawing.Size(191, 20);
+            this.questiontextbox.TabIndex = 73;
+            // 
+            // questionerror
+            // 
+            this.questionerror.ContainerControl = this;
+            // 
             // add_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 525);
+            this.Controls.Add(this.questiontextbox);
+            this.Controls.Add(this.questionlabel);
             this.Controls.Add(this.piclocation);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.hinttextbox);
@@ -460,6 +489,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,5 +535,8 @@
         private System.Windows.Forms.ErrorProvider passworderror;
         private System.Windows.Forms.ErrorProvider phonerror;
         private System.Windows.Forms.ErrorProvider hinterror;
+        private System.Windows.Forms.Label questionlabel;
+        private System.Windows.Forms.TextBox questiontextbox;
+        private System.Windows.Forms.ErrorProvider questionerror;
     }
 }
