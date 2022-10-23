@@ -35,7 +35,7 @@
             this.passwordtextbox = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.loginbutton = new System.Windows.Forms.Button();
             this.usernamelabel = new System.Windows.Forms.Label();
             this.forgotbutton = new System.Windows.Forms.Button();
             this.loginheaderbutton = new System.Windows.Forms.Button();
@@ -45,7 +45,6 @@
             this.closebutton = new System.Windows.Forms.Button();
             this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.faqheaderbuttom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
@@ -58,9 +57,10 @@
             this.passwordlabel.BackColor = System.Drawing.Color.Transparent;
             this.passwordlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordlabel.ForeColor = System.Drawing.Color.Black;
-            this.passwordlabel.Location = new System.Drawing.Point(353, 231);
+            this.passwordlabel.Location = new System.Drawing.Point(471, 284);
+            this.passwordlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordlabel.Name = "passwordlabel";
-            this.passwordlabel.Size = new System.Drawing.Size(121, 25);
+            this.passwordlabel.Size = new System.Drawing.Size(154, 31);
             this.passwordlabel.TabIndex = 1;
             this.passwordlabel.Text = "🔒Password";
             // 
@@ -68,54 +68,58 @@
             // 
             this.usernametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernametextbox.ForeColor = System.Drawing.Color.Black;
-            this.usernametextbox.Location = new System.Drawing.Point(345, 183);
+            this.usernametextbox.Location = new System.Drawing.Point(460, 225);
+            this.usernametextbox.Margin = new System.Windows.Forms.Padding(4);
             this.usernametextbox.Name = "usernametextbox";
-            this.usernametextbox.Size = new System.Drawing.Size(191, 20);
+            this.usernametextbox.Size = new System.Drawing.Size(253, 23);
             this.usernametextbox.TabIndex = 2;
             // 
             // passwordtextbox
             // 
             this.passwordtextbox.ForeColor = System.Drawing.Color.Black;
-            this.passwordtextbox.Location = new System.Drawing.Point(345, 259);
+            this.passwordtextbox.Location = new System.Drawing.Point(460, 319);
+            this.passwordtextbox.Margin = new System.Windows.Forms.Padding(4);
             this.passwordtextbox.Name = "passwordtextbox";
-            this.passwordtextbox.Size = new System.Drawing.Size(191, 20);
+            this.passwordtextbox.PasswordChar = '*';
+            this.passwordtextbox.Size = new System.Drawing.Size(253, 22);
             this.passwordtextbox.TabIndex = 3;
-            this.passwordtextbox.TextChanged += new System.EventHandler(this.passwordtextbox_TextChanged);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(910, 523);
+            this.pictureBox1.Size = new System.Drawing.Size(1213, 644);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // logo
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(-8, -2);
+            this.logo.Location = new System.Drawing.Point(-11, -2);
+            this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(255, 135);
+            this.logo.Size = new System.Drawing.Size(340, 166);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 5;
             this.logo.TabStop = false;
             // 
-            // button1
+            // loginbutton
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(544, 355);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "login";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.loginbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.loginbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginbutton.Location = new System.Drawing.Point(725, 437);
+            this.loginbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.loginbutton.Name = "loginbutton";
+            this.loginbutton.Size = new System.Drawing.Size(136, 43);
+            this.loginbutton.TabIndex = 6;
+            this.loginbutton.Text = "login";
+            this.loginbutton.UseVisualStyleBackColor = false;
+            this.loginbutton.Click += new System.EventHandler(this.loginbutton_Click);
             // 
             // usernamelabel
             // 
@@ -124,21 +128,22 @@
             this.usernamelabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usernamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernamelabel.ForeColor = System.Drawing.Color.Black;
-            this.usernamelabel.Location = new System.Drawing.Point(353, 155);
+            this.usernamelabel.Location = new System.Drawing.Point(471, 191);
+            this.usernamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernamelabel.Name = "usernamelabel";
-            this.usernamelabel.Size = new System.Drawing.Size(131, 25);
+            this.usernamelabel.Size = new System.Drawing.Size(166, 31);
             this.usernamelabel.TabIndex = 0;
             this.usernamelabel.Text = "👨User name";
-            this.usernamelabel.Click += new System.EventHandler(this.usernamelabel_Click);
             // 
             // forgotbutton
             // 
             this.forgotbutton.BackColor = System.Drawing.Color.Transparent;
             this.forgotbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.forgotbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.forgotbutton.Location = new System.Drawing.Point(345, 307);
+            this.forgotbutton.Location = new System.Drawing.Point(460, 378);
+            this.forgotbutton.Margin = new System.Windows.Forms.Padding(4);
             this.forgotbutton.Name = "forgotbutton";
-            this.forgotbutton.Size = new System.Drawing.Size(144, 32);
+            this.forgotbutton.Size = new System.Drawing.Size(192, 39);
             this.forgotbutton.TabIndex = 8;
             this.forgotbutton.Text = "Forgot password❓";
             this.forgotbutton.UseVisualStyleBackColor = false;
@@ -149,9 +154,10 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.Location = new System.Drawing.Point(243, 21);
+            this.loginheaderbutton.Location = new System.Drawing.Point(337, 26);
+            this.loginheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.loginheaderbutton.Name = "loginheaderbutton";
-            this.loginheaderbutton.Size = new System.Drawing.Size(109, 34);
+            this.loginheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.loginheaderbutton.TabIndex = 9;
             this.loginheaderbutton.Text = "login";
             this.loginheaderbutton.UseVisualStyleBackColor = false;
@@ -161,9 +167,10 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.Location = new System.Drawing.Point(358, 21);
+            this.registerheaderbutton.Location = new System.Drawing.Point(494, 26);
+            this.registerheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.registerheaderbutton.Name = "registerheaderbutton";
-            this.registerheaderbutton.Size = new System.Drawing.Size(109, 34);
+            this.registerheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.registerheaderbutton.TabIndex = 10;
             this.registerheaderbutton.Text = "Register";
             this.registerheaderbutton.UseVisualStyleBackColor = false;
@@ -174,9 +181,10 @@
             this.aboutheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutheaderbutton.Location = new System.Drawing.Point(598, 21);
+            this.aboutheaderbutton.Location = new System.Drawing.Point(814, 26);
+            this.aboutheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.aboutheaderbutton.Name = "aboutheaderbutton";
-            this.aboutheaderbutton.Size = new System.Drawing.Size(109, 34);
+            this.aboutheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.aboutheaderbutton.TabIndex = 11;
             this.aboutheaderbutton.Text = "About us";
             this.aboutheaderbutton.UseVisualStyleBackColor = false;
@@ -187,9 +195,10 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.Location = new System.Drawing.Point(473, 21);
+            this.contactheaderbutton.Location = new System.Drawing.Point(647, 26);
+            this.contactheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.contactheaderbutton.Name = "contactheaderbutton";
-            this.contactheaderbutton.Size = new System.Drawing.Size(119, 34);
+            this.contactheaderbutton.Size = new System.Drawing.Size(159, 42);
             this.contactheaderbutton.TabIndex = 12;
             this.contactheaderbutton.Text = "Contact us";
             this.contactheaderbutton.UseVisualStyleBackColor = false;
@@ -200,9 +209,10 @@
             this.closebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.closebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.closebutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.closebutton.Location = new System.Drawing.Point(308, 355);
+            this.closebutton.Location = new System.Drawing.Point(411, 437);
+            this.closebutton.Margin = new System.Windows.Forms.Padding(4);
             this.closebutton.Name = "closebutton";
-            this.closebutton.Size = new System.Drawing.Size(97, 35);
+            this.closebutton.Size = new System.Drawing.Size(129, 43);
             this.closebutton.TabIndex = 13;
             this.closebutton.Text = "Close";
             this.closebutton.UseVisualStyleBackColor = false;
@@ -216,32 +226,18 @@
             // 
             this.passworderror.ContainerControl = this;
             // 
-            // faqheaderbuttom
-            // 
-            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.faqheaderbuttom.Location = new System.Drawing.Point(713, 21);
-            this.faqheaderbuttom.Name = "faqheaderbuttom";
-            this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
-            this.faqheaderbuttom.TabIndex = 48;
-            this.faqheaderbuttom.Text = "FAQ";
-            this.faqheaderbuttom.UseVisualStyleBackColor = false;
-            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
-            // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 519);
-            this.Controls.Add(this.faqheaderbuttom);
+            this.ClientSize = new System.Drawing.Size(1200, 639);
             this.Controls.Add(this.closebutton);
             this.Controls.Add(this.contactheaderbutton);
             this.Controls.Add(this.aboutheaderbutton);
             this.Controls.Add(this.registerheaderbutton);
             this.Controls.Add(this.loginheaderbutton);
             this.Controls.Add(this.forgotbutton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.loginbutton);
             this.Controls.Add(this.usernamelabel);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.passwordtextbox);
@@ -250,6 +246,7 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "login";
             this.Text = "login";
             this.Load += new System.EventHandler(this.login_Load);
@@ -264,9 +261,11 @@
 
         #endregion
         private System.Windows.Forms.Label passwordlabel;
+        private System.Windows.Forms.TextBox usernametextbox;
+        private System.Windows.Forms.TextBox passwordtextbox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox logo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button loginbutton;
         private System.Windows.Forms.Label usernamelabel;
         private System.Windows.Forms.Button forgotbutton;
         private System.Windows.Forms.Button loginheaderbutton;
@@ -276,9 +275,6 @@
         private System.Windows.Forms.Button closebutton;
         private System.Windows.Forms.ErrorProvider usernameerror;
         private System.Windows.Forms.ErrorProvider passworderror;
-        public System.Windows.Forms.TextBox usernametextbox;
-        public System.Windows.Forms.TextBox passwordtextbox;
-        private System.Windows.Forms.Button faqheaderbuttom;
     }
 }
 

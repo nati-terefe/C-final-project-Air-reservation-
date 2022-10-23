@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Import Statments
 
 namespace Airline_reservation
 {
@@ -17,72 +19,37 @@ namespace Airline_reservation
             InitializeComponent();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void login_Load(object sender, EventArgs e)
-        {  // making the labels and logo transparent 
+        private void login_Load(object sender, EventArgs e) // Function for Initial loading of Login Window
+        {   // Usename Label
             usernamelabel.Parent = pictureBox1;
-            usernamelabel.BackColor = Color.Transparent;
+            usernamelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Password Label
             passwordlabel.Parent = pictureBox1;
-            passwordlabel.BackColor = Color.Transparent;
+            passwordlabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Logo
             logo.Parent = pictureBox1;
-            logo.BackColor = Color.Transparent;
-            //making the header buttons transparent
-            //menuStrip1.Parent = pictureBox1;
-            //menuStrip1.BackColor = Color.Transparent;
-
-            /////making the buttons transparent
+            logo.BackColor = Color.Transparent; // Making Logo Transparent
+            // Forgot Password Button
             forgotbutton.Parent = pictureBox1;
-            forgotbutton.BackColor = Color.Transparent;
-            forgotbutton.FlatAppearance.BorderSize = 0;// removing the boarder of the button
-            ///////////////////login header button ///////////////////
+            forgotbutton.BackColor = Color.Transparent; // Making Button Transparent
+            forgotbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
+            // login Header Button 
             loginheaderbutton.Parent=pictureBox1;
-            loginheaderbutton.BackColor = Color.Transparent;
-            loginheaderbutton.FlatAppearance.BorderSize=0;
-            ////////////// register header button //////////////////
+            loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            loginheaderbutton.FlatAppearance.BorderSize=1; // Creating Border of Button to show its the current window
+            loginheaderbutton.FlatAppearance.BorderColor = Color.Gray; // Making Border color gray
+            // Register Header Button
             registerheaderbutton.Parent = pictureBox1;
-            registerheaderbutton.BackColor = Color.Transparent;
-            registerheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// About us header button //////////////////
+            registerheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            registerheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
+            // About Us Header Button
             aboutheaderbutton.Parent = pictureBox1;
-            aboutheaderbutton.BackColor = Color.Transparent;
-            aboutheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// contact us header button //////////////////
-           contactheaderbutton.Parent = pictureBox1;
-            contactheaderbutton.BackColor = Color.Transparent;
-            contactheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// faq header button //////////////////
-            faqheaderbuttom.Parent = pictureBox1;
-            faqheaderbuttom.BackColor = Color.Transparent;
-            faqheaderbuttom.FlatAppearance.BorderSize = 0;
-
-
-
-        }
-
-        private void usernamelabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void passwordtextbox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void usernametextbox_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-           
-
+            aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            aboutheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
+            // Contact Us Header Button 
+            contactheaderbutton.Parent = pictureBox1;
+            contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            contactheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
         }
 
         private void registerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,93 +77,127 @@ namespace Airline_reservation
             screen.Show();
         }
 
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        private void forgotbutton_Click(object sender, EventArgs e) //Listener Function when forgot password button is clicked
         {
-
+            forgotpassword f = new forgotpassword(); //Declaring new Forgot Password Window
+            f.Show(); //Show forgot password Window
         }
 
-        private void forgotbutton_Click(object sender, EventArgs e)
+        private void registerheaderbutton_Click(object sender, EventArgs e) //Listener Function when register button at the header is clicked
         {
-            forgotpassword f = new forgotpassword();
-            f.Show();
+            register r = new register(); //Declaring new Register Window
+            r.Show(); //Show Register Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void registerheaderbutton_Click(object sender, EventArgs e)
+        private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
         {
-            register r = new register();
-            login l = new login();
-            contact c = new contact();
-            About a = new About();
-
-            
-
-            r.Show();
-            Hide();
-           
-
+            About a = new About(); //Declaring new About Window
+            a.Show(); //Show About Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void aboutheaderbutton_Click(object sender, EventArgs e)
+        private void contactheaderbutton_Click(object sender, EventArgs e) //Listener Function when contact button at the header is clicked
         {
-            contact c = new contact();
-            About a = new About();
-            a.Show();
-            Hide();
+            contact c = new contact(); //Declaring new Contact Window
+            c.Show(); //Show Contact Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void contactheaderbutton_Click(object sender, EventArgs e)
+        private void closebutton_Click(object sender, EventArgs e) //Listener Function when close button is clicked
         {
-            contact c = new contact();
-            About a = new About();
-             c.Show();
-            Hide();
+            this.Close(); //Close Current Window
         }
 
-        private void closebutton_Click(object sender, EventArgs e)
+        private void loginbutton_Click(object sender, EventArgs e) //Listener Function when login button is clicked
         {
-            this.Close();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string username=usernametextbox.Text;
-            string password=passwordtextbox.Text;
-            if (password == "admin" && username=="admin")
+            string username = usernametextbox.Text; //Declaring Variable and Assigning
+            string password = passwordtextbox.Text; //Declaring Variable and Assigning
+            usernameerror.Clear(); //Clearing Username Error Provider
+            passworderror.Clear(); //Clearing Psername Error Provider
+            if (string.IsNullOrEmpty(usernametextbox.Text)) //Selection for Empty Username
             {
-                Homepage_admin ha = new Homepage_admin(username);
-                ha.Show();
+                usernameerror.Clear(); //Clearing Username Error Provider
+                usernameerror.SetError(usernametextbox, "User name can't be empty"); //Setting Username Error Provider
             }
-            else if (password == "client"&&username == "client")
+            if (string.IsNullOrEmpty(passwordtextbox.Text)) //Selection for Empty Password
             {
-                Homepage_client hc = new Homepage_client(username);
-                hc.Show();
+                passworderror.Clear(); //Clearing Psername Error Provider
+                passworderror.SetError(passwordtextbox, "Password can't be empty"); //Setting Password Error Provider
             }
-            loginstore ls = new loginstore
+            if (!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(passwordtextbox.Text)) //Selection for Non Empty Username and Password
             {
-                loginusername = usernametextbox.Text,
-                loginpassword = passwordtextbox.Text,
-            };
-            ls.save();
-            if (string.IsNullOrEmpty(usernametextbox.Text))
-            {
-                usernameerror.SetError(usernametextbox, "user name can't be left empty");
+                if (Convert.ToInt32(usernametextbox.Text.ToString().Length) < 4) //Selection for Short Username
+                {
+                    usernameerror.Clear(); //Clearing Username Error Provider
+                    usernameerror.SetError(usernametextbox, "Username must at least be 4 characters long"); //Setting Username Error Provider
+                }
+                if (Convert.ToInt32(usernametextbox.Text.ToString().Length) < 4) //Selection for Short Password
+                {
+                    passworderror.Clear(); //Clearing Psername Error Provider
+                    passworderror.SetError(passwordtextbox, "Password must at least be 4 characters long"); //Setting Password Error Provider
+                }
+                else if (usernametextbox.Text.Length > 4 && passwordtextbox.Text.Length > 4) //Selection for Non Short Username and Password
+                {
+                    usernameerror.Clear(); //Clearing Username Error Provider
+                    passworderror.Clear(); //Clearing Psername Error Provider
+                    String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                    //Declaring and Assigning Connection String
+                    using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                    {
+                        SqlCommand cmd = new SqlCommand("select rol from login where usrname='" + usernametextbox.Text + "' and passwd='" + passwordtextbox.Text + "'", con);
+                        // Sql Command to return rol of the inserted login info from database
+                        con.Open(); //Opening Connection
+                        var role = Convert.ToInt32(cmd.ExecuteScalar()); // Converting returned type of object to int
+                        if (role == 1) // Selection of Admins
+                        {
+                            SqlCommand cmd2 = new SqlCommand("Insert into loginhistory values('" + usernametextbox.Text + "', " + role + ", Getdate());", con);
+                            // Sql Command to insert successful Login into Login History on database
+                            int rowaffected = cmd2.ExecuteNonQuery(); // Executing the Insert Query
+                            if (rowaffected > 0) // Selection for Successful Insert
+                            {
+                                MessageBox.Show("Admin Login Successful"); // Pop-up Message
+                            }
+                            else // Selection for UnSuccessful Insert
+                            {
+                                MessageBox.Show("Admin Login UnSuccessful"); // Pop-up Message
+                            }
+                        }
+                        else if (role == 2) // Selection of Sub-Admins
+                        {
+                            SqlCommand cmd3 = new SqlCommand("Insert into loginhistory values('" + usernametextbox.Text + "', " + role + ", Getdate());", con);
+                            // Sql Command to insert successful Login into Login History on database
+                            int rowaffected = cmd3.ExecuteNonQuery(); // Executing the Insert Query
+                            if (rowaffected > 0) // Selection for Successful Insert
+                            {
+                                MessageBox.Show("Sub Admin Login Successful"); // Pop-up Message
+                            }
+                            else // Selection for UnSuccessful Insert
+                            {
+                                MessageBox.Show("Sub Admin Login UnSuccessful"); // Pop-up Message
+                            }
+                        }
+                        else if (role == 3) // Selection of Users
+                        {
+                            SqlCommand cmd3 = new SqlCommand("Insert into loginhistory values('" + usernametextbox.Text + "', " + role + ", Getdate());", con);
+                            // Sql Command to insert successful Login into Login History on database
+                            int rowaffected = cmd3.ExecuteNonQuery(); // Executing the Insert Query
+                            if (rowaffected > 0) // Selection for Successful Insert
+                            {
+                                MessageBox.Show("User Login Successful"); // Pop-up Message
+                            }
+                            else // Selection for UnSuccessful Insert
+                            {
+                                MessageBox.Show("User Login UnSuccessful"); // Pop-up Message
+                            }
+                        }
+                        else // Selection of Wrong Credentials
+                        {
+                            MessageBox.Show("Incorrect Credentials. Try Again"); // Pop-up Message
+                        }
+                    }
+                }
             }
-            if (string.IsNullOrEmpty(passwordtextbox.Text))
-            {
-                passworderror.SetError(passwordtextbox, "password can't be left empty");
-            }
-             // login validation
-            if(!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(passwordtextbox.Text))
-            {
-                // the main page
-            }
-        }
-
-        private void faqheaderbuttom_Click(object sender, EventArgs e)
-        {
-            FAQ f = new FAQ();
-            f.Show();
-            Hide();
         }
     }
 }

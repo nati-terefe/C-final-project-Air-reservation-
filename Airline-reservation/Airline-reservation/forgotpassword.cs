@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Import Statments
 
 namespace Airline_reservation
 {
@@ -17,70 +19,56 @@ namespace Airline_reservation
             InitializeComponent();
         }
 
-        private void forgotpassword_Load(object sender, EventArgs e)
+        private void forgotpassword_Load(object sender, EventArgs e) // Function for Initial loading of Forgot Password Window
         {
+            // Logo
             logo.Parent = pictureBox1;
-            logo.BackColor = Color.Transparent;
+            logo.BackColor = Color.Transparent; // Making Logo Transparent
+            // Username Label
             usernamelabel.Parent = pictureBox1;
-            usernamelabel.BackColor = Color.Transparent;
+            usernamelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // New Password Label
             newpasswordlabel.Parent = pictureBox1;
-            newpasswordlabel.BackColor = Color.Transparent;
+            newpasswordlabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Hint Label
             hintlable.Parent = pictureBox1;
-            hintlable.BackColor = Color.Transparent;
-
+            hintlable.BackColor = Color.Transparent; // Making Label Transparent
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void resetbutton_Click(object sender, EventArgs e) //Listener Function when Reset button is clicked
         {
-            this.Close();
-        }
-
-        private void resetbutton_Click(object sender, EventArgs e)
-        {
-
-            forgotpasswordstore fp = new forgotpasswordstore
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
             {
-                fpusername = usernametextbox.Text,
-                fppassword = newpasswordtextbox.Text,
-                fphint= hinttextbox.Text,
-            };
-            if (string.IsNullOrEmpty(usernametextbox.Text))
-            {
-                usernameerror.SetError(usernametextbox, "user name can't be left empty");
-            }
-            if (string.IsNullOrEmpty(newpasswordtextbox.Text))
-            {
-                passworderror.SetError(newpasswordtextbox, "password can't be left empty");
-            }
-            if (string.IsNullOrEmpty(hinttextbox.Text))
-            {
-                hinterror.SetError(hinttextbox, "Hint can't be left empty");
-            }
-            if (string.IsNullOrEmpty(questiontextbox.Text))
-            {
-                questionerror.SetError(questiontextbox, "please enter you're hint question");
-            }
-            // login validation 
-            if (!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(newpasswordtextbox.Text) && !string.IsNullOrEmpty(hinttextbox.Text)&& !string.IsNullOrEmpty(questiontextbox.Text))
-            {
-                registerstore rs = new registerstore();
-                string checkusername = usernametextbox.Text;
-                string checkhint = hinttextbox.Text;
-                string newpassword = newpasswordtextbox.Text;
-                string checkquestion = questiontextbox.Text;
-                ////////////////////
-                string mainusername = rs.registerusername;
-                string mainhint = rs.registerhint;
-                string mainquestion = rs.question;
-                
-                // resetting password
-                if (checkusername == mainusername && checkhint == mainhint && checkquestion==mainquestion)
-                { ////// write update sql statement
-                    rs.registerpassword = newpassword;
-                    rs.save();
-                    MessageBox.Show("password have been resetted");
+                SqlCommand cmd = new SqlCommand("select hintA from login where usrname='" + usernametextbox.Text + "'", con);
+                // Sql Command to return Hint Answer of the inserted Username from database
+                con.Open(); //Opening Connection
+                String hintans = cmd.ExecuteScalar().ToString(); // Converting returned type of object to String
+                if (hintans.Equals(hinttextbox.Text)) // Selection of Correct Hint Answer
+                {
+                    SqlCommand cmd2 = new SqlCommand("update login set passwd='" + newpasswordtextbox.Text + "' where usrname='" + usernametextbox.Text + "'", con);
+                    // Sql Command to update password of inserted Username on database
+                    int rowaffected = cmd2.ExecuteNonQuery(); // Executing the Update Query
+                    if (rowaffected > 0) // Selection for Successful Update
+                    {
+                        MessageBox.Show("Password Reset Successful"); // Pop-up Message
+                    }
+                    else // Selection for UnSuccessful Update
+                    {
+                        MessageBox.Show("Password Reset UnSuccessful"); // Pop-up Message
+                    }
+                }
+                else // Selection of Wrong Hint Answer
+                {
+                    MessageBox.Show("Password Reset UnSuccessful"); // Pop-up Message
                 }
             }
+        }
+
+        private void btnclose_Click_1(object sender, EventArgs e) // Listener Function when Close button is clicked
+        {
+            this.Close(); // Closing Current (Forgot Password) Window
         }
     }
 }

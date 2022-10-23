@@ -28,14 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(contact));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
             this.firstnamelabel = new System.Windows.Forms.Label();
             this.lastnamelabel = new System.Windows.Forms.Label();
             this.emaillabel = new System.Windows.Forms.Label();
-            this.firstnametextbox = new System.Windows.Forms.TextBox();
+            this.usernametextbox = new System.Windows.Forms.TextBox();
             this.lastnametextbox = new System.Windows.Forms.TextBox();
             this.emailtextbox = new System.Windows.Forms.TextBox();
             this.messagelabel = new System.Windows.Forms.Label();
@@ -46,17 +45,8 @@
             this.registerheaderbutton = new System.Windows.Forms.Button();
             this.loginheaderbutton = new System.Windows.Forms.Button();
             this.donebutton = new System.Windows.Forms.Button();
-            this.firstnameerror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lastnameerror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.emailerror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.messageerror = new System.Windows.Forms.ErrorProvider(this.components);
-            this.faqheaderbuttom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emailerror)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.messageerror)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -111,14 +101,14 @@
             this.emaillabel.TabIndex = 23;
             this.emaillabel.Text = "Email";
             // 
-            // firstnametextbox
+            // usernametextbox
             // 
-            this.firstnametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.firstnametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.firstnametextbox.Location = new System.Drawing.Point(271, 143);
-            this.firstnametextbox.Name = "firstnametextbox";
-            this.firstnametextbox.Size = new System.Drawing.Size(121, 25);
-            this.firstnametextbox.TabIndex = 24;
+            this.usernametextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.usernametextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
+            this.usernametextbox.Location = new System.Drawing.Point(278, 143);
+            this.usernametextbox.Name = "usernametextbox";
+            this.usernametextbox.Size = new System.Drawing.Size(121, 25);
+            this.usernametextbox.TabIndex = 24;
             // 
             // lastnametextbox
             // 
@@ -142,7 +132,7 @@
             // 
             this.messagelabel.AutoSize = true;
             this.messagelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.messagelabel.Location = new System.Drawing.Point(288, 259);
+            this.messagelabel.Location = new System.Drawing.Point(273, 259);
             this.messagelabel.Name = "messagelabel";
             this.messagelabel.Size = new System.Drawing.Size(92, 25);
             this.messagelabel.TabIndex = 27;
@@ -152,7 +142,7 @@
             // 
             this.messagetextbox.Font = new System.Drawing.Font("Yu Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.messagetextbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(234)))), ((int)(((byte)(234)))), ((int)(((byte)(234)))));
-            this.messagetextbox.Location = new System.Drawing.Point(292, 287);
+            this.messagetextbox.Location = new System.Drawing.Point(295, 287);
             this.messagetextbox.Multiline = true;
             this.messagetextbox.Name = "messagetextbox";
             this.messagetextbox.Size = new System.Drawing.Size(288, 131);
@@ -236,41 +226,11 @@
             this.donebutton.UseVisualStyleBackColor = false;
             this.donebutton.Click += new System.EventHandler(this.donebutton_Click);
             // 
-            // firstnameerror
-            // 
-            this.firstnameerror.ContainerControl = this;
-            // 
-            // lastnameerror
-            // 
-            this.lastnameerror.ContainerControl = this;
-            // 
-            // emailerror
-            // 
-            this.emailerror.ContainerControl = this;
-            // 
-            // messageerror
-            // 
-            this.messageerror.ContainerControl = this;
-            // 
-            // faqheaderbuttom
-            // 
-            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.faqheaderbuttom.Location = new System.Drawing.Point(741, 12);
-            this.faqheaderbuttom.Name = "faqheaderbuttom";
-            this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
-            this.faqheaderbuttom.TabIndex = 49;
-            this.faqheaderbuttom.Text = "FAQ";
-            this.faqheaderbuttom.UseVisualStyleBackColor = false;
-            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
-            // 
             // contact
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 525);
-            this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
             this.Controls.Add(this.aboutheaderbutton);
@@ -281,7 +241,7 @@
             this.Controls.Add(this.messagelabel);
             this.Controls.Add(this.emailtextbox);
             this.Controls.Add(this.lastnametextbox);
-            this.Controls.Add(this.firstnametextbox);
+            this.Controls.Add(this.usernametextbox);
             this.Controls.Add(this.emaillabel);
             this.Controls.Add(this.lastnamelabel);
             this.Controls.Add(this.firstnamelabel);
@@ -292,10 +252,6 @@
             this.Load += new System.EventHandler(this.contact_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emailerror)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.messageerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,7 +264,7 @@
         private System.Windows.Forms.Label firstnamelabel;
         private System.Windows.Forms.Label lastnamelabel;
         private System.Windows.Forms.Label emaillabel;
-        private System.Windows.Forms.TextBox firstnametextbox;
+        private System.Windows.Forms.TextBox usernametextbox;
         private System.Windows.Forms.TextBox lastnametextbox;
         private System.Windows.Forms.TextBox emailtextbox;
         private System.Windows.Forms.Label messagelabel;
@@ -319,10 +275,5 @@
         private System.Windows.Forms.Button registerheaderbutton;
         private System.Windows.Forms.Button loginheaderbutton;
         private System.Windows.Forms.Button donebutton;
-        private System.Windows.Forms.ErrorProvider firstnameerror;
-        private System.Windows.Forms.ErrorProvider lastnameerror;
-        private System.Windows.Forms.ErrorProvider emailerror;
-        private System.Windows.Forms.ErrorProvider messageerror;
-        private System.Windows.Forms.Button faqheaderbuttom;
     }
 }

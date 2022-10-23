@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Import Statments
 
 namespace Airline_reservation
 {
@@ -15,235 +19,156 @@ namespace Airline_reservation
         public register()
         {
             InitializeComponent();
-            
-
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void register_Load(object sender, EventArgs e) // Function for Initial loading of Register Window
         {
-
-        }
-
-        private void register_Load(object sender, EventArgs e)
-        {
-            // making the labels and the logo transparent 
-            usernamelabel.Parent = bgpic;
-            usernamelabel.BackColor = Color.Transparent;
-            passwordlabel.Parent = bgpic;
-            passwordlabel.BackColor = Color.Transparent;
-            firstnamelabel.Parent = bgpic;
-            firstnamelabel.BackColor = Color.Transparent;
-            lastnamelabel.Parent = bgpic;
-            lastnamelabel.BackColor = Color.Transparent;
-            emaillabel.Parent = bgpic;
-            emaillabel.BackColor = Color.Transparent;
-            phonelabel.Parent = bgpic;
-            phonelabel.BackColor = Color.Transparent;
-            birthdatelabel.Parent = bgpic;
-            birthdatelabel.BackColor = Color.Transparent;
-            genderlabel.Parent = bgpic;
-            genderlabel.BackColor = Color.Transparent;
-            registerlabel.Parent = bgpic;
-            registerlabel.BackColor = Color.Transparent;
-            profilepicturelabel.Parent = bgpic;
-            profilepicturelabel.BackColor = Color.Transparent;
-            logo.Parent = bgpic;
-            logo.BackColor = Color.Transparent;
-            hintlable.Parent = bgpic;
-            hintlable.BackColor = Color.Transparent;
-            questionlabel.Parent = bgpic;
-            questionlabel.BackColor = Color.Transparent;
-
-            /////making the buttons transparent
-
-            ///////////////////login header button ///////////////////
-            loginheaderbutton.Parent = bgpic;
-            loginheaderbutton.BackColor = Color.Transparent;
+            // Username Label
+            usernamelabel.Parent = pictureBox1;
+            usernamelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Password Label
+            passwordlabel.Parent = pictureBox1;
+            passwordlabel.BackColor = Color.Transparent; // Making Label Transparent
+            // First Name Label
+            firstnamelabel.Parent = pictureBox1;
+            firstnamelabel.BackColor=Color.Transparent; // Making Label Transparent
+            // Last Name Label
+            lastnamelabel.Parent= pictureBox1;
+            lastnamelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Email Label
+            emaillabel.Parent = pictureBox1;
+            emaillabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Phone Label
+            phonelabel.Parent= pictureBox1;
+            phonelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Birthdate Label
+            birthdatelabel.Parent = pictureBox1;
+            birthdatelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Gender Label
+            genderlabel.Parent = pictureBox1;
+            genderlabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Register Label
+            registerlabel.Parent = pictureBox1;
+            registerlabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Profile Picture Label
+            profilepicturelabel.Parent = pictureBox1;
+            profilepicturelabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Logo
+            logo.Parent = pictureBox1;
+            logo.BackColor = Color.Transparent; // Making Logo Transparent
+            // Hint Label
+            hintlable.Parent = pictureBox1;
+            hintlable.BackColor = Color.Transparent; // Making Label Transparent
+            // Login Header Button
+            loginheaderbutton.Parent = pictureBox1;
+            loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             loginheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
-            ////////////// register header button //////////////////
-            registerheaderbutton.Parent = bgpic;
-            registerheaderbutton.BackColor = Color.Transparent;
-            registerheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// About us header button //////////////////
-            aboutheaderbutton.Parent = bgpic;
-            aboutheaderbutton.BackColor = Color.Transparent;
-            aboutheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// contact us header button //////////////////
-            contactheaderbutton.Parent = bgpic;
-            contactheaderbutton.BackColor = Color.Transparent;
-            contactheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// faq header button //////////////////
-            faqheaderbuttom.Parent = bgpic;
-            faqheaderbuttom.BackColor = Color.Transparent;
-            faqheaderbuttom.FlatAppearance.BorderSize = 0;
-
-
-
-
-
-
+            // Register Header Button
+            registerheaderbutton.Parent = pictureBox1;
+            registerheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            registerheaderbutton.FlatAppearance.BorderSize = 1; // Creating Border of Button to show its the current window
+            // About us Header Button 
+            aboutheaderbutton.Parent = pictureBox1;
+            aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            aboutheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
+            // Contact us Header Button 
+            contactheaderbutton.Parent = pictureBox1;
+            contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            contactheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
         }
 
-        private void upload_Click(object sender, EventArgs e)
+        private void upload_Click(object sender, EventArgs e) //Listener Function when upload button is clicked
         {
-            
-            registerstore s = new registerstore();
-
-            OpenFileDialog open = new OpenFileDialog();  // open file dialog   
-
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            // image filters  
-            if (open.ShowDialog() == DialogResult.OK)
+           
+            OpenFileDialog open = new OpenFileDialog();  // Creating New Open File Dialog   
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp"; 
+            // Filter for what type of files to be selected
+            if (open.ShowDialog() == DialogResult.OK) // Selection when user finish selecting image
             {
-
-                profilepicture.Image = new Bitmap(open.FileName);// display image in picture box  
-
-               piclocation.Text= open.FileName;  // image file path  
+                profilepicture.Image = new Bitmap(open.FileName); //Display image in picture box  
+                //textBox1.Text = open.FileName;  // image file path  
             }
         }
 
-        private void registerbutton_Click(object sender, EventArgs e)
-        {// getting the selected radio button
-
-            string gender;
-
-            bool b1 = Male.Checked;
-            gender = b1 ? "male" : "female"; // ternary operator
-            
-
-            
-
-            //error provider code
-            if (string.IsNullOrEmpty(firstnametextbox.Text))
+        private void registerbutton_Click(object sender, EventArgs e) //Listener Function when register button is clicked
+        {
+            string firstname, lastname, email, hint, phone, username, password; // Declaring Variables
+            firstname = firstnametextbox.Text; // Assigning Variables
+            lastname = lastnametextbox.Text; // Assigning Variables
+            email = emailtextbox.Text; // Assigning Variables
+            hint = hinttextbox.Text; // Assigning Variables
+            phone = phonetextbox.Text; // Assigning Variables
+            username = usernametextbox.Text; // Assigning Variables
+            password = passwordtextbox.Text; // Assigning Variables
+            registerbutton.BackColor = Color.Silver; // Changing back color of register button
+            donebutton.BackColor = Color.Red; // Changing back color of done button
+            char gender='M'; // Declaring Gender and setting default value
+            if (Male.Checked) // Selection for user selecting male
             {
-                firstnameerror.SetError(firstnametextbox, "please enter First name");
+                gender = 'M'; // Assigning Male
             }
-            if (string.IsNullOrEmpty(lastnametextbox.Text))
+            else if (Female.Checked) // Selection for user selecting female
             {
-                lastnameerror.SetError(lastnametextbox, "please enter Last name");
+                gender = 'F'; // Assigning Female
             }
-            if (string.IsNullOrEmpty(emailtextbox.Text))
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
             {
-                emailerror.SetError(emailtextbox, "please enter  your're Email name");
-            }
-            if (string.IsNullOrEmpty(phonetextbox.Text))
-            {
-                phonerror.SetError(phonetextbox,"please enter you're phone number");
-            }
-            
-            if (string.IsNullOrEmpty(gender))
-            {
-                gendererror.SetError(gendergroupbox, "please enter you're gender");
-            }
-            if (string.IsNullOrEmpty(usernametextbox.Text))
-            {
-                usernameerror.SetError(usernametextbox, "please enter user name");
-            }
-            if (string.IsNullOrEmpty(passwordtextbox.Text))
-            {
-                passworderror.SetError(passwordtextbox, "please enter password ");
-            }
-            if (string.IsNullOrEmpty(hinttextbox.Text))
-            {
-                hinterror.SetError(hinttextbox, "please enter hint");
-            }
-            if (string.IsNullOrEmpty(questiontextbox.Text))
-            {
-                questionerror.SetError(questiontextbox, "please enter you're hint question");
-            }
-
-            
-            //////// validation for register
-            if (!string.IsNullOrEmpty(firstnametextbox.Text) 
-                && !string.IsNullOrEmpty(lastnametextbox.Text) 
-                && !string.IsNullOrEmpty(emailtextbox.Text) 
-                && !string.IsNullOrEmpty(hinttextbox.Text) 
-                && !string.IsNullOrEmpty(birthdate.ToString()) 
-                && !string.IsNullOrEmpty(piclocation.Text)
-                && !string.IsNullOrEmpty(phonetextbox.Text) 
-                && !string.IsNullOrEmpty(passwordtextbox.Text) 
-                && !string.IsNullOrEmpty(gender)
-                && !string.IsNullOrEmpty(usernametextbox.Text)
-                && !string.IsNullOrEmpty(questiontextbox.Text))
-            {
-
-                registerstore rs = new registerstore
+                String query = "Insert into registered(fname, lname, email, phoneno, birthdate, gender, usrname, passwd, hintQ, hintA, profilepic) values('" + firstname + "','" + lastname + "', '" + email + "', '" + phone + "',@birthdate,'"+gender+"', '" + username + "', '" + password + "', 'Are you?', '"+hint+"',@photo);";
+                SqlCommand cmd = new SqlCommand(query, con);
+                // Sql Command to insert registerd value to databse
+                cmd.Parameters.Add("@birthdate", SqlDbType.Date).Value = birthdate.Value.Date; //Defining the command parameter for birthdate
+                conv_photo(cmd); // Calling function conv_photo that converts selected image into byte array and define the sql command parameter
+                con.Open(); //Opening Connection
+                int rowaffect= cmd.ExecuteNonQuery(); // Executing the Insert Query
+                if (rowaffect > 0) // Selection for Successful Insert
                 {
-                    registerfirstname = firstnametextbox.Text,
-                    registerlastname = lastnametextbox.Text,
-                    registeremail = emailtextbox.Text,
-                    registerhint = hinttextbox.Text,
-                    registerphone = phonetextbox.Text,
-                    registerusername = usernametextbox.Text,
-                    registerpassword = passwordtextbox.Text,
-                    registergender = gender,
-                    registerprofilepic = piclocation.Text,
-                    registebirthdate = birthdate.Value.ToString(),
-                    role = "client",
-                    question = questiontextbox.Text,
-                   
-                };
-                rs.save();
-
-                registerbutton.BackColor = Color.Silver;
-                donebutton.BackColor = Color.Red;
-                MessageBox.Show("You have been registered");
+                    MessageBox.Show("Register Successful"); // Pop-up Message
+                }
+                else // Selection for UnSuccessful Insert
+                {
+                    MessageBox.Show("Register UnSuccessful"); // Pop-up Message
+                }
+                
             }
-}
-
-    private void loginheaderbutton_Click(object sender, EventArgs e)
+        }
+        private void conv_photo(SqlCommand cmd) // Function that converts selected image into byte array and define the sql command parameter
         {
-
-            
-            login l = new login();
-            l.Show();
-            Hide();
-
-
-
-
-
-
+            if (profilepicture.Image != null) // Selection to make sure user selected picture
+            {
+                MemoryStream ms = new MemoryStream(); // Declaring memory stream
+                profilepicture.Image.Save(ms, ImageFormat.Jpeg); // Saving image on to memory stream
+                byte[] photo_aray = new byte[ms.Length]; // Declaring byte array with the length of the stored image on memory stream
+                ms.Position = 0; // Setting memory stream positon to 0
+                ms.Read(photo_aray, 0, photo_aray.Length); // Reading from o up to length
+                cmd.Parameters.AddWithValue("@photo", photo_aray); //Defining the command parameter for photo
+            }
+        }
+        private void loginheaderbutton_Click(object sender, EventArgs e) //Listener Function when login button at the header is clicked
+        {
+            login l = new login(); //Declaring new Login Window
+            l.Show(); //Show Login Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void registerheaderbutton_Click(object sender, EventArgs e)
+        private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
         {
-            
-            
+            About a = new About(); //Declaring new About Window
+            a.Show(); //Show About Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void contactheaderbutton_Click(object sender, EventArgs e)
+        private void contactheaderbutton_Click(object sender, EventArgs e) //Listener Function when contact button at the header is clicked
         {
-        
-            contact c = new contact();
-         
-
-            c.Show();
-            Hide();
-
+            contact c = new contact(); //Declaring new Contact Window
+            c.Show(); //Show Contact Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void aboutheaderbutton_Click(object sender, EventArgs e)
+        private void donebutton_Click(object sender, EventArgs e) //Listener Function when Done button is clicked
         {
-            register r = new register();
-            login l = new login();
-            contact c = new contact();
-            About a = new About();
-
-            a.Show();
-            Hide();
-        }
-
-        private void donebutton_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void faqheaderbuttom_Click(object sender, EventArgs e)
-        {
-            FAQ f = new FAQ();
-            f.Show();
-            Hide();
+            this.Close(); //Close Current Window
         }
     }
 }

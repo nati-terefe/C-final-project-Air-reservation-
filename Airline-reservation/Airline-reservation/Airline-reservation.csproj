@@ -52,68 +52,17 @@
     <Compile Include="About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="add-admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="add-admin.Designer.cs">
-      <DependentUpon>add-admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Booked-flights.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Booked-flights.Designer.cs">
-      <DependentUpon>Booked-flights.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Bookticket-admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Bookticket-admin.Designer.cs">
-      <DependentUpon>Bookticket-admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="bookticket-client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="bookticket-client.Designer.cs">
-      <DependentUpon>bookticket-client.cs</DependentUpon>
-    </Compile>
     <Compile Include="contact.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="contact.Designer.cs">
       <DependentUpon>contact.cs</DependentUpon>
     </Compile>
-    <Compile Include="contactstore.cs" />
-    <Compile Include="FAQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FAQ.Designer.cs">
-      <DependentUpon>FAQ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flight edit.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="flight edit.Designer.cs">
-      <DependentUpon>flight edit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="flightinfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forgotpassword.Designer.cs">
       <DependentUpon>forgotpassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forgotpasswordstore.cs" />
-    <Compile Include="Homepage-admin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Homepage-admin.Designer.cs">
-      <DependentUpon>Homepage-admin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Homepage-client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Homepage-client.Designer.cs">
-      <DependentUpon>Homepage-client.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -121,7 +70,6 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="loginstore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.cs">
@@ -130,57 +78,14 @@
     <Compile Include="register.Designer.cs">
       <DependentUpon>register.cs</DependentUpon>
     </Compile>
-    <Compile Include="registerstore.cs" />
-    <Compile Include="search.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="search.Designer.cs">
-      <DependentUpon>search.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Ticket.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Ticket.Designer.cs">
-      <DependentUpon>Ticket.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ticketform.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ticketform.Designer.cs">
-      <DependentUpon>ticketform.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="add-admin.resx">
-      <DependentUpon>add-admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Booked-flights.resx">
-      <DependentUpon>Booked-flights.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Bookticket-admin.resx">
-      <DependentUpon>Bookticket-admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="bookticket-client.resx">
-      <DependentUpon>bookticket-client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="contact.resx">
       <DependentUpon>contact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FAQ.resx">
-      <DependentUpon>FAQ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="flight edit.resx">
-      <DependentUpon>flight edit.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="forgotpassword.resx">
       <DependentUpon>forgotpassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Homepage-admin.resx">
-      <DependentUpon>Homepage-admin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Homepage-client.resx">
-      <DependentUpon>Homepage-client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -197,15 +102,6 @@
     </Compile>
     <EmbeddedResource Include="register.resx">
       <DependentUpon>register.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="search.resx">
-      <DependentUpon>search.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ticket.resx">
-      <DependentUpon>Ticket.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ticketform.resx">
-      <DependentUpon>ticketform.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
