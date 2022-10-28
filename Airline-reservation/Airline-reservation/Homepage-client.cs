@@ -81,8 +81,8 @@ namespace Airline_reservation
 
         private void bookedticketbutton_Click(object sender, EventArgs e) //Listener Function when Booked flights button is clicked
         {
-            Booked_flights bf = new Booked_flights(); // Declaring booked flight window
-            bf.Show(); // Show booked flight window
+            Bookticket bt = new Bookticket(usernameblank.Text, 2); // Declaring book ticket window
+            bt.Show(); //Show book ticket Window
         }
         private void Editprofile_Click(object sender, EventArgs e)
         {
@@ -119,7 +119,6 @@ namespace Airline_reservation
                 usernamelabel.Visible = false; // Hiding from page
                 usernameblank.Visible = false; // Hiding from page
                 Editprofile.Visible = false; // Hiding from page
-                searchbutton.Visible = false; // Hiding from page
                 bookticketbutton.Visible = false; // Hiding from page
                 bookedticketbutton.Visible = false; // Hiding from page
 
@@ -188,7 +187,6 @@ namespace Airline_reservation
                 usernamelabel.Visible = true; // Making Visible
                 usernameblank.Visible = true; // Making Visible
                 Editprofile.Visible = true; // Making Visible
-                searchbutton.Visible = true; // Making Visible
                 bookticketbutton.Visible = true; // Making Visible
                 bookedticketbutton.Visible = true; // Making Visible
                 welcomelabel.Text = "Welcome user"; // Changing text value
@@ -422,6 +420,53 @@ namespace Airline_reservation
         private void saveandexit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bookinghisbutton_Click(object sender, EventArgs e)
+        {
+            yourprofilelabel.Visible = false;
+            propicadmin.Visible = false;
+            usernamelabel.Visible = false;
+            usernameblank.Visible = false;
+            Editprofile.Visible = false;
+            bookedticketbutton.Visible = false;
+            bookticketbutton.Visible = false;
+            bookinghisbutton.Visible = false;
+            exitbutton.Visible = false;
+            welcomelabel.Text = "History of Booking";
+            gobackbutton.Visible = true;
+            dataGridView.BringToFront();
+            dataGridView.Visible = true;
+            
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+               
+                SqlDataAdapter adpt = new SqlDataAdapter("bookinghisofusr",con);
+                adpt.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                adpt.SelectCommand.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernameblank.Text; //Defining the command parameter for usrname
+                DataTable table = new DataTable();
+                adpt.Fill(table);
+                dataGridView.DataSource = table;
+                dataGridView.Columns[0].Width = 20;  // id
+            }
+        }
+
+        private void gobackbutton_Click(object sender, EventArgs e)
+        {
+            yourprofilelabel.Visible = true;
+            propicadmin.Visible = true;
+            usernamelabel.Visible = true;
+            usernameblank.Visible = true;
+            Editprofile.Visible = true;
+            bookedticketbutton.Visible = true;
+            bookticketbutton.Visible = true;
+            bookinghisbutton.Visible = true;
+            exitbutton.Visible = true;
+            welcomelabel.Text = "Welcome User";
+            gobackbutton.Visible = false;
+            dataGridView.Visible = false;
         }
     }
 }

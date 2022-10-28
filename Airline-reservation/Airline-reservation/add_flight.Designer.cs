@@ -99,7 +99,7 @@
             // 
             this.addflightlabel.AutoSize = true;
             this.addflightlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addflightlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.addflightlabel.ForeColor = System.Drawing.Color.Navy;
             this.addflightlabel.Location = new System.Drawing.Point(440, 81);
             this.addflightlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.addflightlabel.Name = "addflightlabel";

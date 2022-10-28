@@ -28,13 +28,20 @@ namespace Airline_reservation
         {
             InitializeComponent();
             loginusername = usrname;
+            edit = 0;
         }
 
+        public Bookticket(string usrname, int editview)
+        {
+            edit = editview;
+            InitializeComponent();
+            loginusername = usrname;
+        }
         public Bookticket(int editview)
         {
             edit = editview;
             InitializeComponent();
-            loginusername = "Non-USER";
+            loginusername = "admin";
         }
 
         private void Bookticket_admin_Load(object sender, EventArgs e)
@@ -133,6 +140,7 @@ namespace Airline_reservation
                 flightclasscomboBox.Visible = false;
                 departuredate.Visible = false;
                 Viewbutton.Visible = false;
+                deletebookingbutton.Visible = false;
                 donebtn.Text = "Done";
             }
         }
@@ -723,7 +731,7 @@ namespace Airline_reservation
             //Declaring and Assigning Connection String
             using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
             {
-                SqlCommand cmd = new SqlCommand("select dbo.ticketexist(@ticketid)", con);
+                SqlCommand cmd = new SqlCommand("select dbo.isticketyours(@ticketid, @usrname)", con);
                 // Sql Command to check if entered flight exist
                 // Using parametrized query to avoid sql injection attack
                 cmd.Parameters.Add("@ticketid", SqlDbType.VarChar, 1000).Value = enterticketidtextbox.Text; //Defining the command parameter for backup location
@@ -745,13 +753,14 @@ namespace Airline_reservation
                 enterticketiderror.Clear();
                 enterticketiderror.SetError(enterticketidtextbox, "Enter a valid Ticket ID");
             }
-            if (!isticketyours(loginusername))
+            else if (!isticketyours(loginusername) && loginusername!="admin")
             {
                 enterticketiderror.Clear();
                 enterticketiderror.SetError(enterticketidtextbox, "Can only Search tickets you booked");
             }
-            if (validticketid(enterticketidtextbox.Text) && isticketyours(loginusername))
+            if (validticketid(enterticketidtextbox.Text) && (isticketyours(loginusername) || loginusername == "admin"))
             {
+                enterticketiderror.Clear();
                 enterticketidlabel.Visible = false;
                 enterticketidtextbox.Visible = false;
                 searchbutton.Visible = false;
@@ -785,7 +794,7 @@ namespace Airline_reservation
                 departuredate.Visible = true;
                 Viewbutton.Visible = false;
                 editinfobutton.Visible = true;
-
+                deletebookingbutton.Visible = true;
                 flightgroupbox.Enabled = false;
                 firstnametextbox.ReadOnly = true;
                 lastnametextbox.ReadOnly= true;
@@ -857,7 +866,7 @@ namespace Airline_reservation
                 SqlCommand cmd = new SqlCommand("select dbo.ticketexist(@ticketid)", con);
                 // Sql Command to check if entered flight exist
                 // Using parametrized query to avoid sql injection attack
-                cmd.Parameters.Add("@ticketid", SqlDbType.VarChar, 1000).Value = ticketid; //Defining the command parameter for backup location
+                cmd.Parameters.Add("@ticketid", SqlDbType.Int).Value = Convert.ToInt32(ticketid); //Defining the command parameter for backup location
                 con.Open(); //Opening Connection
                 int existance = Convert.ToInt32(cmd.ExecuteScalar()); // Executing Query
                 if (existance <= 0)
@@ -881,6 +890,38 @@ namespace Airline_reservation
             departuredate.Enabled = true;
             
             donebtn.Text = "Discard";
+        }
+
+        private void deletebookingbutton_Click(object sender, EventArgs e)
+        {
+            double alreadypaid;
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlCommand cmd = new SqlCommand("select dbo.howmuchpaid(@ticketid)", con);
+                // Sql Command stored procedure to insert successful Login into Login History on database
+                con.Open();
+                // Using parametrized query to avoid sql injection attack
+                cmd.Parameters.Add("@ticketid", SqlDbType.VarChar, 30).Value = enterticketidtextbox.Text; //Defining the command parameter for usrname
+                alreadypaid = Convert.ToDouble(cmd.ExecuteScalar()); // Assigning output value of stored procedure by converting to int
+
+                SqlCommand cmd2 = new SqlCommand("deletebooking", con);
+                // Sql Command to check if entered flight exist
+                cmd2.CommandType = CommandType.StoredProcedure;
+                // Using parametrized query to avoid sql injection attack
+                cmd2.Parameters.Add("@ticketid", SqlDbType.Int).Value = Convert.ToInt32(enterticketidtextbox.Text); //Defining the command parameter for backup location
+                int rowaffected = cmd2.ExecuteNonQuery(); // Executing Query
+                if (rowaffected <= 0)
+                {
+                    MessageBox.Show("Unable to delete at the moment. Please try again");
+                }
+                else if (rowaffected > 0)
+                {
+                    MessageBox.Show("Booking tickets deleted successfully.\nYou will get 70% of paid amount which is: $ " + (alreadypaid*0.7).ToString());
+                    this.Close();
+                }
+            }
         }
     }
 }

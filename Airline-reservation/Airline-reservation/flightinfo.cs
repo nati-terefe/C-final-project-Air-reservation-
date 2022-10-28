@@ -57,6 +57,28 @@ namespace Airline_reservation
                 }
                 
             }
+            else if (full == 1)
+            {
+                String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                //Declaring and Assigning Connection String
+                using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                {
+                    SqlCommand cmd = new SqlCommand("addflight", con);
+                    // Sql Command stored procedure to insert successful Login into Login History on database
+                    con.Open(); // Opening Connection
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                    cmd.Parameters.Add("@dep", SqlDbType.VarChar, 30).Value = departure;
+                    cmd.Parameters.Add("@des", SqlDbType.VarChar, 30).Value = destination;
+                    cmd.Parameters.Add("@depdate", SqlDbType.Date).Value = departuretime;
+                    cmd.Parameters.Add("@pilot", SqlDbType.VarChar, 70).Value = pilot;
+                    cmd.Parameters.Add("@copilot", SqlDbType.VarChar, 70).Value = copilot;
+                    cmd.Parameters.Add("@availseat", SqlDbType.Int).Value = availseat;
+                    cmd.Parameters.Add("@duration", SqlDbType.Int).Value = duration;
+                    cmd.Parameters.Add("@planeref", SqlDbType.Int).Value = planeid;
+                    rowaffected = cmd.ExecuteNonQuery();
+                }
+
+            }
             return rowaffected; // Returning number of rows inserted
         }
         public static flightinfo getall(string flightid) // Function to return all data from list

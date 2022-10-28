@@ -36,7 +36,6 @@
             this.usernamelabel = new System.Windows.Forms.Label();
             this.Editprofile = new System.Windows.Forms.Button();
             this.exitbutton = new System.Windows.Forms.Button();
-            this.searchbutton = new System.Windows.Forms.Button();
             this.yourprofilelabel = new System.Windows.Forms.Label();
             this.usernameblank = new System.Windows.Forms.Label();
             this.bgpic = new System.Windows.Forms.PictureBox();
@@ -79,6 +78,9 @@
             this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.photoerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.cancelbutton = new System.Windows.Forms.Button();
+            this.bookinghisbutton = new System.Windows.Forms.Button();
+            this.gobackbutton = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             this.gendergroupbox.SuspendLayout();
@@ -94,6 +96,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // bookticketbutton
@@ -101,7 +104,7 @@
             this.bookticketbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookticketbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookticketbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookticketbutton.Location = new System.Drawing.Point(499, 232);
+            this.bookticketbutton.Location = new System.Drawing.Point(367, 227);
             this.bookticketbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookticketbutton.Name = "bookticketbutton";
             this.bookticketbutton.Size = new System.Drawing.Size(160, 43);
@@ -127,12 +130,12 @@
             this.bookedticketbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookedticketbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookedticketbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookedticketbutton.Location = new System.Drawing.Point(499, 333);
+            this.bookedticketbutton.Location = new System.Drawing.Point(674, 227);
             this.bookedticketbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookedticketbutton.Name = "bookedticketbutton";
             this.bookedticketbutton.Size = new System.Drawing.Size(160, 43);
             this.bookedticketbutton.TabIndex = 42;
-            this.bookedticketbutton.Text = "Booked Flights";
+            this.bookedticketbutton.Text = "Edit Bookings";
             this.bookedticketbutton.UseVisualStyleBackColor = false;
             this.bookedticketbutton.Click += new System.EventHandler(this.bookedticketbutton_Click);
             // 
@@ -175,20 +178,6 @@
             this.exitbutton.Text = " Exit";
             this.exitbutton.UseVisualStyleBackColor = false;
             this.exitbutton.Click += new System.EventHandler(this.exitbutton_Click);
-            // 
-            // searchbutton
-            // 
-            this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchbutton.Location = new System.Drawing.Point(499, 138);
-            this.searchbutton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchbutton.Name = "searchbutton";
-            this.searchbutton.Size = new System.Drawing.Size(160, 43);
-            this.searchbutton.TabIndex = 91;
-            this.searchbutton.Text = "Search";
-            this.searchbutton.UseVisualStyleBackColor = false;
-            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
             // 
             // yourprofilelabel
             // 
@@ -608,11 +597,57 @@
             this.cancelbutton.Visible = false;
             this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click_1);
             // 
+            // bookinghisbutton
+            // 
+            this.bookinghisbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.bookinghisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bookinghisbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.bookinghisbutton.Location = new System.Drawing.Point(519, 303);
+            this.bookinghisbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.bookinghisbutton.Name = "bookinghisbutton";
+            this.bookinghisbutton.Size = new System.Drawing.Size(160, 43);
+            this.bookinghisbutton.TabIndex = 155;
+            this.bookinghisbutton.Text = "Booking History";
+            this.bookinghisbutton.UseVisualStyleBackColor = false;
+            this.bookinghisbutton.Click += new System.EventHandler(this.bookinghisbutton_Click);
+            // 
+            // gobackbutton
+            // 
+            this.gobackbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.gobackbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gobackbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.gobackbutton.Location = new System.Drawing.Point(46, 500);
+            this.gobackbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.gobackbutton.Name = "gobackbutton";
+            this.gobackbutton.Size = new System.Drawing.Size(169, 43);
+            this.gobackbutton.TabIndex = 156;
+            this.gobackbutton.Text = "Go Back";
+            this.gobackbutton.UseVisualStyleBackColor = false;
+            this.gobackbutton.Visible = false;
+            this.gobackbutton.Click += new System.EventHandler(this.gobackbutton_Click);
+            // 
+            // dataGridView
+            // 
+            this.dataGridView.AllowUserToAddRows = false;
+            this.dataGridView.AllowUserToDeleteRows = false;
+            this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(251, 111);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.ReadOnly = true;
+            this.dataGridView.RowHeadersWidth = 51;
+            this.dataGridView.RowTemplate.Height = 24;
+            this.dataGridView.Size = new System.Drawing.Size(764, 329);
+            this.dataGridView.TabIndex = 157;
+            this.dataGridView.Visible = false;
+            // 
             // Homepage_client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.gobackbutton);
+            this.Controls.Add(this.bookinghisbutton);
             this.Controls.Add(this.cancelbutton);
             this.Controls.Add(this.propicadmin);
             this.Controls.Add(this.logoutbutton);
@@ -641,7 +676,6 @@
             this.Controls.Add(this.savebutton);
             this.Controls.Add(this.usernameblank);
             this.Controls.Add(this.yourprofilelabel);
-            this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.Editprofile);
             this.Controls.Add(this.usernamelabel);
@@ -649,6 +683,7 @@
             this.Controls.Add(this.logo);
             this.Controls.Add(this.bookticketbutton);
             this.Controls.Add(this.bgpic);
+            this.Controls.Add(this.dataGridView);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Homepage_client";
             this.Text = "Homepage_client";
@@ -669,6 +704,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -681,7 +717,6 @@
         private System.Windows.Forms.Label usernamelabel;
         private System.Windows.Forms.Button Editprofile;
         private System.Windows.Forms.Button exitbutton;
-        private System.Windows.Forms.Button searchbutton;
         private System.Windows.Forms.Label yourprofilelabel;
         private System.Windows.Forms.Label usernameblank;
         private System.Windows.Forms.PictureBox bgpic;
@@ -724,5 +759,8 @@
         private System.Windows.Forms.ErrorProvider questionerror;
         private System.Windows.Forms.ErrorProvider photoerror;
         private System.Windows.Forms.Button cancelbutton;
+        private System.Windows.Forms.Button bookinghisbutton;
+        private System.Windows.Forms.Button gobackbutton;
+        private System.Windows.Forms.DataGridView dataGridView;
     }
 }

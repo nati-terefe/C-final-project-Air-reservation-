@@ -218,7 +218,7 @@ namespace Airline_reservation
                 manageflightsbutton.Visible = false; // Hiding from page
                 bookticketbutton.Visible = false; // Hiding from page
                 viewdbbutton.Visible = false; // Hiding from page
-                
+                managedbookedbtn.Visible = false;
                 Backupdb.Visible = false; // Hiding from page
                 if (role == 1) // Selection for sub admin view to hide adding admin
                 {
@@ -297,6 +297,7 @@ namespace Airline_reservation
                 bookticketbutton.Visible = true; // Making Visible
                 viewdbbutton.Visible = true; // Making Visible
                 Backupdb.Visible = true; // Making Visible
+                managedbookedbtn.Visible = true;
                 if (role == 1) // Selection for sub admin view to hide adding admin
                 {
                     addadminbutton.Visible = true; // Making Visible

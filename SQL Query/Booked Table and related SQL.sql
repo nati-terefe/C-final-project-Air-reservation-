@@ -104,6 +104,34 @@ END
 
 select * from bookedtickets
 
+-- ------------------------------------------------------------------------------------
+
+GO
+-- 4. deletebooking procedure that deletes booking info of certain id
+CREATE or ALTER PROCEDURE deletebooking(
+@ticketid int
+)
+AS
+BEGIN
+delete from bookedtickets where id=@ticketid
+END
+
+select * from bookedtickets
+
+
+-- ------------------------------------------------------------------------------------
+
+GO
+-- 5. bookinghisofusr procedure that returns booking history of certain username
+CREATE or ALTER PROCEDURE bookinghisofusr(
+@usrname varchar(20)
+)
+AS
+BEGIN
+select * from bookedtickets where usrname=@usrname
+END
+
+
 -- ---------------------------------------------------------------------------------------------------------------
 -- Function on booked table --------------------------------------------------------------------------------------
 GO
@@ -121,7 +149,8 @@ select dbo.lastticketid()
 
 GO
 -- 2. Ticket exist function that returns if a ticket exists
-CREATE OR ALTER FUNCTION ticketexist(@ticketid int)
+CREATE OR ALTER FUNCTION ticketexist(
+@ticketid int)
 returns int
 as
 begin
@@ -157,9 +186,10 @@ returns int
 as
 begin
 declare @match int
-select @match=count(*) from bookedtickets where id=@ticketid and usrname='Non-USER'
+select @match=count(*) from bookedtickets where id=@ticketid and usrname=@usrname
 return @match
 end
 
 select dbo.isticketyours(2, 'Non-USER' )
 
+select * from bookedtickets

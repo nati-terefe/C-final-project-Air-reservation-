@@ -66,6 +66,7 @@ namespace Airline_reservation
                 dr2.Close();
             }
             depcomboBox.Text = "Addis Ababa";
+            cancelbutton.Text = "Cancel";
         }
         private bool validatename(string name)
         {
@@ -119,8 +120,15 @@ namespace Airline_reservation
         
         private void cancelbutton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Adding Flight Cancelled");
-            this.Close();
+            if(cancelbutton.Text.Equals("Done"))
+            {
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Adding Flight Cancelled");
+                this.Close();
+            }
         }
 
         private void addflightbutton_Click(object sender, EventArgs e)
@@ -189,6 +197,8 @@ namespace Airline_reservation
                 if (rowaffected > 0)
                 {
                     MessageBox.Show("Flight added successfully");
+                    cancelbutton.Text = "Done";
+
                 }
                 else
                 {

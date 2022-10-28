@@ -78,6 +78,7 @@
             this.searchbutton = new System.Windows.Forms.Button();
             this.editinfobutton = new System.Windows.Forms.Button();
             this.enterticketiderror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.deletebookingbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightclasserror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toerror)).BeginInit();
@@ -437,9 +438,9 @@
             this.passportlabel.Location = new System.Drawing.Point(608, 191);
             this.passportlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passportlabel.Name = "passportlabel";
-            this.passportlabel.Size = new System.Drawing.Size(235, 31);
+            this.passportlabel.Size = new System.Drawing.Size(175, 31);
             this.passportlabel.TabIndex = 105;
-            this.passportlabel.Text = "Passport number🔢";
+            this.passportlabel.Text = "Passport ID🔢";
             // 
             // emaillabel
             // 
@@ -552,7 +553,7 @@
             this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
-            this.searchbutton.Location = new System.Drawing.Point(815, 253);
+            this.searchbutton.Location = new System.Drawing.Point(828, 250);
             this.searchbutton.Margin = new System.Windows.Forms.Padding(4);
             this.searchbutton.Name = "searchbutton";
             this.searchbutton.Size = new System.Drawing.Size(176, 43);
@@ -581,11 +582,27 @@
             // 
             this.enterticketiderror.ContainerControl = this;
             // 
+            // deletebookingbutton
+            // 
+            this.deletebookingbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.deletebookingbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deletebookingbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
+            this.deletebookingbutton.Location = new System.Drawing.Point(863, 420);
+            this.deletebookingbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.deletebookingbutton.Name = "deletebookingbutton";
+            this.deletebookingbutton.Size = new System.Drawing.Size(176, 43);
+            this.deletebookingbutton.TabIndex = 134;
+            this.deletebookingbutton.Text = "Delete Booking";
+            this.deletebookingbutton.UseVisualStyleBackColor = false;
+            this.deletebookingbutton.Visible = false;
+            this.deletebookingbutton.Click += new System.EventHandler(this.deletebookingbutton_Click);
+            // 
             // Bookticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.deletebookingbutton);
             this.Controls.Add(this.editinfobutton);
             this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.enterticketidtextbox);
@@ -694,5 +711,6 @@
         private System.Windows.Forms.Label enterticketidlabel;
         private System.Windows.Forms.Button editinfobutton;
         private System.Windows.Forms.ErrorProvider enterticketiderror;
+        private System.Windows.Forms.Button deletebookingbutton;
     }
 }
