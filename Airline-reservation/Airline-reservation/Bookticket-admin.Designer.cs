@@ -65,7 +65,7 @@
             this.lastnametextbox = new System.Windows.Forms.TextBox();
             this.firstnametextbox = new System.Windows.Forms.TextBox();
             this.genderlabel = new System.Windows.Forms.Label();
-            this.agelabel = new System.Windows.Forms.Label();
+            this.birthdatelabel = new System.Windows.Forms.Label();
             this.passportlabel = new System.Windows.Forms.Label();
             this.emaillabel = new System.Windows.Forms.Label();
             this.lastnamelabel = new System.Windows.Forms.Label();
@@ -93,9 +93,8 @@
             // 
             this.bgpic.Image = ((System.Drawing.Image)(resources.GetObject("bgpic.Image")));
             this.bgpic.Location = new System.Drawing.Point(0, -1);
-            this.bgpic.Margin = new System.Windows.Forms.Padding(4);
             this.bgpic.Name = "bgpic";
-            this.bgpic.Size = new System.Drawing.Size(1067, 556);
+            this.bgpic.Size = new System.Drawing.Size(800, 452);
             this.bgpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bgpic.TabIndex = 67;
             this.bgpic.TabStop = false;
@@ -103,10 +102,9 @@
             // roundtrip
             // 
             this.roundtrip.AutoSize = true;
-            this.roundtrip.Location = new System.Drawing.Point(135, 11);
-            this.roundtrip.Margin = new System.Windows.Forms.Padding(4);
+            this.roundtrip.Location = new System.Drawing.Point(102, 2);
             this.roundtrip.Name = "roundtrip";
-            this.roundtrip.Size = new System.Drawing.Size(89, 20);
+            this.roundtrip.Size = new System.Drawing.Size(74, 17);
             this.roundtrip.TabIndex = 31;
             this.roundtrip.TabStop = true;
             this.roundtrip.Text = "Round trip";
@@ -114,10 +112,9 @@
             // 
             // departuredate
             // 
-            this.departuredate.Location = new System.Drawing.Point(771, 418);
-            this.departuredate.Margin = new System.Windows.Forms.Padding(4);
+            this.departuredate.Location = new System.Drawing.Point(578, 340);
             this.departuredate.Name = "departuredate";
-            this.departuredate.Size = new System.Drawing.Size(265, 22);
+            this.departuredate.Size = new System.Drawing.Size(200, 20);
             this.departuredate.TabIndex = 123;
             // 
             // flightclasserror
@@ -161,10 +158,9 @@
             this.bookbutton.BackColor = System.Drawing.Color.Cyan;
             this.bookbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookbutton.Location = new System.Drawing.Point(877, 480);
-            this.bookbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.bookbutton.Location = new System.Drawing.Point(658, 390);
             this.bookbutton.Name = "bookbutton";
-            this.bookbutton.Size = new System.Drawing.Size(160, 43);
+            this.bookbutton.Size = new System.Drawing.Size(120, 35);
             this.bookbutton.TabIndex = 126;
             this.bookbutton.Text = "Book flight";
             this.bookbutton.UseVisualStyleBackColor = false;
@@ -177,10 +173,9 @@
             this.agecomboBox.Items.AddRange(new object[] {
             "18+",
             "Below 18"});
-            this.agecomboBox.Location = new System.Drawing.Point(256, 287);
-            this.agecomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.agecomboBox.Location = new System.Drawing.Point(208, 204);
             this.agecomboBox.Name = "agecomboBox";
-            this.agecomboBox.Size = new System.Drawing.Size(160, 24);
+            this.agecomboBox.Size = new System.Drawing.Size(121, 21);
             this.agecomboBox.TabIndex = 125;
             // 
             // flightclasscomboBox
@@ -189,10 +184,9 @@
             this.flightclasscomboBox.Items.AddRange(new object[] {
             "First class",
             "Economy class"});
-            this.flightclasscomboBox.Location = new System.Drawing.Point(574, 370);
-            this.flightclasscomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.flightclasscomboBox.Location = new System.Drawing.Point(430, 273);
             this.flightclasscomboBox.Name = "flightclasscomboBox";
-            this.flightclasscomboBox.Size = new System.Drawing.Size(160, 24);
+            this.flightclasscomboBox.Size = new System.Drawing.Size(121, 21);
             this.flightclasscomboBox.TabIndex = 120;
             // 
             // tocomboBox
@@ -207,10 +201,9 @@
             "California (CA) ",
             "Colorado (CO) ",
             "Connecticut (CT) "});
-            this.tocomboBox.Location = new System.Drawing.Point(349, 365);
-            this.tocomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.tocomboBox.Location = new System.Drawing.Point(261, 269);
             this.tocomboBox.Name = "tocomboBox";
-            this.tocomboBox.Size = new System.Drawing.Size(160, 24);
+            this.tocomboBox.Size = new System.Drawing.Size(121, 21);
             this.tocomboBox.TabIndex = 122;
             // 
             // fromcomboBox
@@ -218,30 +211,27 @@
             this.fromcomboBox.FormattingEnabled = true;
             this.fromcomboBox.Items.AddRange(new object[] {
             "Addis Ababa"});
-            this.fromcomboBox.Location = new System.Drawing.Point(109, 365);
-            this.fromcomboBox.Margin = new System.Windows.Forms.Padding(4);
+            this.fromcomboBox.Location = new System.Drawing.Point(81, 269);
             this.fromcomboBox.Name = "fromcomboBox";
-            this.fromcomboBox.Size = new System.Drawing.Size(160, 24);
+            this.fromcomboBox.Size = new System.Drawing.Size(121, 21);
             this.fromcomboBox.TabIndex = 121;
             // 
             // flightclasslabel
             // 
             this.flightclasslabel.AutoSize = true;
             this.flightclasslabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.flightclasslabel.Location = new System.Drawing.Point(588, 336);
-            this.flightclasslabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.flightclasslabel.Location = new System.Drawing.Point(440, 245);
             this.flightclasslabel.Name = "flightclasslabel";
-            this.flightclasslabel.Size = new System.Drawing.Size(142, 31);
+            this.flightclasslabel.Size = new System.Drawing.Size(108, 25);
             this.flightclasslabel.TabIndex = 119;
-            this.flightclasslabel.Text = "Flight Class";
+            this.flightclasslabel.Text = "flight class";
             // 
             // oneway
             // 
             this.oneway.AutoSize = true;
-            this.oneway.Location = new System.Drawing.Point(8, 11);
-            this.oneway.Margin = new System.Windows.Forms.Padding(4);
+            this.oneway.Location = new System.Drawing.Point(6, 2);
             this.oneway.Name = "oneway";
-            this.oneway.Size = new System.Drawing.Size(79, 20);
+            this.oneway.Size = new System.Drawing.Size(65, 17);
             this.oneway.TabIndex = 30;
             this.oneway.TabStop = true;
             this.oneway.Text = "one-way";
@@ -257,11 +247,9 @@
             this.flightgroupbox.Controls.Add(this.roundtrip);
             this.flightgroupbox.Controls.Add(this.oneway);
             this.flightgroupbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.flightgroupbox.Location = new System.Drawing.Point(784, 370);
-            this.flightgroupbox.Margin = new System.Windows.Forms.Padding(4);
+            this.flightgroupbox.Location = new System.Drawing.Point(587, 273);
             this.flightgroupbox.Name = "flightgroupbox";
-            this.flightgroupbox.Padding = new System.Windows.Forms.Padding(4);
-            this.flightgroupbox.Size = new System.Drawing.Size(255, 31);
+            this.flightgroupbox.Size = new System.Drawing.Size(191, 25);
             this.flightgroupbox.TabIndex = 124;
             this.flightgroupbox.TabStop = false;
             // 
@@ -270,10 +258,9 @@
             this.bookticketlabel.AutoSize = true;
             this.bookticketlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.bookticketlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.bookticketlabel.Location = new System.Drawing.Point(392, 54);
-            this.bookticketlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.bookticketlabel.Location = new System.Drawing.Point(320, 22);
             this.bookticketlabel.Name = "bookticketlabel";
-            this.bookticketlabel.Size = new System.Drawing.Size(267, 56);
+            this.bookticketlabel.Size = new System.Drawing.Size(213, 45);
             this.bookticketlabel.TabIndex = 118;
             this.bookticketlabel.Text = "Book ticket";
             // 
@@ -285,20 +272,18 @@
             // 
             this.flighttypelabel.AutoSize = true;
             this.flighttypelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.flighttypelabel.Location = new System.Drawing.Point(841, 333);
-            this.flighttypelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.flighttypelabel.Location = new System.Drawing.Point(630, 243);
             this.flighttypelabel.Name = "flighttypelabel";
-            this.flighttypelabel.Size = new System.Drawing.Size(135, 31);
+            this.flighttypelabel.Size = new System.Drawing.Size(100, 25);
             this.flighttypelabel.TabIndex = 117;
-            this.flighttypelabel.Text = "Flight Type";
+            this.flighttypelabel.Text = "flight type";
             // 
             // Female
             // 
             this.Female.AutoSize = true;
-            this.Female.Location = new System.Drawing.Point(133, 11);
-            this.Female.Margin = new System.Windows.Forms.Padding(4);
+            this.Female.Location = new System.Drawing.Point(102, 2);
             this.Female.Name = "Female";
-            this.Female.Size = new System.Drawing.Size(74, 20);
+            this.Female.Size = new System.Drawing.Size(59, 17);
             this.Female.TabIndex = 31;
             this.Female.TabStop = true;
             this.Female.Text = "Female";
@@ -307,10 +292,9 @@
             // Male
             // 
             this.Male.AutoSize = true;
-            this.Male.Location = new System.Drawing.Point(21, 11);
-            this.Male.Margin = new System.Windows.Forms.Padding(4);
+            this.Male.Location = new System.Drawing.Point(16, 2);
             this.Male.Name = "Male";
-            this.Male.Size = new System.Drawing.Size(58, 20);
+            this.Male.Size = new System.Drawing.Size(48, 17);
             this.Male.TabIndex = 30;
             this.Male.TabStop = true;
             this.Male.Text = "Male";
@@ -320,10 +304,9 @@
             // 
             this.departurelabel.AutoSize = true;
             this.departurelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.departurelabel.Location = new System.Drawing.Point(627, 409);
-            this.departurelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.departurelabel.Location = new System.Drawing.Point(618, 312);
             this.departurelabel.Name = "departurelabel";
-            this.departurelabel.Size = new System.Drawing.Size(125, 31);
+            this.departurelabel.Size = new System.Drawing.Size(102, 25);
             this.departurelabel.TabIndex = 116;
             this.departurelabel.Text = "Departure";
             // 
@@ -331,10 +314,9 @@
             // 
             this.tolabel.AutoSize = true;
             this.tolabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.tolabel.Location = new System.Drawing.Point(396, 336);
-            this.tolabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.tolabel.Location = new System.Drawing.Point(296, 245);
             this.tolabel.Name = "tolabel";
-            this.tolabel.Size = new System.Drawing.Size(39, 31);
+            this.tolabel.Size = new System.Drawing.Size(33, 25);
             this.tolabel.TabIndex = 115;
             this.tolabel.Text = "To";
             // 
@@ -342,10 +324,9 @@
             // 
             this.fromlabel.AutoSize = true;
             this.fromlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.fromlabel.Location = new System.Drawing.Point(136, 333);
-            this.fromlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.fromlabel.Location = new System.Drawing.Point(101, 243);
             this.fromlabel.Name = "fromlabel";
-            this.fromlabel.Size = new System.Drawing.Size(71, 31);
+            this.fromlabel.Size = new System.Drawing.Size(57, 25);
             this.fromlabel.TabIndex = 114;
             this.fromlabel.Text = "From";
             // 
@@ -355,11 +336,9 @@
             this.gendergroupbox.Controls.Add(this.Female);
             this.gendergroupbox.Controls.Add(this.Male);
             this.gendergroupbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gendergroupbox.Location = new System.Drawing.Point(612, 288);
-            this.gendergroupbox.Margin = new System.Windows.Forms.Padding(4);
+            this.gendergroupbox.Location = new System.Drawing.Point(445, 200);
             this.gendergroupbox.Name = "gendergroupbox";
-            this.gendergroupbox.Padding = new System.Windows.Forms.Padding(4);
-            this.gendergroupbox.Size = new System.Drawing.Size(255, 31);
+            this.gendergroupbox.Size = new System.Drawing.Size(191, 25);
             this.gendergroupbox.TabIndex = 112;
             this.gendergroupbox.TabStop = false;
             // 
@@ -367,72 +346,65 @@
             // 
             this.passporttextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passporttextbox.ForeColor = System.Drawing.Color.Black;
-            this.passporttextbox.Location = new System.Drawing.Point(614, 225);
-            this.passporttextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.passporttextbox.Location = new System.Drawing.Point(449, 153);
             this.passporttextbox.Name = "passporttextbox";
-            this.passporttextbox.Size = new System.Drawing.Size(253, 23);
+            this.passporttextbox.Size = new System.Drawing.Size(191, 20);
             this.passporttextbox.TabIndex = 111;
             // 
             // emailtextbox
             // 
             this.emailtextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.emailtextbox.ForeColor = System.Drawing.Color.Black;
-            this.emailtextbox.Location = new System.Drawing.Point(256, 225);
-            this.emailtextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.emailtextbox.Location = new System.Drawing.Point(217, 153);
             this.emailtextbox.Name = "emailtextbox";
-            this.emailtextbox.Size = new System.Drawing.Size(253, 23);
+            this.emailtextbox.Size = new System.Drawing.Size(191, 20);
             this.emailtextbox.TabIndex = 110;
             // 
             // lastnametextbox
             // 
             this.lastnametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lastnametextbox.ForeColor = System.Drawing.Color.Black;
-            this.lastnametextbox.Location = new System.Drawing.Point(614, 163);
-            this.lastnametextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.lastnametextbox.Location = new System.Drawing.Point(456, 102);
             this.lastnametextbox.Name = "lastnametextbox";
-            this.lastnametextbox.Size = new System.Drawing.Size(253, 23);
+            this.lastnametextbox.Size = new System.Drawing.Size(191, 20);
             this.lastnametextbox.TabIndex = 109;
             // 
             // firstnametextbox
             // 
             this.firstnametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.firstnametextbox.ForeColor = System.Drawing.Color.Black;
-            this.firstnametextbox.Location = new System.Drawing.Point(256, 163);
-            this.firstnametextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.firstnametextbox.Location = new System.Drawing.Point(217, 102);
             this.firstnametextbox.Name = "firstnametextbox";
-            this.firstnametextbox.Size = new System.Drawing.Size(253, 23);
+            this.firstnametextbox.Size = new System.Drawing.Size(191, 20);
             this.firstnametextbox.TabIndex = 108;
             // 
             // genderlabel
             // 
             this.genderlabel.AutoSize = true;
             this.genderlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.genderlabel.Location = new System.Drawing.Point(608, 253);
-            this.genderlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.genderlabel.Location = new System.Drawing.Point(451, 176);
             this.genderlabel.Name = "genderlabel";
-            this.genderlabel.Size = new System.Drawing.Size(126, 31);
+            this.genderlabel.Size = new System.Drawing.Size(100, 25);
             this.genderlabel.TabIndex = 107;
             this.genderlabel.Text = "Gender👬";
             // 
-            // agelabel
+            // birthdatelabel
             // 
-            this.agelabel.AutoSize = true;
-            this.agelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.agelabel.Location = new System.Drawing.Point(262, 253);
-            this.agelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.agelabel.Name = "agelabel";
-            this.agelabel.Size = new System.Drawing.Size(88, 31);
-            this.agelabel.TabIndex = 106;
-            this.agelabel.Text = "Age🎂";
+            this.birthdatelabel.AutoSize = true;
+            this.birthdatelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.birthdatelabel.Location = new System.Drawing.Point(212, 176);
+            this.birthdatelabel.Name = "birthdatelabel";
+            this.birthdatelabel.Size = new System.Drawing.Size(70, 25);
+            this.birthdatelabel.TabIndex = 106;
+            this.birthdatelabel.Text = "Age🎂";
             // 
             // passportlabel
             // 
             this.passportlabel.AutoSize = true;
             this.passportlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.passportlabel.Location = new System.Drawing.Point(608, 191);
-            this.passportlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.passportlabel.Location = new System.Drawing.Point(451, 125);
             this.passportlabel.Name = "passportlabel";
-            this.passportlabel.Size = new System.Drawing.Size(235, 31);
+            this.passportlabel.Size = new System.Drawing.Size(189, 25);
             this.passportlabel.TabIndex = 105;
             this.passportlabel.Text = "Passport number🔢";
             // 
@@ -440,10 +412,9 @@
             // 
             this.emaillabel.AutoSize = true;
             this.emaillabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.emaillabel.Location = new System.Drawing.Point(262, 191);
-            this.emaillabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.emaillabel.Location = new System.Drawing.Point(221, 125);
             this.emaillabel.Name = "emaillabel";
-            this.emaillabel.Size = new System.Drawing.Size(107, 31);
+            this.emaillabel.Size = new System.Drawing.Size(86, 25);
             this.emaillabel.TabIndex = 104;
             this.emaillabel.Text = "Email📩";
             // 
@@ -451,10 +422,9 @@
             // 
             this.lastnamelabel.AutoSize = true;
             this.lastnamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.lastnamelabel.Location = new System.Drawing.Point(608, 128);
-            this.lastnamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lastnamelabel.Location = new System.Drawing.Point(460, 74);
             this.lastnamelabel.Name = "lastnamelabel";
-            this.lastnamelabel.Size = new System.Drawing.Size(161, 31);
+            this.lastnamelabel.Size = new System.Drawing.Size(130, 25);
             this.lastnamelabel.TabIndex = 103;
             this.lastnamelabel.Text = "Last name👥";
             // 
@@ -462,10 +432,9 @@
             // 
             this.firstnamelabel.AutoSize = true;
             this.firstnamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.firstnamelabel.Location = new System.Drawing.Point(262, 128);
-            this.firstnamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.firstnamelabel.Location = new System.Drawing.Point(221, 74);
             this.firstnamelabel.Name = "firstnamelabel";
-            this.firstnamelabel.Size = new System.Drawing.Size(164, 31);
+            this.firstnamelabel.Size = new System.Drawing.Size(132, 25);
             this.firstnamelabel.TabIndex = 102;
             this.firstnamelabel.Text = "First name👥";
             // 
@@ -474,9 +443,8 @@
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
             this.logo.Location = new System.Drawing.Point(0, -1);
-            this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(228, 123);
+            this.logo.Size = new System.Drawing.Size(171, 100);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 101;
             this.logo.TabStop = false;
@@ -486,10 +454,9 @@
             this.Viewbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.Viewbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Viewbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
-            this.Viewbutton.Location = new System.Drawing.Point(653, 480);
-            this.Viewbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.Viewbutton.Location = new System.Drawing.Point(490, 390);
             this.Viewbutton.Name = "Viewbutton";
-            this.Viewbutton.Size = new System.Drawing.Size(176, 43);
+            this.Viewbutton.Size = new System.Drawing.Size(132, 35);
             this.Viewbutton.TabIndex = 127;
             this.Viewbutton.Text = "View Price";
             this.Viewbutton.UseVisualStyleBackColor = false;
@@ -497,9 +464,9 @@
             // 
             // Bookticket_admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Viewbutton);
             this.Controls.Add(this.departuredate);
             this.Controls.Add(this.bookbutton);
@@ -520,14 +487,13 @@
             this.Controls.Add(this.lastnametextbox);
             this.Controls.Add(this.firstnametextbox);
             this.Controls.Add(this.genderlabel);
-            this.Controls.Add(this.agelabel);
+            this.Controls.Add(this.birthdatelabel);
             this.Controls.Add(this.passportlabel);
             this.Controls.Add(this.emaillabel);
             this.Controls.Add(this.lastnamelabel);
             this.Controls.Add(this.firstnamelabel);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.bgpic);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Bookticket_admin";
             this.Text = "Bookticket_admin";
             this.Load += new System.EventHandler(this.Bookticket_admin_Load);
@@ -579,7 +545,7 @@
         private System.Windows.Forms.TextBox lastnametextbox;
         private System.Windows.Forms.TextBox firstnametextbox;
         private System.Windows.Forms.Label genderlabel;
-        private System.Windows.Forms.Label agelabel;
+        private System.Windows.Forms.Label birthdatelabel;
         private System.Windows.Forms.Label passportlabel;
         private System.Windows.Forms.Label emaillabel;
         private System.Windows.Forms.Label lastnamelabel;

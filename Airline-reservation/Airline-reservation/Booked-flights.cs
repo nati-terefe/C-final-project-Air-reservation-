@@ -27,7 +27,7 @@ namespace Airline_reservation
             flightinfo c = new flightinfo();
 
             flightinfodgf.DataSource = null;
-            flightinfodgf.DataSource = bookinginfo.getall();
+            flightinfodgf.DataSource = flightinfo.getall();
 
         }
     }

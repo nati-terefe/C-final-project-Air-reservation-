@@ -58,11 +58,11 @@
     <Compile Include="add-admin.Designer.cs">
       <DependentUpon>add-admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="databseview.cs">
+    <Compile Include="Booked-flights.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="databseview.Designer.cs">
-      <DependentUpon>databseview.cs</DependentUpon>
+    <Compile Include="Booked-flights.Designer.cs">
+      <DependentUpon>Booked-flights.cs</DependentUpon>
     </Compile>
     <Compile Include="Bookticket-admin.cs">
       <SubType>Form</SubType>
@@ -70,13 +70,12 @@
     <Compile Include="Bookticket-admin.Designer.cs">
       <DependentUpon>Bookticket-admin.cs</DependentUpon>
     </Compile>
-    <Compile Include="add_flight.cs">
+    <Compile Include="bookticket-client.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="add_flight.Designer.cs">
-      <DependentUpon>add_flight.cs</DependentUpon>
+    <Compile Include="bookticket-client.Designer.cs">
+      <DependentUpon>bookticket-client.cs</DependentUpon>
     </Compile>
-    <Compile Include="flightinfo.cs" />
     <Compile Include="contact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,13 +89,13 @@
     <Compile Include="FAQ.Designer.cs">
       <DependentUpon>FAQ.cs</DependentUpon>
     </Compile>
-    <Compile Include="user edit.cs">
+    <Compile Include="flight edit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="user edit.Designer.cs">
-      <DependentUpon>user edit.cs</DependentUpon>
+    <Compile Include="flight edit.Designer.cs">
+      <DependentUpon>flight edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="bookinginfo.cs" />
+    <Compile Include="flightinfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,14 +155,14 @@
     <EmbeddedResource Include="add-admin.resx">
       <DependentUpon>add-admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="databseview.resx">
-      <DependentUpon>databseview.cs</DependentUpon>
+    <EmbeddedResource Include="Booked-flights.resx">
+      <DependentUpon>Booked-flights.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Bookticket-admin.resx">
       <DependentUpon>Bookticket-admin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="add_flight.resx">
-      <DependentUpon>add_flight.cs</DependentUpon>
+    <EmbeddedResource Include="bookticket-client.resx">
+      <DependentUpon>bookticket-client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="contact.resx">
       <DependentUpon>contact.cs</DependentUpon>
@@ -171,8 +170,8 @@
     <EmbeddedResource Include="FAQ.resx">
       <DependentUpon>FAQ.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="user edit.resx">
-      <DependentUpon>user edit.cs</DependentUpon>
+    <EmbeddedResource Include="flight edit.resx">
+      <DependentUpon>flight edit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="forgotpassword.resx">
       <DependentUpon>forgotpassword.cs</DependentUpon>
