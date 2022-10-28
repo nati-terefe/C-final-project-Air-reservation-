@@ -1,6 +1,8 @@
-use AirlineReservation
+use AirlineReservation -- Using AirlineReservation Databse
 
--- --------------------------------------------------------------------------------------------------------------------------------
+-- TRIGGERS
+-- ----------------------------------------------------------------------------------------------------------------
+-- Triggers on Registered table -----------------------------------------------------------------------------------
 GO
 -- 1. formatregistration to correctly capitalize registration input
 CREATE OR ALTER TRIGGER formatregistration
@@ -19,7 +21,8 @@ update registered
 set fname=@fname, lname=@lname where id=@lastid
 END
 
--- --------------------------------------------------------------------------------------------------------------------------------
+-- ----------------------------------------------------------------------------------------------------------------
+-- Triggers on bookedtickets table -----------------------------------------------------------------------------------
 GO
 -- 2. bookingexist to check not to create multiple booking for same person and if itsn't multiple to decrease availseat on flights
 CREATE OR ALTER TRIGGER bookingexist
@@ -49,7 +52,27 @@ END
 -- --------------------------------------------------------------------------------------------------------------------------------
 
 GO
--- 3. delflightticket that delete booked tickets on flight
+-- 3. updateticketbasedonflight that updates booked tickets based on change on flight
+CREATE OR ALTER TRIGGER updateticketbasedonflight
+ON bookedtickets
+After update
+AS
+BEGIN
+Declare @depdate datetime
+Declare @dest varchar(30)
+Declare @id int
+select @depdate=depdate from inserted i
+select @dest=dest from inserted i
+select @id=id from inserted i
+update bookedtickets
+set depdate=@depdate, dest=@dest where fidref=@id
+END
+
+-- ----------------------------------------------------------------------------------------------------------------
+-- Triggers on flights table -----------------------------------------------------------------------------------
+
+GO
+-- 4. delflightticket that delete booked tickets on flight
 CREATE OR ALTER TRIGGER delflightticket
 ON flights
 After delete
@@ -63,7 +86,7 @@ END
 -- --------------------------------------------------------------------------------------------------------------------------------
 
 GO
--- 4. unique pilot check if a pilot is not flying another flight
+-- 5. unique pilot check if a pilot is not flying another flight
 CREATE OR ALTER TRIGGER ispilotoccupied
 ON flights
 After insert
@@ -91,7 +114,7 @@ END
 -- --------------------------------------------------------------------------------------------------------------------------------
 
 GO
--- 5. unoccupypilot changes ocuppied status of a pilot when flight deleted
+-- 6. unoccupypilot changes ocuppied status of a pilot when flight deleted
 CREATE OR ALTER TRIGGER unoccupypilot
 ON flights
 After delete
@@ -107,26 +130,6 @@ update pilots
 set occupied=0 where full_name=@copilot
 END
 
--- --------------------------------------------------------------------------------------------------------------------------------
-
-GO
--- 6. updateticketbasedonflight that updates booked tickets based on change on flight
-CREATE OR ALTER TRIGGER updateticketbasedonflight
-ON bookedtickets
-After update
-AS
-BEGIN
-Declare @depdate datetime
-Declare @dest varchar(30)
-Declare @id int
-select @depdate=depdate from inserted i
-select @dest=dest from inserted i
-select @id=id from inserted i
-update bookedtickets
-set depdate=@depdate, dest=@dest where fidref=@id
-END
-
--- --------------------------------------------------------------------------------------------------------------------------------
 
 
 

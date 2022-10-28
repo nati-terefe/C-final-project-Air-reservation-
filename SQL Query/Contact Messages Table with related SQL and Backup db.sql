@@ -4,10 +4,10 @@ use AirlineReservation -- Using AirlineReservation Databse
 
 -- Creating contact messages table that stores users message information
 create table contactmessages(
-fname varchar(20),
-lname varchar(20),
-email varchar(80),
-suggetion varchar(1000),
+fname varchar(20) not null,
+lname varchar(20) not null,
+email varchar(80) not null,
+suggetion varchar(1000) not null,
 sugdate datetime
 )
 
@@ -33,7 +33,7 @@ CREATE or ALTER PROCEDURE addmessage(
 AS
 BEGIN
 Insert into contactmessages(fname,lname,email,suggetion,sugdate)
-values(@fname,@lname,@email,@suggetion,getdate());
+values(@fname,@lname,@email,@suggetion,FORMAT (getdate(), 'yyyy-MM-dd HH:mm:ss'));
 END
 
 select * from contactmessages
@@ -69,5 +69,5 @@ else if (@full=1)
 	END
 END
 
-Execute backupdb 0
+Execute backupdb 0, 'C:\Users\redie\Desktop\Airline Reservation System Database Backup'
 Execute backupdb 1, 'C:\Users\redie\Desktop\Airline Reservation System Database Backup'

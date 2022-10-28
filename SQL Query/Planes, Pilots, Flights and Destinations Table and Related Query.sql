@@ -1,4 +1,4 @@
-use AirlineReservation
+use AirlineReservation -- Using AirlineReservation Databse
 
 -- --------------------------------------------------------------------------------------------------------------------------------
 
@@ -105,9 +105,9 @@ end
 -- -- Creating pilots table that stores pilots information
 create table pilots(
 id int IDENTITY(101,1), 
-full_name varchar(70) primary key,
-flighthour int,
-occupied int,
+full_name varchar(70) primary key not null,
+flighthour int not null,
+occupied int not null,
 );
 
 -- Initial data to  fill pilots table
@@ -131,7 +131,7 @@ Insert into pilots values('Capt. Abel Yonas', 1100,1);
 Insert into pilots values('Nuhamin Tarekeg', 900,1);
 Insert into pilots values('Capt. Bamlak Kidus', 1100,1);
 Insert into pilots values('Sofonias Michael', 900,1);
-
+-- Unoccupied pilots
 Insert into pilots values('Capt. Zekarias Kebede', 1100,0);
 Insert into pilots values('Lily Zegu', 900,0);
 Insert into pilots values('Capt. Sinu Mohammed', 1100,0);
@@ -196,12 +196,12 @@ END
 create table flights(
 id int primary key IDENTITY(1010,1), 
 dep varchar(30) Not NUll,
-des varchar(30) Not NUll,
+des varchar(30) Not NUll FOREIGN KEY REFERENCES destinations(city),
 depdate datetime Not NUll,
 pilot varchar(70) Not NUll FOREIGN KEY REFERENCES pilots(full_name),  
 copilot varchar(70) Not NUll unique,
-availseat int,
-duration int,
+availseat int not null,
+duration int not null,
 planeref int FOREIGN KEY REFERENCES planes(id),
 );
 
@@ -377,13 +377,14 @@ Return @availseat
 end
 
 select dbo.availseats ('Indonesia - Jakarta', '2022-06-26 01:14:07')
+
 -- --------------------------------------------------------------------------------------------------------------------------------
 -- --------------------------------------------------------------------------------------------------------------------------------
 
 -- -- Creating destinations table that stores destination information
 create table destinations(
 id int Identity,
-city varchar(50)
+city varchar(30) not null primary key
 );
 
 -- Initializing destinations list

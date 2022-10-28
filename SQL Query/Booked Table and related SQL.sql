@@ -2,21 +2,22 @@ use AirlineReservation -- Using AirlineReservation Databse
 
 -- --------------------------------------------------------------------------------------------------------------------------------
 
+-- Creating bookedtickets table that stores booked tickets information
 create table bookedtickets(
 id int primary key Identity(1,1),
 usrname varchar(20) default null,
-fname varchar(20),
-lname varchar(20),
-age varchar(10),
-gender varchar(10),
-email varchar(80),
-passport varchar(20),
-dep varchar(30),
-dest varchar(30),
-depdate datetime,
-fclass varchar(20),
-ftype varchar(20),
-price money,
+fname varchar(20) not null,
+lname varchar(20) not null,
+age varchar(10) not null,
+gender varchar(10) not null,
+email varchar(80) not null,
+passport varchar(20) not null unique,
+dep varchar(30) not null,
+dest varchar(30) not null FOREIGN KEY REFERENCES destinations(city),
+depdate datetime not null,
+fclass varchar(20) not null,
+ftype varchar(20) not null,
+price money not null,
 fidref int FOREIGN KEY REFERENCES flights(id));
 
 select * from bookedtickets
@@ -52,7 +53,7 @@ END
 -- ------------------------------------------------------------------------------------
 
 GO
--- 2. full booking info procedure that returns the full booking information of a ceratin flight id
+-- 2. full booking info procedure that returns the full booking information of a ceratin ticket id
 CREATE or ALTER PROCEDURE fullbookinginfo(
 @ticketid int,
 @usrname varchar(20) OUTPUT,
@@ -141,7 +142,7 @@ END
 -- ---------------------------------------------------------------------------------------------------------------
 -- Function on booked table --------------------------------------------------------------------------------------
 GO
--- 1. Last ticket if function that returns the last id inserted in booked table
+-- 1. Last ticket function that returns the last id inserted in booked table
 create or alter function lastticketid()
 returns int
 as

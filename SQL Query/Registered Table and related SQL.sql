@@ -5,17 +5,17 @@ use AirlineReservation -- Using AirlineReservation Databse
 -- Creating registered table that stores registerd users information
 create table registered(
 id int primary key identity,
-fname varchar(20),
-lname varchar(20),
-email varchar(80),
-phoneno varchar(15),
-birthdate datetime,
-gender varchar(10),
-usrname varchar(20),
-passwd varchar(20),
-hintQ varchar(100),
-hintA varchar(20),
-profilepic image,
+fname varchar(20) not null,
+lname varchar(20) not null,
+email varchar(80) not null,
+phoneno varchar(15) not null,
+birthdate datetime not null,
+gender varchar(10) not null,
+usrname varchar(20) not null unique,
+passwd varchar(20) not null,
+hintQ varchar(100) not null,
+hintA varchar(20) not null,
+profilepic image not null,
 );
 
 -- Initial Datas to fill registered table are done from C-Sharp by sign up
@@ -104,7 +104,7 @@ select * from registered
 -- ------------------------------------------------------------------------------------
 
 GO
--- 4. What is the hint question stored procedure that returns the hint question of a certain usename and password
+-- 4. What is the hint question stored procedure that returns the hint question of a certain usename
 CREATE or ALTER PROCEDURE whathintq(
 @usrname varchar(20),
 @hintqis varchar(100) OUTPUT
@@ -149,3 +149,4 @@ Select profilepic from registered where usrname=@usrname
 )
 
 select * from whatphoto( 'miky' )
+

@@ -6,9 +6,9 @@ use AirlineReservation -- Using AirlineReservation Databse
 
 -- Creating login table that stores login information
 create table login(
-usrname varchar(20),
-passwd varchar(20),
-rol int,
+usrname varchar(20) not null unique,
+passwd varchar(20) not null unique,
+rol int not null,
 registerationid int foreign key references registered(id),
 );
 
@@ -112,9 +112,9 @@ select * from login
 
 -- Creating loginhistory table that stores login history information
 create table loginhistory(
-usrname varchar(20),
-rol int,
-timeanddate datetime,
+usrname varchar(20) not null,
+rol int not null,
+timeanddate datetime not null,
 registerationid int foreign key references registered(id),
 );
 
