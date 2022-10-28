@@ -61,14 +61,20 @@ namespace Airline_reservation
             get { return pn; }
             set { pn = value; passporttextbox.Text = value; }
         }
-        /*
-        private string fid;
+        private int tid;
+        public int ticketid
+        {
+            get { return tid; }
+            set { tid = value; ticketidtextbox.Text = value.ToString(); }
+        }
+        
+        /*private string fid;
         public string flgihtid
         {
             get { return fid; }
-            set { fid = value; passporttextbox.Text = value; }
-        }
-        */
+            set { fid = value; }
+        }*/
+        
 
         public Ticket()
         {

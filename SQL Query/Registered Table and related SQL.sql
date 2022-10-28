@@ -24,7 +24,8 @@ select * from registered
 
 drop table registered
 
--- Stored Procedures for registered table --------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------------
+-- Stored Procedures for registered table -----------------------------------------------------------------
 
 GO
 -- 1. add new registry stored procedure that insert and register new user
@@ -150,7 +151,7 @@ declare @hinta varchar(100)
 execute whathinta 'admin', @hinta OUTPUT;
 select @hinta
 
--- --------------------------------------------------------------------------------------------------------------------------------
+-- -------------------------------------------------------------------------------------------------------------------
 -- Function on registered table --------------------------------------------------------------------------------------
 GO
 -- 1. What photo function returns photo of certain username

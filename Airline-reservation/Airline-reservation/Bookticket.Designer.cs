@@ -77,7 +77,7 @@
             this.enterticketidtextbox = new System.Windows.Forms.TextBox();
             this.searchbutton = new System.Windows.Forms.Button();
             this.editinfobutton = new System.Windows.Forms.Button();
-            this.savebutton = new System.Windows.Forms.Button();
+            this.enterticketiderror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightclasserror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toerror)).BeginInit();
@@ -93,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.flighttypeerror)).BeginInit();
             this.gendergroupbox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enterticketiderror)).BeginInit();
             this.SuspendLayout();
             // 
             // bgpic
@@ -559,6 +560,7 @@
             this.searchbutton.Text = "Search";
             this.searchbutton.UseVisualStyleBackColor = false;
             this.searchbutton.Visible = false;
+            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
             // 
             // editinfobutton
             // 
@@ -573,27 +575,17 @@
             this.editinfobutton.Text = "Edit Information";
             this.editinfobutton.UseVisualStyleBackColor = false;
             this.editinfobutton.Visible = false;
+            this.editinfobutton.Click += new System.EventHandler(this.editinfobutton_Click);
             // 
-            // savebutton
+            // enterticketiderror
             // 
-            this.savebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.savebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
-            this.savebutton.Location = new System.Drawing.Point(863, 429);
-            this.savebutton.Margin = new System.Windows.Forms.Padding(4);
-            this.savebutton.Name = "savebutton";
-            this.savebutton.Size = new System.Drawing.Size(176, 43);
-            this.savebutton.TabIndex = 134;
-            this.savebutton.Text = "Save";
-            this.savebutton.UseVisualStyleBackColor = false;
-            this.savebutton.Visible = false;
+            this.enterticketiderror.ContainerControl = this;
             // 
             // Bookticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.savebutton);
             this.Controls.Add(this.editinfobutton);
             this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.enterticketidtextbox);
@@ -647,6 +639,7 @@
             this.gendergroupbox.ResumeLayout(false);
             this.gendergroupbox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.enterticketiderror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,7 +692,7 @@
         private System.Windows.Forms.Button searchbutton;
         private System.Windows.Forms.TextBox enterticketidtextbox;
         private System.Windows.Forms.Label enterticketidlabel;
-        private System.Windows.Forms.Button savebutton;
         private System.Windows.Forms.Button editinfobutton;
+        private System.Windows.Forms.ErrorProvider enterticketiderror;
     }
 }

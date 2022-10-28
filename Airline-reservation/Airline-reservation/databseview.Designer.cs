@@ -37,6 +37,7 @@
             this.bookedticketsbutton = new System.Windows.Forms.Button();
             this.backbutton = new System.Windows.Forms.Button();
             this.loginhistorybtn = new System.Windows.Forms.Button();
+            this.messagesbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -83,7 +84,7 @@
             this.regusersbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.regusersbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.regusersbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.regusersbutton.Location = new System.Drawing.Point(38, 169);
+            this.regusersbutton.Location = new System.Drawing.Point(38, 137);
             this.regusersbutton.Margin = new System.Windows.Forms.Padding(4);
             this.regusersbutton.Name = "regusersbutton";
             this.regusersbutton.Size = new System.Drawing.Size(160, 43);
@@ -97,7 +98,7 @@
             this.flightslistbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.flightslistbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flightslistbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flightslistbutton.Location = new System.Drawing.Point(38, 314);
+            this.flightslistbutton.Location = new System.Drawing.Point(38, 269);
             this.flightslistbutton.Margin = new System.Windows.Forms.Padding(4);
             this.flightslistbutton.Name = "flightslistbutton";
             this.flightslistbutton.Size = new System.Drawing.Size(160, 43);
@@ -111,7 +112,7 @@
             this.bookedticketsbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookedticketsbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookedticketsbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookedticketsbutton.Location = new System.Drawing.Point(38, 244);
+            this.bookedticketsbutton.Location = new System.Drawing.Point(38, 204);
             this.bookedticketsbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookedticketsbutton.Name = "bookedticketsbutton";
             this.bookedticketsbutton.Size = new System.Drawing.Size(160, 43);
@@ -139,7 +140,7 @@
             this.loginhistorybtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginhistorybtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginhistorybtn.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginhistorybtn.Location = new System.Drawing.Point(38, 386);
+            this.loginhistorybtn.Location = new System.Drawing.Point(38, 335);
             this.loginhistorybtn.Margin = new System.Windows.Forms.Padding(4);
             this.loginhistorybtn.Name = "loginhistorybtn";
             this.loginhistorybtn.Size = new System.Drawing.Size(160, 43);
@@ -148,12 +149,27 @@
             this.loginhistorybtn.UseVisualStyleBackColor = false;
             this.loginhistorybtn.Click += new System.EventHandler(this.loginhistorybtn_Click);
             // 
+            // messagesbutton
+            // 
+            this.messagesbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.messagesbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.messagesbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.messagesbutton.Location = new System.Drawing.Point(38, 395);
+            this.messagesbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.messagesbutton.Name = "messagesbutton";
+            this.messagesbutton.Size = new System.Drawing.Size(160, 43);
+            this.messagesbutton.TabIndex = 94;
+            this.messagesbutton.Text = "Messages";
+            this.messagesbutton.UseVisualStyleBackColor = false;
+            this.messagesbutton.Click += new System.EventHandler(this.messagesbutton_Click);
+            // 
             // Booked_flights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1412, 554);
+            this.Controls.Add(this.messagesbutton);
             this.Controls.Add(this.loginhistorybtn);
             this.Controls.Add(this.backbutton);
             this.Controls.Add(this.bookedticketsbutton);
@@ -183,5 +199,6 @@
         private System.Windows.Forms.Button bookedticketsbutton;
         private System.Windows.Forms.Button backbutton;
         private System.Windows.Forms.Button loginhistorybtn;
+        private System.Windows.Forms.Button messagesbutton;
     }
 }

@@ -16,7 +16,7 @@ namespace Airline_reservation
 {
     public partial class Bookticket : Form
     {
-        public static double price = 0;
+        public static double price = -1;
         public static string loginusername = " ";
         public static int edit=0;
         public Bookticket()
@@ -43,6 +43,7 @@ namespace Airline_reservation
             {
                 // making the labels and the logo transparent 
                 bookticketlabel.Text = "Book Ticket";
+                Viewbutton.Text = "View Price";
                 donebtn.Text = "Done";
                 bookticketlabel.Parent = bgpic;
                 bookticketlabel.BackColor = Color.Transparent;
@@ -132,7 +133,7 @@ namespace Airline_reservation
                 flightclasscomboBox.Visible = false;
                 departuredate.Visible = false;
                 Viewbutton.Visible = false;
-                donebtn.Text = "Discard";
+                donebtn.Text = "Done";
             }
         }
 
@@ -141,7 +142,7 @@ namespace Airline_reservation
             donebtn.Text = "Cancel";
             string gender;
             bool b1 = Male.Checked;
-            gender = b1 ? "male" : "female"; // ternary operator
+            gender = b1 ? "Male" : "Female"; // ternary operator
             string flighttype;
             bool button = oneway.Checked;
             flighttype = button ? "One-Way" : "Round Trip";
@@ -238,7 +239,7 @@ namespace Airline_reservation
                 flighttypeerror.Clear();
                 depdateerror.Clear();
                 passporterror.Clear();
-
+                double differenceprice=0;
                 double firstclassvar = 1, economyclassvar = 0.7;
                 int durationrate = 200;
                 int noofhour = 0;
@@ -275,42 +276,84 @@ namespace Airline_reservation
                 {
                     price = (durationrate * economyclassvar * noofhour * 1);
                 }
-                if(price==0)
+                if (Viewbutton.Text.Equals("Save")) 
                 {
-                    MessageBox.Show("Unable to show price right now. please try again");
-                }
-                else
-                {
-                    MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                    double alreadypaid = 0;
+                    using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                    {
+                        SqlCommand cmd = new SqlCommand("select dbo.howmuchpaid(@ticketid)", con);
+                        // Sql Command stored procedure to insert successful Login into Login History on database
+                        con.Open();
+                        // Using parametrized query to avoid sql injection attack
+                        cmd.Parameters.Add("@ticketid", SqlDbType.VarChar, 30).Value = enterticketidtextbox.Text; //Defining the command parameter for usrname
+                        alreadypaid = Convert.ToDouble(cmd.ExecuteScalar()); // Assigning output value of stored procedure by converting to int
+                    }
+                    differenceprice = price - alreadypaid;
+                    if (differenceprice > 0)
+                    {
+                        MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
                                  "\n" + "Last name:" + "                    " + lastnametextbox.Text +
                                   "\n" + "From:" + "                    " + fromcomboBox.Text +
                                    "\n" + "TO:" + "                    " + tocomboBox.Text +
-                                "\n" + "Bill:" + "                          " + "$ "+price.ToString());
-                    bookbutton.Visible = true;
+                                "\n" + "Bill:" + "                          " + "$ " + differenceprice.ToString());
+                    }
+                    else if (differenceprice < 0)
+                    {
+                        MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                  "\n" + "From:" + "                    " + fromcomboBox.Text +
+                                   "\n" + "TO:" + "                    " + tocomboBox.Text +
+                                "\n" + "You will have a refund of amount $ " + differenceprice.ToString());
+                    }
+                    else if (differenceprice == 0)
+                    {
+                        MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                 "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                  "\n" + "From:" + "                    " + fromcomboBox.Text +
+                                   "\n" + "TO:" + "                    " + tocomboBox.Text +
+                                "\n" + "Price is eqal to past price $ " + differenceprice.ToString());
+                    }
+                   savechanges(alreadypaid+price);
                 }
-                
+                if(Viewbutton.Text.Equals("View Price"))
+                {
+                    if (price == -1)
+                    {
+                        MessageBox.Show("Unable to show price right now. please try again");
+                    }
+                    else
+                    {
+                        MessageBox.Show("First name:" + "                      " + firstnametextbox.Text + "  " +
+                                     "\n" + "Last name:" + "                    " + lastnametextbox.Text +
+                                      "\n" + "From:" + "                    " + fromcomboBox.Text +
+                                       "\n" + "TO:" + "                    " + tocomboBox.Text +
+                                    "\n" + "Bill:" + "                          " + "$ " + price.ToString());
+                        bookbutton.Visible = true;
+                    }
+
+                }
             }
         }
-        private void bookbutton_Click(object sender, EventArgs e)
-        {
 
+        private void savechanges(double totprice=0)
+        {
             string gender;
 
             bool b1 = Male.Checked;
-            gender = b1 ? "male" : "female"; // ternary operator
+            gender = b1 ? "Male" : "Female"; // ternary operator
 
             string flighttype;
             bool button = oneway.Checked;
-            flighttype = button ? "Oneway" : "Round trip";
+            flighttype = button ? "One-Way" : "Round trip";
             // getting value from combo box
-          
-                    
+
+
 
 
             //////// validation for register
-            
-                // random number generator for flight id 
-                Random r = new Random();
+
+            // random number generator for flight id 
+            Random r = new Random();
 
             // setting property of flight info
             bookinginfo bi = new bookinginfo
@@ -328,9 +371,16 @@ namespace Airline_reservation
                 age = agecomboBox.Text,
                 bigender = gender,
                 bookingprice = price,
-             };
-            
-            int rowaffected=bi.save(tocomboBox.Text, departuredate.Text); // saving the info
+            };
+            int rowaffected = 0;
+            if (totprice > 0)
+            {
+                rowaffected = bi.save(totprice, Convert.ToInt32(enterticketidtextbox.Text)); // saving the info
+            }
+            else
+            {
+                 rowaffected = bi.save(); // saving the info
+            }
             if (rowaffected > 0)
             {
                 MessageBox.Show("Flight Booked Sucessfully");
@@ -352,7 +402,17 @@ namespace Airline_reservation
                     tick.to = item.to;
                     tick.flightclass = item.flightclass;
                     tick.passportnumber = item.passportnumber;
-                    tick.date = item.departuredate.ToString();
+                    tick.date = item.departuredate.ToString("yyyy-MM-dd HH:mm:ss");
+                    String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                    //Declaring and Assigning Connection String
+                    using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                    {
+                        SqlCommand cmd = new SqlCommand("select dbo.lastticketid()", con);
+                        // Sql Command stored procedure to insert successful Login into Login History on database
+                        con.Open();
+                        tick.ticketid = Convert.ToInt32(cmd.ExecuteScalar()) + 1; // Assigning output value of stored procedure by converting to int
+                    }
+
 
                     //tick.Show();
                     //tf.Show();
@@ -360,13 +420,18 @@ namespace Airline_reservation
                     tf.Show();
 
                 }
-                
+
                 donebtn.Text = "Done";
             }
             else if (rowaffected == 0)
             {
                 MessageBox.Show("Unable to book flight. Please Try Again");
             }
+        }
+        private void bookbutton_Click(object sender, EventArgs e)
+        {
+            savechanges();
+            
         }
         private bool validatename(string name) // Function to validate name
         {
@@ -472,7 +537,7 @@ namespace Airline_reservation
                                                                            // Using parametrized query to avoid sql injection attack
                 cmd.Parameters.Add("@dest", SqlDbType.VarChar, 30).Value = dest; //Defining the command parameter for usrname
                 
-                cmd.Parameters.Add("@deptime", SqlDbType.DateTime).Value = DateTime.ParseExact(deptime, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture); //Defining the command parameter for usrname
+                cmd.Parameters.Add("@deptime", SqlDbType.DateTime).Value = Convert.ToDateTime(deptime);
                 cmd.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
                 con.Open(); //Opening Connection
                 cmd.ExecuteNonQuery(); // Executing Query
@@ -519,6 +584,11 @@ namespace Airline_reservation
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
             }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
+            }
         }
 
         private void lastnametextbox_TextChanged(object sender, EventArgs e)
@@ -527,6 +597,11 @@ namespace Airline_reservation
             {
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
+            }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
             }
         }
 
@@ -537,6 +612,11 @@ namespace Airline_reservation
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
             }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
+            }
         }
 
         private void passporttextbox_TextChanged(object sender, EventArgs e)
@@ -545,6 +625,11 @@ namespace Airline_reservation
             {
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
+            }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
             }
         }
 
@@ -555,6 +640,11 @@ namespace Airline_reservation
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
             }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
+            }
         }
 
         private void flightclasscomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -563,6 +653,11 @@ namespace Airline_reservation
             {
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
+            }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
             }
         }
 
@@ -573,6 +668,11 @@ namespace Airline_reservation
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
             }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
+            }
         }
 
         private void flightgroupbox_Enter(object sender, EventArgs e)
@@ -582,6 +682,11 @@ namespace Airline_reservation
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
             }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
+            }
         }
 
         private void gendergroupbox_Enter(object sender, EventArgs e)
@@ -590,6 +695,11 @@ namespace Airline_reservation
             {
                 donebtn.Text = "Cancel";
                 bookbutton.Visible = false;
+            }
+            if (editinfobutton.Visible == true)
+            {
+                Viewbutton.Visible = true;
+                Viewbutton.Text = "Save";
             }
         }
 
@@ -605,6 +715,172 @@ namespace Airline_reservation
                 MessageBox.Show("Changes have been discarded");
             }
             this.Close();
+        }
+
+        private bool isticketyours(string username)
+        {
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlCommand cmd = new SqlCommand("select dbo.ticketexist(@ticketid)", con);
+                // Sql Command to check if entered flight exist
+                // Using parametrized query to avoid sql injection attack
+                cmd.Parameters.Add("@ticketid", SqlDbType.VarChar, 1000).Value = enterticketidtextbox.Text; //Defining the command parameter for backup location
+                cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 1000).Value = username; //Defining the command parameter for backup location
+                con.Open(); //Opening Connection
+                int existance = Convert.ToInt32(cmd.ExecuteScalar()); // Executing Query
+                if (existance <= 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        private void searchbutton_Click(object sender, EventArgs e)
+        {
+            enterticketiderror.Clear();
+            if(!validticketid(enterticketidtextbox.Text))
+            {
+                enterticketiderror.Clear();
+                enterticketiderror.SetError(enterticketidtextbox, "Enter a valid Ticket ID");
+            }
+            if (!isticketyours(loginusername))
+            {
+                enterticketiderror.Clear();
+                enterticketiderror.SetError(enterticketidtextbox, "Can only Search tickets you booked");
+            }
+            if (validticketid(enterticketidtextbox.Text) && isticketyours(loginusername))
+            {
+                enterticketidlabel.Visible = false;
+                enterticketidtextbox.Visible = false;
+                searchbutton.Visible = false;
+
+                bookticketlabel.Text = "Edit Bookings";
+                bookticketlabel.Parent = bgpic;
+                bookticketlabel.BackColor = Color.Transparent;
+                enterticketidlabel.Parent = bgpic;
+                enterticketidlabel.BackColor = Color.Transparent;
+                firstnamelabel.Visible = true;
+                lastnamelabel.Visible = true;
+                emaillabel.Visible = true;
+                passportlabel.Visible = true;
+                agelabel.Visible = true;
+                genderlabel.Visible = true;
+                gendergroupbox.Visible = true;
+                fromlabel.Visible = true;
+                tolabel.Visible = true;
+                flightclasslabel.Visible = true;
+                departurelabel.Visible = true;
+                flighttypelabel.Visible = true;
+                flightgroupbox.Visible = true;
+                firstnametextbox.Visible = true;
+                lastnametextbox.Visible = true;
+                emailtextbox.Visible = true;
+                passporttextbox.Visible = true;
+                agecomboBox.Visible = true;
+                fromcomboBox.Visible = true;
+                tocomboBox.Visible = true;
+                flightclasscomboBox.Visible = true;
+                departuredate.Visible = true;
+                Viewbutton.Visible = false;
+                editinfobutton.Visible = true;
+
+                flightgroupbox.Enabled = false;
+                firstnametextbox.ReadOnly = true;
+                lastnametextbox.ReadOnly= true;
+                emailtextbox.ReadOnly = true;
+                passporttextbox.ReadOnly = true;
+                agecomboBox.Enabled=false;
+                fromcomboBox.Enabled=false;
+                tocomboBox.Enabled=false;
+                flightclasscomboBox.Enabled=false;
+                departuredate.Enabled=false;
+                bookinginfo bi = new bookinginfo();
+                bi=bookinginfo.getall(Convert.ToInt32(enterticketidtextbox.Text));
+                
+                
+                flightgroupbox.Visible = true;
+                firstnametextbox.Text=bi.firstname;
+                lastnametextbox.Text =bi.lastname;
+                emailtextbox.Text=bi.email;
+                passporttextbox.Text = bi.passportnumber;
+                agecomboBox.Text = bi.age;
+                fromcomboBox.Text = bi.from;
+                string gender;
+                bool b1 = bi.bigender.Equals("Male");
+                if(bi.bigender.Equals("Male"))
+                    Male.Checked = true;
+                else if (bi.bigender.Equals("Female"))
+                    Female.Checked = true;
+                if (bi.flighttype.Equals("One-Way"))
+                    oneway.Checked = true;
+                else if (bi.flighttype.Equals("Round Trip"))
+                    roundtrip.Checked = true;
+                String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                //Declaring and Assigning Connection String
+                using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                {
+                    SqlCommand cmd = new SqlCommand("select * from dest()", con);
+                    // Sql Command stored procedure to insert successful Login into Login History on database
+                    con.Open();
+                    // Using parametrized query to avoid sql injection attack
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        tocomboBox.Items.Add(dr["city"]);
+                    }
+                    dr.Close();
+                    tocomboBox.Text = bi.to;
+
+                }
+                flightclasscomboBox.Text = bi.flightclass;
+                departuredate.Text = bi.departuredate.ToString("yyyy-MM-dd HH:mm:ss");
+                Viewbutton.Visible = false;
+            }
+
+        }
+        private bool validticketid(string ticketid)
+        {
+            try
+            {
+                Convert.ToInt32(enterticketidtextbox.Text);
+            }
+            catch
+            {
+                return false;
+            }
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlCommand cmd = new SqlCommand("select dbo.ticketexist(@ticketid)", con);
+                // Sql Command to check if entered flight exist
+                // Using parametrized query to avoid sql injection attack
+                cmd.Parameters.Add("@ticketid", SqlDbType.VarChar, 1000).Value = ticketid; //Defining the command parameter for backup location
+                con.Open(); //Opening Connection
+                int existance = Convert.ToInt32(cmd.ExecuteScalar()); // Executing Query
+                if (existance <= 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void editinfobutton_Click(object sender, EventArgs e)
+        {
+            flightgroupbox.Enabled = true;
+            firstnametextbox.ReadOnly = false;
+            lastnametextbox.ReadOnly = false;
+            emailtextbox.ReadOnly = false;
+            passporttextbox.ReadOnly = false;
+            agecomboBox.Enabled = true;
+            tocomboBox.Enabled = true;
+            flightclasscomboBox.Enabled = true;
+            departuredate.Enabled = true;
+            
+            donebtn.Text = "Discard";
         }
     }
 }

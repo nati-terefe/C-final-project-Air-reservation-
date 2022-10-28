@@ -107,5 +107,21 @@ namespace Airline_reservation
                 datagridview.Columns[1].Width = 20;  // role
             }
         }
+
+        private void messagesbutton_Click(object sender, EventArgs e)
+        {
+            datagridview.Visible = true;
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlDataAdapter adpt = new SqlDataAdapter("select * from contactmessages", con);
+                DataTable table = new DataTable();
+                adpt.Fill(table);
+                datagridview.DataSource = table;
+                datagridview.Columns[3].Width = 150;  // email
+                datagridview.Columns[4].Width = 350;  // suggetion
+            }
+        }
     }
 }

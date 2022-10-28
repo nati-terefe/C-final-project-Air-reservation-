@@ -795,7 +795,7 @@
             this.managedbookedbtn.Name = "managedbookedbtn";
             this.managedbookedbtn.Size = new System.Drawing.Size(160, 43);
             this.managedbookedbtn.TabIndex = 136;
-            this.managedbookedbtn.Text = "Manage Booked";
+            this.managedbookedbtn.Text = "Edit Bookings";
             this.managedbookedbtn.UseVisualStyleBackColor = false;
             this.managedbookedbtn.Click += new System.EventHandler(this.managedbookedbtn_Click);
             // 
