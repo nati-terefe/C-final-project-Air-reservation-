@@ -40,7 +40,7 @@ else
 END
 
 declare @role int
-execute whatrole 'admin', 'admin', @role OUTPUT;
+execute whatrole 'subadmin', 'subadmin', @role OUTPUT;
 select @role
 
 GO
@@ -99,7 +99,22 @@ BEGIN
 update login set passwd=@newpasswd where usrname=@usrname
 END
 
-execute setnewpasswd 'admin', 'newadmin';
+execute setnewpasswd 'admin', 'admin';
+
+select * from login
+
+GO
+-- 5. Set new role stored procedure that updates new role when role change
+CREATE or Alter PROCEDURE setnewrole(
+@usrname varchar(20),
+@newrole int
+)
+AS
+BEGIN
+update login set rol=@newrole where usrname=@usrname
+END
+
+execute setnewrole 'subadmin', '2';
 
 select * from login
 
@@ -120,7 +135,7 @@ select @refid=id from registered where usrname=@usrname
 Insert into login values(@usrname, @passwd, @rol, @hintQ, @hintA, @refid)
 END
 
-select * from login
+select * from registered
 
 
 
@@ -211,3 +226,33 @@ select * from contactmessages
 
 -- --------------------------------------------------------------------------------------------------------------------------------
 -- Booked Tickets table
+GO
+CREATE OR ALTER PROCEDURE backupdb(
+@full int,
+@backuploc varchar(1000)
+)
+as
+begin
+DECLARE @backupdate varchar(30) 
+DECLARE @backupname varchar(1000)
+set @backupdate=FORMAT (getdate(), 'dd-mm-yyyy hh_mm_ss-tt')
+if (@full=0)
+	BEGIN
+		SET @backuploc += '\Differential Airline Reservation System DB Backup - '
+		SET @backupname=CONCAT(@backuploc, @backupdate, ' .bak')
+		BACKUP DATABASE AirlineReservation
+		TO DISK =  @backupname
+		WITH DIFFERENTIAL;
+	END
+else if (@full=1)
+	BEGIN
+		SET @backuploc +='\Full Airline Reservation System DB Backup - '
+		SET @backupname=CONCAT(@backuploc, @backupdate, '.bak')
+		BACKUP DATABASE AirlineReservation
+		TO DISK = @backupname
+	END
+END
+
+Execute backupdb 0
+Execute backupdb 1, 'C:\Users\redie\Desktop\Airline Reservation System Database Backup'
+select getdate()
