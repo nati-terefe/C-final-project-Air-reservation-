@@ -9,7 +9,7 @@ Developed by:
 6. Temesgan Fekadu 	ID ZT2452
 Developed due: 27/10/2022
 
-<a href="http://www.github.com/mikyge2"><img src="https://files.fm/f/cczy3huu6" alt="Wakanda Airline Reservation System" /></a>
+<a href="https://files.fm/f/cczy3huu6"><img src="https://files.fm/thumb_show.php?i=cczy3huu6"></a>
 
 Database Includes
 #1. LOgin table with 6 stored procedure
