@@ -48,8 +48,6 @@
             this.departurelabel = new System.Windows.Forms.Label();
             this.destinationlabel = new System.Windows.Forms.Label();
             this.flighthourlabel = new System.Windows.Forms.Label();
-            this.pilolttextbox = new System.Windows.Forms.TextBox();
-            this.copilolttextbox = new System.Windows.Forms.TextBox();
             this.flightidtextbox = new System.Windows.Forms.TextBox();
             this.noofseatstextbox = new System.Windows.Forms.TextBox();
             this.flighthourtextbox = new System.Windows.Forms.TextBox();
@@ -66,12 +64,15 @@
             this.bookedseatserror = new System.Windows.Forms.ErrorProvider(this.components);
             this.progresserror = new System.Windows.Forms.ErrorProvider(this.components);
             this.deptime = new System.Windows.Forms.Label();
-            this.depdateandtimepick = new System.Windows.Forms.DateTimePicker();
+            this.depdateandtimepicker = new System.Windows.Forms.DateTimePicker();
             this.aircraftcombobox = new System.Windows.Forms.ComboBox();
             this.addflightbutton = new System.Windows.Forms.Button();
             this.editflightbutton = new System.Windows.Forms.Button();
             this.depcomboBox = new System.Windows.Forms.ComboBox();
             this.destinationcombobox = new System.Windows.Forms.ComboBox();
+            this.pilotcombobox = new System.Windows.Forms.ComboBox();
+            this.copilotcombobox = new System.Windows.Forms.ComboBox();
+            this.depdateandtimepick = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enterflightiderror)).BeginInit();
@@ -325,26 +326,6 @@
             this.flighthourlabel.Text = "Hour of flight";
             this.flighthourlabel.Visible = false;
             // 
-            // pilolttextbox
-            // 
-            this.pilolttextbox.Location = new System.Drawing.Point(83, 340);
-            this.pilolttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.pilolttextbox.Name = "pilolttextbox";
-            this.pilolttextbox.ReadOnly = true;
-            this.pilolttextbox.Size = new System.Drawing.Size(195, 22);
-            this.pilolttextbox.TabIndex = 104;
-            this.pilolttextbox.Visible = false;
-            // 
-            // copilolttextbox
-            // 
-            this.copilolttextbox.Location = new System.Drawing.Point(84, 392);
-            this.copilolttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.copilolttextbox.Name = "copilolttextbox";
-            this.copilolttextbox.ReadOnly = true;
-            this.copilolttextbox.Size = new System.Drawing.Size(195, 22);
-            this.copilolttextbox.TabIndex = 105;
-            this.copilolttextbox.Visible = false;
-            // 
             // flightidtextbox
             // 
             this.flightidtextbox.Location = new System.Drawing.Point(580, 189);
@@ -442,14 +423,13 @@
             this.deptime.Text = "Departure Time";
             this.deptime.Visible = false;
             // 
-            // depdateandtimepick
+            // depdateandtimepicker
             // 
-            this.depdateandtimepick.Enabled = false;
-            this.depdateandtimepick.Location = new System.Drawing.Point(573, 458);
-            this.depdateandtimepick.Name = "depdateandtimepick";
-            this.depdateandtimepick.Size = new System.Drawing.Size(200, 22);
-            this.depdateandtimepick.TabIndex = 114;
-            this.depdateandtimepick.Visible = false;
+            this.depdateandtimepicker.Location = new System.Drawing.Point(573, 458);
+            this.depdateandtimepicker.Name = "depdateandtimepicker";
+            this.depdateandtimepicker.Size = new System.Drawing.Size(200, 22);
+            this.depdateandtimepicker.TabIndex = 114;
+            this.depdateandtimepicker.Visible = false;
             // 
             // aircraftcombobox
             // 
@@ -510,24 +490,57 @@
             this.destinationcombobox.TabIndex = 119;
             this.destinationcombobox.Visible = false;
             // 
+            // pilotcombobox
+            // 
+            this.pilotcombobox.Enabled = false;
+            this.pilotcombobox.FormattingEnabled = true;
+            this.pilotcombobox.Location = new System.Drawing.Point(84, 340);
+            this.pilotcombobox.Name = "pilotcombobox";
+            this.pilotcombobox.Size = new System.Drawing.Size(195, 24);
+            this.pilotcombobox.TabIndex = 120;
+            this.pilotcombobox.Visible = false;
+            // 
+            // copilotcombobox
+            // 
+            this.copilotcombobox.Enabled = false;
+            this.copilotcombobox.FormattingEnabled = true;
+            this.copilotcombobox.Location = new System.Drawing.Point(84, 392);
+            this.copilotcombobox.Name = "copilotcombobox";
+            this.copilotcombobox.Size = new System.Drawing.Size(195, 24);
+            this.copilotcombobox.TabIndex = 121;
+            this.copilotcombobox.Visible = false;
+            // 
+            // depdateandtimepick
+            // 
+            this.depdateandtimepick.Enabled = false;
+            this.depdateandtimepick.FormattingEnabled = true;
+            this.depdateandtimepick.Location = new System.Drawing.Point(570, 451);
+            this.depdateandtimepick.Name = "depdateandtimepick";
+            this.depdateandtimepick.Size = new System.Drawing.Size(203, 24);
+            this.depdateandtimepick.TabIndex = 122;
+            this.depdateandtimepick.Visible = false;
+            this.depdateandtimepick.SelectedIndexChanged += new System.EventHandler(this.depdateandtimepick_SelectedIndexChanged);
+            this.depdateandtimepick.MouseClick += new System.Windows.Forms.MouseEventHandler(this.depdateandtimepick_MouseClick);
+            // 
             // search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 618);
+            this.Controls.Add(this.depdateandtimepick);
+            this.Controls.Add(this.copilotcombobox);
+            this.Controls.Add(this.pilotcombobox);
             this.Controls.Add(this.destinationcombobox);
             this.Controls.Add(this.depcomboBox);
             this.Controls.Add(this.editflightbutton);
             this.Controls.Add(this.addflightbutton);
             this.Controls.Add(this.aircraftcombobox);
-            this.Controls.Add(this.depdateandtimepick);
+            this.Controls.Add(this.depdateandtimepicker);
             this.Controls.Add(this.deptime);
             this.Controls.Add(this.availableseatstextbox);
             this.Controls.Add(this.flighthourtextbox);
             this.Controls.Add(this.noofseatstextbox);
             this.Controls.Add(this.flightidtextbox);
-            this.Controls.Add(this.copilolttextbox);
-            this.Controls.Add(this.pilolttextbox);
             this.Controls.Add(this.flighthourlabel);
             this.Controls.Add(this.destinationlabel);
             this.Controls.Add(this.departurelabel);
@@ -588,8 +601,6 @@
         private System.Windows.Forms.Label departurelabel;
         private System.Windows.Forms.Label destinationlabel;
         private System.Windows.Forms.Label flighthourlabel;
-        private System.Windows.Forms.TextBox pilolttextbox;
-        private System.Windows.Forms.TextBox copilolttextbox;
         private System.Windows.Forms.TextBox flightidtextbox;
         private System.Windows.Forms.TextBox noofseatstextbox;
         private System.Windows.Forms.TextBox flighthourtextbox;
@@ -606,11 +617,14 @@
         private System.Windows.Forms.ErrorProvider bookedseatserror;
         private System.Windows.Forms.ErrorProvider progresserror;
         private System.Windows.Forms.Label deptime;
-        private System.Windows.Forms.DateTimePicker depdateandtimepick;
+        private System.Windows.Forms.DateTimePicker depdateandtimepicker;
         private System.Windows.Forms.ComboBox aircraftcombobox;
         private System.Windows.Forms.Button addflightbutton;
         private System.Windows.Forms.Button editflightbutton;
         private System.Windows.Forms.ComboBox depcomboBox;
         private System.Windows.Forms.ComboBox destinationcombobox;
+        private System.Windows.Forms.ComboBox pilotcombobox;
+        private System.Windows.Forms.ComboBox copilotcombobox;
+        private System.Windows.Forms.ComboBox depdateandtimepick;
     }
 }

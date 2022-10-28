@@ -104,23 +104,7 @@ select * from registered
 -- ------------------------------------------------------------------------------------
 
 GO
--- 4. deleteregistrywithlogin stored procedure that deletes an entire record of certain username
-CREATE or ALTER PROCEDURE deleteregistrywithlogin(
-@usrname varchar(20)
-)
-AS
-BEGIN
-delete from login where usrname=@usrname
-delete from registered where usrname=@usrname
-END
-
-select * from login
-select * from registered
-
--- ------------------------------------------------------------------------------------
-
-GO
--- 5. What is the hint question stored procedure that returns the hint question of a certain usename and password
+-- 4. What is the hint question stored procedure that returns the hint question of a certain usename and password
 CREATE or ALTER PROCEDURE whathintq(
 @usrname varchar(20),
 @hintqis varchar(100) OUTPUT
@@ -137,7 +121,7 @@ select @hintq
 -- ------------------------------------------------------------------------------------
 
 GO
--- 6. What is the hint answer stored procedure that returns the hint answer of a certain usename
+-- 5. What is the hint answer stored procedure that returns the hint answer of a certain usename
 CREATE or ALTER PROCEDURE whathinta(
 @usrname varchar(20),
 @hintais varchar(20) OUTPUT

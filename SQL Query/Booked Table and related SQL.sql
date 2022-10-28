@@ -18,7 +18,9 @@ fclass varchar(20),
 ftype varchar(20),
 price money,
 fidref int FOREIGN KEY REFERENCES flights(id));
+
 select * from bookedtickets
+
 drop table bookedtickets
 
 -- ----------------------------------------------------------------------------------------------------------------
@@ -149,7 +151,7 @@ select dbo.lastticketid()
 
 GO
 -- 2. Ticket exist function that returns if a ticket exists
-CREATE OR ALTER FUNCTION ticketexist(
+CREATE FUNCTION ticketexist(
 @ticketid int)
 returns int
 as
@@ -162,7 +164,7 @@ end
 -- ------------------------------------------------------------------------------------
 
 GO
--- 2. how much paid function that returns how much was paid for a ticket
+-- 3. how much paid function that returns how much was paid for a ticket
 create function howmuchpaid(
 @ticketid int)
 returns float
@@ -178,8 +180,8 @@ select dbo.howmuchpaid(2)
 -- ------------------------------------------------------------------------------------
 
 GO
--- 3. Is Ticket Yours function that checks if a ticket is booked by a certain username
-create or alter function isticketyours(
+-- 4. Is Ticket Yours function that checks if a ticket is booked by a certain username
+create function isticketyours(
 @ticketid int, 
 @usrname varchar(30))
 returns int

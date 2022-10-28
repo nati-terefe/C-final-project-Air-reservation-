@@ -419,11 +419,9 @@ namespace Airline_reservation
                         // Sql Command stored procedure to insert successful Login into Login History on database
                         con.Open();
                         tick.ticketid = Convert.ToInt32(cmd.ExecuteScalar()) + 1; // Assigning output value of stored procedure by converting to int
+
                     }
 
-
-                    //tick.Show();
-                    //tf.Show();
                     tf.flowLayoutPanel1.Controls.Add(tick);
                     tf.Show();
 
@@ -477,7 +475,7 @@ namespace Airline_reservation
                 for (int i = 0; i < passchar.Length; i++) // loop to find invalid character in name
                 {
                     char c = passchar[i];
-                    if (!(c >= 'A' && c <= 'z') && !(isnum(passport)))
+                    if (!(c >= 'A' && c <= 'z') && !isnum(c.ToString()))
                         return false;
                 }
             }

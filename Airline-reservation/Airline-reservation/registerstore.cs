@@ -41,6 +41,28 @@ namespace Airline_reservation
             { 
                 if(full==1) // Selection if its a new registry to fully register it with login assigning
                 {
+                    con.Open(); //Opening Connection
+                    if (!string.IsNullOrEmpty(initialusrname))
+                    {
+                        SqlCommand cmd1 = new SqlCommand("unlinkloginhisandreg", con);
+                        // Sql Command to delete a user
+                        cmd1.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                                                                                    // Using parametrized query to avoid sql injection attack
+                        cmd1.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for usrname
+                        cmd1.ExecuteNonQuery();
+                        SqlCommand cmd3 = new SqlCommand("deleteregistrywithlogin", con);
+                        // Sql Command to delete a user
+                        cmd3.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                        cmd3.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for usrname
+                        cmd3.ExecuteNonQuery();
+                        SqlCommand cmd4 = new SqlCommand("updateloginhis", con);
+                        // Sql Command to delete a user
+                        cmd4.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                        cmd4.Parameters.Add("@initialusrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for usrname
+                        cmd4.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = registerusername; //Defining the command parameter for usrname
+                        cmd4.ExecuteNonQuery();
+
+                    }
                     SqlCommand cmd = new SqlCommand("addregistry", con);
                     // Sql Command to add new registry on database
                     cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
@@ -56,7 +78,7 @@ namespace Airline_reservation
                     cmd.Parameters.Add("@hintq", SqlDbType.VarChar, 100).Value = question; //Defining the command parameter for hint quetion
                     cmd.Parameters.Add("@hinta", SqlDbType.VarChar, 20).Value = registerhint; //Defining the command parameter for hint answer
                     conv_photo(cmd); // Calling function conv_photo that converts selected image into byte array and define the sql command parameter
-                    con.Open(); //Opening Connection
+                    
                     rowaffected = cmd.ExecuteNonQuery(); // Executing Query and returning number of rows affected
                     SqlCommand cmd2 = new SqlCommand("registrylogin", con);
                     // Sql Command to create login for register

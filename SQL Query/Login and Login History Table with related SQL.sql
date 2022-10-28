@@ -73,9 +73,6 @@ select @refid=id from registered where usrname=@usrname
 Insert into login values(@usrname, @passwd, @rol, @refid)
 END
 
-select * from registered
-select * from login
-
 -- ------------------------------------------------------------------------------------
 
 GO
@@ -165,4 +162,46 @@ execute unlinkloginhisandreg 'user'
 
 select * from loginhistory
 
+-- ------------------------------------------------------------------------------------
+
+GO
+-- 3. loginhisofusr procedure that returns loging history of certain username
+CREATE or ALTER PROCEDURE loginhisofusr(
+@usrname varchar(20)
+)
+AS
+BEGIN
+select * from loginhistory where usrname=@usrname
+END
+
+-- ------------------------------------------------------------------------------------
+
+GO
+-- 4. deleteregistrywithlogin stored procedure that deletes an entire record of certain username and sets login history ref to registered null
+CREATE or ALTER PROCEDURE deleteregistrywithlogin(
+@usrname varchar(20)
+)
+AS
+BEGIN
+update loginhistory 
+set registerationid=null;
+delete from login where usrname=@usrname
+delete from registered where usrname=@usrname
+END
+
+-- ------------------------------------------------------------------------------------
+
+GO
+-- 5. update login history stored procedure that assign updated username when theres edit on username change
+CREATE or ALTER PROCEDURE updateloginhis(
+@initialusrname varchar(20),
+@usrname varchar(20)
+)
+AS
+BEGIN
+declare @regid int
+select @regid=id from registered where usrname=@usrname;
+update loginhistory
+set usrname=@usrname, registerationid=@regid where usrname=@initialusrname
+END
 

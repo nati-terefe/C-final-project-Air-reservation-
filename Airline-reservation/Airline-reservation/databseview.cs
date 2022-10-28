@@ -123,5 +123,22 @@ namespace Airline_reservation
                 datagridview.Columns[4].Width = 350;  // suggetion
             }
         }
+
+        private void pilotsbtn_Click(object sender, EventArgs e)
+        {
+
+            datagridview.DataSource = null;
+            datagridview.Visible = true;
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlDataAdapter adpt = new SqlDataAdapter("pilotwithflight", con);
+                adpt.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                DataTable table = new DataTable();
+                adpt.Fill(table);
+                datagridview.DataSource = table;
+            }
+        }
     }
 }

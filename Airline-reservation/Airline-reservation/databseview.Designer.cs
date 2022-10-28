@@ -38,6 +38,7 @@
             this.backbutton = new System.Windows.Forms.Button();
             this.loginhistorybtn = new System.Windows.Forms.Button();
             this.messagesbutton = new System.Windows.Forms.Button();
+            this.pilotsbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -50,7 +51,7 @@
             this.datagridview.Margin = new System.Windows.Forms.Padding(4);
             this.datagridview.Name = "datagridview";
             this.datagridview.RowHeadersWidth = 51;
-            this.datagridview.Size = new System.Drawing.Size(1179, 438);
+            this.datagridview.Size = new System.Drawing.Size(1179, 385);
             this.datagridview.TabIndex = 0;
             this.datagridview.Visible = false;
             this.datagridview.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -126,7 +127,7 @@
             this.backbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.backbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backbutton.Location = new System.Drawing.Point(38, 457);
+            this.backbutton.Location = new System.Drawing.Point(1215, 506);
             this.backbutton.Margin = new System.Windows.Forms.Padding(4);
             this.backbutton.Name = "backbutton";
             this.backbutton.Size = new System.Drawing.Size(160, 43);
@@ -140,7 +141,7 @@
             this.loginhistorybtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginhistorybtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginhistorybtn.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginhistorybtn.Location = new System.Drawing.Point(38, 335);
+            this.loginhistorybtn.Location = new System.Drawing.Point(38, 396);
             this.loginhistorybtn.Margin = new System.Windows.Forms.Padding(4);
             this.loginhistorybtn.Name = "loginhistorybtn";
             this.loginhistorybtn.Size = new System.Drawing.Size(160, 43);
@@ -154,7 +155,7 @@
             this.messagesbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.messagesbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.messagesbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.messagesbutton.Location = new System.Drawing.Point(38, 395);
+            this.messagesbutton.Location = new System.Drawing.Point(38, 455);
             this.messagesbutton.Margin = new System.Windows.Forms.Padding(4);
             this.messagesbutton.Name = "messagesbutton";
             this.messagesbutton.Size = new System.Drawing.Size(160, 43);
@@ -163,12 +164,27 @@
             this.messagesbutton.UseVisualStyleBackColor = false;
             this.messagesbutton.Click += new System.EventHandler(this.messagesbutton_Click);
             // 
+            // pilotsbtn
+            // 
+            this.pilotsbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.pilotsbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pilotsbtn.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.pilotsbtn.Location = new System.Drawing.Point(38, 333);
+            this.pilotsbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.pilotsbtn.Name = "pilotsbtn";
+            this.pilotsbtn.Size = new System.Drawing.Size(160, 43);
+            this.pilotsbtn.TabIndex = 95;
+            this.pilotsbtn.Text = "Pilots";
+            this.pilotsbtn.UseVisualStyleBackColor = false;
+            this.pilotsbtn.Click += new System.EventHandler(this.pilotsbtn_Click);
+            // 
             // Booked_flights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1412, 554);
+            this.Controls.Add(this.pilotsbtn);
             this.Controls.Add(this.messagesbutton);
             this.Controls.Add(this.loginhistorybtn);
             this.Controls.Add(this.backbutton);
@@ -200,5 +216,6 @@
         private System.Windows.Forms.Button backbutton;
         private System.Windows.Forms.Button loginhistorybtn;
         private System.Windows.Forms.Button messagesbutton;
+        private System.Windows.Forms.Button pilotsbtn;
     }
 }

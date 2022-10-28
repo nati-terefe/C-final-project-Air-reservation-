@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,6 +15,8 @@ namespace Airline_reservation
 {
     public partial class search : Form
     {
+        private static string pastpilot;
+        private static string pastcopilot;
         public search()
         {
             InitializeComponent();
@@ -62,17 +65,20 @@ namespace Airline_reservation
             availableseatslabel.BackColor = Color.Transparent;
             deptime.Parent = pictureBox1;
             deptime.BackColor = Color.Transparent;
+
+            depdateandtimepicker.Format = DateTimePickerFormat.Custom;
+            depdateandtimepicker.CustomFormat = "yyyy/mm/d hh:mm:ss";
         }
 
         private void Editinfo_Click(object sender, EventArgs e)
         {
             savebutton.Visible = true;
-            pilolttextbox.ReadOnly = false;
-            copilolttextbox.ReadOnly = false;
             destinationcombobox.Enabled=true;
+            copilotcombobox.Enabled =true;
+            pilotcombobox.Enabled = true;
             aircraftcombobox.Enabled = true;
             flighthourtextbox.ReadOnly= false;
-            depdateandtimepick.Enabled =true;
+            depdateandtimepick.Enabled = true;
             donebutton.Text = "Cancel";
         }
 
@@ -107,16 +113,18 @@ namespace Airline_reservation
 
             if (validflightid(enterflightidtextbox.Text))
             {
+                pilotcombobox.Items.Clear();
+                copilotcombobox.Items.Clear();
+                enterflightiderror.Clear();
                 changevisible(1);
                 flightinfo fi = new flightinfo();
                 fi = flightinfo.getall(enterflightidtextbox.Text);
-                pilolttextbox.Text = fi.pilot;
-                copilolttextbox.Text = fi.copilot;
                 depcomboBox.Text = fi.departure;
                 flightidtextbox.Text =fi.flightid.ToString();
                 availableseatstextbox.Text = fi.availseat.ToString();
                 flighthourtextbox.Text = fi.duration.ToString();
-                depdateandtimepick.Value=fi.departuretime;
+                depdateandtimepick.Text=fi.departuretime.ToString();
+                flightidtextbox.ReadOnly = true;
                 String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
                 //Declaring and Assigning Connection String
                 using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
@@ -157,6 +165,21 @@ namespace Airline_reservation
                     }
                     dr2.Close();
                     destinationcombobox.Text = fi.destination;
+                    SqlCommand cmd4 = new SqlCommand("select * from availpilots()", con);
+                    // Sql Command stored procedure to insert successful Login into Login History on database
+                    
+                    // Using parametrized query to avoid sql injection attack
+                    SqlDataReader dr3 = cmd4.ExecuteReader();
+                    while (dr3.Read())
+                    {
+                        pilotcombobox.Items.Add(dr3["full_name"]);
+                        copilotcombobox.Items.Add(dr3["full_name"]);
+                    }
+                    dr3.Close();
+                    pilotcombobox.Text = fi.pilot;
+                    copilotcombobox.Text = fi.copilot;
+                    pastpilot= fi.pilot;
+                    pastcopilot = fi.copilot;
                 }
             }
         }
@@ -171,8 +194,8 @@ namespace Airline_reservation
                 searchbutton.Visible = false; // Making Visible
                 whatdoyouwantlabel.Text = "What do you want to do";
                 pilotslabel.Visible = false; // Hiding Element
-                pilolttextbox.Visible = false; // Hiding Element
-                copilolttextbox.Visible = false; // Hiding Element
+                pilotcombobox.Visible = false; // Hiding Element
+                copilotcombobox.Visible = false; // Hiding Element
                 flightidlabel.Visible = false; // Hiding Element
                 flightidtextbox.Visible = false; // Hiding Element
                 aircraftlabel.Visible = false; // Hiding Element
@@ -188,11 +211,19 @@ namespace Airline_reservation
                 availableseatslabel.Visible = false; // Hiding Element
                 availableseatstextbox.Visible = false; // Hiding Element
                 deptime.Visible = false;
+                depdateandtimepicker.Visible = false;
                 depdateandtimepick.Visible = false;
                 Editinfobutton.Visible = false; // Hiding Element
                 savebutton.Visible = false; // Hiding Element
                 deleteflightbutton.Visible = false; // Hiding Element
                 donebutton.Text = "Done";
+
+                pilotcombobox.Enabled = false;
+                copilotcombobox.Enabled = false;
+                destinationcombobox.Enabled = false;
+                depdateandtimepick.Enabled = false;
+                aircraftcombobox.Enabled = false;
+                flighthourtextbox.ReadOnly = true;
             }
             else if (appear == 1)
             {
@@ -203,8 +234,8 @@ namespace Airline_reservation
                 addflightbutton.Visible = false;
                 editflightbutton.Visible = false;
                 pilotslabel.Visible = true; // Making Visible
-                pilolttextbox.Visible = true; // Making Visible
-                copilolttextbox.Visible = true; // Making Visible
+                pilotcombobox.Visible = true; // Making Visible
+                copilotcombobox.Visible = true; // Making Visible
                 flightidlabel.Visible = true; // Making Visible
                 flightidtextbox.Visible = true; // Making Visible
                 aircraftlabel.Visible = true; // Making Visible
@@ -220,6 +251,7 @@ namespace Airline_reservation
                 availableseatslabel.Visible = true; // Making Visible
                 availableseatstextbox.Visible = true; // Making Visible
                 depdateandtimepick.Visible = true;
+                depdateandtimepicker.Visible = false;
                 deptime.Visible = true;
                 Editinfobutton.Visible = true; // Making Visible
                 deleteflightbutton.Visible = true; // Making Visible
@@ -289,6 +321,7 @@ namespace Airline_reservation
                     }
                 }
             }
+
             return true;
         }
 
@@ -323,15 +356,15 @@ namespace Airline_reservation
             flighthourerror.Clear();
             destinationerror.Clear();
             aircrafterror.Clear();
-            if (!validatename(pilolttextbox.Text))
+            if (!validatename(pilotcombobox.Text))
             {
                 piloterror.Clear();
-                piloterror.SetError(pilolttextbox, "Enter a valid Pilot Name");
+                piloterror.SetError(pilotcombobox, "Enter a valid Pilot Name");
             }
-            if (!validatename(copilolttextbox.Text))
+            if (!validatename(copilotcombobox.Text) )
             {
                 copiloterror.Clear();
-                copiloterror.SetError(copilolttextbox, "Enter a valid Co-Pilot Name");
+                copiloterror.SetError(copilotcombobox, "Enter a valid Co-Pilot Name");
             }
             if (!validatehour(flighthourtextbox.Text))
             {
@@ -350,8 +383,15 @@ namespace Airline_reservation
                 aircrafterror.Clear();
                 aircrafterror.SetError(aircraftcombobox, "Select Aircraft");
             }
-            else if(validatename(pilolttextbox.Text) 
-                && validatename(copilolttextbox.Text)
+            if (copilotcombobox.Text.Equals(pilotcombobox.Text))
+            {
+                piloterror.Clear();
+                piloterror.SetError(pilotcombobox, "Pilot and co pilot can't be the same");
+                copiloterror.Clear();
+                copiloterror.SetError(copilotcombobox, "CoPilot and pilot can't be the same");
+            }
+            else if(validatename(pilotcombobox.Text) 
+                && validatename(copilotcombobox.Text) && !copilotcombobox.Text.Equals(pilotcombobox.Text)
                 && validatehour(flighthourtextbox.Text)
                 && !string.IsNullOrEmpty(destinationcombobox.Text)
                 && !string.IsNullOrEmpty(destinationcombobox.Text) && destinationexist(destinationcombobox.Text)
@@ -366,9 +406,9 @@ namespace Airline_reservation
                 flightinfo fi = new flightinfo();
                 fi.departure = depcomboBox.Text;
                 fi.destination = destinationcombobox.Text;
-                fi.departuretime = depdateandtimepick.Value;
-                fi.pilot = pilolttextbox.Text;
-                fi.copilot = copilolttextbox.Text;
+                fi.departuretime = depdateandtimepicker.Value;
+                fi.pilot = pilotcombobox.Text;
+                fi.copilot = copilotcombobox.Text;
                 fi.availseat = Convert.ToInt32(availableseatstextbox.Text);
                 fi.duration = Convert.ToInt32(flighthourtextbox.Text);
                 fi.planeid = Convert.ToInt32(aircraftcombobox.Text.Substring(0, 4));
@@ -376,6 +416,22 @@ namespace Airline_reservation
                 rowaffected = fi.save(0);
                 if (rowaffected > 0)
                 {
+                    String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                    //Declaring and Assigning Connection String
+                    using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                    {
+                        SqlCommand cmd = new SqlCommand("changeocuupations", con);
+                        // Sql Command to return if user exists on database
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                                                                                   // Using parametrized query to avoid sql injection attack
+                        cmd.Parameters.Add("@pastpilot", SqlDbType.VarChar, 70).Value = pastpilot; //Defining the command parameter for usrname
+                        cmd.Parameters.Add("@pastcopilot", SqlDbType.VarChar, 70).Value = pastcopilot; //Defining the command parameter for usrname
+                        cmd.Parameters.Add("@newpilot", SqlDbType.VarChar, 70).Value = fi.pilot; //Defining the command parameter for usrname
+                        cmd.Parameters.Add("@newcopilot", SqlDbType.VarChar, 70).Value = fi.copilot; //Defining the command parameter for usrname
+                        con.Open(); //Opening Connection
+                        cmd.ExecuteNonQuery(); // Executing Query 
+                    }
+
                     MessageBox.Show("Changes saved successfylly. Passengers will be notified of the changes");
                     
                 }
@@ -473,6 +529,17 @@ namespace Airline_reservation
                     availableseatstextbox.Text=noofseats.ToString();
                 }
             }
+        }
+
+        private void depdateandtimepick_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void depdateandtimepick_MouseClick(object sender, MouseEventArgs e)
+        {
+            depdateandtimepicker.Visible = true;
+            depdateandtimepick.Visible = false;
         }
     }
 }

@@ -102,13 +102,103 @@ end
 -- --------------------------------------------------------------------------------------------------------------------------------
 -- --------------------------------------------------------------------------------------------------------------------------------
 
+-- -- Creating pilots table that stores pilots information
+create table pilots(
+id int IDENTITY(101,1), 
+full_name varchar(70) primary key,
+flighthour int,
+occupied int,
+);
+
+-- Initial data to  fill pilots table
+Insert into pilots values('Capt. Abebe Zeleke', 1000,1);
+Insert into pilots values('Rediet Girum', 750,1);
+Insert into pilots values('Capt. Zerihun Zeleke', 1200,1);
+Insert into pilots values('Abel Girum', 800, 1);
+Insert into pilots values('Capt. Abebe Haile', 1100,1);
+Insert into pilots values('Bitaniya Damtew', 900,1);
+Insert into pilots values('Capt. Zeleke Belay', 1300,1);
+Insert into pilots values('Yonas Haile', 900,1);
+Insert into pilots values('Capt. Abebe Kebede', 1600,1);
+Insert into pilots values('Ayub Girum', 600,1);
+Insert into pilots values('Capt. Kebedech Girum', 1100,1);
+Insert into pilots values('Barkot Girum', 900,1);
+Insert into pilots values('Capt. Tamrat Zewdee', 1100,1);
+Insert into pilots values('Bereket Girum', 900,1);
+Insert into pilots values('Capt. Eyob Nahom', 1100,1);
+Insert into pilots values('Gemechu Girum', 900,1);
+Insert into pilots values('Capt. Abel Yonas', 1100,1);
+Insert into pilots values('Nuhamin Tarekeg', 900,1);
+Insert into pilots values('Capt. Bamlak Kidus', 1100,1);
+Insert into pilots values('Sofonias Michael', 900,1);
+
+Insert into pilots values('Capt. Zekarias Kebede', 1100,0);
+Insert into pilots values('Lily Zegu', 900,0);
+Insert into pilots values('Capt. Sinu Mohammed', 1100,0);
+Insert into pilots values('Aljebar Alsayf', 900,0);
+Insert into pilots values('Capt. Natanim Alemayew', 1100,0);
+Insert into pilots values('Amanuel Kassaye', 900,0);
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- Procedure on pilots table --------------------------------------------------------------------------------------
+GO
+-- 1. Pilot with flight procedure that returns pilots with the fights they're flying
+CREATE or ALTER PROCEDURE pilotwithflight
+AS
+BEGIN
+select * from pilots p left join flights f on f.pilot=p.full_name or f.copilot=p.full_name
+END
+
+-------------------------------------------------------------------------------
+
+GO
+-- 2. changeocuupations stored procedure changes occupied status of pilots
+CREATE or alter procedure changeocuupations(
+@pastpilot varchar(70),
+@pastcopilot varchar(70),
+@newpilot varchar(70),
+@newcopilot varchar(70)
+)
+AS
+BEGIN
+update pilots
+set occupied=0 where full_name=@pastpilot
+update pilots
+set occupied=0 where full_name=@pastcopilot
+update pilots
+set occupied=1 where full_name=@newpilot
+update pilots
+set occupied=1 where full_name=@newcopilot
+END
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- Function on pilots table --------------------------------------------------------------------------------------
+
+GO
+-- 1. availpilots return available or unoccupied pilots
+CREATE Function availpilots()
+returns  @availpilot TABLE ( 
+id int, 
+full_name varchar(70),
+flighthour int,
+occupied int)
+AS
+BEGIN
+Insert @availpilot
+select * from pilots where occupied=0
+Return
+END
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------------------------------------
+
 -- -- Creating flights table that stores flights information
 create table flights(
 id int primary key IDENTITY(1010,1), 
 dep varchar(30) Not NUll,
 des varchar(30) Not NUll,
 depdate datetime Not NUll,
-pilot varchar(70) Not NUll unique,  
+pilot varchar(70) Not NUll FOREIGN KEY REFERENCES pilots(full_name),  
 copilot varchar(70) Not NUll unique,
 availseat int,
 duration int,
@@ -322,3 +412,6 @@ END
 declare @existance int
 execute destexist 'abebe', @existance OUTPUT;
 select @existance
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+-- --------------------------------------------------------------------------------------------------------------------------------

@@ -39,8 +39,6 @@
             this.deptime = new System.Windows.Forms.Label();
             this.flighthourtextbox = new System.Windows.Forms.TextBox();
             this.noofseatstextbox = new System.Windows.Forms.TextBox();
-            this.copilolttextbox = new System.Windows.Forms.TextBox();
-            this.pilolttextbox = new System.Windows.Forms.TextBox();
             this.flighthourlabel = new System.Windows.Forms.Label();
             this.destinationlabel = new System.Windows.Forms.Label();
             this.departurelabel = new System.Windows.Forms.Label();
@@ -59,6 +57,8 @@
             this.bookedseatserror = new System.Windows.Forms.ErrorProvider(this.components);
             this.progresserror = new System.Windows.Forms.ErrorProvider(this.components);
             this.destinationcombobox = new System.Windows.Forms.ComboBox();
+            this.pilotcombobox = new System.Windows.Forms.ComboBox();
+            this.copilotcombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.piloterror)).BeginInit();
@@ -161,22 +161,6 @@
             this.noofseatstextbox.ReadOnly = true;
             this.noofseatstextbox.Size = new System.Drawing.Size(195, 22);
             this.noofseatstextbox.TabIndex = 140;
-            // 
-            // copilolttextbox
-            // 
-            this.copilolttextbox.Location = new System.Drawing.Point(87, 282);
-            this.copilolttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.copilolttextbox.Name = "copilolttextbox";
-            this.copilolttextbox.Size = new System.Drawing.Size(195, 22);
-            this.copilolttextbox.TabIndex = 138;
-            // 
-            // pilolttextbox
-            // 
-            this.pilolttextbox.Location = new System.Drawing.Point(86, 230);
-            this.pilolttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.pilolttextbox.Name = "pilolttextbox";
-            this.pilolttextbox.Size = new System.Drawing.Size(195, 22);
-            this.pilolttextbox.TabIndex = 137;
             // 
             // flighthourlabel
             // 
@@ -323,11 +307,29 @@
             this.destinationcombobox.Size = new System.Drawing.Size(195, 24);
             this.destinationcombobox.TabIndex = 149;
             // 
+            // pilotcombobox
+            // 
+            this.pilotcombobox.FormattingEnabled = true;
+            this.pilotcombobox.Location = new System.Drawing.Point(87, 230);
+            this.pilotcombobox.Name = "pilotcombobox";
+            this.pilotcombobox.Size = new System.Drawing.Size(195, 24);
+            this.pilotcombobox.TabIndex = 150;
+            // 
+            // copilotcombobox
+            // 
+            this.copilotcombobox.FormattingEnabled = true;
+            this.copilotcombobox.Location = new System.Drawing.Point(87, 294);
+            this.copilotcombobox.Name = "copilotcombobox";
+            this.copilotcombobox.Size = new System.Drawing.Size(195, 24);
+            this.copilotcombobox.TabIndex = 151;
+            // 
             // addflight
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 551);
+            this.Controls.Add(this.copilotcombobox);
+            this.Controls.Add(this.pilotcombobox);
             this.Controls.Add(this.destinationcombobox);
             this.Controls.Add(this.depcomboBox);
             this.Controls.Add(this.aircraftcombobox);
@@ -335,8 +337,6 @@
             this.Controls.Add(this.deptime);
             this.Controls.Add(this.flighthourtextbox);
             this.Controls.Add(this.noofseatstextbox);
-            this.Controls.Add(this.copilolttextbox);
-            this.Controls.Add(this.pilolttextbox);
             this.Controls.Add(this.flighthourlabel);
             this.Controls.Add(this.destinationlabel);
             this.Controls.Add(this.departurelabel);
@@ -379,8 +379,6 @@
         private System.Windows.Forms.Label deptime;
         private System.Windows.Forms.TextBox flighthourtextbox;
         private System.Windows.Forms.TextBox noofseatstextbox;
-        private System.Windows.Forms.TextBox copilolttextbox;
-        private System.Windows.Forms.TextBox pilolttextbox;
         private System.Windows.Forms.Label flighthourlabel;
         private System.Windows.Forms.Label destinationlabel;
         private System.Windows.Forms.Label departurelabel;
@@ -399,5 +397,7 @@
         private System.Windows.Forms.ErrorProvider bookedseatserror;
         private System.Windows.Forms.ErrorProvider progresserror;
         private System.Windows.Forms.ComboBox destinationcombobox;
+        private System.Windows.Forms.ComboBox pilotcombobox;
+        private System.Windows.Forms.ComboBox copilotcombobox;
     }
 }

@@ -375,12 +375,12 @@ namespace Airline_reservation
                 gendererror.Clear(); // Clearing gendererror
                 gendererror.SetError(gendergroupbox, "Please enter you're gender"); // Setting gendererror message
             }
-            if (string.IsNullOrEmpty(editusrnametextbox.Text) || editusrnametextbox.Text.Length < 4 || editusrnametextbox.Text.Length >= 20 || !editusrnametextbox.Text.Contains(' ')) // Error of invalid username
+            if (string.IsNullOrEmpty(editusrnametextbox.Text) || editusrnametextbox.Text.Length < 4 || editusrnametextbox.Text.Length >= 20 || editusrnametextbox.Text.Contains(' ')) // Error of invalid username
             {
                 usernameerror.Clear(); // Clearing usernameerror
                 usernameerror.SetError(editusrnametextbox, "Please enter a valid user name"); // Setting usernameerror message
             }
-            if (string.IsNullOrEmpty(editpasswordtextbox.Text) || editpasswordtextbox.Text.Length < 4 || editpasswordtextbox.Text.Length >= 20 || !editpasswordtextbox.Text.Contains(' ')) // Error of invalid password
+            if (string.IsNullOrEmpty(editpasswordtextbox.Text) || editpasswordtextbox.Text.Length < 4 || editpasswordtextbox.Text.Length >= 20 || editpasswordtextbox.Text.Contains(' ')) // Error of invalid password
             {
                 passworderror.Clear(); // Clearing passworderror
                 passworderror.SetError(editpasswordtextbox, "Please enter a valid password "); // Setting passworderror message
@@ -410,10 +410,10 @@ namespace Airline_reservation
                 && !(propicadmin.Image == null)
                 && validatephone(phonetextbox.Text)
                 && !string.IsNullOrEmpty(editpasswordtextbox.Text)
-                && editpasswordtextbox.Text.Length >= 4 && editpasswordtextbox.Text.Length < 20 && editusrnametextbox.Text.Contains(' ')
+                && editpasswordtextbox.Text.Length >= 4 && editpasswordtextbox.Text.Length < 20 && !editusrnametextbox.Text.Contains(' ')
                 && !string.IsNullOrEmpty(gender)
                 && !string.IsNullOrEmpty(editusrnametextbox.Text)
-                && editusrnametextbox.Text.Length >= 4 && editusrnametextbox.Text.Length < 20 && editpasswordtextbox.Text.Contains(' ')
+                && editusrnametextbox.Text.Length >= 4 && editusrnametextbox.Text.Length < 20 && !editpasswordtextbox.Text.Contains(' ')
                 && !string.IsNullOrEmpty(hintqtextbox.Text)
                 && hintqtextbox.Text.Length < 100) // Selection where all fields are field accordingly
             {
@@ -446,7 +446,7 @@ namespace Airline_reservation
                         registerpassword = editpasswordtextbox.Text, // Assigning values to property
                         registergender = gender, // Assigning values to property
                         registerprofilepic = propicadmin.Image, // Assigning values to property
-                        registebirthdate = birthdate.Value.Date, // Assigning values to property
+                        registebirthdate = Convert.ToDateTime(birthdate.Value.ToString("yyyy-MM-dd hh:mm:ss")), // Assigning values to property
                         role = 1, // Assigning values to property
                         question = hintqtextbox.Text, // Assigning values to property
                     };

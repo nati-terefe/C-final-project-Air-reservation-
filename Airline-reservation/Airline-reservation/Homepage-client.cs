@@ -121,7 +121,9 @@ namespace Airline_reservation
                 Editprofile.Visible = false; // Hiding from page
                 bookticketbutton.Visible = false; // Hiding from page
                 bookedticketbutton.Visible = false; // Hiding from page
+                bookinghisbutton.Visible = false;
 
+                loginhistory.Visible = false;
                 // Adjusting and filling page
                 welcomelabel.Text = "Your Profile"; // Changing text value
                 savebutton.Visible = true; // Making Visible
@@ -190,7 +192,8 @@ namespace Airline_reservation
                 bookticketbutton.Visible = true; // Making Visible
                 bookedticketbutton.Visible = true; // Making Visible
                 welcomelabel.Text = "Welcome user"; // Changing text value
-
+                bookinghisbutton.Visible = true;
+                loginhistory.Visible = true;
                 // Hiding Edit profile elements
                 savebutton.Visible = false; // Hiding from page
                 firstnamelabel.Visible = false; // Hiding from page
@@ -254,12 +257,12 @@ namespace Airline_reservation
                 gendererror.Clear(); // Clearing gendererror
                 gendererror.SetError(gendergroupbox, "Please enter you're gender"); // Setting gendererror message
             }
-            if (string.IsNullOrEmpty(editusrnametextbox.Text) || editusrnametextbox.Text.Length < 4 || editusrnametextbox.Text.Length >= 20) // Error of invalid username
+            if (string.IsNullOrEmpty(editusrnametextbox.Text) || editusrnametextbox.Text.Length < 4 || editusrnametextbox.Text.Length >= 20 || editusrnametextbox.Text.Contains(' ')) // Error of invalid username
             {
                 usernameerror.Clear(); // Clearing usernameerror
                 usernameerror.SetError(editusrnametextbox, "Please enter a valid user name"); // Setting usernameerror message
             }
-            if (string.IsNullOrEmpty(editpasswordtextbox.Text) || editpasswordtextbox.Text.Length < 4 || editpasswordtextbox.Text.Length >= 20) // Error of invalid password
+            if (string.IsNullOrEmpty(editpasswordtextbox.Text) || editpasswordtextbox.Text.Length < 4 || editpasswordtextbox.Text.Length >= 20 || editpasswordtextbox.Text.Contains(' ')) // Error of invalid password
             {
                 passworderror.Clear(); // Clearing passworderror
                 passworderror.SetError(editpasswordtextbox, "Please enter a valid password "); // Setting passworderror message
@@ -279,7 +282,6 @@ namespace Airline_reservation
                 photoerror.Clear(); // Clearing photo error
                 photoerror.SetError(changepfpbtn, "Please select a photo"); // Setting photoerror message
             }
-            Console.WriteLine("Here");
             if (validatename(firstnametextbox.Text)
                 && validatename(lastnametextbox.Text)
                 && !string.IsNullOrEmpty(emailtextbox.Text)
@@ -290,14 +292,13 @@ namespace Airline_reservation
                 && !(propicadmin.Image == null)
                 && validatephone(phonetextbox.Text)
                 && !string.IsNullOrEmpty(editpasswordtextbox.Text)
-                && editpasswordtextbox.Text.Length >= 4 && editpasswordtextbox.Text.Length < 20
+                && editpasswordtextbox.Text.Length >= 4 && editpasswordtextbox.Text.Length < 20 && !editusrnametextbox.Text.Contains(' ')
                 && !string.IsNullOrEmpty(gender)
                 && !string.IsNullOrEmpty(editusrnametextbox.Text)
-                && editusrnametextbox.Text.Length >= 4 && editusrnametextbox.Text.Length < 20
+                && editusrnametextbox.Text.Length >= 4 && editusrnametextbox.Text.Length < 20 && !editpasswordtextbox.Text.Contains(' ')
                 && !string.IsNullOrEmpty(hintqtextbox.Text)
                 && hintqtextbox.Text.Length < 100) // Selection where all fields are field accordingly
             {
-                Console.WriteLine("Here2");
                 int existance; // Declaring Variable
                 String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
                 //Declaring and Assigning Connection String
@@ -316,8 +317,7 @@ namespace Airline_reservation
                 if (existance == 0 || editusrnametextbox.Text.Equals(usrnamebc)) // Selection when username is not taken
                 {
                     registerstore rs = new registerstore // Declaring register store object
-                    {
-                        initialusrname = usrnamebc, // Assigning values to property
+                    {                        
                         registerfirstname = firstnametextbox.Text, // Assigning values to property
                         registerlastname = lastnametextbox.Text, // Assigning values to property
                         registeremail = emailtextbox.Text, // Assigning values to property
@@ -328,9 +328,10 @@ namespace Airline_reservation
                         registergender = gender, // Assigning values to property
                         registerprofilepic = propicadmin.Image, // Assigning values to property
                         registebirthdate = birthdate.Value.Date, // Assigning values to property
-                        role = 1, // Assigning values to property
+                        role = 3, // Assigning values to property
                         question = hintqtextbox.Text, // Assigning values to property
                     };
+                    
                     int rowaffected = 0;
                     if (editusrnametextbox.Text.Equals(usrnamebc))
                     {
@@ -338,11 +339,13 @@ namespace Airline_reservation
                     }
                     if (!editusrnametextbox.Text.Equals(usrnamebc))
                     {
+                        rs.initialusrname = usrnamebc; // Assigning values to property
                         rowaffected = rs.save(1); // Saving Progress on rs object and database registered
                     }
                     if (rowaffected > 0)
                     {
                         MessageBox.Show("Changes Successfully Saved"); // Pop up window
+                        usernameblank.Text = rs.registerusername;
                         changevisible(1); // Calling function to display edit profile elements
                     }
                     else
@@ -433,6 +436,7 @@ namespace Airline_reservation
             bookticketbutton.Visible = false;
             bookinghisbutton.Visible = false;
             exitbutton.Visible = false;
+            loginhistory.Visible = false;
             welcomelabel.Text = "History of Booking";
             gobackbutton.Visible = true;
             dataGridView.BringToFront();
@@ -464,9 +468,41 @@ namespace Airline_reservation
             bookticketbutton.Visible = true;
             bookinghisbutton.Visible = true;
             exitbutton.Visible = true;
+            loginhistory.Visible = true;
             welcomelabel.Text = "Welcome User";
             gobackbutton.Visible = false;
             dataGridView.Visible = false;
+        }
+
+        private void loginhistory_Click(object sender, EventArgs e)
+        {
+            yourprofilelabel.Visible = false;
+            propicadmin.Visible = false;
+            usernamelabel.Visible = false;
+            usernameblank.Visible = false;
+            Editprofile.Visible = false;
+            bookedticketbutton.Visible = false;
+            bookticketbutton.Visible = false;
+            bookinghisbutton.Visible = false;
+            exitbutton.Visible = false;
+            loginhistory.Visible = false;
+            welcomelabel.Text = "History of Login";
+            gobackbutton.Visible = true;
+            dataGridView.BringToFront();
+            dataGridView.Visible = true;
+
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+
+                SqlDataAdapter adpt = new SqlDataAdapter("loginhisofusr", con);
+                adpt.SelectCommand.CommandType = System.Data.CommandType.StoredProcedure;
+                adpt.SelectCommand.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernameblank.Text; //Defining the command parameter for usrname
+                DataTable table = new DataTable();
+                adpt.Fill(table);
+                dataGridView.DataSource = table;
+            }
         }
     }
 }

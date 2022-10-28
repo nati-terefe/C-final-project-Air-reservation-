@@ -81,6 +81,7 @@
             this.bookinghisbutton = new System.Windows.Forms.Button();
             this.gobackbutton = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.loginhistory = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             this.gendergroupbox.SuspendLayout();
@@ -104,7 +105,7 @@
             this.bookticketbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookticketbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookticketbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookticketbutton.Location = new System.Drawing.Point(367, 227);
+            this.bookticketbutton.Location = new System.Drawing.Point(499, 150);
             this.bookticketbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookticketbutton.Name = "bookticketbutton";
             this.bookticketbutton.Size = new System.Drawing.Size(160, 43);
@@ -130,7 +131,7 @@
             this.bookedticketbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookedticketbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookedticketbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookedticketbutton.Location = new System.Drawing.Point(674, 227);
+            this.bookedticketbutton.Location = new System.Drawing.Point(347, 228);
             this.bookedticketbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookedticketbutton.Name = "bookedticketbutton";
             this.bookedticketbutton.Size = new System.Drawing.Size(160, 43);
@@ -602,7 +603,7 @@
             this.bookinghisbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookinghisbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookinghisbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookinghisbutton.Location = new System.Drawing.Point(519, 303);
+            this.bookinghisbutton.Location = new System.Drawing.Point(626, 228);
             this.bookinghisbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookinghisbutton.Name = "bookinghisbutton";
             this.bookinghisbutton.Size = new System.Drawing.Size(160, 43);
@@ -641,11 +642,26 @@
             this.dataGridView.TabIndex = 157;
             this.dataGridView.Visible = false;
             // 
+            // loginhistory
+            // 
+            this.loginhistory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.loginhistory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginhistory.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginhistory.Location = new System.Drawing.Point(499, 302);
+            this.loginhistory.Margin = new System.Windows.Forms.Padding(4);
+            this.loginhistory.Name = "loginhistory";
+            this.loginhistory.Size = new System.Drawing.Size(160, 43);
+            this.loginhistory.TabIndex = 158;
+            this.loginhistory.Text = "Login History";
+            this.loginhistory.UseVisualStyleBackColor = false;
+            this.loginhistory.Click += new System.EventHandler(this.loginhistory_Click);
+            // 
             // Homepage_client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.loginhistory);
             this.Controls.Add(this.gobackbutton);
             this.Controls.Add(this.bookinghisbutton);
             this.Controls.Add(this.cancelbutton);
@@ -762,5 +778,6 @@
         private System.Windows.Forms.Button bookinghisbutton;
         private System.Windows.Forms.Button gobackbutton;
         private System.Windows.Forms.DataGridView dataGridView;
+        private System.Windows.Forms.Button loginhistory;
     }
 }

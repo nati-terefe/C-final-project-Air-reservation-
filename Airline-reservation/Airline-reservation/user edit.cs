@@ -442,16 +442,25 @@ namespace Airline_reservation
                 cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                  // Using parametrized query to avoid sql injection attack
                 cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusernametextbox.Text; //Defining the command parameter for usrname
-                rowaffected += cmd.ExecuteNonQuery(); // Executing Query
+                try
+                {
+                    rowaffected += cmd.ExecuteNonQuery(); // Executing Query
+
+                    if (rowaffected > 1)
+                    {
+                        MessageBox.Show("User Deleted Successfully");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Unable to perform delete. Try again");
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Admin can't be deleted");
+                }
                
-                if (rowaffected > 1)
-                {
-                    MessageBox.Show("User Deleted Successfully");
-                }
-                else
-                {
-                    MessageBox.Show("Unable to perform delete. Try again");
-                }
             }
         }
     }
