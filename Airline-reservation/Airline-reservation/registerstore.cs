@@ -45,7 +45,7 @@ namespace Airline_reservation
                     if (!string.IsNullOrEmpty(initialusrname))
                     {
                         SqlCommand cmd1 = new SqlCommand("unlinkloginhisandreg", con);
-                        // Sql Command to delete a user
+                        // Sql Command tounlink login history and registeration info certain user
                         cmd1.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                                                                                     // Using parametrized query to avoid sql injection attack
                         cmd1.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for usrname
@@ -56,7 +56,7 @@ namespace Airline_reservation
                         cmd3.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for usrname
                         cmd3.ExecuteNonQuery();
                         SqlCommand cmd4 = new SqlCommand("updateloginhis", con);
-                        // Sql Command to delete a user
+                        // Sql Command to update login history
                         cmd4.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                         cmd4.Parameters.Add("@initialusrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for usrname
                         cmd4.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = registerusername; //Defining the command parameter for usrname

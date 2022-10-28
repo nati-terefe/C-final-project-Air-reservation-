@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using System.Xml.Linq;
+// Import Statments
 
 namespace Airline_reservation
 {
@@ -28,7 +29,7 @@ namespace Airline_reservation
             using (SqlConnection con = new SqlConnection(cons)) //Block that auto close SqlConnection
             {
                 SqlCommand cmd = new SqlCommand("addmessage", con);
-                // Sql Command to add new registry on database
+                // Sql Command to add new message on database
                 cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                 // Using parametrized query to avoid sql injection attack
                 cmd.Parameters.Add("@fname", SqlDbType.VarChar, 20).Value = contactfirstname; //Defining the command parameter for first name

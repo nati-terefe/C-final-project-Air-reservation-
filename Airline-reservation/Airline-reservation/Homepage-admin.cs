@@ -31,8 +31,8 @@ namespace Airline_reservation
                 SqlDataAdapter cmd = new SqlDataAdapter ("select * from whatphoto ('"+user+"')", con);
                 // Sql Command Stored Procedure that returns photo of certain username from database
                 con.Open(); // Opening Connection
-                DataSet ds= new DataSet(); // Executing and retriving value from function
-                cmd.Fill(ds); // Filling dataset from dataadapter
+                DataSet ds= new DataSet(); // Declaring new dataset object
+                cmd.Fill(ds); // Filling dataset by executing cmd datadapter
                 byte[] photoarray = (byte [])ds.Tables[0].Rows[0][0]; // Finding the byte array
                 MemoryStream ms = new MemoryStream(photoarray); // Filling memory stream from byte array
                 propicadmin.Image = Image.FromStream(ms); // Loading image into picture box
