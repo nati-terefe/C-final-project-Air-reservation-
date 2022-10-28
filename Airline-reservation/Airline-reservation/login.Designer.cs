@@ -46,6 +46,7 @@
             this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
             this.faqheaderbuttom = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
@@ -241,6 +242,12 @@
             this.faqheaderbuttom.UseVisualStyleBackColor = false;
             this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -292,6 +299,7 @@
         public System.Windows.Forms.TextBox usernametextbox;
         public System.Windows.Forms.TextBox passwordtextbox;
         private System.Windows.Forms.Button faqheaderbuttom;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

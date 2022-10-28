@@ -150,13 +150,15 @@ namespace Airline_reservation
                             {
                                 if (role == 1) // Selection of Admins
                                 {
-                                    Homepage_admin ha = new Homepage_admin(username); //Declaring new Home page admin Window
+                                    Homepage_admin ha = new Homepage_admin(username, 1); //Declaring new Home page admin Window
                                     ha.Show(); //Show Homepage admin Window
                                     Hide(); //Hide Currently Active Window
                                 }
                                 else if (role == 2) // Selection of Sub-Admins
                                 {
-                                    MessageBox.Show("Sub Admin Login Successful"); // Pop-up Message
+                                    Homepage_admin ha = new Homepage_admin(username, 2); //Declaring new Home page admin Window
+                                    ha.Show(); //Show Homepage admin Window
+                                    Hide(); //Hide Currently Active Window
                                 }
                                 else if (role == 3) // Selection of Users
                                 {

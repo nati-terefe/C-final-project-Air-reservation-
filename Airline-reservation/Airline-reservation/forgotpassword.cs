@@ -126,6 +126,9 @@ namespace Airline_reservation
                             if (rowaffected > 0) // Selection for Successful Update
                             {
                                 MessageBox.Show("Password Reset Successful"); // Pop-up Message
+                                login l = new login(); //Declaring new Login Window
+                                l.Show(); //Show Login Window
+                                this.Close(); //Hide Currently Active Window
                             }
                             else // Selection for UnSuccessful Update
                             {

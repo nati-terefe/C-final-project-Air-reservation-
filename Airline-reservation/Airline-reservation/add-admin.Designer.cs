@@ -71,6 +71,7 @@
             this.questionlabel = new System.Windows.Forms.Label();
             this.questiontextbox = new System.Windows.Forms.TextBox();
             this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.photoerror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.firstnameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lastnameerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emailerror)).BeginInit();
@@ -85,21 +86,24 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoerror)).BeginInit();
             this.SuspendLayout();
             // 
             // piclocation
             // 
-            this.piclocation.Location = new System.Drawing.Point(729, 218);
+            this.piclocation.Location = new System.Drawing.Point(972, 268);
+            this.piclocation.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.piclocation.Name = "piclocation";
-            this.piclocation.Size = new System.Drawing.Size(135, 20);
+            this.piclocation.Size = new System.Drawing.Size(179, 22);
             this.piclocation.TabIndex = 71;
             // 
             // Female
             // 
             this.Female.AutoSize = true;
-            this.Female.Location = new System.Drawing.Point(102, 2);
+            this.Female.Location = new System.Drawing.Point(136, 2);
+            this.Female.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Female.Name = "Female";
-            this.Female.Size = new System.Drawing.Size(59, 17);
+            this.Female.Size = new System.Drawing.Size(74, 20);
             this.Female.TabIndex = 31;
             this.Female.TabStop = true;
             this.Female.Text = "Female";
@@ -108,9 +112,10 @@
             // Male
             // 
             this.Male.AutoSize = true;
-            this.Male.Location = new System.Drawing.Point(16, 2);
+            this.Male.Location = new System.Drawing.Point(21, 2);
+            this.Male.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Male.Name = "Male";
-            this.Male.Size = new System.Drawing.Size(48, 17);
+            this.Male.Size = new System.Drawing.Size(58, 20);
             this.Male.TabIndex = 30;
             this.Male.TabStop = true;
             this.Male.Text = "Male";
@@ -133,9 +138,10 @@
             this.donebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.donebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.donebutton.Location = new System.Drawing.Point(779, 478);
+            this.donebutton.Location = new System.Drawing.Point(1039, 588);
+            this.donebutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.donebutton.Name = "donebutton";
-            this.donebutton.Size = new System.Drawing.Size(120, 35);
+            this.donebutton.Size = new System.Drawing.Size(160, 43);
             this.donebutton.TabIndex = 70;
             this.donebutton.Text = "Done";
             this.donebutton.UseVisualStyleBackColor = false;
@@ -157,18 +163,20 @@
             // 
             this.hinttextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hinttextbox.ForeColor = System.Drawing.Color.Black;
-            this.hinttextbox.Location = new System.Drawing.Point(415, 454);
+            this.hinttextbox.Location = new System.Drawing.Point(553, 559);
+            this.hinttextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.hinttextbox.Name = "hinttextbox";
-            this.hinttextbox.Size = new System.Drawing.Size(191, 20);
+            this.hinttextbox.Size = new System.Drawing.Size(253, 23);
             this.hinttextbox.TabIndex = 65;
             // 
             // hintlable
             // 
             this.hintlable.AutoSize = true;
             this.hintlable.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.hintlable.Location = new System.Drawing.Point(278, 454);
+            this.hintlable.Location = new System.Drawing.Point(371, 559);
+            this.hintlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hintlable.Name = "hintlable";
-            this.hintlable.Size = new System.Drawing.Size(66, 25);
+            this.hintlable.Size = new System.Drawing.Size(92, 31);
             this.hintlable.TabIndex = 64;
             this.hintlable.Text = "Hint❓";
             // 
@@ -178,9 +186,11 @@
             this.gendergroupbox.Controls.Add(this.Female);
             this.gendergroupbox.Controls.Add(this.Male);
             this.gendergroupbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gendergroupbox.Location = new System.Drawing.Point(415, 281);
+            this.gendergroupbox.Location = new System.Drawing.Point(553, 346);
+            this.gendergroupbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gendergroupbox.Name = "gendergroupbox";
-            this.gendergroupbox.Size = new System.Drawing.Size(191, 25);
+            this.gendergroupbox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gendergroupbox.Size = new System.Drawing.Size(255, 31);
             this.gendergroupbox.TabIndex = 63;
             this.gendergroupbox.TabStop = false;
             // 
@@ -194,9 +204,10 @@
             // 
             // birthdate
             // 
-            this.birthdate.Location = new System.Drawing.Point(415, 250);
+            this.birthdate.Location = new System.Drawing.Point(553, 308);
+            this.birthdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.birthdate.Name = "birthdate";
-            this.birthdate.Size = new System.Drawing.Size(191, 20);
+            this.birthdate.Size = new System.Drawing.Size(253, 22);
             this.birthdate.TabIndex = 62;
             // 
             // uploadbutton
@@ -204,9 +215,10 @@
             this.uploadbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.uploadbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.uploadbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.uploadbutton.Location = new System.Drawing.Point(729, 185);
+            this.uploadbutton.Location = new System.Drawing.Point(972, 228);
+            this.uploadbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.uploadbutton.Name = "uploadbutton";
-            this.uploadbutton.Size = new System.Drawing.Size(133, 27);
+            this.uploadbutton.Size = new System.Drawing.Size(177, 33);
             this.uploadbutton.TabIndex = 61;
             this.uploadbutton.Text = "browse";
             this.uploadbutton.UseVisualStyleBackColor = false;
@@ -215,9 +227,10 @@
             // profilepicture
             // 
             this.profilepicture.Image = ((System.Drawing.Image)(resources.GetObject("profilepicture.Image")));
-            this.profilepicture.Location = new System.Drawing.Point(729, 51);
+            this.profilepicture.Location = new System.Drawing.Point(972, 63);
+            this.profilepicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.profilepicture.Name = "profilepicture";
-            this.profilepicture.Size = new System.Drawing.Size(135, 138);
+            this.profilepicture.Size = new System.Drawing.Size(180, 170);
             this.profilepicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilepicture.TabIndex = 59;
             this.profilepicture.TabStop = false;
@@ -226,9 +239,10 @@
             // 
             this.profilepicturelabel.AutoSize = true;
             this.profilepicturelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.profilepicturelabel.Location = new System.Drawing.Point(726, 18);
+            this.profilepicturelabel.Location = new System.Drawing.Point(968, 22);
+            this.profilepicturelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.profilepicturelabel.Name = "profilepicturelabel";
-            this.profilepicturelabel.Size = new System.Drawing.Size(138, 25);
+            this.profilepicturelabel.Size = new System.Drawing.Size(169, 31);
             this.profilepicturelabel.TabIndex = 60;
             this.profilepicturelabel.Text = "Profile picture";
             // 
@@ -237,9 +251,10 @@
             this.createbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.createbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.createbutton.Location = new System.Drawing.Point(642, 478);
+            this.createbutton.Location = new System.Drawing.Point(856, 588);
+            this.createbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.createbutton.Name = "createbutton";
-            this.createbutton.Size = new System.Drawing.Size(120, 35);
+            this.createbutton.Size = new System.Drawing.Size(160, 43);
             this.createbutton.TabIndex = 58;
             this.createbutton.Text = "Create";
             this.createbutton.UseVisualStyleBackColor = false;
@@ -249,54 +264,60 @@
             // 
             this.passwordtextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.passwordtextbox.ForeColor = System.Drawing.Color.Black;
-            this.passwordtextbox.Location = new System.Drawing.Point(415, 365);
+            this.passwordtextbox.Location = new System.Drawing.Point(553, 449);
+            this.passwordtextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passwordtextbox.Name = "passwordtextbox";
-            this.passwordtextbox.Size = new System.Drawing.Size(191, 20);
+            this.passwordtextbox.Size = new System.Drawing.Size(253, 23);
             this.passwordtextbox.TabIndex = 57;
             // 
             // usernametextbox
             // 
             this.usernametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernametextbox.ForeColor = System.Drawing.Color.Black;
-            this.usernametextbox.Location = new System.Drawing.Point(415, 323);
+            this.usernametextbox.Location = new System.Drawing.Point(553, 398);
+            this.usernametextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usernametextbox.Name = "usernametextbox";
-            this.usernametextbox.Size = new System.Drawing.Size(191, 20);
+            this.usernametextbox.Size = new System.Drawing.Size(253, 23);
             this.usernametextbox.TabIndex = 56;
             // 
             // phonetextbox
             // 
             this.phonetextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.phonetextbox.ForeColor = System.Drawing.Color.Black;
-            this.phonetextbox.Location = new System.Drawing.Point(415, 214);
+            this.phonetextbox.Location = new System.Drawing.Point(553, 263);
+            this.phonetextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.phonetextbox.Name = "phonetextbox";
-            this.phonetextbox.Size = new System.Drawing.Size(191, 20);
+            this.phonetextbox.Size = new System.Drawing.Size(253, 23);
             this.phonetextbox.TabIndex = 55;
             // 
             // emailtextbox
             // 
             this.emailtextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.emailtextbox.ForeColor = System.Drawing.Color.Black;
-            this.emailtextbox.Location = new System.Drawing.Point(415, 169);
+            this.emailtextbox.Location = new System.Drawing.Point(553, 208);
+            this.emailtextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.emailtextbox.Name = "emailtextbox";
-            this.emailtextbox.Size = new System.Drawing.Size(191, 20);
+            this.emailtextbox.Size = new System.Drawing.Size(253, 23);
             this.emailtextbox.TabIndex = 54;
             // 
             // lastnametextbox
             // 
             this.lastnametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lastnametextbox.ForeColor = System.Drawing.Color.Black;
-            this.lastnametextbox.Location = new System.Drawing.Point(415, 128);
+            this.lastnametextbox.Location = new System.Drawing.Point(553, 158);
+            this.lastnametextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lastnametextbox.Name = "lastnametextbox";
-            this.lastnametextbox.Size = new System.Drawing.Size(191, 20);
+            this.lastnametextbox.Size = new System.Drawing.Size(253, 23);
             this.lastnametextbox.TabIndex = 53;
             // 
             // firstnametextbox
             // 
             this.firstnametextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.firstnametextbox.ForeColor = System.Drawing.Color.Black;
-            this.firstnametextbox.Location = new System.Drawing.Point(415, 82);
+            this.firstnametextbox.Location = new System.Drawing.Point(553, 101);
+            this.firstnametextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.firstnametextbox.Name = "firstnametextbox";
-            this.firstnametextbox.Size = new System.Drawing.Size(191, 20);
+            this.firstnametextbox.Size = new System.Drawing.Size(253, 23);
             this.firstnametextbox.TabIndex = 52;
             // 
             // hinterror
@@ -308,19 +329,21 @@
             this.addadminlabel.AutoSize = true;
             this.addadminlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addadminlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.addadminlabel.Location = new System.Drawing.Point(327, 18);
+            this.addadminlabel.Location = new System.Drawing.Point(436, 22);
+            this.addadminlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.addadminlabel.Name = "addadminlabel";
-            this.addadminlabel.Size = new System.Drawing.Size(249, 45);
+            this.addadminlabel.Size = new System.Drawing.Size(397, 56);
             this.addadminlabel.TabIndex = 51;
-            this.addadminlabel.Text = "Create admin";
+            this.addadminlabel.Text = "Create Subadmin";
             // 
             // genderlabel
             // 
             this.genderlabel.AutoSize = true;
             this.genderlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.genderlabel.Location = new System.Drawing.Point(278, 281);
+            this.genderlabel.Location = new System.Drawing.Point(371, 346);
+            this.genderlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.genderlabel.Name = "genderlabel";
-            this.genderlabel.Size = new System.Drawing.Size(100, 25);
+            this.genderlabel.Size = new System.Drawing.Size(126, 31);
             this.genderlabel.TabIndex = 50;
             this.genderlabel.Text = "Gender👬";
             // 
@@ -328,9 +351,10 @@
             // 
             this.birthdatelabel.AutoSize = true;
             this.birthdatelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.birthdatelabel.Location = new System.Drawing.Point(278, 246);
+            this.birthdatelabel.Location = new System.Drawing.Point(371, 303);
+            this.birthdatelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.birthdatelabel.Name = "birthdatelabel";
-            this.birthdatelabel.Size = new System.Drawing.Size(125, 25);
+            this.birthdatelabel.Size = new System.Drawing.Size(154, 31);
             this.birthdatelabel.TabIndex = 49;
             this.birthdatelabel.Text = "Birth date🎂";
             // 
@@ -338,9 +362,10 @@
             // 
             this.passwordlabel.AutoSize = true;
             this.passwordlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.passwordlabel.Location = new System.Drawing.Point(278, 360);
+            this.passwordlabel.Location = new System.Drawing.Point(371, 443);
+            this.passwordlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.passwordlabel.Name = "passwordlabel";
-            this.passwordlabel.Size = new System.Drawing.Size(121, 25);
+            this.passwordlabel.Size = new System.Drawing.Size(154, 31);
             this.passwordlabel.TabIndex = 48;
             this.passwordlabel.Text = "Password🔒";
             // 
@@ -348,9 +373,10 @@
             // 
             this.usernamelabel.AutoSize = true;
             this.usernamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.usernamelabel.Location = new System.Drawing.Point(278, 318);
+            this.usernamelabel.Location = new System.Drawing.Point(371, 391);
+            this.usernamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernamelabel.Name = "usernamelabel";
-            this.usernamelabel.Size = new System.Drawing.Size(131, 25);
+            this.usernamelabel.Size = new System.Drawing.Size(166, 31);
             this.usernamelabel.TabIndex = 47;
             this.usernamelabel.Text = "User name👨";
             // 
@@ -358,9 +384,10 @@
             // 
             this.phonelabel.AutoSize = true;
             this.phonelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.phonelabel.Location = new System.Drawing.Point(278, 209);
+            this.phonelabel.Location = new System.Drawing.Point(371, 257);
+            this.phonelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.phonelabel.Name = "phonelabel";
-            this.phonelabel.Size = new System.Drawing.Size(119, 25);
+            this.phonelabel.Size = new System.Drawing.Size(150, 31);
             this.phonelabel.TabIndex = 46;
             this.phonelabel.Text = "Phone n0📞";
             // 
@@ -368,9 +395,10 @@
             // 
             this.emaillabel.AutoSize = true;
             this.emaillabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.emaillabel.Location = new System.Drawing.Point(278, 164);
+            this.emaillabel.Location = new System.Drawing.Point(371, 202);
+            this.emaillabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.emaillabel.Name = "emaillabel";
-            this.emaillabel.Size = new System.Drawing.Size(86, 25);
+            this.emaillabel.Size = new System.Drawing.Size(107, 31);
             this.emaillabel.TabIndex = 45;
             this.emaillabel.Text = "Email📩";
             // 
@@ -378,9 +406,10 @@
             // 
             this.lastnamelabel.AutoSize = true;
             this.lastnamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.lastnamelabel.Location = new System.Drawing.Point(278, 123);
+            this.lastnamelabel.Location = new System.Drawing.Point(371, 151);
+            this.lastnamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastnamelabel.Name = "lastnamelabel";
-            this.lastnamelabel.Size = new System.Drawing.Size(130, 25);
+            this.lastnamelabel.Size = new System.Drawing.Size(161, 31);
             this.lastnamelabel.TabIndex = 44;
             this.lastnamelabel.Text = "Last name👥";
             // 
@@ -388,9 +417,10 @@
             // 
             this.firstnamelabel.AutoSize = true;
             this.firstnamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.firstnamelabel.Location = new System.Drawing.Point(276, 77);
+            this.firstnamelabel.Location = new System.Drawing.Point(368, 95);
+            this.firstnamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstnamelabel.Name = "firstnamelabel";
-            this.firstnamelabel.Size = new System.Drawing.Size(132, 25);
+            this.firstnamelabel.Size = new System.Drawing.Size(164, 31);
             this.firstnamelabel.TabIndex = 43;
             this.firstnamelabel.Text = "First name👥";
             // 
@@ -398,9 +428,10 @@
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(-11, -42);
+            this.logo.Location = new System.Drawing.Point(-15, -52);
+            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(255, 135);
+            this.logo.Size = new System.Drawing.Size(340, 166);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 41;
             this.logo.TabStop = false;
@@ -408,9 +439,10 @@
             // bgpic
             // 
             this.bgpic.Image = ((System.Drawing.Image)(resources.GetObject("bgpic.Image")));
-            this.bgpic.Location = new System.Drawing.Point(-2, 2);
+            this.bgpic.Location = new System.Drawing.Point(-3, 2);
+            this.bgpic.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bgpic.Name = "bgpic";
-            this.bgpic.Size = new System.Drawing.Size(916, 522);
+            this.bgpic.Size = new System.Drawing.Size(1221, 642);
             this.bgpic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.bgpic.TabIndex = 42;
             this.bgpic.TabStop = false;
@@ -419,9 +451,10 @@
             // 
             this.questionlabel.AutoSize = true;
             this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.questionlabel.Location = new System.Drawing.Point(276, 406);
+            this.questionlabel.Location = new System.Drawing.Point(368, 500);
+            this.questionlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.questionlabel.Name = "questionlabel";
-            this.questionlabel.Size = new System.Drawing.Size(111, 25);
+            this.questionlabel.Size = new System.Drawing.Size(136, 31);
             this.questionlabel.TabIndex = 72;
             this.questionlabel.Text = "Question⁉";
             // 
@@ -429,20 +462,25 @@
             // 
             this.questiontextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.questiontextbox.ForeColor = System.Drawing.Color.Black;
-            this.questiontextbox.Location = new System.Drawing.Point(415, 411);
+            this.questiontextbox.Location = new System.Drawing.Point(553, 506);
+            this.questiontextbox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.questiontextbox.Name = "questiontextbox";
-            this.questiontextbox.Size = new System.Drawing.Size(191, 20);
+            this.questiontextbox.Size = new System.Drawing.Size(253, 23);
             this.questiontextbox.TabIndex = 73;
             // 
             // questionerror
             // 
             this.questionerror.ContainerControl = this;
             // 
+            // photoerror
+            // 
+            this.photoerror.ContainerControl = this;
+            // 
             // add_admin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 525);
+            this.ClientSize = new System.Drawing.Size(1215, 646);
             this.Controls.Add(this.questiontextbox);
             this.Controls.Add(this.questionlabel);
             this.Controls.Add(this.piclocation);
@@ -472,6 +510,7 @@
             this.Controls.Add(this.firstnamelabel);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.bgpic);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "add_admin";
             this.Text = "add_admin";
             this.Load += new System.EventHandler(this.add_admin_Load);
@@ -490,6 +529,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -538,5 +578,6 @@
         private System.Windows.Forms.Label questionlabel;
         private System.Windows.Forms.TextBox questiontextbox;
         private System.Windows.Forms.ErrorProvider questionerror;
+        private System.Windows.Forms.ErrorProvider photoerror;
     }
 }

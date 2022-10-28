@@ -11,18 +11,17 @@ passwd varchar(20),
 rol int,
 hintQ varchar(100),
 hintA varchar(20),
--- registerationid foreign key references registerd(id),
+registerationid int foreign key references registered(id),
 );
 
 -- Initial Datas to fill login table
-Insert into login values('admin','admin', 1, 'Are you the admin?', 'Yes');
+/*Insert into login values('admin','admin', 1, 'Are you the admin?', 'Yes');
 Insert into login values('subadmin','subadmin', 2, 'Are you the subadmin?', 'Yes');
-Insert into login values('user','user', 3, 'Are you the user?', 'Yes');
+Insert into login values('user','user', 3, 'Are you the user?', 'Yes');*/
 
-select * from login
-
+update login set rol=1 where usrname='admin'
 drop table login
-
+select * from login
 -- Stored Procedures for login table ----------------------------------------------------------------------------------------------
 GO
 -- 1. What role stored procedure that returns the role of a certain usename and password
@@ -104,7 +103,7 @@ execute setnewpasswd 'admin', 'newadmin';
 select * from login
 
 GO
--- 3. registrylogin stored procedure that creates a login for register
+-- 6. registrylogin stored procedure that creates a login for register
 
 CREATE or ALTER PROCEDURE registrylogin(
 @usrname varchar(20),
@@ -115,7 +114,9 @@ CREATE or ALTER PROCEDURE registrylogin(
 )
 AS
 BEGIN
-Insert into login values(@usrname, @passwd, @rol, @hintQ, @hintA)
+declare @refid int
+select @refid=id from registered where usrname=@usrname
+Insert into login values(@usrname, @passwd, @rol, @hintQ, @hintA, @refid)
 END
 
 select * from login
@@ -181,10 +182,10 @@ usrname varchar(20),
 passwd varchar(20),
 hintQ varchar(100),
 hintA varchar(20),
-profilepic image default NULL,
+profilepic image,
 );
 
--- Initial Data to fill registerd table
+-- Initial Data to fill registerd table no pp
 Insert into registered(fname, lname, email, phoneno, birthdate, gender, usrname, passwd, hintQ, hintA)
 values('Abebe','Kebede', 'abekebe@gmail.com', '0987654321', getdate(), 'Male', 'abekebe', 'abekebe', 'Are you?', 'Yes');
 
@@ -218,7 +219,63 @@ END
 
 select * from registered
 
+GO
+-- 2. What photo function returns photo of certain username
 
+CREATE or ALTER FUNCTION whatphoto(
+@usrname varchar(20)
+)
+returns table
+AS
+Return(
+Select profilepic from registered where usrname=@usrname
+)
+
+select * from whatphoto( 'miky' )
+
+GO
+-- 3. full info procedure returns full information of certain username
+
+CREATE or ALTER procedure fullinfo(
+@usrname varchar(20),
+@fname varchar(20) OUTPUT,
+@lname varchar(20) OUTPUT,
+@email varchar(80) OUTPUT,
+@phoneno varchar(15) OUTPUT,
+@birthdate datetime OUTPUT,
+@gender varchar(10) OUTPUT,
+@passwd varchar(20) OUTPUT,
+@hintQ varchar(100) OUTPUT,
+@hintA varchar(20) OUTPUT,
+)
+AS
+Begin
+Select @fname=fname,@lname=lname,@email=email,@phoneno=phoneno,@birthdate=birthdate,@gender=gender,@passwd=passwd,@hintQ=hintQ,@hintA=hintA,
+from registered where usrname=@usrname
+End
+
+-- 3. updateregistry procedure registry information of certain user
+
+CREATE or ALTER procedure updateregistry(
+@initialusrname varchar(20),
+@usrname varchar(20),
+@fname varchar(20),
+@lname varchar(20),
+@email varchar(80),
+@phoneno varchar(15),
+@birthdate datetime,
+@gender varchar(10),
+@passwd varchar(20),
+@hintQ varchar(100),
+@hintA varchar(20),
+@profilepic image
+)
+AS
+Begin
+update registered 
+set fname=@fname,lname=@lname,email=@email,phoneno=@phoneno,birthdate=@birthdate,gender=@gender,passwd=@passwd,hintQ=@hintQ,hintA=@hintA,profilepic=@profilepic
+where usrname=@initialusrname
+End
 
 -- --------------------------------------------------------------------------------------------------------------------------------
 

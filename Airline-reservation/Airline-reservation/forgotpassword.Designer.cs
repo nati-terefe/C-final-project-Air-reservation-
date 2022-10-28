@@ -121,6 +121,7 @@
             this.newpasswordtextbox.Location = new System.Drawing.Point(396, 438);
             this.newpasswordtextbox.Margin = new System.Windows.Forms.Padding(4);
             this.newpasswordtextbox.Name = "newpasswordtextbox";
+            this.newpasswordtextbox.PasswordChar = '*';
             this.newpasswordtextbox.Size = new System.Drawing.Size(253, 22);
             this.newpasswordtextbox.TabIndex = 14;
             // 
@@ -204,6 +205,7 @@
             // 
             this.questionlabel.AutoSize = true;
             this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.questionlabel.ForeColor = System.Drawing.Color.Navy;
             this.questionlabel.Location = new System.Drawing.Point(401, 276);
             this.questionlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.questionlabel.Name = "questionlabel";

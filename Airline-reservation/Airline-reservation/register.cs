@@ -143,7 +143,7 @@ namespace Airline_reservation
                 usernameerror.Clear(); // Clearing usernameerror
                 usernameerror.SetError(usernametextbox, "Please enter a valid user name"); // Setting usernameerror message
             }
-            if (string.IsNullOrEmpty(passwordtextbox.Text) || passwordtextbox.Text.Length<4 || usernametextbox.Text.Length >= 20) // Error of invalid password
+            if (string.IsNullOrEmpty(passwordtextbox.Text) || passwordtextbox.Text.Length<4 || passwordtextbox.Text.Length >= 20) // Error of invalid password
             {   
                 passworderror.Clear(); // Clearing passworderror
                 passworderror.SetError(passwordtextbox, "Please enter a valid password "); // Setting passworderror message
@@ -163,17 +163,22 @@ namespace Airline_reservation
                 photoerror.Clear(); // Clearing photo error
                 photoerror.SetError(piclocation, "Please select a photo"); // Setting photoerror message
             }
-            if (!string.IsNullOrEmpty(firstnametextbox.Text) 
-                && !string.IsNullOrEmpty(lastnametextbox.Text) 
-                && !string.IsNullOrEmpty(emailtextbox.Text) 
-                && !string.IsNullOrEmpty(hinttextbox.Text) 
+            if (validatename(firstnametextbox.Text) 
+                && validatename(lastnametextbox.Text) 
+                && !string.IsNullOrEmpty(emailtextbox.Text)
+                && emailtextbox.Text.Contains('@') && emailtextbox.Text.Contains('.')
+                && !string.IsNullOrEmpty(hinttextbox.Text)
+                && hinttextbox.Text.Length < 20
                 && !string.IsNullOrEmpty(birthdate.ToString()) 
                 && !string.IsNullOrEmpty(piclocation.Text)
-                && !string.IsNullOrEmpty(phonetextbox.Text) 
+                && validatephone(phonetextbox.Text) 
                 && !string.IsNullOrEmpty(passwordtextbox.Text) 
+                && passwordtextbox.Text.Length >= 4 && passwordtextbox.Text.Length < 20
                 && !string.IsNullOrEmpty(gender)
                 && !string.IsNullOrEmpty(usernametextbox.Text)
-                && !string.IsNullOrEmpty(questiontextbox.Text)) // Selection where all fields are field accordingly
+                && usernametextbox.Text.Length >= 4 && usernametextbox.Text.Length < 20
+                && !string.IsNullOrEmpty(questiontextbox.Text)
+                && questiontextbox.Text.Length < 100) // Selection where all fields are field accordingly
             {
                 int existance; // Declaring Variable
                 String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
@@ -207,7 +212,7 @@ namespace Airline_reservation
                         role = 3, // Assigning values to property
                         question = questiontextbox.Text, // Assigning values to property
                     };
-                    int rowaffected=rs.save(); // Saving Progress on rs object and database registered
+                    int rowaffected=rs.save(1); // Saving Progress on rs object and database registered
                     if(rowaffected > 0)
                     {
                         registerbutton.BackColor = Color.Silver; // Changing back color of register button

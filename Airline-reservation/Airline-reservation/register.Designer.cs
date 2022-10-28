@@ -380,9 +380,9 @@
             this.hintlable.Location = new System.Drawing.Point(365, 534);
             this.hintlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hintlable.Name = "hintlable";
-            this.hintlable.Size = new System.Drawing.Size(92, 31);
+            this.hintlable.Size = new System.Drawing.Size(129, 31);
             this.hintlable.TabIndex = 33;
-            this.hintlable.Text = "Hint❓";
+            this.hintlable.Text = "Answer❓";
             // 
             // hinttextbox
             // 
@@ -529,13 +529,13 @@
             // questionlabel
             // 
             this.questionlabel.AutoSize = true;
-            this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 12F);
             this.questionlabel.Location = new System.Drawing.Point(368, 491);
             this.questionlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.questionlabel.Name = "questionlabel";
-            this.questionlabel.Size = new System.Drawing.Size(136, 31);
+            this.questionlabel.Size = new System.Drawing.Size(160, 26);
             this.questionlabel.TabIndex = 48;
-            this.questionlabel.Text = "Question⁉";
+            this.questionlabel.Text = "Hint Question⁉";
             // 
             // questiontextbox
             // 
