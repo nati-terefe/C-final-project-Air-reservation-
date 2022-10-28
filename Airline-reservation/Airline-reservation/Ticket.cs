@@ -18,7 +18,7 @@ namespace Airline_reservation
 
 
 
-        flightinfo finfo = new flightinfo();
+        bookinginfo binfo = new bookinginfo();
         public string firstname
         {
             get { return fn; }

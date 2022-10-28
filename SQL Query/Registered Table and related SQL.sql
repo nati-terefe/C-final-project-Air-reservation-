@@ -52,7 +52,7 @@ select * from registered
 -- ------------------------------------------------------------------------------------
 
 GO
--- 2. full info procedure returns full information of certain username
+-- 2. full info stored procedure returns full information of certain username
 CREATE or ALTER PROCEDURE fullinfo(
 @usrname varchar(20),
 @fname varchar(20) OUTPUT,
@@ -76,7 +76,7 @@ select * from registered
 -- ------------------------------------------------------------------------------------
 
 GO
--- 3. updateregistry procedure updates registry information of certain user
+-- 3. updateregistry stored procedure updates registry information of certain user
 CREATE or ALTER PROCEDURE updateregistry(
 @initialusrname varchar(20),
 @usrname varchar(20),

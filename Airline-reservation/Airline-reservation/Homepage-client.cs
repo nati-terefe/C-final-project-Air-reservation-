@@ -75,7 +75,7 @@ namespace Airline_reservation
 
         private void bookticketbutton_Click(object sender, EventArgs e) //Listener Function when Book Ticket button is clicked
         {
-            Bookticket_admin bt = new Bookticket_admin(); // Declaring book ticket window
+            Bookticket bt = new Bookticket(usernameblank.Text); // Declaring book ticket window
             bt.Show(); //Show book ticket Window
         }
 

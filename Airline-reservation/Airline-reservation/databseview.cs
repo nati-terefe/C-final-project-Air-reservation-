@@ -65,7 +65,7 @@ namespace Airline_reservation
             //Declaring and Assigning Connection String
             using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
             {
-                SqlDataAdapter adpt = new SqlDataAdapter("select f.id,f.dep,f.des,f.depdate,f.pilot,f.copilot,f.availseat, f.duration, f.planeref, p.aircraft, p.totseat from flights f join planes p on f.planeref=p.id\r\n", con);
+                SqlDataAdapter adpt = new SqlDataAdapter("select f.id,f.dep,f.des,f.depdate,f.pilot,f.copilot,f.availseat, f.duration, f.planeref, p.aircraft, p.totseat from flights f join planes p on f.planeref=p.id", con);
                 DataTable table = new DataTable();
                 adpt.Fill(table);
                 datagridview.DataSource = table;
@@ -73,6 +73,38 @@ namespace Airline_reservation
                 datagridview.Columns[3].Width = 70; // dep date
                 datagridview.Columns[4].Width = 130; // pilot
                 datagridview.Columns[5].Width = 130; // copilot
+            }
+        }
+
+        private void bookedticketsbutton_Click(object sender, EventArgs e)
+        {
+            datagridview.Visible = true;
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlDataAdapter adpt = new SqlDataAdapter("select * from bookedtickets", con);
+                DataTable table = new DataTable();
+                adpt.Fill(table);
+                datagridview.DataSource = table;
+                datagridview.Columns[0].Width = 20;  // id
+                datagridview.Columns[5].Width = 60; // dep date
+                datagridview.Columns[5].Width = 50; // gender
+            }
+        }
+
+        private void loginhistorybtn_Click(object sender, EventArgs e)
+        {
+            datagridview.Visible = true;
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlDataAdapter adpt = new SqlDataAdapter("select * from loginhistory", con);
+                DataTable table = new DataTable();
+                adpt.Fill(table);
+                datagridview.DataSource = table;
+                datagridview.Columns[1].Width = 20;  // role
             }
         }
     }

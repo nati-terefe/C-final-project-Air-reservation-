@@ -79,7 +79,7 @@ namespace Airline_reservation
             this.Close(); //Hide Currently Active Window
         }
         
-        private void searchbutton_Click(object sender, EventArgs e) //Listener Function when search button is clicked
+        private void searchbutton_Click(object sender, EventArgs e) //Listener Function when manageflights button is clicked
         {
             search s = new search(); // Declaring new search window
             s.Show(); //Show Search Window
@@ -87,7 +87,7 @@ namespace Airline_reservation
 
         private void bookticketbutton_Click(object sender, EventArgs e) //Listener Function when Book Ticket button is clicked
         {
-            Bookticket_admin bt = new Bookticket_admin(); // Declaring book ticket window
+            Bookticket bt = new Bookticket(); // Declaring book ticket window
             bt.Show(); //Show book ticket Window
         }
 
@@ -215,10 +215,10 @@ namespace Airline_reservation
                 usernamelabel.Visible = false; // Hiding from page
                 usernameblank.Visible = false; // Hiding from page
                 Editprofile.Visible = false; // Hiding from page
-                searchbutton.Visible = false; // Hiding from page
+                manageflightsbutton.Visible = false; // Hiding from page
                 bookticketbutton.Visible = false; // Hiding from page
-                bookedticketbutton.Visible = false; // Hiding from page
-                editflightbutton.Visible = false; // Hiding from page
+                viewdbbutton.Visible = false; // Hiding from page
+                
                 Backupdb.Visible = false; // Hiding from page
                 if (role == 1) // Selection for sub admin view to hide adding admin
                 {
@@ -293,10 +293,9 @@ namespace Airline_reservation
                 usernamelabel.Visible = true; // Making Visible
                 usernameblank.Visible = true; // Making Visible
                 Editprofile.Visible = true; // Making Visible
-                searchbutton.Visible = true; // Making Visible
+                manageflightsbutton.Visible = true; // Making Visible
                 bookticketbutton.Visible = true; // Making Visible
-                bookedticketbutton.Visible = true; // Making Visible
-                editflightbutton.Visible = true; // Making Visible
+                viewdbbutton.Visible = true; // Making Visible
                 Backupdb.Visible = true; // Making Visible
                 if (role == 1) // Selection for sub admin view to hide adding admin
                 {

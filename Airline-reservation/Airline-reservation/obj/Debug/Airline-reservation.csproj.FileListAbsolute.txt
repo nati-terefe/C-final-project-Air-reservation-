@@ -47,8 +47,6 @@ C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-res
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.About.resources
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.add_admin.resources
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.Booked_flights.resources
-C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.Bookticket_admin.resources
-C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.bookticket.resources
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.contact.resources
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.FAQ.resources
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.flight_edit.resources
@@ -65,3 +63,5 @@ C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-res
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline-reservation.csproj.CoreCompileInputs.cache
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.exe
 C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.pdb
+C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.addflight.resources
+C:\Users\redie\Desktop\Final Project\Final Clone\Airline-reservation\Airline-reservation\obj\Debug\Airline_reservation.Bookticket.resources

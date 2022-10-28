@@ -36,6 +36,7 @@
             this.flightslistbutton = new System.Windows.Forms.Button();
             this.bookedticketsbutton = new System.Windows.Forms.Button();
             this.backbutton = new System.Windows.Forms.Button();
+            this.loginhistorybtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.datagridview)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -96,7 +97,7 @@
             this.flightslistbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.flightslistbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.flightslistbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flightslistbutton.Location = new System.Drawing.Point(38, 272);
+            this.flightslistbutton.Location = new System.Drawing.Point(38, 314);
             this.flightslistbutton.Margin = new System.Windows.Forms.Padding(4);
             this.flightslistbutton.Name = "flightslistbutton";
             this.flightslistbutton.Size = new System.Drawing.Size(160, 43);
@@ -110,13 +111,14 @@
             this.bookedticketsbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.bookedticketsbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bookedticketsbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookedticketsbutton.Location = new System.Drawing.Point(38, 368);
+            this.bookedticketsbutton.Location = new System.Drawing.Point(38, 244);
             this.bookedticketsbutton.Margin = new System.Windows.Forms.Padding(4);
             this.bookedticketsbutton.Name = "bookedticketsbutton";
             this.bookedticketsbutton.Size = new System.Drawing.Size(160, 43);
             this.bookedticketsbutton.TabIndex = 91;
             this.bookedticketsbutton.Text = "Booked Tickets";
             this.bookedticketsbutton.UseVisualStyleBackColor = false;
+            this.bookedticketsbutton.Click += new System.EventHandler(this.bookedticketsbutton_Click);
             // 
             // backbutton
             // 
@@ -132,12 +134,27 @@
             this.backbutton.UseVisualStyleBackColor = false;
             this.backbutton.Click += new System.EventHandler(this.backbutton_Click);
             // 
+            // loginhistorybtn
+            // 
+            this.loginhistorybtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.loginhistorybtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginhistorybtn.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.loginhistorybtn.Location = new System.Drawing.Point(38, 386);
+            this.loginhistorybtn.Margin = new System.Windows.Forms.Padding(4);
+            this.loginhistorybtn.Name = "loginhistorybtn";
+            this.loginhistorybtn.Size = new System.Drawing.Size(160, 43);
+            this.loginhistorybtn.TabIndex = 93;
+            this.loginhistorybtn.Text = "Login History";
+            this.loginhistorybtn.UseVisualStyleBackColor = false;
+            this.loginhistorybtn.Click += new System.EventHandler(this.loginhistorybtn_Click);
+            // 
             // Booked_flights
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1412, 554);
+            this.Controls.Add(this.loginhistorybtn);
             this.Controls.Add(this.backbutton);
             this.Controls.Add(this.bookedticketsbutton);
             this.Controls.Add(this.flightslistbutton);
@@ -165,5 +182,6 @@
         private System.Windows.Forms.Button flightslistbutton;
         private System.Windows.Forms.Button bookedticketsbutton;
         private System.Windows.Forms.Button backbutton;
+        private System.Windows.Forms.Button loginhistorybtn;
     }
 }
