@@ -79,7 +79,7 @@ namespace Airline_reservation
             this.Close(); //Hide Currently Active Window
         }
         
-        private void searchbutton_Click(object sender, EventArgs e) //Listener Function when search button is clicked
+        private void searchbutton_Click(object sender, EventArgs e) //Listener Function when manageflights button is clicked
         {
             search s = new search(); // Declaring new search window
             s.Show(); //Show Search Window
@@ -215,7 +215,7 @@ namespace Airline_reservation
                 usernamelabel.Visible = false; // Hiding from page
                 usernameblank.Visible = false; // Hiding from page
                 Editprofile.Visible = false; // Hiding from page
-                searchbutton.Visible = false; // Hiding from page
+                manageflightsbutton.Visible = false; // Hiding from page
                 bookticketbutton.Visible = false; // Hiding from page
                 bookedticketbutton.Visible = false; // Hiding from page
                 editflightbutton.Visible = false; // Hiding from page
@@ -293,7 +293,7 @@ namespace Airline_reservation
                 usernamelabel.Visible = true; // Making Visible
                 usernameblank.Visible = true; // Making Visible
                 Editprofile.Visible = true; // Making Visible
-                searchbutton.Visible = true; // Making Visible
+                manageflightsbutton.Visible = true; // Making Visible
                 bookticketbutton.Visible = true; // Making Visible
                 bookedticketbutton.Visible = true; // Making Visible
                 editflightbutton.Visible = true; // Making Visible

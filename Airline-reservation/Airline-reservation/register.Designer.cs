@@ -209,8 +209,8 @@
             // 
             this.registerlabel.AutoSize = true;
             this.registerlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.registerlabel.Location = new System.Drawing.Point(463, 0);
+            this.registerlabel.ForeColor = System.Drawing.Color.DarkCyan;
+            this.registerlabel.Location = new System.Drawing.Point(463, 20);
             this.registerlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.registerlabel.Name = "registerlabel";
             this.registerlabel.Size = new System.Drawing.Size(286, 56);
@@ -338,10 +338,12 @@
             // Male
             // 
             this.Male.AutoSize = true;
-            this.Male.Location = new System.Drawing.Point(21, 2);
+            this.Male.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Male.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.Male.Location = new System.Drawing.Point(36, 11);
             this.Male.Margin = new System.Windows.Forms.Padding(4);
             this.Male.Name = "Male";
-            this.Male.Size = new System.Drawing.Size(58, 20);
+            this.Male.Size = new System.Drawing.Size(66, 24);
             this.Male.TabIndex = 30;
             this.Male.TabStop = true;
             this.Male.Text = "Male";
@@ -350,10 +352,11 @@
             // Female
             // 
             this.Female.AutoSize = true;
-            this.Female.Location = new System.Drawing.Point(136, 2);
+            this.Female.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Female.Location = new System.Drawing.Point(141, 11);
             this.Female.Margin = new System.Windows.Forms.Padding(4);
             this.Female.Name = "Female";
-            this.Female.Size = new System.Drawing.Size(74, 20);
+            this.Female.Size = new System.Drawing.Size(85, 24);
             this.Female.TabIndex = 31;
             this.Female.TabStop = true;
             this.Female.Text = "Female";
@@ -369,7 +372,7 @@
             this.gendergroupbox.Margin = new System.Windows.Forms.Padding(4);
             this.gendergroupbox.Name = "gendergroupbox";
             this.gendergroupbox.Padding = new System.Windows.Forms.Padding(4);
-            this.gendergroupbox.Size = new System.Drawing.Size(255, 31);
+            this.gendergroupbox.Size = new System.Drawing.Size(255, 39);
             this.gendergroupbox.TabIndex = 32;
             this.gendergroupbox.TabStop = false;
             // 

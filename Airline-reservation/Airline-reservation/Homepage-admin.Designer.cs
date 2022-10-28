@@ -40,7 +40,7 @@
             this.Editprofile = new System.Windows.Forms.Button();
             this.editflightbutton = new System.Windows.Forms.Button();
             this.Backupdb = new System.Windows.Forms.Button();
-            this.searchbutton = new System.Windows.Forms.Button();
+            this.manageflightsbutton = new System.Windows.Forms.Button();
             this.yourprofilelabel = new System.Windows.Forms.Label();
             this.welcomelabel = new System.Windows.Forms.Label();
             this.logoutbutton = new System.Windows.Forms.Button();
@@ -243,19 +243,19 @@
             this.Backupdb.UseVisualStyleBackColor = false;
             this.Backupdb.Click += new System.EventHandler(this.Backupdb_Click);
             // 
-            // searchbutton
+            // manageflightsbutton
             // 
-            this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchbutton.Location = new System.Drawing.Point(290, 141);
-            this.searchbutton.Margin = new System.Windows.Forms.Padding(4);
-            this.searchbutton.Name = "searchbutton";
-            this.searchbutton.Size = new System.Drawing.Size(160, 43);
-            this.searchbutton.TabIndex = 92;
-            this.searchbutton.Text = "Search";
-            this.searchbutton.UseVisualStyleBackColor = false;
-            this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
+            this.manageflightsbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.manageflightsbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manageflightsbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.manageflightsbutton.Location = new System.Drawing.Point(290, 141);
+            this.manageflightsbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.manageflightsbutton.Name = "manageflightsbutton";
+            this.manageflightsbutton.Size = new System.Drawing.Size(160, 43);
+            this.manageflightsbutton.TabIndex = 92;
+            this.manageflightsbutton.Text = "Manage Flights";
+            this.manageflightsbutton.UseVisualStyleBackColor = false;
+            this.manageflightsbutton.Click += new System.EventHandler(this.searchbutton_Click);
             // 
             // yourprofilelabel
             // 
@@ -843,7 +843,7 @@
             this.Controls.Add(this.logoutbutton);
             this.Controls.Add(this.welcomelabel);
             this.Controls.Add(this.yourprofilelabel);
-            this.Controls.Add(this.searchbutton);
+            this.Controls.Add(this.manageflightsbutton);
             this.Controls.Add(this.Backupdb);
             this.Controls.Add(this.editflightbutton);
             this.Controls.Add(this.Editprofile);
@@ -892,7 +892,7 @@
         private System.Windows.Forms.Button Editprofile;
         private System.Windows.Forms.Button editflightbutton;
         private System.Windows.Forms.Button Backupdb;
-        private System.Windows.Forms.Button searchbutton;
+        private System.Windows.Forms.Button manageflightsbutton;
         private System.Windows.Forms.Label yourprofilelabel;
         private System.Windows.Forms.Label welcomelabel;
         private System.Windows.Forms.Button logoutbutton;

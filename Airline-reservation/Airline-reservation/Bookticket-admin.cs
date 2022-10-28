@@ -99,7 +99,7 @@ namespace Airline_reservation
                 Random r = new Random();
 
                 // setting property of flight info
-                flightinfo fi = new flightinfo
+                bookinginfo bi = new bookinginfo
                 {
                     firstname = firstnametextbox.Text,
                     lastname = lastnametextbox.Text,
@@ -117,7 +117,7 @@ namespace Airline_reservation
 
                 };
 
-                fi.save(); // saving the info
+                bi.save(); // saving the info
 
                 ticketform tf = new ticketform();
                 if (tf.flowLayoutPanel1.Controls.Count > 0)
@@ -127,7 +127,7 @@ namespace Airline_reservation
                 {
                     tf.flowLayoutPanel1.Controls.Remove(item);
                 }
-                foreach (var item in flightinfo.getall())
+                foreach (var item in bookinginfo.getall())
                 {
                     // setting the info we get from the user to the user control(ticket) 
                     Ticket tick = new Ticket();

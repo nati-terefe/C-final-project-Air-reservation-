@@ -48,6 +48,9 @@ namespace Airline_reservation
             // Gender Label
             genderlabel.Parent = bgpic;
             genderlabel.BackColor = Color.Transparent; // Making Label Transparent
+            // Gender Group Box
+            gendergroupbox.Parent = bgpic;
+            gendergroupbox.BackColor = Color.Transparent; // Making Label Transparent
             // Register Label
             registerlabel.Parent = bgpic;
             registerlabel.BackColor = Color.Transparent; // Making Label Transparent
@@ -219,6 +222,9 @@ namespace Airline_reservation
                     if(rowaffected > 0) // Selection on successful batabase execution
                     {
                         MessageBox.Show("You have been registered"); // Pop up window
+                        login l = new login(); //Declaring new Login Window
+                        l.Show(); //Show Login Window
+                        this.Close(); //Hide Currently Active Window
                     }
                     else // Selection on unsuccessful batabase execution
                     {

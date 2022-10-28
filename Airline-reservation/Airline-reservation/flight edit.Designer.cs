@@ -630,7 +630,7 @@
             // 
             this.rolelabel.AutoSize = true;
             this.rolelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.rolelabel.Location = new System.Drawing.Point(538, 425);
+            this.rolelabel.Location = new System.Drawing.Point(568, 432);
             this.rolelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.rolelabel.Name = "rolelabel";
             this.rolelabel.Size = new System.Drawing.Size(62, 31);

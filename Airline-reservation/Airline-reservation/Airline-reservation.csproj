@@ -76,6 +76,7 @@
     <Compile Include="bookticket-client.Designer.cs">
       <DependentUpon>bookticket-client.cs</DependentUpon>
     </Compile>
+    <Compile Include="flightinfo.cs" />
     <Compile Include="contact.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,7 +96,7 @@
     <Compile Include="flight edit.Designer.cs">
       <DependentUpon>flight edit.cs</DependentUpon>
     </Compile>
-    <Compile Include="flightinfo.cs" />
+    <Compile Include="bookinginfo.cs" />
     <Compile Include="forgotpassword.cs">
       <SubType>Form</SubType>
     </Compile>

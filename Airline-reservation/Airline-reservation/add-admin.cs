@@ -38,6 +38,9 @@ namespace Airline_reservation
             birthdatelabel.BackColor = Color.Transparent;
             genderlabel.Parent = bgpic;
             genderlabel.BackColor = Color.Transparent;
+            // Gender Group Box
+            gendergroupbox.Parent = bgpic;
+            gendergroupbox.BackColor = Color.Transparent; // Making Label Transparent
             addadminlabel.Parent = bgpic;
             addadminlabel.BackColor = Color.Transparent;
             profilepicturelabel.Parent = bgpic;

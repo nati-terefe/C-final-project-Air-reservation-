@@ -65,8 +65,6 @@ namespace Airline_reservation
                     cmd2.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = registerusername; //Defining the command parameter for usrname
                     cmd2.Parameters.Add("@passwd", SqlDbType.VarChar, 20).Value = registerpassword; //Defining the command parameter for passwd
                     cmd2.Parameters.Add("@rol", SqlDbType.Int).Value = role; //Defining the command parameter for role
-                    cmd2.Parameters.Add("@hintQ", SqlDbType.VarChar, 100).Value = question; //Defining the command parameter for hint quetion
-                    cmd2.Parameters.Add("@hintA", SqlDbType.VarChar, 20).Value = registerhint; //Defining the command parameter for hint answer
                     rowaffected += cmd2.ExecuteNonQuery(); // Executing Query and returning number of rows affected
                 }
                 else if (full == 0) // Selection if its a change in Edit profile to update record with out adding new

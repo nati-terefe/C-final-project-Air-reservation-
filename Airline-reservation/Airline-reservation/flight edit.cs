@@ -38,6 +38,7 @@ namespace Airline_reservation
                 removeaddtextbox.Visible = true;
                 addbuttom.Visible = true;
                 removebutton.Visible = true;
+                donebutton.Visible = true;
             }
             else if (appear == 1)
             {
@@ -48,6 +49,7 @@ namespace Airline_reservation
                 removeaddtextbox.Visible = false;
                 addbuttom.Visible = false;
                 removebutton.Visible = false;
+                donebutton.Visible = false;
                 // Hiding Edit profile elements
                 savebutton.Visible = false; // Hiding from page
                 firstnamelabel.Visible = false; // Hiding from page
@@ -84,6 +86,7 @@ namespace Airline_reservation
                 initialusrnamelabel.Visible = false;
                 initialusernametextbox.Visible = false;
                 searchbutton.Visible = false;
+
                 savebutton.Visible = true; // Making Visible
                 firstnamelabel.Visible = true; // Making Visible
                 firstnametextbox.Visible = true; // Making Visible
@@ -437,6 +440,7 @@ namespace Airline_reservation
                     MessageBox.Show("Unable to save Changes. Try Again"); // Pop up window
                 }
             }
+
         }
 
         private void changepfpbtn_Click(object sender, EventArgs e)
@@ -457,14 +461,21 @@ namespace Airline_reservation
             //Declaring and Assigning Connection String
             using (SqlConnection con = new SqlConnection(cs2)) //Block that auto close SqlConnection
             {
+                SqlCommand cmd2 = new SqlCommand("unlinkloginhisandreg", con);
+                // Sql Command to delete a user
+                cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                // Using parametrized query to avoid sql injection attack
+                cmd2.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusernametextbox.Text; //Defining the command parameter for usrname
+                con.Open(); //Opening Connection
+                rowaffected = cmd2.ExecuteNonQuery(); // Executing Query
                 SqlCommand cmd = new SqlCommand("deleteregistrywithlogin", con);
                 // Sql Command to delete a user
                 cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                           // Using parametrized query to avoid sql injection attack
+                 // Using parametrized query to avoid sql injection attack
                 cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = initialusernametextbox.Text; //Defining the command parameter for usrname
-                con.Open(); //Opening Connection
-                rowaffected=cmd.ExecuteNonQuery(); // Executing Query
-                if(rowaffected > 0)
+                rowaffected += cmd.ExecuteNonQuery(); // Executing Query
+               
+                if (rowaffected > 1)
                 {
                     MessageBox.Show("User Deleted Successfully");
                 }
