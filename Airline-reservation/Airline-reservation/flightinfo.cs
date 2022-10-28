@@ -13,6 +13,8 @@ namespace Airline_reservation
     internal class flightinfo
     {
         private static List<flightinfo> fi = new List<flightinfo>(); // List to store loginners
+
+        public int flightid { get; set; }
         public string departure{ get; set; }
         public string destination { get; set; }
 
@@ -30,26 +32,32 @@ namespace Airline_reservation
         
         public int save(int full) // Function to save data by adding it to the list and database
         {
-            /*int rowaffected; // Variable Declaring
+            int rowaffected=0; // Variable Declaring
             fi.Add(this); // Adding Object to list
-            if(full = 1)
+            if(full == 0)
             {
                 String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
                 //Declaring and Assigning Connection String
                 using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
                 {
-                    SqlCommand cmd2 = new SqlCommand("addflight", con);
+                    SqlCommand cmd = new SqlCommand("updateflight", con);
                     // Sql Command stored procedure to insert successful Login into Login History on database
                     con.Open(); // Opening Connection
-                    cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                                // Using parametrized query to avoid sql injection attack
-                    cmd2.Parameters.Add("@usrname", SqlDbType.VarChar).Value = loginusername; //Defining the command parameter for usrname
-                    cmd2.Parameters.Add("@role", SqlDbType.Int).Value = loginrole; //Defining the command parameter for role
-                    rowaffected = cmd2.ExecuteNonQuery(); // Executing the Insert Query
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                    cmd.Parameters.Add("@flightid", SqlDbType.Int).Value = flightid; //Defining the command parameter for usrname                                                  
+                    cmd.Parameters.Add("@dep", SqlDbType.VarChar, 30).Value = departure;
+                    cmd.Parameters.Add("@des", SqlDbType.VarChar, 30).Value = destination;
+                    cmd.Parameters.Add("@depdate", SqlDbType.Date).Value = departuretime;
+                    cmd.Parameters.Add("@pilot", SqlDbType.VarChar, 70).Value =pilot;
+                    cmd.Parameters.Add("@copilot", SqlDbType.VarChar, 70).Value = copilot;
+                    cmd.Parameters.Add("@availseat", SqlDbType.Int).Value = availseat;
+                    cmd.Parameters.Add("@duration", SqlDbType.Int).Value = duration;
+                    cmd.Parameters.Add("@planeref", SqlDbType.Int).Value = planeid;
+                    rowaffected = cmd.ExecuteNonQuery();
                 }
-                return rowaffected; // Returning number of rows inserted
-            }*/
-            return 0;
+                
+            }
+            return rowaffected; // Returning number of rows inserted
         }
         public static flightinfo getall(string flightid) // Function to return all data from list
         {
@@ -76,6 +84,7 @@ namespace Airline_reservation
                 
                 con.Open(); //Opening Connection
                 cmd.ExecuteNonQuery(); // Executing Query
+                fi.flightid = Convert.ToInt32(id);
                 fi.departure = Convert.ToString(cmd.Parameters["@dep"].Value); // Assigning output value of stored procedure by converting to String
                 fi.destination = Convert.ToString(cmd.Parameters["@des"].Value); // Assigning output value of stored procedure by converting to String
                 fi.departuretime = Convert.ToDateTime(cmd.Parameters["@depdate"].Value); // Assigning output value of stored procedure by converting to String

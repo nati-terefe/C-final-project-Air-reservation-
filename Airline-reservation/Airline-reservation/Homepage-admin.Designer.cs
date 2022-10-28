@@ -32,13 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Homepage_admin));
             this.exitbutton = new System.Windows.Forms.Button();
             this.usernamelabel = new System.Windows.Forms.Label();
-            this.bookedticketbutton = new System.Windows.Forms.Button();
+            this.viewdbbutton = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.propicadmin = new System.Windows.Forms.PictureBox();
             this.bgpic = new System.Windows.Forms.PictureBox();
             this.addadminbutton = new System.Windows.Forms.Button();
             this.Editprofile = new System.Windows.Forms.Button();
-            this.editflightbutton = new System.Windows.Forms.Button();
             this.Backupdb = new System.Windows.Forms.Button();
             this.manageflightsbutton = new System.Windows.Forms.Button();
             this.yourprofilelabel = new System.Windows.Forms.Label();
@@ -140,19 +139,19 @@
             this.usernamelabel.TabIndex = 68;
             this.usernamelabel.Text = "User name👨";
             // 
-            // bookedticketbutton
+            // viewdbbutton
             // 
-            this.bookedticketbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.bookedticketbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bookedticketbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bookedticketbutton.Location = new System.Drawing.Point(290, 219);
-            this.bookedticketbutton.Margin = new System.Windows.Forms.Padding(4);
-            this.bookedticketbutton.Name = "bookedticketbutton";
-            this.bookedticketbutton.Size = new System.Drawing.Size(160, 43);
-            this.bookedticketbutton.TabIndex = 62;
-            this.bookedticketbutton.Text = "Booked Flights";
-            this.bookedticketbutton.UseVisualStyleBackColor = false;
-            this.bookedticketbutton.Click += new System.EventHandler(this.bookedticketbutton_Click);
+            this.viewdbbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.viewdbbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.viewdbbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.viewdbbutton.Location = new System.Drawing.Point(279, 300);
+            this.viewdbbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.viewdbbutton.Name = "viewdbbutton";
+            this.viewdbbutton.Size = new System.Drawing.Size(160, 43);
+            this.viewdbbutton.TabIndex = 62;
+            this.viewdbbutton.Text = "View Database";
+            this.viewdbbutton.UseVisualStyleBackColor = false;
+            this.viewdbbutton.Click += new System.EventHandler(this.bookedticketbutton_Click);
             // 
             // logo
             // 
@@ -214,20 +213,6 @@
             this.Editprofile.Text = "Edit profile";
             this.Editprofile.UseVisualStyleBackColor = false;
             this.Editprofile.Click += new System.EventHandler(this.Editprofile_Click_1);
-            // 
-            // editflightbutton
-            // 
-            this.editflightbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.editflightbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editflightbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editflightbutton.Location = new System.Drawing.Point(290, 301);
-            this.editflightbutton.Margin = new System.Windows.Forms.Padding(4);
-            this.editflightbutton.Name = "editflightbutton";
-            this.editflightbutton.Size = new System.Drawing.Size(160, 43);
-            this.editflightbutton.TabIndex = 90;
-            this.editflightbutton.Text = "Edit flight";
-            this.editflightbutton.UseVisualStyleBackColor = false;
-            this.editflightbutton.Click += new System.EventHandler(this.editflightbutton_Click);
             // 
             // Backupdb
             // 
@@ -315,7 +300,7 @@
             this.bookticketbutton.Name = "bookticketbutton";
             this.bookticketbutton.Size = new System.Drawing.Size(160, 43);
             this.bookticketbutton.TabIndex = 97;
-            this.bookticketbutton.Text = "Book Flights";
+            this.bookticketbutton.Text = "Book Flight";
             this.bookticketbutton.UseVisualStyleBackColor = false;
             this.bookticketbutton.Click += new System.EventHandler(this.bookticketbutton_Click);
             // 
@@ -714,7 +699,7 @@
             this.editusersbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.editusersbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editusersbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editusersbutton.Location = new System.Drawing.Point(615, 223);
+            this.editusersbutton.Location = new System.Drawing.Point(453, 223);
             this.editusersbutton.Margin = new System.Windows.Forms.Padding(4);
             this.editusersbutton.Name = "editusersbutton";
             this.editusersbutton.Size = new System.Drawing.Size(160, 43);
@@ -845,12 +830,11 @@
             this.Controls.Add(this.yourprofilelabel);
             this.Controls.Add(this.manageflightsbutton);
             this.Controls.Add(this.Backupdb);
-            this.Controls.Add(this.editflightbutton);
             this.Controls.Add(this.Editprofile);
             this.Controls.Add(this.addadminbutton);
             this.Controls.Add(this.exitbutton);
             this.Controls.Add(this.usernamelabel);
-            this.Controls.Add(this.bookedticketbutton);
+            this.Controls.Add(this.viewdbbutton);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.propicadmin);
             this.Controls.Add(this.bgpic);
@@ -884,13 +868,12 @@
         #endregion
         private System.Windows.Forms.Button exitbutton;
         private System.Windows.Forms.Label usernamelabel;
-        private System.Windows.Forms.Button bookedticketbutton;
+        private System.Windows.Forms.Button viewdbbutton;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.PictureBox propicadmin;
         private System.Windows.Forms.PictureBox bgpic;
         private System.Windows.Forms.Button addadminbutton;
         private System.Windows.Forms.Button Editprofile;
-        private System.Windows.Forms.Button editflightbutton;
         private System.Windows.Forms.Button Backupdb;
         private System.Windows.Forms.Button manageflightsbutton;
         private System.Windows.Forms.Label yourprofilelabel;

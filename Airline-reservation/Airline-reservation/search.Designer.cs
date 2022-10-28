@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(search));
             this.logo = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.flightinfolabel = new System.Windows.Forms.Label();
+            this.whatdoyouwantlabel = new System.Windows.Forms.Label();
             this.donebutton = new System.Windows.Forms.Button();
             this.searchbutton = new System.Windows.Forms.Button();
             this.Editinfobutton = new System.Windows.Forms.Button();
@@ -51,9 +51,6 @@
             this.pilolttextbox = new System.Windows.Forms.TextBox();
             this.copilolttextbox = new System.Windows.Forms.TextBox();
             this.flightidtextbox = new System.Windows.Forms.TextBox();
-            this.departuretextbox = new System.Windows.Forms.TextBox();
-            this.aircrafttextbox = new System.Windows.Forms.TextBox();
-            this.destinationtextbox = new System.Windows.Forms.TextBox();
             this.noofseatstextbox = new System.Windows.Forms.TextBox();
             this.flighthourtextbox = new System.Windows.Forms.TextBox();
             this.availableseatstextbox = new System.Windows.Forms.TextBox();
@@ -70,6 +67,11 @@
             this.progresserror = new System.Windows.Forms.ErrorProvider(this.components);
             this.deptime = new System.Windows.Forms.Label();
             this.depdateandtimepick = new System.Windows.Forms.DateTimePicker();
+            this.aircraftcombobox = new System.Windows.Forms.ComboBox();
+            this.addflightbutton = new System.Windows.Forms.Button();
+            this.editflightbutton = new System.Windows.Forms.Button();
+            this.depcomboBox = new System.Windows.Forms.ComboBox();
+            this.destinationcombobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.enterflightiderror)).BeginInit();
@@ -90,7 +92,7 @@
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
             this.logo.Location = new System.Drawing.Point(-4, 28);
-            this.logo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
             this.logo.Size = new System.Drawing.Size(283, 148);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -101,24 +103,24 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(-4, -2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1152, 623);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
-            // flightinfolabel
+            // whatdoyouwantlabel
             // 
-            this.flightinfolabel.AutoSize = true;
-            this.flightinfolabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.flightinfolabel.ForeColor = System.Drawing.Color.DarkCyan;
-            this.flightinfolabel.Location = new System.Drawing.Point(425, 106);
-            this.flightinfolabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.flightinfolabel.Name = "flightinfolabel";
-            this.flightinfolabel.Size = new System.Drawing.Size(411, 56);
-            this.flightinfolabel.TabIndex = 39;
-            this.flightinfolabel.Text = "Flight Information";
+            this.whatdoyouwantlabel.AutoSize = true;
+            this.whatdoyouwantlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.whatdoyouwantlabel.ForeColor = System.Drawing.Color.Black;
+            this.whatdoyouwantlabel.Location = new System.Drawing.Point(397, 120);
+            this.whatdoyouwantlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.whatdoyouwantlabel.Name = "whatdoyouwantlabel";
+            this.whatdoyouwantlabel.Size = new System.Drawing.Size(36, 56);
+            this.whatdoyouwantlabel.TabIndex = 39;
+            this.whatdoyouwantlabel.Text = ".";
             // 
             // donebutton
             // 
@@ -126,7 +128,7 @@
             this.donebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.donebutton.Location = new System.Drawing.Point(892, 546);
-            this.donebutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.donebutton.Margin = new System.Windows.Forms.Padding(4);
             this.donebutton.Name = "donebutton";
             this.donebutton.Size = new System.Drawing.Size(204, 43);
             this.donebutton.TabIndex = 40;
@@ -139,22 +141,23 @@
             this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.searchbutton.Location = new System.Drawing.Point(615, 273);
-            this.searchbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.searchbutton.Location = new System.Drawing.Point(784, 206);
+            this.searchbutton.Margin = new System.Windows.Forms.Padding(4);
             this.searchbutton.Name = "searchbutton";
             this.searchbutton.Size = new System.Drawing.Size(160, 43);
             this.searchbutton.TabIndex = 42;
             this.searchbutton.Text = "Search";
             this.searchbutton.UseVisualStyleBackColor = false;
+            this.searchbutton.Visible = false;
             this.searchbutton.Click += new System.EventHandler(this.searchbutton_Click);
             // 
             // Editinfobutton
             // 
-            this.Editinfobutton.BackColor = System.Drawing.Color.Transparent;
+            this.Editinfobutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.Editinfobutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Editinfobutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Editinfobutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
             this.Editinfobutton.Location = new System.Drawing.Point(172, 546);
-            this.Editinfobutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Editinfobutton.Margin = new System.Windows.Forms.Padding(4);
             this.Editinfobutton.Name = "Editinfobutton";
             this.Editinfobutton.Size = new System.Drawing.Size(204, 39);
             this.Editinfobutton.TabIndex = 90;
@@ -169,7 +172,7 @@
             this.deleteflightbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteflightbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.deleteflightbutton.Location = new System.Drawing.Point(407, 546);
-            this.deleteflightbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.deleteflightbutton.Margin = new System.Windows.Forms.Padding(4);
             this.deleteflightbutton.Name = "deleteflightbutton";
             this.deleteflightbutton.Size = new System.Drawing.Size(204, 43);
             this.deleteflightbutton.TabIndex = 91;
@@ -182,9 +185,9 @@
             // 
             this.savebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.savebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.savebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.savebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold);
             this.savebutton.Location = new System.Drawing.Point(649, 546);
-            this.savebutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.savebutton.Margin = new System.Windows.Forms.Padding(4);
             this.savebutton.Name = "savebutton";
             this.savebutton.Size = new System.Drawing.Size(204, 43);
             this.savebutton.TabIndex = 92;
@@ -195,24 +198,27 @@
             // 
             // enterflightidtextbox
             // 
-            this.enterflightidtextbox.Location = new System.Drawing.Point(580, 210);
+            this.enterflightidtextbox.Location = new System.Drawing.Point(566, 219);
             this.enterflightidtextbox.Margin = new System.Windows.Forms.Padding(4);
             this.enterflightidtextbox.Multiline = true;
             this.enterflightidtextbox.Name = "enterflightidtextbox";
             this.enterflightidtextbox.Size = new System.Drawing.Size(195, 30);
             this.enterflightidtextbox.TabIndex = 93;
+            this.enterflightidtextbox.Visible = false;
+            this.enterflightidtextbox.WordWrap = false;
             // 
             // enterflightidlabel
             // 
             this.enterflightidlabel.AutoSize = true;
             this.enterflightidlabel.Font = new System.Drawing.Font("Yu Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.enterflightidlabel.ForeColor = System.Drawing.Color.Black;
-            this.enterflightidlabel.Location = new System.Drawing.Point(368, 208);
+            this.enterflightidlabel.Location = new System.Drawing.Point(351, 219);
             this.enterflightidlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.enterflightidlabel.Name = "enterflightidlabel";
             this.enterflightidlabel.Size = new System.Drawing.Size(191, 32);
             this.enterflightidlabel.TabIndex = 94;
             this.enterflightidlabel.Text = "Enter Flight ID";
+            this.enterflightidlabel.Visible = false;
             // 
             // pilotslabel
             // 
@@ -271,7 +277,7 @@
             this.availableseatslabel.AutoSize = true;
             this.availableseatslabel.Font = new System.Drawing.Font("Yu Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.availableseatslabel.ForeColor = System.Drawing.Color.White;
-            this.availableseatslabel.Location = new System.Drawing.Point(794, 356);
+            this.availableseatslabel.Location = new System.Drawing.Point(809, 356);
             this.availableseatslabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.availableseatslabel.Name = "availableseatslabel";
             this.availableseatslabel.Size = new System.Drawing.Size(200, 32);
@@ -284,7 +290,7 @@
             this.departurelabel.AutoSize = true;
             this.departurelabel.Font = new System.Drawing.Font("Yu Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.departurelabel.ForeColor = System.Drawing.Color.Black;
-            this.departurelabel.Location = new System.Drawing.Point(333, 260);
+            this.departurelabel.Location = new System.Drawing.Point(316, 260);
             this.departurelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.departurelabel.Name = "departurelabel";
             this.departurelabel.Size = new System.Drawing.Size(138, 32);
@@ -297,7 +303,7 @@
             this.destinationlabel.AutoSize = true;
             this.destinationlabel.Font = new System.Drawing.Font("Yu Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.destinationlabel.ForeColor = System.Drawing.Color.Black;
-            this.destinationlabel.Location = new System.Drawing.Point(333, 356);
+            this.destinationlabel.Location = new System.Drawing.Point(316, 356);
             this.destinationlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.destinationlabel.Name = "destinationlabel";
             this.destinationlabel.Size = new System.Drawing.Size(155, 32);
@@ -311,7 +317,7 @@
             this.flighthourlabel.BackColor = System.Drawing.SystemColors.Control;
             this.flighthourlabel.Font = new System.Drawing.Font("Yu Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.flighthourlabel.ForeColor = System.Drawing.Color.White;
-            this.flighthourlabel.Location = new System.Drawing.Point(572, 356);
+            this.flighthourlabel.Location = new System.Drawing.Point(574, 356);
             this.flighthourlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.flighthourlabel.Name = "flighthourlabel";
             this.flighthourlabel.Size = new System.Drawing.Size(175, 32);
@@ -323,10 +329,9 @@
             // 
             this.pilolttextbox.Location = new System.Drawing.Point(83, 340);
             this.pilolttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.pilolttextbox.Multiline = true;
             this.pilolttextbox.Name = "pilolttextbox";
             this.pilolttextbox.ReadOnly = true;
-            this.pilolttextbox.Size = new System.Drawing.Size(195, 30);
+            this.pilolttextbox.Size = new System.Drawing.Size(195, 22);
             this.pilolttextbox.TabIndex = 104;
             this.pilolttextbox.Visible = false;
             // 
@@ -334,10 +339,9 @@
             // 
             this.copilolttextbox.Location = new System.Drawing.Point(84, 392);
             this.copilolttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.copilolttextbox.Multiline = true;
             this.copilolttextbox.Name = "copilolttextbox";
             this.copilolttextbox.ReadOnly = true;
-            this.copilolttextbox.Size = new System.Drawing.Size(195, 30);
+            this.copilolttextbox.Size = new System.Drawing.Size(195, 22);
             this.copilolttextbox.TabIndex = 105;
             this.copilolttextbox.Visible = false;
             // 
@@ -345,54 +349,19 @@
             // 
             this.flightidtextbox.Location = new System.Drawing.Point(580, 189);
             this.flightidtextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.flightidtextbox.Multiline = true;
             this.flightidtextbox.Name = "flightidtextbox";
             this.flightidtextbox.ReadOnly = true;
-            this.flightidtextbox.Size = new System.Drawing.Size(196, 30);
+            this.flightidtextbox.Size = new System.Drawing.Size(196, 22);
             this.flightidtextbox.TabIndex = 106;
             this.flightidtextbox.Visible = false;
-            // 
-            // departuretextbox
-            // 
-            this.departuretextbox.Location = new System.Drawing.Point(339, 312);
-            this.departuretextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.departuretextbox.Multiline = true;
-            this.departuretextbox.Name = "departuretextbox";
-            this.departuretextbox.ReadOnly = true;
-            this.departuretextbox.Size = new System.Drawing.Size(167, 30);
-            this.departuretextbox.TabIndex = 107;
-            this.departuretextbox.Visible = false;
-            // 
-            // aircrafttextbox
-            // 
-            this.aircrafttextbox.Location = new System.Drawing.Point(580, 312);
-            this.aircrafttextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.aircrafttextbox.Multiline = true;
-            this.aircrafttextbox.Name = "aircrafttextbox";
-            this.aircrafttextbox.ReadOnly = true;
-            this.aircrafttextbox.Size = new System.Drawing.Size(193, 30);
-            this.aircrafttextbox.TabIndex = 108;
-            this.aircrafttextbox.Visible = false;
-            // 
-            // destinationtextbox
-            // 
-            this.destinationtextbox.Location = new System.Drawing.Point(339, 404);
-            this.destinationtextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.destinationtextbox.Multiline = true;
-            this.destinationtextbox.Name = "destinationtextbox";
-            this.destinationtextbox.ReadOnly = true;
-            this.destinationtextbox.Size = new System.Drawing.Size(167, 30);
-            this.destinationtextbox.TabIndex = 109;
-            this.destinationtextbox.Visible = false;
             // 
             // noofseatstextbox
             // 
             this.noofseatstextbox.Location = new System.Drawing.Point(800, 312);
             this.noofseatstextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.noofseatstextbox.Multiline = true;
             this.noofseatstextbox.Name = "noofseatstextbox";
             this.noofseatstextbox.ReadOnly = true;
-            this.noofseatstextbox.Size = new System.Drawing.Size(195, 30);
+            this.noofseatstextbox.Size = new System.Drawing.Size(195, 22);
             this.noofseatstextbox.TabIndex = 110;
             this.noofseatstextbox.Visible = false;
             // 
@@ -400,21 +369,19 @@
             // 
             this.flighthourtextbox.Location = new System.Drawing.Point(578, 404);
             this.flighthourtextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.flighthourtextbox.Multiline = true;
             this.flighthourtextbox.Name = "flighthourtextbox";
             this.flighthourtextbox.ReadOnly = true;
-            this.flighthourtextbox.Size = new System.Drawing.Size(195, 30);
+            this.flighthourtextbox.Size = new System.Drawing.Size(195, 22);
             this.flighthourtextbox.TabIndex = 111;
             this.flighthourtextbox.Visible = false;
             // 
             // availableseatstextbox
             // 
-            this.availableseatstextbox.Location = new System.Drawing.Point(799, 404);
+            this.availableseatstextbox.Location = new System.Drawing.Point(800, 404);
             this.availableseatstextbox.Margin = new System.Windows.Forms.Padding(4);
-            this.availableseatstextbox.Multiline = true;
             this.availableseatstextbox.Name = "availableseatstextbox";
             this.availableseatstextbox.ReadOnly = true;
-            this.availableseatstextbox.Size = new System.Drawing.Size(195, 30);
+            this.availableseatstextbox.Size = new System.Drawing.Size(195, 22);
             this.availableseatstextbox.TabIndex = 112;
             this.availableseatstextbox.Visible = false;
             // 
@@ -467,7 +434,7 @@
             this.deptime.AutoSize = true;
             this.deptime.Font = new System.Drawing.Font("Yu Gothic", 15F, System.Drawing.FontStyle.Bold);
             this.deptime.ForeColor = System.Drawing.Color.Black;
-            this.deptime.Location = new System.Drawing.Point(368, 455);
+            this.deptime.Location = new System.Drawing.Point(316, 451);
             this.deptime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.deptime.Name = "deptime";
             this.deptime.Size = new System.Drawing.Size(206, 32);
@@ -477,25 +444,87 @@
             // 
             // depdateandtimepick
             // 
-            this.depdateandtimepick.Location = new System.Drawing.Point(594, 465);
+            this.depdateandtimepick.Enabled = false;
+            this.depdateandtimepick.Location = new System.Drawing.Point(573, 458);
             this.depdateandtimepick.Name = "depdateandtimepick";
             this.depdateandtimepick.Size = new System.Drawing.Size(200, 22);
             this.depdateandtimepick.TabIndex = 114;
             this.depdateandtimepick.Visible = false;
+            // 
+            // aircraftcombobox
+            // 
+            this.aircraftcombobox.Enabled = false;
+            this.aircraftcombobox.FormattingEnabled = true;
+            this.aircraftcombobox.Location = new System.Drawing.Point(578, 317);
+            this.aircraftcombobox.Name = "aircraftcombobox";
+            this.aircraftcombobox.Size = new System.Drawing.Size(195, 24);
+            this.aircraftcombobox.TabIndex = 115;
+            this.aircraftcombobox.Visible = false;
+            this.aircraftcombobox.SelectedIndexChanged += new System.EventHandler(this.aircraftcombobox_SelectedIndexChanged);
+            // 
+            // addflightbutton
+            // 
+            this.addflightbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.addflightbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addflightbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.addflightbutton.Location = new System.Drawing.Point(587, 329);
+            this.addflightbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.addflightbutton.Name = "addflightbutton";
+            this.addflightbutton.Size = new System.Drawing.Size(160, 43);
+            this.addflightbutton.TabIndex = 116;
+            this.addflightbutton.Text = "Add Flight";
+            this.addflightbutton.UseVisualStyleBackColor = false;
+            this.addflightbutton.Click += new System.EventHandler(this.addflightbutton_Click);
+            // 
+            // editflightbutton
+            // 
+            this.editflightbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.editflightbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editflightbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.editflightbutton.Location = new System.Drawing.Point(357, 329);
+            this.editflightbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.editflightbutton.Name = "editflightbutton";
+            this.editflightbutton.Size = new System.Drawing.Size(160, 43);
+            this.editflightbutton.TabIndex = 117;
+            this.editflightbutton.Text = "Edit Flight";
+            this.editflightbutton.UseVisualStyleBackColor = false;
+            this.editflightbutton.Click += new System.EventHandler(this.searchflightbutton_Click);
+            // 
+            // depcomboBox
+            // 
+            this.depcomboBox.Enabled = false;
+            this.depcomboBox.FormattingEnabled = true;
+            this.depcomboBox.Location = new System.Drawing.Point(322, 317);
+            this.depcomboBox.Name = "depcomboBox";
+            this.depcomboBox.Size = new System.Drawing.Size(195, 24);
+            this.depcomboBox.TabIndex = 118;
+            this.depcomboBox.Visible = false;
+            // 
+            // destinationcombobox
+            // 
+            this.destinationcombobox.Enabled = false;
+            this.destinationcombobox.FormattingEnabled = true;
+            this.destinationcombobox.Location = new System.Drawing.Point(322, 392);
+            this.destinationcombobox.Name = "destinationcombobox";
+            this.destinationcombobox.Size = new System.Drawing.Size(195, 24);
+            this.destinationcombobox.TabIndex = 119;
+            this.destinationcombobox.Visible = false;
             // 
             // search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1148, 618);
+            this.Controls.Add(this.destinationcombobox);
+            this.Controls.Add(this.depcomboBox);
+            this.Controls.Add(this.editflightbutton);
+            this.Controls.Add(this.addflightbutton);
+            this.Controls.Add(this.aircraftcombobox);
             this.Controls.Add(this.depdateandtimepick);
             this.Controls.Add(this.deptime);
             this.Controls.Add(this.availableseatstextbox);
             this.Controls.Add(this.flighthourtextbox);
             this.Controls.Add(this.noofseatstextbox);
-            this.Controls.Add(this.destinationtextbox);
-            this.Controls.Add(this.aircrafttextbox);
-            this.Controls.Add(this.departuretextbox);
             this.Controls.Add(this.flightidtextbox);
             this.Controls.Add(this.copilolttextbox);
             this.Controls.Add(this.pilolttextbox);
@@ -514,10 +543,10 @@
             this.Controls.Add(this.Editinfobutton);
             this.Controls.Add(this.searchbutton);
             this.Controls.Add(this.donebutton);
-            this.Controls.Add(this.flightinfolabel);
+            this.Controls.Add(this.whatdoyouwantlabel);
             this.Controls.Add(this.logo);
             this.Controls.Add(this.pictureBox1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "search";
             this.Text = "search";
             this.Load += new System.EventHandler(this.search_Load);
@@ -543,7 +572,7 @@
 
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label flightinfolabel;
+        private System.Windows.Forms.Label whatdoyouwantlabel;
         private System.Windows.Forms.Button donebutton;
         private System.Windows.Forms.Button searchbutton;
         private System.Windows.Forms.Button Editinfobutton;
@@ -562,9 +591,6 @@
         private System.Windows.Forms.TextBox pilolttextbox;
         private System.Windows.Forms.TextBox copilolttextbox;
         private System.Windows.Forms.TextBox flightidtextbox;
-        private System.Windows.Forms.TextBox departuretextbox;
-        private System.Windows.Forms.TextBox aircrafttextbox;
-        private System.Windows.Forms.TextBox destinationtextbox;
         private System.Windows.Forms.TextBox noofseatstextbox;
         private System.Windows.Forms.TextBox flighthourtextbox;
         private System.Windows.Forms.TextBox availableseatstextbox;
@@ -581,5 +607,10 @@
         private System.Windows.Forms.ErrorProvider progresserror;
         private System.Windows.Forms.Label deptime;
         private System.Windows.Forms.DateTimePicker depdateandtimepick;
+        private System.Windows.Forms.ComboBox aircraftcombobox;
+        private System.Windows.Forms.Button addflightbutton;
+        private System.Windows.Forms.Button editflightbutton;
+        private System.Windows.Forms.ComboBox depcomboBox;
+        private System.Windows.Forms.ComboBox destinationcombobox;
     }
 }

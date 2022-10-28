@@ -36,8 +36,8 @@ namespace Airline_reservation
             emaillabel.BackColor = Color.Transparent;
             passportlabel.Parent = bgpic;
             passportlabel.BackColor = Color.Transparent;
-            birthdatelabel.Parent = bgpic;
-            birthdatelabel.BackColor = Color.Transparent;
+            agelabel.Parent = bgpic;
+            agelabel.BackColor = Color.Transparent;
             genderlabel.Parent = bgpic;
             genderlabel.BackColor = Color.Transparent;
             fromlabel.Parent = bgpic;
@@ -77,10 +77,31 @@ namespace Airline_reservation
             string flightclass = flightclasscomboBox.Text.ToString();
             string selectedage = agecomboBox.Text.ToString();
             string selecteddate = departuredate.Text.ToString();
+            firstnameerror.Clear(); // Clearing firstnameerror
+            lastnameerror.Clear(); // Clearing lastnameerror
+            emailerror.Clear(); // Clearing emailerror
+            gendererror.Clear(); // Clearing gendererror
 
-
-
-
+            if (!validatename(firstnametextbox.Text))  // Error of invalid first name
+            {
+                firstnameerror.Clear(); // Clearing firstnameerror
+                firstnameerror.SetError(firstnametextbox, "Please enter a valid First name"); // Setting firstnameerror message
+            }
+            if (!validatename(lastnametextbox.Text)) // Error of invalid last name
+            {
+                lastnameerror.Clear(); // Clearing lastnameerror
+                lastnameerror.SetError(lastnametextbox, "Please enter a valid Last name"); // Setting lastnameerror message
+            }
+            if (string.IsNullOrEmpty(emailtextbox.Text) || !emailtextbox.Text.Contains('@') || !emailtextbox.Text.Contains('.')) // Error of invalid email
+            {
+                emailerror.Clear(); // Clearing emailerror
+                emailerror.SetError(emailtextbox, "Please enter a valid Email"); // Setting emailerror message
+            }
+            if (string.IsNullOrEmpty(gender)) // Error of unselected gender
+            {
+                gendererror.Clear(); // Clearing gendererror
+                gendererror.SetError(gendergroupbox, "Please enter you're gender"); // Setting gendererror message
+            }
 
 
             //////// validation for register
@@ -147,36 +168,66 @@ namespace Airline_reservation
                     tf.Show();
 
                 }
-
-
-                //add verification here
-                // ticket form will display
-                // ticketform t = new ticketform();
-                //t.Show();
             }
+        }
+        private bool validatename(string name) // Function to validate name
+        {
+            char[] namechar = name.ToCharArray(); // Converting String to char array
+            if (string.IsNullOrEmpty(name)) // Selection of Empty String
+            {
+                return false;
+            }
+            else if (namechar.Length >= 20) // Selection of long name
+            {
+                return false;
+            }
+            else
+            {
+                for (int i = 0; i < namechar.Length; i++) // loop to find invalid character in name
+                {
+                    char c = namechar[i];
+                    if (!(c >= 'A' && c <= 'z'))
+                        return false;
+                }
+            }
+            return true;
+        }
+        private bool validatephone(String phone) // Function to validate a phone
+        {
+            char[] phonechar = phone.ToCharArray(); // Changing the accepting string to character array
+            if (string.IsNullOrEmpty(phone))// Selection of Empty String
+            {
+                return false;
+            }
+            else if (phonechar.Length < 10 || phonechar.Length > 15) // Selecting invalid inputs of being less than 10 or greater than 15 long
+            {
+                return false;
+            }
+            for (int i = 0; i < phonechar.Length; i++) //Iterating on array looking for invalid input
+            {
+                if (phonechar[i] == ' ' || (phonechar[i] >= 'A' && phonechar[i] <= 'z')) // Selecting invalid inputs of being a letter or space
+                {
+                    return false;
+                }
+            }
+            return true;
         }
 
         private void Viewbutton_Click(object sender, EventArgs e)
         {
-            // getting the selected radio button
             string gender;
-
             bool b1 = Male.Checked;
             gender = b1 ? "male" : "female"; // ternary operator
-
             string flighttype;
             bool button = oneway.Checked;
             flighttype = button ? "Oneway" : "Round trip";
             // getting value from combo box
             string selectedfrom = fromcomboBox.Text.ToString();
-
             string selectedto = tocomboBox.Text.ToString();
             string flightclass = flightclasscomboBox.Text.ToString();
             string selectedage = agecomboBox.Text.ToString();
             string selecteddate = departuredate.Text.ToString();
             MessageBox.Show(selectedto);
-
-
 
             // error provider code
             if (string.IsNullOrEmpty(firstnametextbox.Text))
@@ -226,8 +277,6 @@ namespace Airline_reservation
                 flighttypeerror.SetError(passporttextbox, "please select you're passport number");
             }
 
-
-
             if (!string.IsNullOrEmpty(firstnametextbox.Text)
                && !string.IsNullOrEmpty(lastnametextbox.Text)
                && !string.IsNullOrEmpty(emailtextbox.Text)
@@ -275,6 +324,7 @@ namespace Airline_reservation
                 this.bookbutton.Visible = true;
                 this.Viewbutton.Visible = true;
             }
+            bookbutton.Visible = true;
         }
     }
 }
