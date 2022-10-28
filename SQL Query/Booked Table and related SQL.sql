@@ -115,7 +115,11 @@ CREATE or ALTER PROCEDURE deletebooking(
 )
 AS
 BEGIN
+declare @fid int
+select @fid=fidref from bookedtickets where id=@ticketid
 delete from bookedtickets where id=@ticketid
+update flights
+set availseat=availseat+1 where id=@fid
 END
 
 select * from bookedtickets
@@ -138,11 +142,17 @@ END
 -- Function on booked table --------------------------------------------------------------------------------------
 GO
 -- 1. Last ticket if function that returns the last id inserted in booked table
-create function lastticketid()
+create or alter function lastticketid()
 returns int
 as
 begin
-return(select max(id) from bookedtickets)
+declare @last int
+select @last=max(id) from bookedtickets
+if(@last=null)
+	BEGIN
+		set @last=0
+	END
+return (@last)
 end
 
 select dbo.lastticketid()

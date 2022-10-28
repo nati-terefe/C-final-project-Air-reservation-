@@ -240,7 +240,7 @@ CREATE or ALTER PROCEDURE addflight(
 )
 AS
 BEGIN
-Insert into flights values(@dep,@des,@depdate,@pilot,@copilot,@availseat,@duration, @planeref);
+Insert into flights values(@dep,@des,convert(datetime,@depdate,120),@pilot,@copilot,@availseat,@duration, @planeref);
 END
 
 GO
@@ -260,7 +260,7 @@ CREATE or ALTER PROCEDURE updateflight(
 AS
 BEGIN
 update flights
-set dep=@dep, des=@des, depdate=@depdate, pilot=@pilot, copilot=@copilot, availseat=@availseat, duration=@duration, planeref=@planeref where id=@flightid
+set dep=@dep, des=@des, depdate=convert(datetime,@depdate,120), pilot=@pilot, copilot=@copilot, availseat=@availseat, duration=@duration, planeref=@planeref where id=@flightid
 END
 
 GO
@@ -364,6 +364,19 @@ end
 
 select dbo.whatflightid ('Indonesia - Jakarta', '2022-06-26 01:14:07')
 
+-- 5. availseats that returns availseat based on dest and deptime 
+CREATE OR ALTER FUNCTION availseats(
+@dest varchar(30),
+@deptime datetime)
+returns int
+as
+Begin
+declare @availseat int
+select @availseat=availseat from flights where des=@dest and depdate=convert(datetime,@deptime,120)
+Return @availseat
+end
+
+select dbo.availseats ('Indonesia - Jakarta', '2022-06-26 01:14:07')
 -- --------------------------------------------------------------------------------------------------------------------------------
 -- --------------------------------------------------------------------------------------------------------------------------------
 
@@ -415,3 +428,5 @@ select @existance
 
 -- --------------------------------------------------------------------------------------------------------------------------------
 -- --------------------------------------------------------------------------------------------------------------------------------
+
+

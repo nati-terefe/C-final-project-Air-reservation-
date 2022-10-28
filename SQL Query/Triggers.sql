@@ -21,7 +21,7 @@ END
 
 -- --------------------------------------------------------------------------------------------------------------------------------
 GO
--- 2. bookingexist to check not to create multiple booking for same person
+-- 2. bookingexist to check not to create multiple booking for same person and if itsn't multiple to decrease availseat on flights
 CREATE OR ALTER TRIGGER bookingexist
 ON bookedtickets
 After insert
@@ -32,11 +32,17 @@ Declare @passport varchar(20)
 Declare @dest varchar(30)
 Declare @depdate datetime
 declare @exist int=0
-select @id=i.id, @dest=i.dest, @depdate=i.depdate, @passport=i.passport from inserted i
+Declare @fidref int
+select @id=i.id, @dest=i.dest, @depdate=i.depdate, @passport=i.passport, @fidref=i.fidref from inserted i
 select @exist=count(*) from bookedtickets where dest=@dest and depdate=@depdate and passport=@passport
 if(@exist>1)
 	BEGIN
 		delete from bookedtickets where id=@id and dest=@dest and depdate=@depdate and passport=@passport
+	END
+else
+	BEGIN
+		update flights 
+		set availseat=availseat-1 where id=@fidref
 	END
 END
 
@@ -119,4 +125,10 @@ select @id=id from inserted i
 update bookedtickets
 set depdate=@depdate, dest=@dest where fidref=@id
 END
+
+-- --------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
 

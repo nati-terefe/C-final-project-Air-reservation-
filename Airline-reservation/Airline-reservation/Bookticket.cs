@@ -265,6 +265,7 @@ namespace Airline_reservation
          
                     noofhour = Convert.ToInt32(cmd.ExecuteScalar()); // Assigning output value of stored procedure by converting to int
 
+
                 }
                 
                 // flight price determining
@@ -418,7 +419,7 @@ namespace Airline_reservation
                         SqlCommand cmd = new SqlCommand("select dbo.lastticketid()", con);
                         // Sql Command stored procedure to insert successful Login into Login History on database
                         con.Open();
-                        tick.ticketid = Convert.ToInt32(cmd.ExecuteScalar()) + 1; // Assigning output value of stored procedure by converting to int
+                        tick.ticketid = Convert.ToInt32(cmd.ExecuteScalar()); // Assigning output value of stored procedure by converting to int
 
                     }
 
@@ -436,7 +437,29 @@ namespace Airline_reservation
         }
         private void bookbutton_Click(object sender, EventArgs e)
         {
-            savechanges();
+            int availseat;
+            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+            //Declaring and Assigning Connection String
+            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            {
+                SqlCommand cmd = new SqlCommand("select dbo.availseats(@dest, @deptime)", con);
+                // Sql Command to add new registry on database
+                con.Open(); //Opening Connection
+                cmd.Parameters.Add("@dest", SqlDbType.VarChar, 30).Value = tocomboBox.Text; //Defining the command parameter for usrname
+
+                cmd.Parameters.Add("@deptime", SqlDbType.DateTime).Value = departuredate.Text;// Using parametrized query to avoid sql injection attack
+                availseat = Convert.ToInt32(cmd.ExecuteScalar()); // Assigning output value of stored procedure by converting to int
+
+            }
+            if(availseat == 0)
+            {
+                MessageBox.Show("Flight Fully Booked choose another one");
+            }
+            else
+            {
+                savechanges();
+            }
+            
             
         }
         private bool validatename(string name) // Function to validate name
