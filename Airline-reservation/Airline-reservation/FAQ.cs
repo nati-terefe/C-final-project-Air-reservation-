@@ -74,9 +74,9 @@ namespace Airline_reservation
 
         private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
         {
-            /*About a = new About(); //Declaring new About Window
+            About a = new About(); //Declaring new About Window
             a.Show(); //Show About Window
-            Hide(); //Hide Currently Active Window*/
+            Hide(); //Hide Currently Active Window
         }
 
         private void donebutton_Click(object sender, EventArgs e) //Listener Function when done button at the header is clicked

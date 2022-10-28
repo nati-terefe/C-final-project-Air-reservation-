@@ -84,9 +84,11 @@ namespace Airline_reservation
             Hide(); //Hide Currently Active Window
         }
 
-        private void closebutton_Click(object sender, EventArgs e) //Listener Function when close button is clicked
+        private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
         {
-            this.Close(); //Close Current Window
+            FAQ f = new FAQ(); //Declaring new FAQ Window
+            f.Show(); //Show FAQ Window
+            Hide(); //Hide Currently Active Window
         }
 
         private void loginbutton_Click(object sender, EventArgs e) //Listener Function when login button is clicked
@@ -95,112 +97,102 @@ namespace Airline_reservation
             string password = passwordtextbox.Text; //Declaring Variable and Assigning
             usernameerror.Clear(); //Clearing Username Error Provider
             passworderror.Clear(); //Clearing Psername Error Provider
-            if (string.IsNullOrEmpty(usernametextbox.Text)) //Selection for Empty Username
+            if (string.IsNullOrEmpty(usernametextbox.Text) || usernametextbox.Text.Length < 4 || usernametextbox.Text.Length >= 20 || usernametextbox.Text.Contains(' ')) //Selection for Invalid Username
             {
                 usernameerror.Clear(); //Clearing Username Error Provider
-                usernameerror.SetError(usernametextbox, "User name can't be empty"); //Setting Username Error Provider
+                usernameerror.SetError(usernametextbox, "Enter Valid Username"); //Setting Username Error Provider
             }
-            if (string.IsNullOrEmpty(passwordtextbox.Text)) //Selection for Empty Password
+            if (string.IsNullOrEmpty(passwordtextbox.Text) || passwordtextbox.Text.Length < 4 || passwordtextbox.Text.Length >= 20 || passwordtextbox.Text.Contains(' ')) //Selection for Invalid Password
             {
                 passworderror.Clear(); //Clearing Psername Error Provider
-                passworderror.SetError(passwordtextbox, "Password can't be empty"); //Setting Password Error Provider
+                passworderror.SetError(passwordtextbox, "Enter Valid Password"); //Setting Password Error Provider
             }
-            if (!string.IsNullOrEmpty(usernametextbox.Text) && !string.IsNullOrEmpty(passwordtextbox.Text)) //Selection for Non Empty Username and Password
+            if (!string.IsNullOrEmpty(usernametextbox.Text) 
+                && !string.IsNullOrEmpty(passwordtextbox.Text)
+                && usernametextbox.Text.Length >= 4 && usernametextbox.Text.Length < 20 && !usernametextbox.Text.Contains(' ')
+                && passwordtextbox.Text.Length >= 4 && passwordtextbox.Text.Length < 20 && !passwordtextbox.Text.Contains(' ')
+                ) //Selection for accordingly filled Username and Password
             {
-                if (Convert.ToInt32(usernametextbox.Text.ToString().Length) < 4) //Selection for Short Username
+                usernameerror.Clear(); //Clearing Username Error Provider
+                passworderror.Clear(); //Clearing Psername Error Provider
+                String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                //Declaring and Assigning Connection String
+                using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
                 {
-                    usernameerror.Clear(); //Clearing Username Error Provider
-                    usernameerror.SetError(usernametextbox, "Username must at least be 4 characters long"); //Setting Username Error Provider
-                }
-                if (Convert.ToInt32(usernametextbox.Text.ToString().Length) < 4) //Selection for Short Password
-                {
-                    passworderror.Clear(); //Clearing Password Error Provider
-                    passworderror.SetError(passwordtextbox, "Password must at least be 4 characters long"); //Setting Password Error Provider
-                }
-                else if (usernametextbox.Text.Length >= 4 && passwordtextbox.Text.Length >= 4) //Selection for Non Short Username and Password
-                {
-                    usernameerror.Clear(); //Clearing Username Error Provider
-                    passworderror.Clear(); //Clearing Psername Error Provider
-                    String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
-                    //Declaring and Assigning Connection String
-                    using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                    SqlCommand cmd = new SqlCommand("whatrole", con);
+                    // Sql Command Stored Procedure that returns role of the inserted login info from database
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                    // Using parametrized query to avoid sql injection attack
+                    cmd.Parameters.Add("@usrname", SqlDbType.VarChar).Value = usernametextbox.Text; //Defining the command parameter for usrname
+                    cmd.Parameters["@usrname"].Direction = ParameterDirection.Input; //Defining the parameter direction as input
+                    cmd.Parameters.Add("@passwd", SqlDbType.VarChar).Value = passwordtextbox.Text; //Defining the command parameter for passwd
+                    cmd.Parameters["@passwd"].Direction = ParameterDirection.Input; //Defining the command parameter direction as input
+                    cmd.Parameters.Add("@roleis", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for roleis and setting direction as output
+                    con.Open(); //Opening Connection
+                    cmd.ExecuteNonQuery(); // Executing Query
+                    int role = Convert.ToInt32(cmd.Parameters["@roleis"].Value); // Assigning output value of stored procedure by converting to int
+                    if (role != 0) // Selection of Correct Credentials
                     {
-                        SqlCommand cmd = new SqlCommand("whatrole", con);
-                        // Sql Command Stored Procedure that returns role of the inserted login info from database
-                        cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                        // Using parametrized query to avoid sql injection attack
-                        cmd.Parameters.Add("@usrname", SqlDbType.VarChar).Value = usernametextbox.Text; //Defining the command parameter for usrname
-                        cmd.Parameters["@usrname"].Direction = ParameterDirection.Input; //Defining the parameter direction as input
-                        cmd.Parameters.Add("@passwd", SqlDbType.VarChar).Value = passwordtextbox.Text; //Defining the command parameter for passwd
-                        cmd.Parameters["@passwd"].Direction = ParameterDirection.Input; //Defining the command parameter direction as input
-                        cmd.Parameters.Add("@roleis", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for roleis and setting direction as output
-                        con.Open(); //Opening Connection
-                        cmd.ExecuteNonQuery(); // Executing Query
-                        int role = Convert.ToInt32(cmd.Parameters["@roleis"].Value); // Assigning output value of stored procedure by converting to int
-                        if (role != 0) // Selection of Correct Credentials
+                        loginstore ls = new loginstore // Declaring login store object
                         {
-                            loginstore ls = new loginstore // Declaring login store object
+                            loginusername = usernametextbox.Text, // Assigning values to property
+                            loginpassword = passwordtextbox.Text, // Assigning values to property
+                        };
+                        ls.loginrole = role; // Assigning values to property
+                        int rowaffected=ls.save(); // Saving Progress on ls object and database login history
+                        if (rowaffected > 0) // Selection of Successful Insert
+                        {
+                            if (role == 1) // Selection of Admins
                             {
-                                loginusername = usernametextbox.Text, // Assigning values to property
-                                loginpassword = passwordtextbox.Text, // Assigning values to property
-                            };
-                            ls.loginrole = role; // Assigning values to property
-                            int rowaffected=ls.save(); // Saving Progress on ls object and database login history
-                            if (rowaffected > 0) // Selection of Successful Insert
-                            {
-                                if (role == 1) // Selection of Admins
-                                {
-                                    Homepage_admin ha = new Homepage_admin(username, 1); //Declaring new Home page admin Window
-                                    ha.Show(); //Show Homepage admin Window
-                                    Hide(); //Hide Currently Active Window
-                                }
-                                else if (role == 2) // Selection of Sub-Admins
-                                {
-                                    Homepage_admin ha = new Homepage_admin(username, 2); //Declaring new Home page admin Window
-                                    ha.Show(); //Show Homepage admin Window
-                                    Hide(); //Hide Currently Active Window
-                                }
-                                else if (role == 3) // Selection of Users
-                                {
-                                    Homepage_client hc = new Homepage_client(username); //Declaring new Home page client Window
-                                    hc.Show(); //Show Homepage client Window
-                                    Hide(); //Hide Currently Active Window
-                                }
+                                Homepage_admin ha = new Homepage_admin(username, 1); //Declaring new Home page admin Window the 1 indicating role as admin
+                                ha.Show(); //Show Homepage admin Window
+                                Hide(); //Hide Currently Active Window
                             }
-                            else if (rowaffected <= 0) // Selection of Unsuccessful Insert
+                            else if (role == 2) // Selection of Sub-Admins
                             {
-                                MessageBox.Show("Incorrect Credentials. Try Again"); // Pop-up Message
+                                Homepage_admin ha = new Homepage_admin(username, 2); //Declaring new Home page admin Window the 2 indicating role as subadmin
+                                ha.Show(); //Show Homepage admin Window
+                                Hide(); //Hide Currently Active Window
+                            }
+                            else if (role == 3) // Selection of Users
+                            {
+                                Homepage_client hc = new Homepage_client(username); //Declaring new Home page client Window
+                                hc.Show(); //Show Homepage client Window
+                                Hide(); //Hide Currently Active Window
                             }
                         }
-                        else // Selection of Wrong Credentials
+                        else if (rowaffected <= 0) // Selection of Unsuccessful Insert
                         {
-                            SqlCommand cmd2 = new SqlCommand("userexist", con);
-                            // Sql Command to return Hint Answer of the inserted Username from database
-                            cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                                       // Using parametrized query to avoid sql injection attack
-                            cmd2.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernametextbox.Text; //Defining the command parameter for usrname
-                            cmd2.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
-                            cmd2.ExecuteNonQuery(); // Executing Query
-                            int existance = Convert.ToInt32(cmd2.Parameters["@exist"].Value); // Assigning output value of stored procedure by converting to int
-                            if (existance == 0) // Selection when user is not existing 
-                            {
-                                MessageBox.Show("User not Found. Try Again"); // Pop Up message
-
-                            }
-                            else // Selection when username and password ain't a match 
-                            {
-                                MessageBox.Show("Incorrect Password. Try Again"); // Pop-up Message
-                            }
+                            MessageBox.Show("Unable to login rightnow. Try Again"); // Pop-up Message
                         }
                     }
-                }
+                    else // Selection of Wrong Credentials
+                    {
+                        SqlCommand cmd2 = new SqlCommand("userexist", con);
+                        // Sql Command to return existance of the inserted Username from database
+                        cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                        // Using parametrized query to avoid sql injection attack
+                        cmd2.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernametextbox.Text; //Defining the command parameter for usrname
+                        cmd2.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
+                        cmd2.ExecuteNonQuery(); // Executing Query
+                        int existance = Convert.ToInt32(cmd2.Parameters["@exist"].Value); // Assigning output value of stored procedure by converting to int
+                        if (existance == 0) // Selection when user is not existing 
+                        {
+                            MessageBox.Show("User not Found. Try Again or Sign Up"); // Pop Up message
+
+                        }
+                        else // Selection when username and password ain't a match 
+                        {
+                            MessageBox.Show("Incorrect Password. Try Again"); // Pop-up Message
+                        }
+                    }
+                }   
             }
         }
-        private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
+        
+        private void closebutton_Click(object sender, EventArgs e) //Listener Function when close button is clicked
         {
-            FAQ f = new FAQ(); //Declaring new FAQ Window
-            f.Show(); //Show FAQ Window
-            Hide(); //Hide Currently Active Window
+            this.Close(); //Close Current Window
         }
     }
 }

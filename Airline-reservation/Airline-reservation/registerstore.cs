@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
+// Import Statments
 
 namespace Airline_reservation
 {
@@ -28,9 +29,7 @@ namespace Airline_reservation
         public Image registerprofilepic { get; set; } // profile picture Prperty
         public int role { get; set; } // Role Prperty
         public string question { get; set; } // Hint Question Prperty
-
-        public string initialusrname { get; set; } // In case of update to hold initial username Prperty
-
+        public string initialusrname { get; set; } // In case of update to hold initial unaltered username Prperty
 
         public int save(int full) // Function to save data by adding it to the list and database
         {
@@ -40,12 +39,12 @@ namespace Airline_reservation
             //Declaring and Assigning Connection String
             using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
             { 
-                if(full==1) // Selection is its a new registry
+                if(full==1) // Selection if its a new registry to fully register it with login assigning
                 {
                     SqlCommand cmd = new SqlCommand("addregistry", con);
                     // Sql Command to add new registry on database
                     cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                               // Using parametrized query to avoid sql injection attack
+                    // Using parametrized query to avoid sql injection attack
                     cmd.Parameters.Add("@fname", SqlDbType.VarChar, 20).Value = registerfirstname; //Defining the command parameter for first name
                     cmd.Parameters.Add("@lname", SqlDbType.VarChar, 20).Value = registerlastname; //Defining the command parameter for last name
                     cmd.Parameters.Add("@email", SqlDbType.VarChar, 80).Value = registeremail; //Defining the command parameter for email
@@ -58,27 +57,25 @@ namespace Airline_reservation
                     cmd.Parameters.Add("@hinta", SqlDbType.VarChar, 20).Value = registerhint; //Defining the command parameter for hint answer
                     conv_photo(cmd); // Calling function conv_photo that converts selected image into byte array and define the sql command parameter
                     con.Open(); //Opening Connection
-                    rowaffected = cmd.ExecuteNonQuery(); // Executing Query
+                    rowaffected = cmd.ExecuteNonQuery(); // Executing Query and returning number of rows affected
                     SqlCommand cmd2 = new SqlCommand("registrylogin", con);
                     // Sql Command to create login for register
                     cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                                // Using parametrized query to avoid sql injection attack
+                    // Using parametrized query to avoid sql injection attack
                     cmd2.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = registerusername; //Defining the command parameter for usrname
                     cmd2.Parameters.Add("@passwd", SqlDbType.VarChar, 20).Value = registerpassword; //Defining the command parameter for passwd
-                    cmd2.Parameters.Add("@rol", SqlDbType.Int).Value = role; //Defining the command parameter for role as user
+                    cmd2.Parameters.Add("@rol", SqlDbType.Int).Value = role; //Defining the command parameter for role
                     cmd2.Parameters.Add("@hintQ", SqlDbType.VarChar, 100).Value = question; //Defining the command parameter for hint quetion
                     cmd2.Parameters.Add("@hintA", SqlDbType.VarChar, 20).Value = registerhint; //Defining the command parameter for hint answer
-                    rowaffected += cmd2.ExecuteNonQuery(); // Executing Query
+                    rowaffected += cmd2.ExecuteNonQuery(); // Executing Query and returning number of rows affected
                 }
-                else if (full == 0) // Selection is its a change in Edit profile
+                else if (full == 0) // Selection if its a change in Edit profile to update record with out adding new
                 {
-                    //update registered
                     SqlCommand cmd = new SqlCommand("updateregistry", con);
                     // Sql Command to update registry on database
                     cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                     // Using parametrized query to avoid sql injection attack
-                    cmd.Parameters.Add("@initialusrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for first name
-
+                    cmd.Parameters.Add("@initialusrname", SqlDbType.VarChar, 20).Value = initialusrname; //Defining the command parameter for initial username
                     cmd.Parameters.Add("@fname", SqlDbType.VarChar, 20).Value = registerfirstname; //Defining the command parameter for first name
                     cmd.Parameters.Add("@lname", SqlDbType.VarChar, 20).Value = registerlastname; //Defining the command parameter for last name
                     cmd.Parameters.Add("@email", SqlDbType.VarChar, 80).Value = registeremail; //Defining the command parameter for email
@@ -95,17 +92,17 @@ namespace Airline_reservation
                     SqlCommand cmd2 = new SqlCommand("setnewpasswd", con);
                     // Sql Command to update password of inserted Username on database
                     cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                                // Using parametrized query to avoid sql injection attack
+                    // Using parametrized query to avoid sql injection attack
                     cmd2.Parameters.Add("@newpasswd", SqlDbType.VarChar).Value = registerpassword; //Defining the command parameter for newpasswd
                     cmd2.Parameters.Add("@usrname", SqlDbType.VarChar).Value = registerusername; //Defining the command parameter for usrname
-                    rowaffected = cmd2.ExecuteNonQuery(); // Executing the Update Query
+                    rowaffected = cmd2.ExecuteNonQuery(); // Executing the Update Query and returning number of rows affected
                 }
             }
-            if (rowaffected > 1 || full==0) // Selection for both database insertions where done
+            if (rowaffected > 1 || full==0) // Selection for both database insertions where done or if partial execution was the intent
             {
                 return rowaffected; 
             }
-            else
+            else // Selection for database the operation fail when the intent was to fully add new record
             {
                 return 0;
             }
@@ -132,11 +129,11 @@ namespace Airline_reservation
             using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
             {
                 SqlCommand cmd = new SqlCommand("fullinfo", con);
-                // Sql Command to add new registry on database
+                // Sql Command to return full info of certain username from database
                 cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                 // Using parametrized query to avoid sql injection attack
                 cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usrname; //Defining the command parameter for usrname
-
+                // Output parameters
                 cmd.Parameters.Add("@fname", SqlDbType.VarChar, 20).Direction = ParameterDirection.Output; //Defining the parameter for fname and setting direction as output
                 cmd.Parameters.Add("@lname", SqlDbType.VarChar, 20).Direction = ParameterDirection.Output; //Defining the parameter for lname and setting direction as output
                 cmd.Parameters.Add("@email", SqlDbType.VarChar, 80).Direction = ParameterDirection.Output; //Defining the parameter for email and setting direction as output
@@ -152,14 +149,14 @@ namespace Airline_reservation
                 rs.registerlastname = Convert.ToString(cmd.Parameters["@lname"].Value); // Assigning output value of stored procedure by converting to String
                 rs.registeremail = Convert.ToString(cmd.Parameters["@email"].Value); // Assigning output value of stored procedure by converting to String
                 rs.registerphone = Convert.ToString(cmd.Parameters["@phoneno"].Value); // Assigning output value of stored procedure by converting to String
-                rs.registebirthdate = Convert.ToDateTime(cmd.Parameters["@birthdate"].Value); // Assigning output value of stored procedure by converting to String
+                rs.registebirthdate = Convert.ToDateTime(cmd.Parameters["@birthdate"].Value); // Assigning output value of stored procedure by converting to Date
                 rs.registergender = Convert.ToString(cmd.Parameters["@gender"].Value); // Assigning output value of stored procedure by converting to String
                 rs.registerpassword = Convert.ToString(cmd.Parameters["@passwd"].Value); // Assigning output value of stored procedure by converting to String
                 rs.question = Convert.ToString(cmd.Parameters["@hintq"].Value); // Assigning output value of stored procedure by converting to String
                 rs.registerhint = Convert.ToString(cmd.Parameters["@hinta"].Value); // Assigning output value of stored procedure by converting to String
-                rs.registerusername = usrname;
+                rs.registerusername = usrname; // Assigning username
             }
-            return rs;
+            return rs; // Returning full rs object
         }
     } 
     

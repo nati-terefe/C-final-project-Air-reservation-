@@ -63,6 +63,9 @@ namespace Airline_reservation
             // Question Label
             questionlabel.Parent = bgpic;
             questionlabel.BackColor = Color.Transparent; // Making Label Transparent
+
+            // Header Buttons
+
             // Login Header Button
             loginheaderbutton.Parent = bgpic;
             loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
@@ -71,14 +74,14 @@ namespace Airline_reservation
             registerheaderbutton.Parent = bgpic;
             registerheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             registerheaderbutton.FlatAppearance.BorderSize = 1; // Creating Border of Button to show its the current window
-            // About us Header Button 
-            aboutheaderbutton.Parent = bgpic;
-            aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
-            aboutheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
             // Contact us Header Button 
             contactheaderbutton.Parent = bgpic;
             contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             contactheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
+            // About us Header Button 
+            aboutheaderbutton.Parent = bgpic;
+            aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            aboutheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
             // FAQ Header Button 
             faqheaderbuttom.Parent = bgpic;
             faqheaderbuttom.BackColor = Color.Transparent; // Making Button Transparent
@@ -109,7 +112,7 @@ namespace Airline_reservation
             questionerror.Clear(); // Clearing questionerror
             hinterror.Clear(); // Clearing hinterror
             photoerror.Clear(); // Clearing photo error
-            string gender; // Declaring Function
+            string gender; // Declaring variable to store gender
             bool b1 = Male.Checked; // Checking if male is checked
             gender = b1 ? "Male" : "Female"; // ternary operator assigning gender value based on selection
             // Error Provider List
@@ -138,12 +141,12 @@ namespace Airline_reservation
                 gendererror.Clear(); // Clearing gendererror
                 gendererror.SetError(gendergroupbox, "Please enter you're gender"); // Setting gendererror message
             }
-            if (string.IsNullOrEmpty(usernametextbox.Text) || usernametextbox.Text.Length<4 || usernametextbox.Text.Length >= 20) // Error of invalid username
+            if (string.IsNullOrEmpty(usernametextbox.Text) || usernametextbox.Text.Length<4 || usernametextbox.Text.Length >= 20 || usernametextbox.Text.Contains(' ')) // Error of invalid username
             {   
                 usernameerror.Clear(); // Clearing usernameerror
                 usernameerror.SetError(usernametextbox, "Please enter a valid user name"); // Setting usernameerror message
             }
-            if (string.IsNullOrEmpty(passwordtextbox.Text) || passwordtextbox.Text.Length<4 || passwordtextbox.Text.Length >= 20) // Error of invalid password
+            if (string.IsNullOrEmpty(passwordtextbox.Text) || passwordtextbox.Text.Length<4 || passwordtextbox.Text.Length >= 20 || passwordtextbox.Text.Contains(' ')) // Error of invalid password
             {   
                 passworderror.Clear(); // Clearing passworderror
                 passworderror.SetError(passwordtextbox, "Please enter a valid password "); // Setting passworderror message
@@ -188,7 +191,7 @@ namespace Airline_reservation
                     SqlCommand cmd = new SqlCommand("userexist", con);
                     // Sql Command to return if user exists on database
                     cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                               // Using parametrized query to avoid sql injection attack
+                    // Using parametrized query to avoid sql injection attack
                     cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernametextbox.Text; //Defining the command parameter for usrname
                     cmd.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
                     con.Open(); //Opening Connection
@@ -212,20 +215,19 @@ namespace Airline_reservation
                         role = 3, // Assigning values to property
                         question = questiontextbox.Text, // Assigning values to property
                     };
-                    int rowaffected=rs.save(1); // Saving Progress on rs object and database registered
-                    if(rowaffected > 0)
+                    int rowaffected=rs.save(1); // Saving Progress on rs object and database by passing one which means its a new record
+                    if(rowaffected > 0) // Selection on successful batabase execution
                     {
-                        registerbutton.BackColor = Color.Silver; // Changing back color of register button
                         MessageBox.Show("You have been registered"); // Pop up window
                     }
-                    else
+                    else // Selection on unsuccessful batabase execution
                     {
-                        MessageBox.Show("Registration Unsuccessful"); // Pop up window
+                        MessageBox.Show("Registration Unsuccessful. Try Again"); // Pop up window
                     }
                 }
                 else if (existance==1) // Selection when username is taken
                 {
-                    MessageBox.Show("Username already taken. Please Enter another one"); // Pop up window
+                    MessageBox.Show("Username already taken. Please Enter another one or Login"); // Pop up window
                 }
             }
         }
@@ -278,13 +280,6 @@ namespace Airline_reservation
             this.Close(); //Hide Currently Active Window
         }
 
-        private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
-        {
-            About a = new About(); //Declaring new About Window
-            a.Show(); //Show About Window
-            Hide(); //Hide Currently Active Window
-        }
-
         private void contactheaderbutton_Click(object sender, EventArgs e) //Listener Function when contact button at the header is clicked
         {
             contact c = new contact(); //Declaring new Contact Window
@@ -292,9 +287,11 @@ namespace Airline_reservation
             Hide(); //Hide Currently Active Window
         }
 
-        private void donebutton_Click(object sender, EventArgs e) //Listener Function when Done button is clicked
+        private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
         {
-            this.Close(); //Close Current Window
+            About a = new About(); //Declaring new About Window
+            a.Show(); //Show About Window
+            Hide(); //Hide Currently Active Window
         }
 
         private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
@@ -303,5 +300,10 @@ namespace Airline_reservation
             f.Show(); //Show FAQ Window
             Hide(); //Hide Currently Active Window
         }
+
+        private void donebutton_Click(object sender, EventArgs e) //Listener Function when Done button is clicked
+        {
+            this.Close(); //Close Current Window
+        }        
     }
 }

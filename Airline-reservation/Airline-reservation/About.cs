@@ -74,14 +74,7 @@ namespace Airline_reservation
 
         private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
         {
-            /*About a = new About(); //Declaring new About Window
-            a.Show(); //Show About Window
-            Hide(); //Hide Currently Active Window*/
-        }
-
-        private void donebutton_Click(object sender, EventArgs e) //Listener Function when done button at the header is clicked
-        {
-            this.Close(); //Close Current Window
+            // MessageBox.Show("You're already here"); // Popup Message
         }
 
         private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
@@ -89,6 +82,11 @@ namespace Airline_reservation
             FAQ f = new FAQ(); //Declaring new FAQ Window
             f.Show(); //Show FAQ Window
             Hide(); //Hide Currently Active Window
+        }
+
+        private void donebutton_Click(object sender, EventArgs e) //Listener Function when done button at the header is clicked
+        {
+            this.Close(); //Close Current Window
         }
     }
 }

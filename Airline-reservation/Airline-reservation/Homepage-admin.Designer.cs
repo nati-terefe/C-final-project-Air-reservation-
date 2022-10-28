@@ -308,6 +308,7 @@
             this.bookticketbutton.TabIndex = 97;
             this.bookticketbutton.Text = "Book Flights";
             this.bookticketbutton.UseVisualStyleBackColor = false;
+            this.bookticketbutton.Click += new System.EventHandler(this.bookticketbutton_Click);
             // 
             // savebutton
             // 

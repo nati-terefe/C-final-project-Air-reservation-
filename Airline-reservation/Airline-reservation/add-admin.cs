@@ -18,26 +18,7 @@ namespace Airline_reservation
             InitializeComponent();
         }
 
-        private void contactheaderbutton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void aboutheaderbutton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void registerheaderbutton_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void loginheaderbutton_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void add_admin_Load(object sender, EventArgs e)
         {
             // making the labels and the logo transparent 

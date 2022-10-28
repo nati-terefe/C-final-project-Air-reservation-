@@ -462,6 +462,5 @@ namespace Airline_reservation
             this.Close(); // Close current window
         }
 
-        
     }
 }
