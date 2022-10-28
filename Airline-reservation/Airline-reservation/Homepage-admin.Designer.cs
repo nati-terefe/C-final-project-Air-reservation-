@@ -89,6 +89,13 @@
             this.changepfpbtn = new System.Windows.Forms.Button();
             this.editusersbutton = new System.Windows.Forms.Button();
             this.cancelbutton = new System.Windows.Forms.Button();
+            this.backuploctextBox = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.backuploclabel = new System.Windows.Forms.Label();
+            this.makebackupbtn = new System.Windows.Forms.Button();
+            this.typeofbackup = new System.Windows.Forms.ComboBox();
+            this.backuplocerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.typeofbackuperror = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
@@ -104,6 +111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backuplocerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeofbackuperror)).BeginInit();
             this.SuspendLayout();
             // 
             // exitbutton
@@ -729,11 +738,76 @@
             this.cancelbutton.Visible = false;
             this.cancelbutton.Click += new System.EventHandler(this.cancelbutton_Click);
             // 
+            // backuploctextBox
+            // 
+            this.backuploctextBox.Location = new System.Drawing.Point(783, 321);
+            this.backuploctextBox.Name = "backuploctextBox";
+            this.backuploctextBox.Size = new System.Drawing.Size(220, 22);
+            this.backuploctextBox.TabIndex = 130;
+            this.backuploctextBox.Visible = false;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // backuploclabel
+            // 
+            this.backuploclabel.AutoSize = true;
+            this.backuploclabel.Font = new System.Drawing.Font("Yu Gothic", 10F);
+            this.backuploclabel.Location = new System.Drawing.Point(783, 287);
+            this.backuploclabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.backuploclabel.Name = "backuploclabel";
+            this.backuploclabel.Size = new System.Drawing.Size(191, 22);
+            this.backuploclabel.TabIndex = 132;
+            this.backuploclabel.Text = "Paste Backup Location";
+            this.backuploclabel.Visible = false;
+            // 
+            // makebackupbtn
+            // 
+            this.makebackupbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.makebackupbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.makebackupbtn.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.makebackupbtn.Location = new System.Drawing.Point(843, 401);
+            this.makebackupbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.makebackupbtn.Name = "makebackupbtn";
+            this.makebackupbtn.Size = new System.Drawing.Size(160, 43);
+            this.makebackupbtn.TabIndex = 133;
+            this.makebackupbtn.Text = "Make Backup";
+            this.makebackupbtn.UseVisualStyleBackColor = false;
+            this.makebackupbtn.Visible = false;
+            this.makebackupbtn.Click += new System.EventHandler(this.makebackupbtn_Click);
+            // 
+            // typeofbackup
+            // 
+            this.typeofbackup.FormattingEnabled = true;
+            this.typeofbackup.Items.AddRange(new object[] {
+            "Full Backup",
+            "Differential Backup"});
+            this.typeofbackup.Location = new System.Drawing.Point(783, 364);
+            this.typeofbackup.Name = "typeofbackup";
+            this.typeofbackup.Size = new System.Drawing.Size(220, 24);
+            this.typeofbackup.TabIndex = 134;
+            this.typeofbackup.Visible = false;
+            // 
+            // backuplocerror
+            // 
+            this.backuplocerror.ContainerControl = this;
+            // 
+            // typeofbackuperror
+            // 
+            this.typeofbackuperror.ContainerControl = this;
+            // 
             // Homepage_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 540);
+            this.Controls.Add(this.typeofbackup);
+            this.Controls.Add(this.makebackupbtn);
+            this.Controls.Add(this.backuploclabel);
+            this.Controls.Add(this.backuploctextBox);
             this.Controls.Add(this.cancelbutton);
             this.Controls.Add(this.editusersbutton);
             this.Controls.Add(this.changepfpbtn);
@@ -800,6 +874,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.photoerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.backuplocerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.typeofbackuperror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -865,5 +941,12 @@
         private System.Windows.Forms.Button changepfpbtn;
         private System.Windows.Forms.Button editusersbutton;
         private System.Windows.Forms.Button cancelbutton;
+        private System.Windows.Forms.Button makebackupbtn;
+        private System.Windows.Forms.Label backuploclabel;
+        private System.Windows.Forms.TextBox backuploctextBox;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ComboBox typeofbackup;
+        private System.Windows.Forms.ErrorProvider backuplocerror;
+        private System.Windows.Forms.ErrorProvider typeofbackuperror;
     }
 }

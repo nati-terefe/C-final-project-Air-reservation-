@@ -17,11 +17,12 @@ namespace Airline_reservation
 {
     public partial class Homepage_admin : Form
     {
-        static string usrnamebc; // Declaring Static variable to store username before change
-        static int role; // Declaring Static variable to store username before change
+        static string usrnamebc; // Declaring Static variable to store username before any change in edit profile
+        static int role; // Declaring Static variable to store role to differentiate between admin and subadmin
+
         public Homepage_admin(string user, int rol) // Constructor thats called when creating class object
         {
-            role = rol;
+            role = rol; // Assigning the role of the loginner
             InitializeComponent();
             String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
             //Declaring and Assigning Connection String
@@ -38,13 +39,13 @@ namespace Airline_reservation
                 propicadmin.SizeMode = PictureBoxSizeMode.StretchImage; // Streting Image to fit picture box               
             }
             usernameblank.Text = user; // Loading username
-            if (role == 2)
+            if (role == 2) // Selection for when the loginner is subadmin
             {
-                addadminbutton.Visible = false;
+                addadminbutton.Visible = false; // Hidding ability to add an admin
             }
         }
         
-        private void Homepage_admin_Load(object sender, EventArgs e) // Function for Initial loading of Register Window
+        private void Homepage_admin_Load(object sender, EventArgs e) // Function for Initial loading of Home Page of Admin Window
         {
             // Logo
             logo.Parent = bgpic;
@@ -95,22 +96,83 @@ namespace Airline_reservation
             Booked_flights bf = new Booked_flights(); // Declaring booked flight window
             bf.Show(); // Show booked flight window
         }
-        private void editusersbutton_Click(object sender, EventArgs e)
+        private void editusersbutton_Click(object sender, EventArgs e) //Listener Function when Edit Users button is clicked
         {
-            flight_edit fe = new flight_edit(1); // Declaring flight edit window
-            fe.Show(); // Show flight edit window
+            flight_edit fe = new flight_edit(1); // Declaring flight edit window the 1 telling to set it with edit user elements
+            fe.Show(); // Show flight edit window setted with edit user elements
         }
 
         private void editflightbutton_Click(object sender, EventArgs e) //Listener Function when edit flight button is clicked
         {
             flight_edit fe = new flight_edit(0); // Declaring flight edit window
             fe.Show(); // Show flight edit window
-
         }
 
         private void Backupdb_Click(object sender, EventArgs e) //Listener Function when backup button is clicked
         {
-            // write back up sql code 
+            backuploclabel.Visible = true; // Making backup database element visible
+            backuploctextBox.Visible = true; // Making backup database element visible
+            backuploctextBox.Text = null; // Setting value to empty
+            makebackupbtn.Visible = true; // Making backup database element visible
+            typeofbackup.Visible = true; // Making backup database element visible
+            typeofbackup.Text = null; // Setting value to empty
+            // Paste Backup Location Label
+            backuploclabel.Parent = bgpic; 
+            backuploclabel.BackColor = Color.Transparent; // Making Label Transparent
+        }
+        private void makebackupbtn_Click(object sender, EventArgs e) //Listener Function when make backup button is clicked
+        {
+            if(string.IsNullOrEmpty(backuploctextBox.Text) || !backuploctextBox.Text.Contains("\\")) // Selection for Invalid backup location
+            {
+                backuplocerror.Clear(); // Clearing Error
+                backuplocerror.SetError(backuploctextBox, "Please enter a valid backup location"); // Setting backuplocerror message
+            }
+            if (string.IsNullOrEmpty(typeofbackup.Text.ToString())) // Selection for unselected type of backup
+            {
+                typeofbackuperror.Clear(); // Clearing Error
+                typeofbackuperror.SetError(typeofbackup, "Please select a backup type"); // Setting typeofbackuperror message
+            }
+            else if(!string.IsNullOrEmpty(backuploctextBox.Text) && backuploctextBox.Text.Contains("\\") && !string.IsNullOrEmpty(typeofbackup.Text.ToString()))
+            { // Selection for accordingly filled
+                backuplocerror.Clear(); // Clearing Error
+                typeofbackuperror.Clear(); // Clearing Error
+                try // Try block to avoid errors
+                {
+                    String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                    //Declaring and Assigning Connection String
+                    using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+                    {
+                        SqlCommand cmd = new SqlCommand("backupdb", con);
+                        // Sql Command to backup database to desired location
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                         // Using parametrized query to avoid sql injection attack
+                        cmd.Parameters.Add("@backuploc", SqlDbType.VarChar, 1000).Value = backuploctextBox.Text; //Defining the command parameter for backup location
+                        if (typeofbackup.Text.ToString().Equals("Full Backup")) // Selection for full backup choice
+                        {
+                            cmd.Parameters.Add("@full", SqlDbType.Int).Value = 1; //Defining the command parameter for fullbackup
+                        }
+                        else if (typeofbackup.Text.ToString().Equals("Differential Backup")) // Selection for differential backup choice
+                        {
+                            cmd.Parameters.Add("@full", SqlDbType.Int).Value = 0; //Defining the command parameter for differentialbackup
+                        }
+                        con.Open(); //Opening Connection
+                        cmd.ExecuteNonQuery(); // Executing Query
+                        MessageBox.Show("Backup Successful"); // Pop Up Message
+                        backuploclabel.Visible = false; // Hiding backup database element
+                        backuploctextBox.Visible = false; // Hiding backup database element
+                        makebackupbtn.Visible = false; // Hiding backup database element
+                        typeofbackup.Visible = false; // Hiding backup database element
+                    }
+                }
+                catch (Exception exc) // Catch block for any errors that can happen
+                {
+                    MessageBox.Show("Ünable to backup. Please Try Again"); // Pop Up Message
+                    backuploclabel.Visible = false; // Hiding backup database element
+                    backuploctextBox.Visible = false; // Hiding backup database element
+                    makebackupbtn.Visible = false; // Hiding backup database element
+                    typeofbackup.Visible = false; // Hiding backup database element
+                }
+            }
         }
         private void addadminbutton_Click(object sender, EventArgs e) //Listener Function when add admin button is clicked
         {
@@ -118,16 +180,6 @@ namespace Airline_reservation
             ad.Show(); //Show add admin Window
         }
 
-        private void changepfpbtn_Click(object sender, EventArgs e) // Listener Function when change button is clicked
-        {
-            OpenFileDialog open = new OpenFileDialog();  // Creating New Open File Dialog   
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
-            // Filter for what type of files to be selected
-            if (open.ShowDialog() == DialogResult.OK) // Selection when user finish selecting image
-            {
-                propicadmin.Image = new Bitmap(open.FileName); //Display image in picture box 
-            }
-        }
         private void Editprofile_Click_1(object sender, EventArgs e) //Listener Function when edit profile button is clicked
         {
             changevisible(0); // Calling function to display edit profile elements
@@ -140,15 +192,15 @@ namespace Airline_reservation
             phonetextbox.Text = rs.registerphone; // Assigning retrived value to filled
             editpasswordtextbox.Text = rs.registerpassword; // Assigning retrived value to filled
             editusrnametextbox.Text = rs.registerusername; // Assigning retrived value to filled
-            if(rs.registergender.Equals("Male"))
+            if(rs.registergender.Equals("Male")) // Selection for male gender retrived value
             {
-                Male.Checked = true;
-                Female.Checked = false;
+                Male.Checked = true; // Checking radio button
+                Female.Checked = false; // Unchecking radio button
             }
-            else if (rs.registergender.Equals("Female"))
+            else if (rs.registergender.Equals("Female")) // Selection for female gender retrived value
             {
-                Female.Checked = true;
-                Male.Checked = false;
+                Female.Checked = true; // Checking radio button
+                Male.Checked = false; // Unchecking radio button
             }
             hintqtextbox.Text = rs.question; // Assigning retrived value to filled
             birthdate.Value = rs.registebirthdate; // Assigning retrived value to filled
@@ -156,8 +208,9 @@ namespace Airline_reservation
         }
         private void changevisible(int appear) // Function to clear page and display edit profile elements
         {
-            if (appear == 0)
+            if (appear == 0) // Selection for changing display to edit profile
             {
+                // Hiding homepage elements
                 yourprofilelabel.Visible = false; // Hiding from page
                 usernamelabel.Visible = false; // Hiding from page
                 usernameblank.Visible = false; // Hiding from page
@@ -167,13 +220,14 @@ namespace Airline_reservation
                 bookedticketbutton.Visible = false; // Hiding from page
                 editflightbutton.Visible = false; // Hiding from page
                 Backupdb.Visible = false; // Hiding from page
-                if (role == 1)
+                if (role == 1) // Selection for sub admin view to hide adding admin
                 {
                     addadminbutton.Visible = false; // Hiding from page
                 }
                 editusersbutton.Visible = false; // Hiding from page
                 exitbutton.Visible = false; // Hiding from page
-                // Adjusting and filling page
+
+                // filling page with edit profile elements
                 welcomelabel.Text = "Your Profile"; // Changing text value
                 savebutton.Visible = true; // Making Visible
                 firstnamelabel.Visible = true; // Making Visible
@@ -202,39 +256,39 @@ namespace Airline_reservation
                 // Username Label
                 usrnamelabel.Parent = bgpic;
                 usrnamelabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                            // Password Label
+                // Password Label
                 editpasswordlabel.Parent = bgpic;
                 editpasswordlabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                                 // First Name Label
+                // First Name Label
                 firstnamelabel.Parent = bgpic;
                 firstnamelabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                              // Last Name Label
+                // Last Name Label
                 lastnamelabel.Parent = bgpic;
                 lastnamelabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                             // Email Label
+                // Email Label
                 emaillabel.Parent = bgpic;
                 emaillabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                          // Phone Label
+                // Phone Label
                 phonelabel.Parent = bgpic;
                 phonelabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                          // Birthdate Label
+                // Birthdate Label
                 birthdatelabel.Parent = bgpic;
                 birthdatelabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                              // Gender Label
+                // Gender Label
                 genderlabel.Parent = bgpic;
                 genderlabel.BackColor = Color.Transparent; // Making Label Transparent
                 gendergroupbox.Parent = bgpic;
-                gendergroupbox.BackColor = Color.Transparent;
+                gendergroupbox.BackColor = Color.Transparent; // Making Label Transparent
                 // Hint Label
                 hintalabel.Parent = bgpic;
                 hintalabel.BackColor = Color.Transparent; // Making Label Transparent
-                                                          // Question Label
+                // Question Label
                 hintqlabel.Parent = bgpic;
                 hintqlabel.BackColor = Color.Transparent; // Making Label Transparent
             }
-            else if (appear==1)
+            else if (appear==1) // Selection for changing display to homepage
             {
-                // Adjusting and filling page
+                // filling page with homepage elements
                 yourprofilelabel.Visible = true; // Making Visible
                 usernamelabel.Visible = true; // Making Visible
                 usernameblank.Visible = true; // Making Visible
@@ -244,13 +298,14 @@ namespace Airline_reservation
                 bookedticketbutton.Visible = true; // Making Visible
                 editflightbutton.Visible = true; // Making Visible
                 Backupdb.Visible = true; // Making Visible
-                if (role == 1)
+                if (role == 1) // Selection for sub admin view to hide adding admin
                 {
                     addadminbutton.Visible = true; // Making Visible
                 }
                 welcomelabel.Text = "Welcome Admin"; // Changing text value
                 editusersbutton.Visible = true; // Making Visible
                 exitbutton.Visible = true; // Making Visible
+
                 // Hiding Edit profile elements
                 savebutton.Visible = false; // Hiding from page
                 firstnamelabel.Visible = false; // Hiding from page
@@ -278,7 +333,18 @@ namespace Airline_reservation
             }
         }
 
-        private void savebutton_Click(object sender, EventArgs e)
+        private void changepfpbtn_Click(object sender, EventArgs e) // Listener Function when change button is clicked
+        {
+            OpenFileDialog open = new OpenFileDialog();  // Creating New Open File Dialog   
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            // Filter for what type of files to be selected
+            if (open.ShowDialog() == DialogResult.OK) // Selection when user finish selecting image
+            {
+                propicadmin.Image = new Bitmap(open.FileName); //Display image in picture box 
+            }
+        }
+
+        private void savebutton_Click(object sender, EventArgs e) //Listener Function when save changes button is clicked
         {
             string gender; // Declaring Function
             bool b1 = Male.Checked; // Checking if male is checked
@@ -309,12 +375,12 @@ namespace Airline_reservation
                 gendererror.Clear(); // Clearing gendererror
                 gendererror.SetError(gendergroupbox, "Please enter you're gender"); // Setting gendererror message
             }
-            if (string.IsNullOrEmpty(editusrnametextbox.Text) || editusrnametextbox.Text.Length < 4 || editusrnametextbox.Text.Length >= 20) // Error of invalid username
+            if (string.IsNullOrEmpty(editusrnametextbox.Text) || editusrnametextbox.Text.Length < 4 || editusrnametextbox.Text.Length >= 20 || !editusrnametextbox.Text.Contains(' ')) // Error of invalid username
             {
                 usernameerror.Clear(); // Clearing usernameerror
                 usernameerror.SetError(editusrnametextbox, "Please enter a valid user name"); // Setting usernameerror message
             }
-            if (string.IsNullOrEmpty(editpasswordtextbox.Text) || editpasswordtextbox.Text.Length < 4 || editpasswordtextbox.Text.Length >= 20) // Error of invalid password
+            if (string.IsNullOrEmpty(editpasswordtextbox.Text) || editpasswordtextbox.Text.Length < 4 || editpasswordtextbox.Text.Length >= 20 || !editpasswordtextbox.Text.Contains(' ')) // Error of invalid password
             {
                 passworderror.Clear(); // Clearing passworderror
                 passworderror.SetError(editpasswordtextbox, "Please enter a valid password "); // Setting passworderror message
@@ -344,10 +410,10 @@ namespace Airline_reservation
                 && !(propicadmin.Image == null)
                 && validatephone(phonetextbox.Text)
                 && !string.IsNullOrEmpty(editpasswordtextbox.Text)
-                && editpasswordtextbox.Text.Length >= 4 && editpasswordtextbox.Text.Length < 20
+                && editpasswordtextbox.Text.Length >= 4 && editpasswordtextbox.Text.Length < 20 && editusrnametextbox.Text.Contains(' ')
                 && !string.IsNullOrEmpty(gender)
                 && !string.IsNullOrEmpty(editusrnametextbox.Text)
-                && editusrnametextbox.Text.Length >= 4 && editusrnametextbox.Text.Length < 20
+                && editusrnametextbox.Text.Length >= 4 && editusrnametextbox.Text.Length < 20 && editpasswordtextbox.Text.Contains(' ')
                 && !string.IsNullOrEmpty(hintqtextbox.Text)
                 && hintqtextbox.Text.Length < 100) // Selection where all fields are field accordingly
             {
@@ -359,7 +425,7 @@ namespace Airline_reservation
                     SqlCommand cmd = new SqlCommand("userexist", con);
                     // Sql Command to return if user exists on database
                     cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
-                                                                               // Using parametrized query to avoid sql injection attack
+                    // Using parametrized query to avoid sql injection attack
                     cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = editusrnametextbox.Text; //Defining the command parameter for usrname
                     cmd.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
                     con.Open(); //Opening Connection
@@ -384,26 +450,26 @@ namespace Airline_reservation
                         role = 1, // Assigning values to property
                         question = hintqtextbox.Text, // Assigning values to property
                     };
-                    int rowaffected=0;
-                    if (editusrnametextbox.Text.Equals(usrnamebc))
+                    int rowaffected=0; // Declaring Variable
+                    if (editusrnametextbox.Text.Equals(usrnamebc)) //Selection if there is no username change
                     {
                         rowaffected = rs.save(0); // Saving Progress on rs object and database registered
                     }
-                    if (!editusrnametextbox.Text.Equals(usrnamebc))
+                    if (!editusrnametextbox.Text.Equals(usrnamebc)) //Selection if there is username change
                     {
                         rowaffected = rs.save(1); // Saving Progress on rs object and database registered
                     }
-                    if (rowaffected > 0)
+                    if (rowaffected > 0) // Checking of successful database operation
                     {
                         MessageBox.Show("Changes Successfully Saved"); // Pop up window
-                        changevisible(1); // Calling function to display edit profile elements
+                        changevisible(1); // Calling function to display home page elements
                     }
-                    else
+                    else // Checking of unsuccessful database operation
                     {
                         MessageBox.Show("Unable to save Changes. Try Again"); // Pop up window
                     }
                 }
-                else if (existance == 1 && !editusrnametextbox.Text.Equals(usrnamebc)) // Selection when username is taken
+                else if (existance == 1 && !editusrnametextbox.Text.Equals(usrnamebc)) // Selection when there is username change and username is taken
                 {
                     MessageBox.Show("Username already taken. Please Enter another one"); // Pop up window
                 }
@@ -461,6 +527,5 @@ namespace Airline_reservation
         {
             this.Close(); // Close current window
         }
-
     }
 }

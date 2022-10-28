@@ -80,6 +80,8 @@
             this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.photoerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.deletebutton = new System.Windows.Forms.Button();
+            this.rolecomboBox = new System.Windows.Forms.ComboBox();
+            this.rolelabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
@@ -257,7 +259,7 @@
             // 
             this.hintqtextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hintqtextbox.ForeColor = System.Drawing.Color.Black;
-            this.hintqtextbox.Location = new System.Drawing.Point(822, 353);
+            this.hintqtextbox.Location = new System.Drawing.Point(822, 339);
             this.hintqtextbox.Margin = new System.Windows.Forms.Padding(4);
             this.hintqtextbox.Name = "hintqtextbox";
             this.hintqtextbox.Size = new System.Drawing.Size(220, 23);
@@ -269,7 +271,7 @@
             this.hintqlabel.AutoSize = true;
             this.hintqlabel.Font = new System.Drawing.Font("Yu Gothic", 12F);
             this.hintqlabel.ForeColor = System.Drawing.Color.Black;
-            this.hintqlabel.Location = new System.Drawing.Point(647, 353);
+            this.hintqlabel.Location = new System.Drawing.Point(649, 338);
             this.hintqlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hintqlabel.Name = "hintqlabel";
             this.hintqlabel.Size = new System.Drawing.Size(160, 26);
@@ -281,7 +283,7 @@
             // 
             this.hintatextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hintatextbox.ForeColor = System.Drawing.Color.Black;
-            this.hintatextbox.Location = new System.Drawing.Point(822, 413);
+            this.hintatextbox.Location = new System.Drawing.Point(822, 395);
             this.hintatextbox.Margin = new System.Windows.Forms.Padding(4);
             this.hintatextbox.Name = "hintatextbox";
             this.hintatextbox.Size = new System.Drawing.Size(220, 23);
@@ -293,7 +295,7 @@
             this.hintalabel.AutoSize = true;
             this.hintalabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
             this.hintalabel.ForeColor = System.Drawing.Color.Black;
-            this.hintalabel.Location = new System.Drawing.Point(647, 409);
+            this.hintalabel.Location = new System.Drawing.Point(653, 384);
             this.hintalabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hintalabel.Name = "hintalabel";
             this.hintalabel.Size = new System.Drawing.Size(129, 31);
@@ -331,7 +333,7 @@
             this.gendergroupbox.Controls.Add(this.Female);
             this.gendergroupbox.Controls.Add(this.Male);
             this.gendergroupbox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gendergroupbox.Location = new System.Drawing.Point(440, 353);
+            this.gendergroupbox.Location = new System.Drawing.Point(440, 333);
             this.gendergroupbox.Margin = new System.Windows.Forms.Padding(4);
             this.gendergroupbox.Name = "gendergroupbox";
             this.gendergroupbox.Padding = new System.Windows.Forms.Padding(4);
@@ -366,7 +368,7 @@
             // 
             // birthdate
             // 
-            this.birthdate.Location = new System.Drawing.Point(458, 418);
+            this.birthdate.Location = new System.Drawing.Point(460, 390);
             this.birthdate.Margin = new System.Windows.Forms.Padding(4);
             this.birthdate.Name = "birthdate";
             this.birthdate.Size = new System.Drawing.Size(166, 22);
@@ -421,7 +423,7 @@
             // 
             this.genderlabel.AutoSize = true;
             this.genderlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.genderlabel.Location = new System.Drawing.Point(291, 353);
+            this.genderlabel.Location = new System.Drawing.Point(291, 333);
             this.genderlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.genderlabel.Name = "genderlabel";
             this.genderlabel.Size = new System.Drawing.Size(126, 31);
@@ -433,7 +435,7 @@
             // 
             this.birthdatelabel.AutoSize = true;
             this.birthdatelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.birthdatelabel.Location = new System.Drawing.Point(291, 409);
+            this.birthdatelabel.Location = new System.Drawing.Point(291, 384);
             this.birthdatelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.birthdatelabel.Name = "birthdatelabel";
             this.birthdatelabel.Size = new System.Drawing.Size(154, 31);
@@ -612,11 +614,37 @@
             this.deletebutton.Visible = false;
             this.deletebutton.Click += new System.EventHandler(this.deletebutton_Click);
             // 
+            // rolecomboBox
+            // 
+            this.rolecomboBox.FormattingEnabled = true;
+            this.rolecomboBox.Items.AddRange(new object[] {
+            "User",
+            "Subadimin"});
+            this.rolecomboBox.Location = new System.Drawing.Point(637, 432);
+            this.rolecomboBox.Name = "rolecomboBox";
+            this.rolecomboBox.Size = new System.Drawing.Size(121, 24);
+            this.rolecomboBox.TabIndex = 180;
+            this.rolecomboBox.Visible = false;
+            // 
+            // rolelabel
+            // 
+            this.rolelabel.AutoSize = true;
+            this.rolelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.rolelabel.Location = new System.Drawing.Point(538, 425);
+            this.rolelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.rolelabel.Name = "rolelabel";
+            this.rolelabel.Size = new System.Drawing.Size(62, 31);
+            this.rolelabel.TabIndex = 181;
+            this.rolelabel.Text = "Role";
+            this.rolelabel.Visible = false;
+            // 
             // flight_edit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1123, 555);
+            this.Controls.Add(this.rolelabel);
+            this.Controls.Add(this.rolecomboBox);
             this.Controls.Add(this.deletebutton);
             this.Controls.Add(this.cancelbutton);
             this.Controls.Add(this.propicadmin);
@@ -731,5 +759,7 @@
         private System.Windows.Forms.ErrorProvider questionerror;
         private System.Windows.Forms.ErrorProvider photoerror;
         private System.Windows.Forms.Button deletebutton;
+        private System.Windows.Forms.Label rolelabel;
+        private System.Windows.Forms.ComboBox rolecomboBox;
     }
 }

@@ -75,6 +75,8 @@ namespace Airline_reservation
                 propicadmin.Visible = false;
                 yourprofilelabel.Visible = false;
                 deletebutton.Visible = false;
+                rolecomboBox.Visible = false;
+                rolelabel.Visible = false;
             }
             else if (appear == 2)
             {
@@ -108,6 +110,8 @@ namespace Airline_reservation
                 propicadmin.Visible = true;
                 yourprofilelabel.Visible = true;
                 deletebutton.Visible = true;
+                rolecomboBox.Visible = true;
+                rolelabel.Visible = true;
                 // Username Label
                 usernamelabel.Parent = pictureBox1;
                 usernamelabel.BackColor = Color.Transparent; // Making Label Transparent
@@ -142,6 +146,8 @@ namespace Airline_reservation
                 hintqlabel.BackColor = Color.Transparent; // Making Label Transparent
                 yourprofilelabel.Parent = pictureBox1;
                 yourprofilelabel.BackColor = Color.Transparent; // Making Label Transparent
+                rolelabel.Parent = pictureBox1;
+                rolelabel.BackColor = Color.Transparent;
             }
         }
         private void flight_edit_Load(object sender, EventArgs e)
@@ -185,7 +191,6 @@ namespace Airline_reservation
         {
             if (!string.IsNullOrEmpty(initialusernametextbox.Text) && initialusernametextbox.Text.Length >= 4 && initialusernametextbox.Text.Length < 20)
             {
-                
                 usernameerror.Clear(); // Clearing usernameerror
                 int existance; // Declaring Variable
                 String cs2 = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
@@ -233,6 +238,14 @@ namespace Airline_reservation
                     phonetextbox.Text = rs.registerphone; // Assigning retrived value to filled
                     editpasswordtextbox.Text = rs.registerpassword; // Assigning retrived value to filled
                     editusrnametextbox.Text = rs.registerusername; // Assigning retrived value to filled
+                    if (rs.role == 2)
+                    {
+                        rolecomboBox.Text = "Subadimin";
+                    }
+                    else if (rs.role == 3)
+                    {
+                        rolecomboBox.Text = "User";
+                    }
                     if (rs.registergender.Equals("Male"))
                     {
                         Male.Checked = true;
@@ -364,7 +377,6 @@ namespace Airline_reservation
                 photoerror.Clear(); // Clearing photo error
                 photoerror.SetError(changepfpbtn, "Please select a photo"); // Setting photoerror message
             }
-            Console.WriteLine("Here");
             if (validatename(firstnametextbox.Text)
                 && validatename(lastnametextbox.Text)
                 && !string.IsNullOrEmpty(emailtextbox.Text)
@@ -395,10 +407,17 @@ namespace Airline_reservation
                     registerpassword = editpasswordtextbox.Text, // Assigning values to property
                     registergender = gender, // Assigning values to property
                     registerprofilepic = propicadmin.Image, // Assigning values to property
-                    registebirthdate = birthdate.Value.Date, // Assigning values to property
-                    role = 3, // Assigning values to property
+                    registebirthdate = birthdate.Value.Date, // Assigning values to property              
                     question = hintqtextbox.Text, // Assigning values to property
                 };
+                if (rolecomboBox.Text.Equals("Subadimin"))
+                {
+                    rs.role = 2; // Assigning values to property
+                }
+                else if (rolecomboBox.Text.Equals("User"))
+                {
+                    rs.role = 3; // Assigning values to property
+                }
                 int rowaffected = 0;
                 if (editusrnametextbox.Text.Equals(usrnamebc))
                 {

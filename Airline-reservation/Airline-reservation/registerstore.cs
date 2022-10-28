@@ -96,6 +96,13 @@ namespace Airline_reservation
                     cmd2.Parameters.Add("@newpasswd", SqlDbType.VarChar).Value = registerpassword; //Defining the command parameter for newpasswd
                     cmd2.Parameters.Add("@usrname", SqlDbType.VarChar).Value = registerusername; //Defining the command parameter for usrname
                     rowaffected = cmd2.ExecuteNonQuery(); // Executing the Update Query and returning number of rows affected
+                    SqlCommand cmd3 = new SqlCommand("setnewrole", con);
+                    // Sql Command to update password of inserted Username on database
+                    cmd3.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                    // Using parametrized query to avoid sql injection attack
+                    cmd3.Parameters.Add("@newrole", SqlDbType.Int).Value = role; //Defining the command parameter for newpasswd
+                    cmd3.Parameters.Add("@usrname", SqlDbType.VarChar).Value = registerusername; //Defining the command parameter for usrname
+                    rowaffected = cmd3.ExecuteNonQuery(); // Executing the Update Query and returning number of rows affected
                 }
             }
             if (rowaffected > 1 || full==0) // Selection for both database insertions where done or if partial execution was the intent
@@ -155,6 +162,18 @@ namespace Airline_reservation
                 rs.question = Convert.ToString(cmd.Parameters["@hintq"].Value); // Assigning output value of stored procedure by converting to String
                 rs.registerhint = Convert.ToString(cmd.Parameters["@hinta"].Value); // Assigning output value of stored procedure by converting to String
                 rs.registerusername = usrname; // Assigning username
+                SqlCommand cmd2 = new SqlCommand("whatrole", con);
+                // Sql Command Stored Procedure that returns role of the inserted login info from database
+                cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                // Using parametrized query to avoid sql injection attack
+                cmd2.Parameters.Add("@usrname", SqlDbType.VarChar).Value = usrname; //Defining the command parameter for usrname
+                cmd2.Parameters["@usrname"].Direction = ParameterDirection.Input; //Defining the parameter direction as input
+                cmd2.Parameters.Add("@passwd", SqlDbType.VarChar).Value = rs.registerpassword; //Defining the command parameter for passwd
+                cmd2.Parameters["@passwd"].Direction = ParameterDirection.Input; //Defining the command parameter direction as input
+                cmd2.Parameters.Add("@roleis", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for roleis and setting direction as output
+                cmd2.ExecuteNonQuery(); // Executing Query
+                rs.role = Convert.ToInt32(cmd2.Parameters["@roleis"].Value); // Assigning output value of stored procedure by converting to int
+                Console.WriteLine("inside giveall "+rs.role);
             }
             return rs; // Returning full rs object
         }
