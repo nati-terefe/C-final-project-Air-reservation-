@@ -8,13 +8,14 @@ namespace Airline_reservation
 {
     static class Program
     {
-        // Main Entry point of Application
+        /// The main entry point for the application.
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new login()); // Setting Login Window as where to start
+            Application.Run(new login());
+           // Application.Run(new register());
         }
     }
 }

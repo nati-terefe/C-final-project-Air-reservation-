@@ -59,5 +59,15 @@ namespace Airline_reservation.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editprofilebg {
+            get {
+                object obj = ResourceManager.GetObject("editprofilebg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

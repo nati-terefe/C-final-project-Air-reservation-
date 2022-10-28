@@ -28,7 +28,7 @@ namespace Airline_reservation
             logo.BackColor = Color.Transparent; // Making Button Transparent
             // About Us Body
             aboutusbodylabel.Parent = pictureBox1;
-            aboutusbodylabel.BackColor=Color.Transparent; // Making Button Transparent
+            aboutusbodylabel.BackColor = Color.Transparent; // Making Button Transparent
             // Login Header Button
             loginheaderbutton.Parent = pictureBox1;
             loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
@@ -40,11 +40,15 @@ namespace Airline_reservation
             // About Us Header Button
             aboutheaderbutton.Parent = pictureBox1;
             aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
-            aboutheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
+            aboutheaderbutton.FlatAppearance.BorderSize = 1; // removing the boarder of the button
             // Contact Us Header Button
             contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             contactheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
+            // FAQ Header Button 
+            faqheaderbuttom.Parent = pictureBox1;
+            faqheaderbuttom.BackColor = Color.Transparent; // Making Button Transparent
+            faqheaderbuttom.FlatAppearance.BorderSize = 0; // Removing Border of Button
         }
 
         private void loginheaderbutton_Click(object sender, EventArgs e) //Listener Function when login button at the header is clicked
@@ -78,6 +82,13 @@ namespace Airline_reservation
         private void donebutton_Click(object sender, EventArgs e) //Listener Function when done button at the header is clicked
         {
             this.Close(); //Close Current Window
+        }
+
+        private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
+        {
+            FAQ f = new FAQ(); //Declaring new FAQ Window
+            f.Show(); //Show FAQ Window
+            Hide(); //Hide Currently Active Window
         }
     }
 }

@@ -34,9 +34,9 @@ namespace Airline_reservation
             forgotbutton.BackColor = Color.Transparent; // Making Button Transparent
             forgotbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
             // login Header Button 
-            loginheaderbutton.Parent=pictureBox1;
+            loginheaderbutton.Parent = pictureBox1;
             loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
-            loginheaderbutton.FlatAppearance.BorderSize=1; // Creating Border of Button to show its the current window
+            loginheaderbutton.FlatAppearance.BorderSize = 1; // Creating Border of Button to show its the current window
             loginheaderbutton.FlatAppearance.BorderColor = Color.Gray; // Making Border color gray
             // Register Header Button
             registerheaderbutton.Parent = pictureBox1;
@@ -50,37 +50,17 @@ namespace Airline_reservation
             contactheaderbutton.Parent = pictureBox1;
             contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             contactheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
-        }
-
-        private void registerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var activescreen = ActiveMdiChild;
-            if (activescreen != null)
-            {
-                activescreen.Close();
-            }
-            register screen = new register();
-            screen.MdiParent = this;
-            screen.Show();
-        }
-
-        private void contactUsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var activescreen = ActiveMdiChild;
-            if (activescreen != null)
-            {
-                activescreen.Close();
-            }
-            
-            contact screen = new contact();
-            screen.MdiParent = this;
-            screen.Show();
+            // FAQ Header Button 
+            faqheaderbuttom.Parent = pictureBox1;
+            faqheaderbuttom.BackColor = Color.Transparent; // Making Button Transparent
+            faqheaderbuttom.FlatAppearance.BorderSize = 0; // Removing Border of Button
         }
 
         private void forgotbutton_Click(object sender, EventArgs e) //Listener Function when forgot password button is clicked
         {
             forgotpassword f = new forgotpassword(); //Declaring new Forgot Password Window
             f.Show(); //Show forgot password Window
+            Hide(); //Hide Currently Active Window
         }
 
         private void registerheaderbutton_Click(object sender, EventArgs e) //Listener Function when register button at the header is clicked
@@ -134,7 +114,7 @@ namespace Airline_reservation
                 }
                 if (Convert.ToInt32(usernametextbox.Text.ToString().Length) < 4) //Selection for Short Password
                 {
-                    passworderror.Clear(); //Clearing Psername Error Provider
+                    passworderror.Clear(); //Clearing Password Error Provider
                     passworderror.SetError(passwordtextbox, "Password must at least be 4 characters long"); //Setting Password Error Provider
                 }
                 else if (usernametextbox.Text.Length >= 4 && passwordtextbox.Text.Length >= 4) //Selection for Non Short Username and Password
@@ -145,27 +125,34 @@ namespace Airline_reservation
                     //Declaring and Assigning Connection String
                     using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
                     {
-                        SqlCommand cmd = new SqlCommand("select rol from login where usrname=@usrname and passwd=@passwd", con);
-                        // Sql Command to return rol of the inserted login info from database
+                        SqlCommand cmd = new SqlCommand("whatrole", con);
+                        // Sql Command Stored Procedure that returns role of the inserted login info from database
+                        cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
                         // Using parametrized query to avoid sql injection attack
                         cmd.Parameters.Add("@usrname", SqlDbType.VarChar).Value = usernametextbox.Text; //Defining the command parameter for usrname
+                        cmd.Parameters["@usrname"].Direction = ParameterDirection.Input; //Defining the parameter direction as input
                         cmd.Parameters.Add("@passwd", SqlDbType.VarChar).Value = passwordtextbox.Text; //Defining the command parameter for passwd
-                        cmd.CommandType = System.Data.CommandType.Text; // Defining command type as text. This is must with Execute Scalar
+                        cmd.Parameters["@passwd"].Direction = ParameterDirection.Input; //Defining the command parameter direction as input
+                        cmd.Parameters.Add("@roleis", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for roleis and setting direction as output
                         con.Open(); //Opening Connection
-                        int role = Convert.ToInt32(cmd.ExecuteScalar()); // Converting returned type of object to int
-                        if(role == 1 || role == 2 || role == 3) // Selection of Correct Credentials
+                        cmd.ExecuteNonQuery(); // Executing Query
+                        int role = Convert.ToInt32(cmd.Parameters["@roleis"].Value); // Assigning output value of stored procedure by converting to int
+                        if (role != 0) // Selection of Correct Credentials
                         {
-                            SqlCommand cmd2 = new SqlCommand("Insert into loginhistory values(@usrname, @role , Getdate());", con);
-                            // Sql Command to insert successful Login into Login History on database
-                            // Using parametrized query to avoid sql injection attack
-                            cmd2.Parameters.Add("@usrname", SqlDbType.VarChar).Value = usernametextbox.Text; //Defining the command parameter for usrname
-                            cmd2.Parameters.Add("@role", SqlDbType.Int).Value = role; //Defining the command parameter for role
-                            int rowaffected = cmd2.ExecuteNonQuery(); // Executing the Insert Query
+                            loginstore ls = new loginstore // Declaring login store object
+                            {
+                                loginusername = usernametextbox.Text, // Assigning values to property
+                                loginpassword = passwordtextbox.Text, // Assigning values to property
+                            };
+                            ls.loginrole = role; // Assigning values to property
+                            int rowaffected=ls.save(); // Saving Progress on ls object and database login history
                             if (rowaffected > 0) // Selection of Successful Insert
                             {
                                 if (role == 1) // Selection of Admins
                                 {
-                                    MessageBox.Show("Admin Login Successful"); // Pop-up Message
+                                    Homepage_admin ha = new Homepage_admin(username); //Declaring new Home page admin Window
+                                    ha.Show(); //Show Homepage admin Window
+                                    Hide(); //Hide Currently Active Window
                                 }
                                 else if (role == 2) // Selection of Sub-Admins
                                 {
@@ -173,21 +160,45 @@ namespace Airline_reservation
                                 }
                                 else if (role == 3) // Selection of Users
                                 {
-                                    MessageBox.Show("User Login Successful"); // Pop-up Message
+                                    Homepage_client hc = new Homepage_client(username); //Declaring new Home page client Window
+                                    hc.Show(); //Show Homepage client Window
+                                    Hide(); //Hide Currently Active Window
                                 }
                             }
-                            else if(rowaffected <= 0) // Selection of Unsuccessful Insert
+                            else if (rowaffected <= 0) // Selection of Unsuccessful Insert
                             {
                                 MessageBox.Show("Incorrect Credentials. Try Again"); // Pop-up Message
                             }
                         }
                         else // Selection of Wrong Credentials
                         {
-                            MessageBox.Show("Incorrect Credentials. Try Again"); // Pop-up Message
+                            SqlCommand cmd2 = new SqlCommand("userexist", con);
+                            // Sql Command to return Hint Answer of the inserted Username from database
+                            cmd2.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                                                                                       // Using parametrized query to avoid sql injection attack
+                            cmd2.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernametextbox.Text; //Defining the command parameter for usrname
+                            cmd2.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
+                            cmd2.ExecuteNonQuery(); // Executing Query
+                            int existance = Convert.ToInt32(cmd2.Parameters["@exist"].Value); // Assigning output value of stored procedure by converting to int
+                            if (existance == 0) // Selection when user is not existing 
+                            {
+                                MessageBox.Show("User not Found. Try Again"); // Pop Up message
+
+                            }
+                            else // Selection when username and password ain't a match 
+                            {
+                                MessageBox.Show("Incorrect Password. Try Again"); // Pop-up Message
+                            }
                         }
                     }
                 }
             }
+        }
+        private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
+        {
+            FAQ f = new FAQ(); //Declaring new FAQ Window
+            f.Show(); //Show FAQ Window
+            Hide(); //Hide Currently Active Window
         }
     }
 }

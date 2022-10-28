@@ -45,6 +45,8 @@
             this.closebutton = new System.Windows.Forms.Button();
             this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.faqheaderbuttom = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
@@ -102,7 +104,7 @@
             this.logo.Location = new System.Drawing.Point(-11, -2);
             this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(340, 166);
+            this.logo.Size = new System.Drawing.Size(327, 166);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 5;
             this.logo.TabStop = false;
@@ -154,7 +156,7 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.Location = new System.Drawing.Point(337, 26);
+            this.loginheaderbutton.Location = new System.Drawing.Point(324, 26);
             this.loginheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.loginheaderbutton.Name = "loginheaderbutton";
             this.loginheaderbutton.Size = new System.Drawing.Size(145, 42);
@@ -167,12 +169,12 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.Location = new System.Drawing.Point(494, 26);
+            this.registerheaderbutton.Location = new System.Drawing.Point(477, 26);
             this.registerheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.registerheaderbutton.Name = "registerheaderbutton";
             this.registerheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.registerheaderbutton.TabIndex = 10;
-            this.registerheaderbutton.Text = "Register";
+            this.registerheaderbutton.Text = "Sign Up";
             this.registerheaderbutton.UseVisualStyleBackColor = false;
             this.registerheaderbutton.Click += new System.EventHandler(this.registerheaderbutton_Click);
             // 
@@ -181,7 +183,7 @@
             this.aboutheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutheaderbutton.Location = new System.Drawing.Point(814, 26);
+            this.aboutheaderbutton.Location = new System.Drawing.Point(797, 26);
             this.aboutheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.aboutheaderbutton.Name = "aboutheaderbutton";
             this.aboutheaderbutton.Size = new System.Drawing.Size(145, 42);
@@ -195,7 +197,7 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.Location = new System.Drawing.Point(647, 26);
+            this.contactheaderbutton.Location = new System.Drawing.Point(631, 26);
             this.contactheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.contactheaderbutton.Name = "contactheaderbutton";
             this.contactheaderbutton.Size = new System.Drawing.Size(159, 42);
@@ -226,11 +228,32 @@
             // 
             this.passworderror.ContainerControl = this;
             // 
+            // faqheaderbuttom
+            // 
+            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.faqheaderbuttom.Location = new System.Drawing.Point(951, 26);
+            this.faqheaderbuttom.Margin = new System.Windows.Forms.Padding(4);
+            this.faqheaderbuttom.Name = "faqheaderbuttom";
+            this.faqheaderbuttom.Size = new System.Drawing.Size(145, 42);
+            this.faqheaderbuttom.TabIndex = 48;
+            this.faqheaderbuttom.Text = "FAQ";
+            this.faqheaderbuttom.UseVisualStyleBackColor = false;
+            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 639);
+            this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.closebutton);
             this.Controls.Add(this.contactheaderbutton);
             this.Controls.Add(this.aboutheaderbutton);
@@ -261,8 +284,6 @@
 
         #endregion
         private System.Windows.Forms.Label passwordlabel;
-        private System.Windows.Forms.TextBox usernametextbox;
-        private System.Windows.Forms.TextBox passwordtextbox;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.Button loginbutton;
@@ -275,6 +296,10 @@
         private System.Windows.Forms.Button closebutton;
         private System.Windows.Forms.ErrorProvider usernameerror;
         private System.Windows.Forms.ErrorProvider passworderror;
+        public System.Windows.Forms.TextBox usernametextbox;
+        public System.Windows.Forms.TextBox passwordtextbox;
+        private System.Windows.Forms.Button faqheaderbuttom;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 

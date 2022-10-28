@@ -38,6 +38,7 @@
             this.loginheaderbutton = new System.Windows.Forms.Button();
             this.donebutton = new System.Windows.Forms.Button();
             this.aboutusbodylabel = new System.Windows.Forms.Label();
+            this.faqheaderbuttom = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
@@ -57,8 +58,8 @@
             // 
             this.aboutlabel.AutoSize = true;
             this.aboutlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.aboutlabel.Location = new System.Drawing.Point(495, 11);
+            this.aboutlabel.ForeColor = System.Drawing.Color.Teal;
+            this.aboutlabel.Location = new System.Drawing.Point(503, 47);
             this.aboutlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboutlabel.Name = "aboutlabel";
             this.aboutlabel.Size = new System.Drawing.Size(214, 56);
@@ -82,7 +83,7 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.ForeColor = System.Drawing.Color.Green;
+            this.contactheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.Location = new System.Drawing.Point(337, 596);
             this.contactheaderbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.contactheaderbutton.Name = "contactheaderbutton";
@@ -105,7 +106,6 @@
             this.aboutheaderbutton.TabIndex = 22;
             this.aboutheaderbutton.Text = "About us";
             this.aboutheaderbutton.UseVisualStyleBackColor = false;
-            this.aboutheaderbutton.Visible = false;
             this.aboutheaderbutton.Click += new System.EventHandler(this.aboutheaderbutton_Click);
             // 
             // registerheaderbutton
@@ -113,7 +113,7 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.ForeColor = System.Drawing.Color.Green;
+            this.registerheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.Location = new System.Drawing.Point(184, 596);
             this.registerheaderbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.registerheaderbutton.Name = "registerheaderbutton";
@@ -128,7 +128,7 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.ForeColor = System.Drawing.Color.Green;
+            this.loginheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.Location = new System.Drawing.Point(31, 596);
             this.loginheaderbutton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginheaderbutton.Name = "loginheaderbutton";
@@ -164,11 +164,27 @@
             this.aboutusbodylabel.Text = resources.GetString("aboutusbodylabel.Text");
             this.aboutusbodylabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // faqheaderbuttom
+            // 
+            this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.faqheaderbuttom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.faqheaderbuttom.Location = new System.Drawing.Point(657, 596);
+            this.faqheaderbuttom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.faqheaderbuttom.Name = "faqheaderbuttom";
+            this.faqheaderbuttom.Size = new System.Drawing.Size(145, 42);
+            this.faqheaderbuttom.TabIndex = 47;
+            this.faqheaderbuttom.Text = "FAQ";
+            this.faqheaderbuttom.UseVisualStyleBackColor = false;
+            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1213, 652);
+            this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.aboutusbodylabel);
             this.Controls.Add(this.donebutton);
             this.Controls.Add(this.contactheaderbutton);
@@ -200,5 +216,6 @@
         private System.Windows.Forms.Button loginheaderbutton;
         private System.Windows.Forms.Button donebutton;
         private System.Windows.Forms.Label aboutusbodylabel;
+        private System.Windows.Forms.Button faqheaderbuttom;
     }
 }

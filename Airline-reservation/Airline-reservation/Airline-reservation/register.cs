@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 // Import Statments
 
 namespace Airline_reservation
@@ -24,140 +25,257 @@ namespace Airline_reservation
         private void register_Load(object sender, EventArgs e) // Function for Initial loading of Register Window
         {
             // Username Label
-            usernamelabel.Parent = pictureBox1;
+            usernamelabel.Parent = bgpic;
             usernamelabel.BackColor = Color.Transparent; // Making Label Transparent
             // Password Label
-            passwordlabel.Parent = pictureBox1;
+            passwordlabel.Parent = bgpic;
             passwordlabel.BackColor = Color.Transparent; // Making Label Transparent
             // First Name Label
-            firstnamelabel.Parent = pictureBox1;
-            firstnamelabel.BackColor=Color.Transparent; // Making Label Transparent
+            firstnamelabel.Parent = bgpic;
+            firstnamelabel.BackColor = Color.Transparent; // Making Label Transparent
             // Last Name Label
-            lastnamelabel.Parent= pictureBox1;
+            lastnamelabel.Parent = bgpic;
             lastnamelabel.BackColor = Color.Transparent; // Making Label Transparent
             // Email Label
-            emaillabel.Parent = pictureBox1;
+            emaillabel.Parent = bgpic;
             emaillabel.BackColor = Color.Transparent; // Making Label Transparent
             // Phone Label
-            phonelabel.Parent= pictureBox1;
+            phonelabel.Parent = bgpic;
             phonelabel.BackColor = Color.Transparent; // Making Label Transparent
             // Birthdate Label
-            birthdatelabel.Parent = pictureBox1;
+            birthdatelabel.Parent = bgpic;
             birthdatelabel.BackColor = Color.Transparent; // Making Label Transparent
             // Gender Label
-            genderlabel.Parent = pictureBox1;
+            genderlabel.Parent = bgpic;
             genderlabel.BackColor = Color.Transparent; // Making Label Transparent
             // Register Label
-            registerlabel.Parent = pictureBox1;
+            registerlabel.Parent = bgpic;
             registerlabel.BackColor = Color.Transparent; // Making Label Transparent
             // Profile Picture Label
-            profilepicturelabel.Parent = pictureBox1;
+            profilepicturelabel.Parent = bgpic;
             profilepicturelabel.BackColor = Color.Transparent; // Making Label Transparent
             // Logo
-            logo.Parent = pictureBox1;
+            logo.Parent = bgpic;
             logo.BackColor = Color.Transparent; // Making Logo Transparent
             // Hint Label
-            hintlable.Parent = pictureBox1;
+            hintlable.Parent = bgpic;
             hintlable.BackColor = Color.Transparent; // Making Label Transparent
+            // Question Label
+            questionlabel.Parent = bgpic;
+            questionlabel.BackColor = Color.Transparent; // Making Label Transparent
             // Login Header Button
-            loginheaderbutton.Parent = pictureBox1;
+            loginheaderbutton.Parent = bgpic;
             loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             loginheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
             // Register Header Button
-            registerheaderbutton.Parent = pictureBox1;
+            registerheaderbutton.Parent = bgpic;
             registerheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             registerheaderbutton.FlatAppearance.BorderSize = 1; // Creating Border of Button to show its the current window
             // About us Header Button 
-            aboutheaderbutton.Parent = pictureBox1;
+            aboutheaderbutton.Parent = bgpic;
             aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             aboutheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
             // Contact us Header Button 
-            contactheaderbutton.Parent = pictureBox1;
+            contactheaderbutton.Parent = bgpic;
             contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             contactheaderbutton.FlatAppearance.BorderSize = 0; // Removing Border of Button
+            // FAQ Header Button 
+            faqheaderbuttom.Parent = bgpic;
+            faqheaderbuttom.BackColor = Color.Transparent; // Making Button Transparent
+            faqheaderbuttom.FlatAppearance.BorderSize = 0; // Removing Border of Button
         }
 
         private void upload_Click(object sender, EventArgs e) //Listener Function when upload button is clicked
         {
-           
             OpenFileDialog open = new OpenFileDialog();  // Creating New Open File Dialog   
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp"; 
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
             // Filter for what type of files to be selected
             if (open.ShowDialog() == DialogResult.OK) // Selection when user finish selecting image
             {
-                profilepicture.Image = new Bitmap(open.FileName); //Display image in picture box 
+                profilepicture.Image = new Bitmap(open.FileName); //Display image in picture box
+                piclocation.Text= open.FileName;  // image file path  
             }
         }
 
         private void registerbutton_Click(object sender, EventArgs e) //Listener Function when register button is clicked
         {
-            string firstname, lastname, email, hint, phone, username, password; // Declaring Variables
-            firstname = firstnametextbox.Text; // Assigning Variables
-            lastname = lastnametextbox.Text; // Assigning Variables
-            email = emailtextbox.Text; // Assigning Variables
-            hint = hinttextbox.Text; // Assigning Variables
-            phone = phonetextbox.Text; // Assigning Variables
-            username = usernametextbox.Text; // Assigning Variables
-            password = passwordtextbox.Text; // Assigning Variables
-            registerbutton.BackColor = Color.Silver; // Changing back color of register button
-            donebutton.BackColor = Color.Red; // Changing back color of done button
-            char gender='M'; // Declaring Gender and setting default value
-            if (Male.Checked) // Selection for user selecting male
+            firstnameerror.Clear(); // Clearing firstnameerror
+            lastnameerror.Clear(); // Clearing lastnameerror
+            emailerror.Clear(); // Clearing emailerror
+            phonerror.Clear(); // Clearing phonerror
+            gendererror.Clear(); // Clearing gendererror
+            usernameerror.Clear(); // Clearing usernameerror
+            passworderror.Clear(); // Clearing passworderror
+            questionerror.Clear(); // Clearing questionerror
+            hinterror.Clear(); // Clearing hinterror
+            photoerror.Clear(); // Clearing photo error
+            string gender; // Declaring Function
+            bool b1 = Male.Checked; // Checking if male is checked
+            gender = b1 ? "Male" : "Female"; // ternary operator assigning gender value based on selection
+            // Error Provider List
+            if (!validatename(firstnametextbox.Text))  // Error of invalid first name
             {
-                gender = 'M'; // Assigning Male
+                firstnameerror.Clear(); // Clearing firstnameerror
+                firstnameerror.SetError(firstnametextbox, "Please enter a valid First name"); // Setting firstnameerror message
             }
-            else if (Female.Checked) // Selection for user selecting female
+            if (!validatename(lastnametextbox.Text)) // Error of invalid last name
             {
-                gender = 'F'; // Assigning Female
+                lastnameerror.Clear(); // Clearing lastnameerror
+                lastnameerror.SetError(lastnametextbox, "Please enter a valid Last name"); // Setting lastnameerror message
             }
-            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
-            //Declaring and Assigning Connection String
-            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            if (string.IsNullOrEmpty(emailtextbox.Text) || !emailtextbox.Text.Contains('@') || !emailtextbox.Text.Contains('.')) // Error of invalid email
             {
-                String query = "Insert into registered(fname, lname, email, phoneno, birthdate, gender, usrname, passwd, hintQ, hintA, profilepic) values(@fname,@lname,@email,@phone,@birthdate,@gender, @usrname, @passwd, 'Are you?', @hint,@photo);";
-                SqlCommand cmd = new SqlCommand(query, con);
-                // Sql Command to insert registerd value to databse
-                // Using parametrized query to avoid sql injection attack
-                cmd.Parameters.Add("@fname", SqlDbType.VarChar).Value = firstname; //Defining the command parameter for fname
-                cmd.Parameters.Add("@lname", SqlDbType.VarChar).Value = lastname; //Defining the command parameter for lname
-                cmd.Parameters.Add("@email", SqlDbType.VarChar).Value = email; //Defining the command parameter for email
-                cmd.Parameters.Add("@phone", SqlDbType.VarChar).Value = phone; //Defining the command parameter for phone
-                cmd.Parameters.Add("@birthdate", SqlDbType.Date).Value = birthdate.Value.Date; //Defining the command parameter for birthdate
-                cmd.Parameters.Add("@gender", SqlDbType.Char).Value = gender; //Defining the command parameter for birthdate
-                cmd.Parameters.Add("@usrname", SqlDbType.VarChar).Value = username; //Defining the command parameter for username
-                cmd.Parameters.Add("@passwd", SqlDbType.VarChar).Value = password; //Defining the command parameter for password
-                cmd.Parameters.Add("@hint", SqlDbType.VarChar).Value = hint; //Defining the command parameter for hint
-                conv_photo(cmd); // Calling function conv_photo that converts selected image into byte array and define the sql command parameter
-                con.Open(); //Opening Connection
-                int rowaffect= cmd.ExecuteNonQuery(); // Executing the Insert Query
-                if (rowaffect > 0) // Selection for Successful Insert
+                emailerror.Clear(); // Clearing emailerror
+                emailerror.SetError(emailtextbox, "Please enter a valid Email"); // Setting emailerror message
+            }
+            if (!validatephone(phonetextbox.Text)) // Error of invalid phone
+            {   
+                phonerror.Clear(); // Clearing phonerror
+                phonerror.SetError(phonetextbox,"Please enter you're phone number"); // Setting phonerror message
+            }
+            if (string.IsNullOrEmpty(gender)) // Error of unselected gender
+            {   
+                gendererror.Clear(); // Clearing gendererror
+                gendererror.SetError(gendergroupbox, "Please enter you're gender"); // Setting gendererror message
+            }
+            if (string.IsNullOrEmpty(usernametextbox.Text) || usernametextbox.Text.Length<4 || usernametextbox.Text.Length >= 20) // Error of invalid username
+            {   
+                usernameerror.Clear(); // Clearing usernameerror
+                usernameerror.SetError(usernametextbox, "Please enter a valid user name"); // Setting usernameerror message
+            }
+            if (string.IsNullOrEmpty(passwordtextbox.Text) || passwordtextbox.Text.Length<4 || passwordtextbox.Text.Length >= 20) // Error of invalid password
+            {   
+                passworderror.Clear(); // Clearing passworderror
+                passworderror.SetError(passwordtextbox, "Please enter a valid password "); // Setting passworderror message
+            }
+            if (string.IsNullOrEmpty(questiontextbox.Text) || questiontextbox.Text.Length>=100) // Error of empty hint question
+            {
+                questionerror.Clear(); // Clearing questionerror
+                questionerror.SetError(questiontextbox, "Please enter a valid hint question"); // Setting questionerror message
+            }
+            if (string.IsNullOrEmpty(hinttextbox.Text) || hinttextbox.Text.Length>=20) // Error of empty hint answer
+            {
+                hinterror.Clear(); // Clearing hinterror
+                hinterror.SetError(hinttextbox, "Please enter a valid hint answer"); // Setting hinterror message
+            }
+            if(string.IsNullOrEmpty(piclocation.Text)) // Error of empty profile
+            {
+                photoerror.Clear(); // Clearing photo error
+                photoerror.SetError(piclocation, "Please select a photo"); // Setting photoerror message
+            }
+            if (validatename(firstnametextbox.Text) 
+                && validatename(lastnametextbox.Text) 
+                && !string.IsNullOrEmpty(emailtextbox.Text)
+                && emailtextbox.Text.Contains('@') && emailtextbox.Text.Contains('.')
+                && !string.IsNullOrEmpty(hinttextbox.Text)
+                && hinttextbox.Text.Length < 20
+                && !string.IsNullOrEmpty(birthdate.ToString()) 
+                && !string.IsNullOrEmpty(piclocation.Text)
+                && validatephone(phonetextbox.Text) 
+                && !string.IsNullOrEmpty(passwordtextbox.Text) 
+                && passwordtextbox.Text.Length >= 4 && passwordtextbox.Text.Length < 20
+                && !string.IsNullOrEmpty(gender)
+                && !string.IsNullOrEmpty(usernametextbox.Text)
+                && usernametextbox.Text.Length >= 4 && usernametextbox.Text.Length < 20
+                && !string.IsNullOrEmpty(questiontextbox.Text)
+                && questiontextbox.Text.Length < 100) // Selection where all fields are field accordingly
+            {
+                int existance; // Declaring Variable
+                String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                //Declaring and Assigning Connection String
+                using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
                 {
-                    MessageBox.Show("Register Successful"); // Pop-up Message
+                    SqlCommand cmd = new SqlCommand("userexist", con);
+                    // Sql Command to return if user exists on database
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure; // Defining command type as stored procedure
+                                                                               // Using parametrized query to avoid sql injection attack
+                    cmd.Parameters.Add("@usrname", SqlDbType.VarChar, 20).Value = usernametextbox.Text; //Defining the command parameter for usrname
+                    cmd.Parameters.Add("@exist", SqlDbType.Int).Direction = ParameterDirection.Output; //Defining the parameter for exist and setting direction as output
+                    con.Open(); //Opening Connection
+                    cmd.ExecuteNonQuery(); // Executing Query
+                    existance = Convert.ToInt32(cmd.Parameters["@exist"].Value); // Assigning output value of stored procedure by converting to int
                 }
-                else // Selection for UnSuccessful Insert
+                if (existance == 0) // Selection when username is not taken
                 {
-                    MessageBox.Show("Register UnSuccessful"); // Pop-up Message
+                    registerstore rs = new registerstore // Declaring register store object
+                    {
+                        registerfirstname = firstnametextbox.Text, // Assigning values to property
+                        registerlastname = lastnametextbox.Text, // Assigning values to property
+                        registeremail = emailtextbox.Text, // Assigning values to property
+                        registerhint = hinttextbox.Text, // Assigning values to property
+                        registerphone = phonetextbox.Text, // Assigning values to property
+                        registerusername = usernametextbox.Text, // Assigning values to property
+                        registerpassword = passwordtextbox.Text, // Assigning values to property
+                        registergender = gender, // Assigning values to property
+                        registerprofilepic = profilepicture.Image, // Assigning values to property
+                        registebirthdate = birthdate.Value.Date, // Assigning values to property
+                        role = 1, // Assigning values to property
+                        question = questiontextbox.Text, // Assigning values to property
+                    };
+                    int rowaffected=rs.save(1); // Saving Progress on rs object and database registered
+                    if(rowaffected > 0)
+                    {
+                        registerbutton.BackColor = Color.Silver; // Changing back color of register button
+                        MessageBox.Show("You have been registered"); // Pop up window
+                    }
+                    else
+                    {
+                        MessageBox.Show("Registration Unsuccessful"); // Pop up window
+                    }
+                }
+                else if (existance==1) // Selection when username is taken
+                {
+                    MessageBox.Show("Username already taken. Please Enter another one"); // Pop up window
                 }
             }
         }
-        private void conv_photo(SqlCommand cmd) // Function that converts selected image into byte array and define the sql command parameter
+        private bool validatename(string name) // Function to validate name
         {
-            if (profilepicture.Image != null) // Selection to make sure user selected picture
+            char [] namechar = name.ToCharArray(); // Converting String to char array
+            if(string.IsNullOrEmpty(name)) // Selection of Empty String
             {
-                MemoryStream ms = new MemoryStream(); // Declaring memory stream
-                profilepicture.Image.Save(ms, ImageFormat.Jpeg); // Saving image on to memory stream
-                byte[] photo_aray = new byte[ms.Length]; // Declaring byte array with the length of the stored image on memory stream
-                ms.Position = 0; // Setting memory stream positon to 0
-                ms.Read(photo_aray, 0, photo_aray.Length); // Reading from o up to length
-                // Using parametrized query to avoid sql injection attack
-                cmd.Parameters.AddWithValue("@photo", photo_aray); //Defining the command parameter for photo
+                return false;
             }
+            else if(namechar.Length>=20) // Selection of long name
+            {
+                return false;
+            }
+            else
+            {
+                for (int i = 0; i < namechar.Length; i++) // loop to find invalid character in name
+                {
+                    char c = namechar[i];
+                    if (!(c >= 'A' && c <='z') )
+                        return false;
+                }
+            }
+            return true;
+        }
+        private bool validatephone(String phone) // Function to validate a phone
+        { 
+            char[] phonechar = phone.ToCharArray(); // Changing the accepting string to character array
+            if (string.IsNullOrEmpty(phone))// Selection of Empty String
+            {
+                return false;
+            }
+            else if (phonechar.Length < 10 || phonechar.Length > 15) // Selecting invalid inputs of being less than 10 or greater than 15 long
+            {
+                return false;
+            }
+            for (int i = 0; i < phonechar.Length; i++) //Iterating on array looking for invalid input
+            { 
+                if (phonechar[i] == ' ' || (phonechar[i] >= 'A' && phonechar[i] <= 'z')) // Selecting invalid inputs of being a letter or space
+                { 
+                    return false;
+                }
+            }
+            return true;
         }
         private void loginheaderbutton_Click(object sender, EventArgs e) //Listener Function when login button at the header is clicked
         {
             login l = new login(); //Declaring new Login Window
             l.Show(); //Show Login Window
-            Hide(); //Hide Currently Active Window
+            this.Close(); //Hide Currently Active Window
         }
 
         private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
@@ -177,6 +295,13 @@ namespace Airline_reservation
         private void donebutton_Click(object sender, EventArgs e) //Listener Function when Done button is clicked
         {
             this.Close(); //Close Current Window
+        }
+
+        private void faqheaderbuttom_Click(object sender, EventArgs e) //Listener Function when FAQ Header button is clicked
+        {
+            FAQ f = new FAQ(); //Declaring new FAQ Window
+            f.Show(); //Show FAQ Window
+            Hide(); //Hide Currently Active Window
         }
     }
 }
