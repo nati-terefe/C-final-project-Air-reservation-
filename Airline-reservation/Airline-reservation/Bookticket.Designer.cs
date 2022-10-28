@@ -73,6 +73,11 @@
             this.Viewbutton = new System.Windows.Forms.Button();
             this.departuredate = new System.Windows.Forms.ComboBox();
             this.donebtn = new System.Windows.Forms.Button();
+            this.enterticketidlabel = new System.Windows.Forms.Label();
+            this.enterticketidtextbox = new System.Windows.Forms.TextBox();
+            this.searchbutton = new System.Windows.Forms.Button();
+            this.editinfobutton = new System.Windows.Forms.Button();
+            this.savebutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.flightclasserror)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toerror)).BeginInit();
@@ -518,11 +523,81 @@
             this.donebtn.UseVisualStyleBackColor = false;
             this.donebtn.Click += new System.EventHandler(this.donebtn_Click);
             // 
+            // enterticketidlabel
+            // 
+            this.enterticketidlabel.AutoSize = true;
+            this.enterticketidlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.enterticketidlabel.Location = new System.Drawing.Point(358, 253);
+            this.enterticketidlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.enterticketidlabel.Name = "enterticketidlabel";
+            this.enterticketidlabel.Size = new System.Drawing.Size(179, 31);
+            this.enterticketidlabel.TabIndex = 130;
+            this.enterticketidlabel.Text = "Enter Ticket ID";
+            this.enterticketidlabel.Visible = false;
+            // 
+            // enterticketidtextbox
+            // 
+            this.enterticketidtextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.enterticketidtextbox.ForeColor = System.Drawing.Color.Black;
+            this.enterticketidtextbox.Location = new System.Drawing.Point(612, 265);
+            this.enterticketidtextbox.Margin = new System.Windows.Forms.Padding(4);
+            this.enterticketidtextbox.Name = "enterticketidtextbox";
+            this.enterticketidtextbox.Size = new System.Drawing.Size(164, 23);
+            this.enterticketidtextbox.TabIndex = 131;
+            this.enterticketidtextbox.Visible = false;
+            // 
+            // searchbutton
+            // 
+            this.searchbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.searchbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
+            this.searchbutton.Location = new System.Drawing.Point(815, 253);
+            this.searchbutton.Margin = new System.Windows.Forms.Padding(4);
+            this.searchbutton.Name = "searchbutton";
+            this.searchbutton.Size = new System.Drawing.Size(176, 43);
+            this.searchbutton.TabIndex = 132;
+            this.searchbutton.Text = "Search";
+            this.searchbutton.UseVisualStyleBackColor = false;
+            this.searchbutton.Visible = false;
+            // 
+            // editinfobutton
+            // 
+            this.editinfobutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.editinfobutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editinfobutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
+            this.editinfobutton.Location = new System.Drawing.Point(174, 480);
+            this.editinfobutton.Margin = new System.Windows.Forms.Padding(4);
+            this.editinfobutton.Name = "editinfobutton";
+            this.editinfobutton.Size = new System.Drawing.Size(176, 43);
+            this.editinfobutton.TabIndex = 133;
+            this.editinfobutton.Text = "Edit Information";
+            this.editinfobutton.UseVisualStyleBackColor = false;
+            this.editinfobutton.Visible = false;
+            // 
+            // savebutton
+            // 
+            this.savebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.savebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.savebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F);
+            this.savebutton.Location = new System.Drawing.Point(863, 429);
+            this.savebutton.Margin = new System.Windows.Forms.Padding(4);
+            this.savebutton.Name = "savebutton";
+            this.savebutton.Size = new System.Drawing.Size(176, 43);
+            this.savebutton.TabIndex = 134;
+            this.savebutton.Text = "Save";
+            this.savebutton.UseVisualStyleBackColor = false;
+            this.savebutton.Visible = false;
+            // 
             // Bookticket
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.savebutton);
+            this.Controls.Add(this.editinfobutton);
+            this.Controls.Add(this.searchbutton);
+            this.Controls.Add(this.enterticketidtextbox);
+            this.Controls.Add(this.enterticketidlabel);
             this.Controls.Add(this.donebtn);
             this.Controls.Add(this.departuredate);
             this.Controls.Add(this.Viewbutton);
@@ -621,5 +696,10 @@
         private System.Windows.Forms.Button Viewbutton;
         private System.Windows.Forms.ComboBox departuredate;
         private System.Windows.Forms.Button donebtn;
+        private System.Windows.Forms.Button searchbutton;
+        private System.Windows.Forms.TextBox enterticketidtextbox;
+        private System.Windows.Forms.Label enterticketidlabel;
+        private System.Windows.Forms.Button savebutton;
+        private System.Windows.Forms.Button editinfobutton;
     }
 }

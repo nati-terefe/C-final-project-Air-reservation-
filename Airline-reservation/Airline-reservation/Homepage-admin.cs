@@ -87,7 +87,7 @@ namespace Airline_reservation
 
         private void bookticketbutton_Click(object sender, EventArgs e) //Listener Function when Book Ticket button is clicked
         {
-            Bookticket bt = new Bookticket(); // Declaring book ticket window
+            Bookticket bt = new Bookticket(0); // Declaring book ticket window
             bt.Show(); //Show book ticket Window
         }
 
@@ -525,6 +525,12 @@ namespace Airline_reservation
         private void exitbutton_Click(object sender, EventArgs e) //Listener Function when exit button is clicked
         {
             this.Close(); // Close current window
+        }
+
+        private void managedbookedbtn_Click(object sender, EventArgs e)
+        {
+            Bookticket bt = new Bookticket(1); // Declaring book ticket window
+            bt.Show(); //Show book ticket Window
         }
     }
 }

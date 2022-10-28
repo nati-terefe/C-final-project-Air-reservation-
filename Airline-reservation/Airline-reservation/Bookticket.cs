@@ -18,7 +18,7 @@ namespace Airline_reservation
     {
         public static double price = 0;
         public static string loginusername = " ";
-
+        public static int edit=0;
         public Bookticket()
         {
             InitializeComponent();
@@ -30,60 +30,110 @@ namespace Airline_reservation
             loginusername = usrname;
         }
 
+        public Bookticket(int editview)
+        {
+            edit = editview;
+            InitializeComponent();
+            loginusername = "Non-USER";
+        }
+
         private void Bookticket_admin_Load(object sender, EventArgs e)
         {
-            // making the labels and the logo transparent 
-            bookticketlabel.Parent = bgpic;
-            bookticketlabel.BackColor = Color.Transparent;
-            firstnamelabel.Parent = bgpic;
-            firstnamelabel.BackColor = Color.Transparent;
-            lastnamelabel.Parent = bgpic;
-            lastnamelabel.BackColor = Color.Transparent;
-            emaillabel.Parent = bgpic;
-            emaillabel.BackColor = Color.Transparent;
-            passportlabel.Parent = bgpic;
-            passportlabel.BackColor = Color.Transparent;
-            agelabel.Parent = bgpic;
-            agelabel.BackColor = Color.Transparent;
-            genderlabel.Parent = bgpic;
-            genderlabel.BackColor = Color.Transparent;
-            gendergroupbox.Parent = bgpic;
-            gendergroupbox.BackColor=Color.Transparent;
-            fromlabel.Parent = bgpic;
-            fromlabel.BackColor = Color.Transparent;
-            tolabel.Parent = bgpic;
-            tolabel.BackColor = Color.Transparent;
-            flightclasslabel.Parent = bgpic;
-            flightclasslabel.BackColor = Color.Transparent;
-            departurelabel.Parent = bgpic;
-            departurelabel.BackColor = Color.Transparent;
-            flighttypelabel.Parent = bgpic;
-            flighttypelabel.BackColor = Color.Transparent;
-            flightgroupbox.Parent = bgpic;
-            flightgroupbox.BackColor = Color.Transparent;
-            logo.Parent = bgpic;
-            logo.BackColor = Color.Transparent;
-            //making some of the labels, text box's and combobox invisiable unitl next button is pushed 
-
-            String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
-            //Declaring and Assigning Connection String
-            using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
+            if (edit == 0)
             {
-                SqlCommand cmd = new SqlCommand("select * from dest()", con);
-                // Sql Command stored procedure to insert successful Login into Login History on database
-                con.Open();
-                // Using parametrized query to avoid sql injection attack
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
+                // making the labels and the logo transparent 
+                bookticketlabel.Text = "Book Ticket";
+                donebtn.Text = "Done";
+                bookticketlabel.Parent = bgpic;
+                bookticketlabel.BackColor = Color.Transparent;
+                firstnamelabel.Parent = bgpic;
+                firstnamelabel.BackColor = Color.Transparent;
+                lastnamelabel.Parent = bgpic;
+                lastnamelabel.BackColor = Color.Transparent;
+                emaillabel.Parent = bgpic;
+                emaillabel.BackColor = Color.Transparent;
+                passportlabel.Parent = bgpic;
+                passportlabel.BackColor = Color.Transparent;
+                agelabel.Parent = bgpic;
+                agelabel.BackColor = Color.Transparent;
+                genderlabel.Parent = bgpic;
+                genderlabel.BackColor = Color.Transparent;
+                gendergroupbox.Parent = bgpic;
+                gendergroupbox.BackColor = Color.Transparent;
+                fromlabel.Parent = bgpic;
+                fromlabel.BackColor = Color.Transparent;
+                tolabel.Parent = bgpic;
+                tolabel.BackColor = Color.Transparent;
+                flightclasslabel.Parent = bgpic;
+                flightclasslabel.BackColor = Color.Transparent;
+                departurelabel.Parent = bgpic;
+                departurelabel.BackColor = Color.Transparent;
+                flighttypelabel.Parent = bgpic;
+                flighttypelabel.BackColor = Color.Transparent;
+                flightgroupbox.Parent = bgpic;
+                flightgroupbox.BackColor = Color.Transparent;
+                logo.Parent = bgpic;
+                logo.BackColor = Color.Transparent;
+                //making some of the labels, text box's and combobox invisiable unitl next button is pushed 
+                enterticketidlabel.Visible = false;
+                enterticketidtextbox.Visible = false;
+                searchbutton.Visible = false;
+                String cs = "Data Source=REDIETS-PC\\SQLEXPRESS;Initial Catalog=AirlineReservation;Integrated Security=True";
+                //Declaring and Assigning Connection String
+                using (SqlConnection con = new SqlConnection(cs)) //Block that auto close SqlConnection
                 {
-                    tocomboBox.Items.Add(dr["city"]);
+                    SqlCommand cmd = new SqlCommand("select * from dest()", con);
+                    // Sql Command stored procedure to insert successful Login into Login History on database
+                    con.Open();
+                    // Using parametrized query to avoid sql injection attack
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        tocomboBox.Items.Add(dr["city"]);
+                    }
+                    dr.Close();
+                    tocomboBox.Text = null;
+
                 }
-                dr.Close();
-                tocomboBox.Text = null;
-                
+                fromcomboBox.Text = "Addis Ababa";
+                departuredate.Items.Clear();
             }
-            fromcomboBox.Text = "Addis Ababa";
-            departuredate.Items.Clear();
+            else
+            {
+                enterticketidlabel.Visible = true;
+                enterticketidtextbox.Visible = true;
+                searchbutton.Visible = true;
+
+                bookticketlabel.Text = "Manage Bookings";
+                bookticketlabel.Parent = bgpic;
+                bookticketlabel.BackColor = Color.Transparent;
+                enterticketidlabel.Parent = bgpic;
+                enterticketidlabel.BackColor = Color.Transparent;
+                firstnamelabel.Visible = false;
+                lastnamelabel.Visible = false;
+                emaillabel.Visible = false;
+                passportlabel.Visible = false;
+                agelabel.Visible = false;
+                genderlabel.Visible = false;
+                gendergroupbox.Visible = false;
+                fromlabel.Visible = false;
+                tolabel.Visible = false;
+                flightclasslabel.Visible = false;
+                departurelabel.Visible = false;
+                flighttypelabel.Visible = false;
+                flightgroupbox.Visible = false;
+                firstnametextbox.Visible = false;
+                lastnametextbox.Visible = false;
+                emailtextbox.Visible = false;
+                passporttextbox.Visible= false;
+                agecomboBox.Visible = false;
+                fromcomboBox.Visible = false;
+                tocomboBox.Visible = false;
+                flightclasscomboBox.Visible = false;
+                departuredate.Visible = false;
+                Viewbutton.Visible = false;
+                donebtn.Text = "Discard";
+            }
         }
 
         private void Viewbutton_Click(object sender, EventArgs e)
@@ -548,6 +598,11 @@ namespace Airline_reservation
             if (donebtn.Text == "Cancel")
             {
                 MessageBox.Show("Ticket booking Canceled");
+            }
+
+            else if(donebtn.Text == "Discard")
+            {
+                MessageBox.Show("Changes have been discarded");
             }
             this.Close();
         }

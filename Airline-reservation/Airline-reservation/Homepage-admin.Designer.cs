@@ -95,6 +95,7 @@
             this.typeofbackup = new System.Windows.Forms.ComboBox();
             this.backuplocerror = new System.Windows.Forms.ErrorProvider(this.components);
             this.typeofbackuperror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.managedbookedbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.propicadmin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgpic)).BeginInit();
@@ -699,7 +700,7 @@
             this.editusersbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.editusersbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editusersbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editusersbutton.Location = new System.Drawing.Point(453, 223);
+            this.editusersbutton.Location = new System.Drawing.Point(290, 219);
             this.editusersbutton.Margin = new System.Windows.Forms.Padding(4);
             this.editusersbutton.Name = "editusersbutton";
             this.editusersbutton.Size = new System.Drawing.Size(160, 43);
@@ -784,11 +785,26 @@
             // 
             this.typeofbackuperror.ContainerControl = this;
             // 
+            // managedbookedbtn
+            // 
+            this.managedbookedbtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.managedbookedbtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.managedbookedbtn.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.managedbookedbtn.Location = new System.Drawing.Point(615, 223);
+            this.managedbookedbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.managedbookedbtn.Name = "managedbookedbtn";
+            this.managedbookedbtn.Size = new System.Drawing.Size(160, 43);
+            this.managedbookedbtn.TabIndex = 136;
+            this.managedbookedbtn.Text = "Manage Booked";
+            this.managedbookedbtn.UseVisualStyleBackColor = false;
+            this.managedbookedbtn.Click += new System.EventHandler(this.managedbookedbtn_Click);
+            // 
             // Homepage_admin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1038, 540);
+            this.Controls.Add(this.managedbookedbtn);
             this.Controls.Add(this.typeofbackup);
             this.Controls.Add(this.makebackupbtn);
             this.Controls.Add(this.backuploclabel);
@@ -931,5 +947,6 @@
         private System.Windows.Forms.ComboBox typeofbackup;
         private System.Windows.Forms.ErrorProvider backuplocerror;
         private System.Windows.Forms.ErrorProvider typeofbackuperror;
+        private System.Windows.Forms.Button managedbookedbtn;
     }
 }
