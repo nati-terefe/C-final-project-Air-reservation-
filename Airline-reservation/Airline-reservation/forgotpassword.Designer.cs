@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(forgotpassword));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.logo = new System.Windows.Forms.PictureBox();
@@ -40,8 +41,18 @@
             this.resetpassword = new System.Windows.Forms.Label();
             this.resetbutton = new System.Windows.Forms.Button();
             this.btnclose = new System.Windows.Forms.Button();
+            this.usernameerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.hinterror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.passworderror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.questionlabel = new System.Windows.Forms.Label();
+            this.questionerror = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnhintq = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hinterror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -74,7 +85,7 @@
             this.usernamelabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.usernamelabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.usernamelabel.ForeColor = System.Drawing.Color.Black;
-            this.usernamelabel.Location = new System.Drawing.Point(401, 121);
+            this.usernamelabel.Location = new System.Drawing.Point(401, 135);
             this.usernamelabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.usernamelabel.Name = "usernamelabel";
             this.usernamelabel.Size = new System.Drawing.Size(166, 31);
@@ -96,8 +107,8 @@
             this.newpasswordlabel.AutoSize = true;
             this.newpasswordlabel.BackColor = System.Drawing.Color.Transparent;
             this.newpasswordlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.newpasswordlabel.ForeColor = System.Drawing.Color.Black;
-            this.newpasswordlabel.Location = new System.Drawing.Point(401, 306);
+            this.newpasswordlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.newpasswordlabel.Location = new System.Drawing.Point(401, 404);
             this.newpasswordlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.newpasswordlabel.Name = "newpasswordlabel";
             this.newpasswordlabel.Size = new System.Drawing.Size(209, 31);
@@ -107,7 +118,7 @@
             // newpasswordtextbox
             // 
             this.newpasswordtextbox.ForeColor = System.Drawing.Color.Black;
-            this.newpasswordtextbox.Location = new System.Drawing.Point(396, 366);
+            this.newpasswordtextbox.Location = new System.Drawing.Point(396, 438);
             this.newpasswordtextbox.Margin = new System.Windows.Forms.Padding(4);
             this.newpasswordtextbox.Name = "newpasswordtextbox";
             this.newpasswordtextbox.Size = new System.Drawing.Size(253, 22);
@@ -117,7 +128,7 @@
             // 
             this.hinttextbox.Font = new System.Drawing.Font("Times New Roman", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.hinttextbox.ForeColor = System.Drawing.Color.Black;
-            this.hinttextbox.Location = new System.Drawing.Point(396, 262);
+            this.hinttextbox.Location = new System.Drawing.Point(396, 352);
             this.hinttextbox.Margin = new System.Windows.Forms.Padding(4);
             this.hinttextbox.Name = "hinttextbox";
             this.hinttextbox.Size = new System.Drawing.Size(253, 23);
@@ -127,12 +138,13 @@
             // 
             this.hintlable.AutoSize = true;
             this.hintlable.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
-            this.hintlable.Location = new System.Drawing.Point(401, 210);
+            this.hintlable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.hintlable.Location = new System.Drawing.Point(401, 318);
             this.hintlable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.hintlable.Name = "hintlable";
-            this.hintlable.Size = new System.Drawing.Size(92, 31);
+            this.hintlable.Size = new System.Drawing.Size(182, 31);
             this.hintlable.TabIndex = 35;
-            this.hintlable.Text = "Hint🔑";
+            this.hintlable.Text = "Hint Answer🔑";
             // 
             // resetpassword
             // 
@@ -153,7 +165,7 @@
             this.resetbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.resetbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetbutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.resetbutton.Location = new System.Drawing.Point(688, 411);
+            this.resetbutton.Location = new System.Drawing.Point(701, 496);
             this.resetbutton.Margin = new System.Windows.Forms.Padding(4);
             this.resetbutton.Name = "resetbutton";
             this.resetbutton.Size = new System.Drawing.Size(160, 43);
@@ -167,7 +179,7 @@
             this.btnclose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.btnclose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnclose.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnclose.Location = new System.Drawing.Point(295, 411);
+            this.btnclose.Location = new System.Drawing.Point(264, 496);
             this.btnclose.Margin = new System.Windows.Forms.Padding(4);
             this.btnclose.Name = "btnclose";
             this.btnclose.Size = new System.Drawing.Size(160, 43);
@@ -176,11 +188,54 @@
             this.btnclose.UseVisualStyleBackColor = false;
             this.btnclose.Click += new System.EventHandler(this.btnclose_Click_1);
             // 
+            // usernameerror
+            // 
+            this.usernameerror.ContainerControl = this;
+            // 
+            // hinterror
+            // 
+            this.hinterror.ContainerControl = this;
+            // 
+            // passworderror
+            // 
+            this.passworderror.ContainerControl = this;
+            // 
+            // questionlabel
+            // 
+            this.questionlabel.AutoSize = true;
+            this.questionlabel.Font = new System.Drawing.Font("Yu Gothic", 14.25F);
+            this.questionlabel.Location = new System.Drawing.Point(401, 276);
+            this.questionlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.questionlabel.Name = "questionlabel";
+            this.questionlabel.Size = new System.Drawing.Size(20, 31);
+            this.questionlabel.TabIndex = 49;
+            this.questionlabel.Text = ".";
+            // 
+            // questionerror
+            // 
+            this.questionerror.ContainerControl = this;
+            // 
+            // btnhintq
+            // 
+            this.btnhintq.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.btnhintq.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnhintq.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnhintq.Location = new System.Drawing.Point(396, 218);
+            this.btnhintq.Margin = new System.Windows.Forms.Padding(4);
+            this.btnhintq.Name = "btnhintq";
+            this.btnhintq.Size = new System.Drawing.Size(160, 43);
+            this.btnhintq.TabIndex = 51;
+            this.btnhintq.Text = "Hint Question";
+            this.btnhintq.UseVisualStyleBackColor = false;
+            this.btnhintq.Click += new System.EventHandler(this.btnhintq_Click);
+            // 
             // forgotpassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.btnhintq);
+            this.Controls.Add(this.questionlabel);
             this.Controls.Add(this.btnclose);
             this.Controls.Add(this.resetbutton);
             this.Controls.Add(this.resetpassword);
@@ -198,6 +253,10 @@
             this.Load += new System.EventHandler(this.forgotpassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.usernameerror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hinterror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passworderror)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.questionerror)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,5 +275,11 @@
         private System.Windows.Forms.Label resetpassword;
         private System.Windows.Forms.Button resetbutton;
         private System.Windows.Forms.Button btnclose;
+        private System.Windows.Forms.ErrorProvider usernameerror;
+        private System.Windows.Forms.ErrorProvider hinterror;
+        private System.Windows.Forms.ErrorProvider passworderror;
+        private System.Windows.Forms.Label questionlabel;
+        private System.Windows.Forms.ErrorProvider questionerror;
+        private System.Windows.Forms.Button btnhintq;
     }
 }

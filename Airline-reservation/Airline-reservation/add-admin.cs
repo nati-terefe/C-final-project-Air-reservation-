@@ -158,9 +158,9 @@ namespace Airline_reservation
                     registerusername = usernametextbox.Text,
                     registerpassword = passwordtextbox.Text,
                     registergender = gender,
-                    registerprofilepic = piclocation.Text,
-                    registebirthdate = birthdate.Value.ToString(),
-                    role = "admin",
+                    registerprofilepic = profilepicture.Image,
+                    registebirthdate = birthdate.Value.Date,
+                    role = 1,
                     question = questiontextbox.Text,
 
 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+// Import Statments
 
 namespace Airline_reservation
 {
@@ -17,88 +18,70 @@ namespace Airline_reservation
             InitializeComponent();
         }
 
-        private void donebutton_Click(object sender, EventArgs e)
+        private void FAQ_Load(object sender, EventArgs e) // Function for Initial loading of About Window
         {
-            this.Close();
-        }
-
-        private void FAQ_Load(object sender, EventArgs e)
-        {
+            // About Label
             faqlabel.Parent = pictureBox1;
-            faqlabel.BackColor = Color.Transparent;
+            faqlabel.BackColor = Color.Transparent; // Making Button Transparent
+            // Logo
             logo.Parent = pictureBox1;
-            logo.BackColor = Color.Transparent;
+            logo.BackColor = Color.Transparent; // Making Button Transparent
+            // About Us Body
             aboutusbodylabel.Parent = pictureBox1;
-            aboutusbodylabel.BackColor = Color.Transparent;
-
-            // stopping the textbox from selecting itself when the form starts
-            //aboutustextbox.SelectionStart = 0;
-            //aboutustextbox.SelectionLength = 0;
-
-            /////making the buttons transparent
-
-            ///////////////////login header button ///////////////////
+            aboutusbodylabel.BackColor = Color.Transparent; // Making Button Transparent
+            // Login Header Button
             loginheaderbutton.Parent = pictureBox1;
-            loginheaderbutton.BackColor = Color.Transparent;
+            loginheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
             loginheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
-            ////////////// register header button //////////////////
+            // Register Header Button
             registerheaderbutton.Parent = pictureBox1;
-            registerheaderbutton.BackColor = Color.Transparent;
-            registerheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// About us header button //////////////////
+            registerheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            registerheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
+            // About Us Header Button
             aboutheaderbutton.Parent = pictureBox1;
-            aboutheaderbutton.BackColor = Color.Transparent;
-            aboutheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// contact us header button //////////////////
+            aboutheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            aboutheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
+            // Contact Us Header Button
             contactheaderbutton.Parent = pictureBox1;
-            contactheaderbutton.BackColor = Color.Transparent;
-            contactheaderbutton.FlatAppearance.BorderSize = 0;
-            ////////////// faq header button //////////////////
+            contactheaderbutton.BackColor = Color.Transparent; // Making Button Transparent
+            contactheaderbutton.FlatAppearance.BorderSize = 0; // removing the boarder of the button
+            // FAQ Header Button 
             faqheaderbuttom.Parent = pictureBox1;
-            faqheaderbuttom.BackColor = Color.Transparent;
-            faqheaderbuttom.FlatAppearance.BorderSize = 0;
-
-
+            faqheaderbuttom.BackColor = Color.Transparent; // Making Button Transparent
+            faqheaderbuttom.FlatAppearance.BorderSize = 1; // Removing Border of Button
         }
 
-        private void loginheaderbutton_Click(object sender, EventArgs e)
+        private void loginheaderbutton_Click(object sender, EventArgs e) //Listener Function when login button at the header is clicked
         {
-            login l = new login();
-
-            l.Show();
-            Hide();
+            login l = new login(); //Declaring new Login Window
+            l.Show(); //Show Login Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void registerheaderbutton_Click(object sender, EventArgs e)
+        private void registerheaderbutton_Click(object sender, EventArgs e) //Listener Function when register button at the header is clicked
         {
-            register r = new register();
-            login l = new login();
-            contact c = new contact();
-            About a = new About();
-            r.Show();
-            Hide();
+            register r = new register(); //Declaring new Register Window
+            r.Show(); //Show Register Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void contactheaderbutton_Click(object sender, EventArgs e)
+        private void contactheaderbutton_Click(object sender, EventArgs e) //Listener Function when contact button at the header is clicked
         {
-            register r = new register();
-            login l = new login();
-            contact c = new contact();
-            About a = new About();
-            c.Show();
-            Hide();
+            contact c = new contact(); //Declaring new Contact Window
+            c.Show(); //Show Contact Window
+            Hide(); //Hide Currently Active Window
         }
 
-        private void aboutheaderbutton_Click(object sender, EventArgs e)
+        private void aboutheaderbutton_Click(object sender, EventArgs e) //Listener Function when about button at the header is clicked
         {
-            About a = new About();
-            a.Show();
-            Hide(); 
+            /*About a = new About(); //Declaring new About Window
+            a.Show(); //Show About Window
+            Hide(); //Hide Currently Active Window*/
         }
 
-        private void faqheaderbuttom_Click(object sender, EventArgs e)
+        private void donebutton_Click(object sender, EventArgs e) //Listener Function when done button at the header is clicked
         {
-
+            this.Close(); //Close Current Window
         }
     }
 }

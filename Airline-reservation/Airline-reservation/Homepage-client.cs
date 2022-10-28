@@ -18,7 +18,7 @@ namespace Airline_reservation
 
             loginstore ls = new loginstore();
             registerstore r = new registerstore();
-            MessageBox.Show(r.registerfirstname);
+            //MessageBox.Show(r.registerfirstname);
             if (user == "client")// add sql statement to fetch from login table and compare it to register table and then cont to the code below
             {
 
@@ -26,11 +26,11 @@ namespace Airline_reservation
                 usernameblank.Text = "nati";
                 firstnameblank.Text = r.registerfirstname;
                 lastnameblank.Text = r.registerlastname;
-                birthdateblank.Text = r.registebirthdate;
+                birthdateblank.Text = r.registebirthdate.ToString();
                 genderblank.Text = r.registergender;
                 emailblank.Text = r.registeremail;
                 phoneblank.Text = r.registerphone;
-                string location = r.registerprofilepic;
+                Image photo = r.registerprofilepic;
                 // propicadmin.Image = new Bitmap(location);  // enable it and get the location from register - propiclocation
 
             }
@@ -117,7 +117,7 @@ namespace Airline_reservation
             r.registerusername = usernameblank.Text;
             r.registerfirstname = firstnameblank.Text;
             r.registerlastname = lastnameblank.Text;
-            r.registebirthdate = birthdateblank.Text;
+            r.registebirthdate = r.registebirthdate;
             r.registergender = genderblank.Text;
             r.registeremail = emailblank.Text;
             r.registerphone = phoneblank.Text;

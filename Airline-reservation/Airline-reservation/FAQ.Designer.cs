@@ -48,9 +48,10 @@
             this.donebutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.donebutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.donebutton.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.donebutton.Location = new System.Drawing.Point(717, 441);
+            this.donebutton.Location = new System.Drawing.Point(956, 543);
+            this.donebutton.Margin = new System.Windows.Forms.Padding(4);
             this.donebutton.Name = "donebutton";
-            this.donebutton.Size = new System.Drawing.Size(120, 35);
+            this.donebutton.Size = new System.Drawing.Size(160, 43);
             this.donebutton.TabIndex = 44;
             this.donebutton.Text = "Done";
             this.donebutton.UseVisualStyleBackColor = false;
@@ -61,9 +62,11 @@
             this.contactheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.contactheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.contactheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.contactheaderbutton.Location = new System.Drawing.Point(261, 470);
+            this.contactheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.contactheaderbutton.Location = new System.Drawing.Point(348, 578);
+            this.contactheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.contactheaderbutton.Name = "contactheaderbutton";
-            this.contactheaderbutton.Size = new System.Drawing.Size(119, 34);
+            this.contactheaderbutton.Size = new System.Drawing.Size(159, 42);
             this.contactheaderbutton.TabIndex = 43;
             this.contactheaderbutton.Text = "Contact us";
             this.contactheaderbutton.UseVisualStyleBackColor = false;
@@ -74,9 +77,11 @@
             this.aboutheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.aboutheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.aboutheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutheaderbutton.Location = new System.Drawing.Point(386, 470);
+            this.aboutheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.aboutheaderbutton.Location = new System.Drawing.Point(515, 578);
+            this.aboutheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.aboutheaderbutton.Name = "aboutheaderbutton";
-            this.aboutheaderbutton.Size = new System.Drawing.Size(109, 34);
+            this.aboutheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.aboutheaderbutton.TabIndex = 42;
             this.aboutheaderbutton.Text = "About us";
             this.aboutheaderbutton.UseVisualStyleBackColor = false;
@@ -87,9 +92,11 @@
             this.registerheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.registerheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.registerheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.registerheaderbutton.Location = new System.Drawing.Point(146, 470);
+            this.registerheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.registerheaderbutton.Location = new System.Drawing.Point(195, 578);
+            this.registerheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.registerheaderbutton.Name = "registerheaderbutton";
-            this.registerheaderbutton.Size = new System.Drawing.Size(109, 34);
+            this.registerheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.registerheaderbutton.TabIndex = 41;
             this.registerheaderbutton.Text = "Register";
             this.registerheaderbutton.UseVisualStyleBackColor = false;
@@ -100,9 +107,11 @@
             this.loginheaderbutton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.loginheaderbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginheaderbutton.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.loginheaderbutton.Location = new System.Drawing.Point(31, 470);
+            this.loginheaderbutton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.loginheaderbutton.Location = new System.Drawing.Point(41, 578);
+            this.loginheaderbutton.Margin = new System.Windows.Forms.Padding(4);
             this.loginheaderbutton.Name = "loginheaderbutton";
-            this.loginheaderbutton.Size = new System.Drawing.Size(109, 34);
+            this.loginheaderbutton.Size = new System.Drawing.Size(145, 42);
             this.loginheaderbutton.TabIndex = 40;
             this.loginheaderbutton.Text = "login";
             this.loginheaderbutton.UseVisualStyleBackColor = false;
@@ -112,9 +121,10 @@
             // 
             this.logo.BackColor = System.Drawing.Color.Transparent;
             this.logo.Image = ((System.Drawing.Image)(resources.GetObject("logo.Image")));
-            this.logo.Location = new System.Drawing.Point(-8, -12);
+            this.logo.Location = new System.Drawing.Point(-11, -15);
+            this.logo.Margin = new System.Windows.Forms.Padding(4);
             this.logo.Name = "logo";
-            this.logo.Size = new System.Drawing.Size(212, 120);
+            this.logo.Size = new System.Drawing.Size(283, 148);
             this.logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.logo.TabIndex = 39;
             this.logo.TabStop = false;
@@ -124,18 +134,20 @@
             this.faqlabel.AutoSize = true;
             this.faqlabel.Font = new System.Drawing.Font("Yu Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.faqlabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
-            this.faqlabel.Location = new System.Drawing.Point(378, 20);
+            this.faqlabel.Location = new System.Drawing.Point(338, 32);
+            this.faqlabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.faqlabel.Name = "faqlabel";
-            this.faqlabel.Size = new System.Drawing.Size(91, 45);
+            this.faqlabel.Size = new System.Drawing.Size(626, 56);
             this.faqlabel.TabIndex = 38;
-            this.faqlabel.Text = "FAQ";
+            this.faqlabel.Text = "Frequently Asked Questions";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(4, 8);
+            this.pictureBox1.Location = new System.Drawing.Point(5, 10);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(914, 534);
+            this.pictureBox1.Size = new System.Drawing.Size(1219, 657);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
@@ -144,9 +156,10 @@
             // 
             this.aboutusbodylabel.BackColor = System.Drawing.Color.Transparent;
             this.aboutusbodylabel.Font = new System.Drawing.Font("Yu Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.aboutusbodylabel.Location = new System.Drawing.Point(125, 111);
+            this.aboutusbodylabel.Location = new System.Drawing.Point(167, 137);
+            this.aboutusbodylabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.aboutusbodylabel.Name = "aboutusbodylabel";
-            this.aboutusbodylabel.Size = new System.Drawing.Size(656, 302);
+            this.aboutusbodylabel.Size = new System.Drawing.Size(875, 372);
             this.aboutusbodylabel.TabIndex = 45;
             this.aboutusbodylabel.Text = resources.GetString("aboutusbodylabel.Text");
             // 
@@ -155,19 +168,20 @@
             this.faqheaderbuttom.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
             this.faqheaderbuttom.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.faqheaderbuttom.Font = new System.Drawing.Font("Yu Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.faqheaderbuttom.Location = new System.Drawing.Point(501, 470);
+            this.faqheaderbuttom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(201)))), ((int)(((byte)(187)))));
+            this.faqheaderbuttom.Location = new System.Drawing.Point(668, 578);
+            this.faqheaderbuttom.Margin = new System.Windows.Forms.Padding(4);
             this.faqheaderbuttom.Name = "faqheaderbuttom";
-            this.faqheaderbuttom.Size = new System.Drawing.Size(109, 34);
+            this.faqheaderbuttom.Size = new System.Drawing.Size(145, 42);
             this.faqheaderbuttom.TabIndex = 46;
             this.faqheaderbuttom.Text = "FAQ";
             this.faqheaderbuttom.UseVisualStyleBackColor = false;
-            this.faqheaderbuttom.Click += new System.EventHandler(this.faqheaderbuttom_Click);
             // 
             // FAQ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 530);
+            this.ClientSize = new System.Drawing.Size(1213, 652);
             this.Controls.Add(this.faqheaderbuttom);
             this.Controls.Add(this.aboutusbodylabel);
             this.Controls.Add(this.donebutton);
@@ -178,6 +192,7 @@
             this.Controls.Add(this.logo);
             this.Controls.Add(this.faqlabel);
             this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FAQ";
             this.Text = "FAQ";
             this.Load += new System.EventHandler(this.FAQ_Load);
